@@ -381,6 +381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 989668497598042485}
+  - {fileID: 989668497598042486}
 --- !u!114 &989668497598042488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +396,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 989668497598042486}
-  - {fileID: 8738027825056419844}
   _type: 1
 --- !u!114 &-4591508929873418072
 MonoBehaviour:
@@ -412,7 +412,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: -6979574114090558712}
   - {fileID: 989668497598042485}
-  - {fileID: 8738027825056419844}
+  _controller: {fileID: 5884008997876937322}
 --- !u!114 &959631696457259803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2871,7 +2871,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2217671406800755232}
   - component: {fileID: 5025564304682261013}
-  - component: {fileID: 5443716642647787921}
   - component: {fileID: 5884008997876937322}
   m_Layer: 0
   m_Name: Wizzard
@@ -2905,7 +2904,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5556162624649205414}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d3d9c9869941bfc46896052b61a44164, type: 2}
   m_CullingMode: 0
@@ -2917,17 +2916,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 1
---- !u!210 &5443716642647787921
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5556162624649205414}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 200
 --- !u!114 &5884008997876937322
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,6 +2928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _animator: {fileID: 5025564304682261013}
 --- !u!1 &6170845164093230289
 GameObject:
   m_ObjectHideFlags: 0

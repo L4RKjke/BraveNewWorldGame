@@ -1,3 +1,5 @@
+using System;
+
 public abstract class Recruit: Fighter
 {
     public abstract void Atack();

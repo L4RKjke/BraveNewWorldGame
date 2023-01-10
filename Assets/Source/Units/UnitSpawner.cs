@@ -43,7 +43,7 @@ public class UnitSpawner : MonoBehaviour
         {
             var newFighter = Instantiate(templates[0], new Vector2(positions[i].position.x, positions[i].position.y), Quaternion.identity).GetComponent<Fighter>();
 
-            newFighter.Init(type, enemyType, _fighters, 10, 150);
+            newFighter.Init(type, enemyType, _fighters, 5, 150);
             units.AddNewFighter(newFighter);
         }
     }

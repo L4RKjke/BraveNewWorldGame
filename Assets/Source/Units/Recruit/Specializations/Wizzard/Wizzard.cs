@@ -11,23 +11,11 @@ public class Wizzard : Recruit
 
     public Fireball Fireball => _fireball;
 
-    public UnityAction AtackCompleted;
-
     /*Переделать на на наносит урон, равный проценты от хп (процент можно увеличивать от предметов или праченной абилки)*/
     /*Добавить предметы, которые блокируют определенный тип урона или снижаеют его*/
     private readonly ushort _passiveAbilityDamage = 30;
 
     public override void Atack()
-    {
-        StartCoroutine(WaitAnimation(OnDefaultAtack));
-    }
-
-    public override void UseAdvancedAtack()
-    {
-        StartCoroutine(WaitAnimation(OnAdvancedAtack));
-    }
-
-    private void OnDefaultAtack()
     {
         if (CurrentTarget != null)
         {
@@ -38,7 +26,7 @@ public class Wizzard : Recruit
         }
     }
 
-    private void OnAdvancedAtack()
+    public override void UseAdvancedAtack()
     {
         if (CurrentTarget != null)
         {
@@ -51,16 +39,9 @@ public class Wizzard : Recruit
 
     private void InstantiateBullet(float angel)
     {
-        Instantiate(_fireball, _firePoint.position, Quaternion.Euler(new Vector3(0, 0, angel)));
+        Instantiate(_fireball, transform.position, Quaternion.Euler(new Vector3(0, 0, angel)));
     }
 
     private float GetAngle() => (180 / Mathf.PI) *
         Mathf.Atan((CurrentTarget.transform.position.y - transform.position.y) / (CurrentTarget.transform.position.x - transform.position.x));
-
-    private IEnumerator WaitAnimation(Action callback)
-    {
-        yield return new WaitForSeconds(0.7f);
-
-        callback();
-    }
 }

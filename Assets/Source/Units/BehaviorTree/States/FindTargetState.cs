@@ -2,11 +2,8 @@ using UnityEngine.Events;
 
 public class FindTargetState : State
 {
-    public UnityAction EnemyDied;
-
-    private void OnEnable()
+    private void Update()
     {
-        EnemyDied?.Invoke();
         GetComponent<Fighter>().UpdateCurrentTarget();
     }
 }
