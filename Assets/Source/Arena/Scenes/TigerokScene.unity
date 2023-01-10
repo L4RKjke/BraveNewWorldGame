@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 322916628}
   - component: {fileID: 322916627}
   - component: {fileID: 322916626}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -503,7 +503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3119560939070868648, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4916868640988983738, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
       propertyPath: m_SortingOrder
@@ -512,6 +512,10 @@ PrefabInstance:
     - target: {fileID: 5235234708473636457, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
       propertyPath: m_Name
       value: BattleFieldNavMesh
+      objectReference: {fileID: 0}
+    - target: {fileID: 5235234708473636457, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
@@ -526,13 +530,13 @@ GameObject:
   - component: {fileID: 632198925}
   - component: {fileID: 632198924}
   - component: {fileID: 632198923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &632198923
 MonoBehaviour:
   m_ObjectHideFlags: 0

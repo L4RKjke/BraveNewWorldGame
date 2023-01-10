@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3621491981603825069}
   - component: {fileID: 6201065127363215745}
   - component: {fileID: 171080423060156474}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2979226038601604935}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 6248071596534937421}
   - component: {fileID: 6028753265995400204}
   - component: {fileID: 3854424938139335554}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Box
   m_TagString: Untagged
   m_Icon: {fileID: 0}

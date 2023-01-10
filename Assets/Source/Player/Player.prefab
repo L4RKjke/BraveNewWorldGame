@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7905078617506912916}
   - component: {fileID: 5746310891244182519}
   - component: {fileID: -7996349095009691512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87c76156a4b1dc34095f0c001ee905ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arena: {fileID: 0}
+  _objectsSaver: {fileID: 0}
 --- !u!61 &5746310891244182519
 BoxCollider2D:
   m_ObjectHideFlags: 0
