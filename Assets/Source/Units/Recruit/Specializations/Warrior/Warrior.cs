@@ -19,9 +19,4 @@ public class Warrior : Recruit
     {
         _currentDamage *= _damageMultiplier;
     }
-
-    public override void UseUltimate()
-    {
-        Heal();
-    }
 }

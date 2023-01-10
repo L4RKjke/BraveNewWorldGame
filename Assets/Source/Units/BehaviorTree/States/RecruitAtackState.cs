@@ -6,7 +6,6 @@ using UnityEngine.Events;
 public class RecruitAtackState : AtackState
 {
     private Recruit _recruit;
-    private bool _isUltivateUsed = false;
 
     private readonly int _passiveSkillChance = 20;
 
@@ -15,13 +14,6 @@ public class RecruitAtackState : AtackState
     private void OnEnable()
     {
         _recruit = GetComponent<Recruit>();
-
-        if (_isUltivateUsed == false) 
-        {
-            _recruit.UseUltimate();
-            _isUltivateUsed = true;
-        }
-
         StartCoroutine(LaunchActack());
     }
 

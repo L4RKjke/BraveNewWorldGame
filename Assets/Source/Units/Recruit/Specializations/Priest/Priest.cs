@@ -26,11 +26,6 @@ public class Priest : Recruit
         Units.GetById(GetRandom(), FighterType.Recruit).Heal();
     }
 
-    public override void UseUltimate()
-    {
-        StartCoroutine(StartHealing());
-    }
-
     private IEnumerator StartHealing()
     {
         while (true)

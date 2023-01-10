@@ -27,11 +27,6 @@ public class Wizzard : Recruit
         StartCoroutine(WaitAnimation(OnAdvancedAtack));
     }
 
-    public override void UseUltimate()
-    {
-        CurrentTarget.TakeDamage(Damage);
-    }
-
     private void OnDefaultAtack()
     {
         if (CurrentTarget != null)
