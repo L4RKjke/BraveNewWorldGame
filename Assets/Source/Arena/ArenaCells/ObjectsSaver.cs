@@ -24,7 +24,7 @@ public class ObjectsSaver : MonoBehaviour
         numberCells2 = Random.Range(0, numberFolderCell.childCount);
         currentCell = numberFolderCell.GetChild(numberCells2);
 
-        currentCell.TryGetComponent<Cell>(out Cell cell);
+        currentCell.TryGetComponent(out Cell cell);
 
         return cell;
     }

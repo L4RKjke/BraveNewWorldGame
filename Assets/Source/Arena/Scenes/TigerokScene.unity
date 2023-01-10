@@ -789,6 +789,11 @@ Transform:
   m_Father: {fileID: 667091477}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1265390915 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 3119560939070868648, guid: 4b4ad9e156dd4e54ab4554d1101ecc6d, type: 3}
+  m_PrefabInstance: {fileID: 604463844}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1427062954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -993,6 +998,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
+      propertyPath: _navMesh
+      value: 
+      objectReference: {fileID: 788095570}
+    - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _parentFolderCell
       value: 
       objectReference: {fileID: 7062676917395863914, guid: 7a8a4f29da39fae4eb6b36b2b4bc7a23, type: 3}
@@ -1000,6 +1009,10 @@ PrefabInstance:
       propertyPath: _parentFolderEnemy
       value: 
       objectReference: {fileID: 1141300948}
+    - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
+      propertyPath: _battleFieldNavMesh
+      value: 
+      objectReference: {fileID: 1265390915}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.size
       value: 3

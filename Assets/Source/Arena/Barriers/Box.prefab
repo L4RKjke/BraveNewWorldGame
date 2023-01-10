@@ -205,5 +205,5 @@ MonoBehaviour:
   _sprites:
   - {fileID: 21300000, guid: 619dd61c9f27e19459a29c59c138c784, type: 3}
   - {fileID: 21300000, guid: 264fac40c26971d459a62692b7663029, type: 3}
-  - {fileID: 21300000, guid: ba0c1953dc188054e8af29cd8557aff6, type: 3}
+  - {fileID: 21300000, guid: 7a69694ef7beca34996bacc74dbd3201, type: 3}
   _sprite: {fileID: 3621491981603825069}

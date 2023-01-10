@@ -10,8 +10,8 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private List<Barrier> _barriers;
     [SerializeField] private List<EnemyTest> _enemies;
     [SerializeField] private Vector3 _startPosition;
-    [SerializeField] private GameObject _navMesh;
-
+    [SerializeField] private NavMeshSurface2d _navMesh;
+    [SerializeField] private BoxCollider2D _battleFieldNavMesh;
 
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
@@ -29,8 +29,15 @@ public class ArenaCells : MonoBehaviour
         CreateBarriers();
         CreateEnemies();
         HideCells(_playerWidth);
-        //_objectsSaver.DeleteCells(_playerWidth + 1);
-        //_navMesh.GetComponent<NavMeshSurface2d>().BuildNavMesh();
+        DeleteCells(_playerWidth + 1);
+        _navMesh.BuildNavMesh();
+        _battleFieldNavMesh.enabled = false;
+        //PlayStartBattle();
+    }
+
+    public void PlayStartBattle()
+    {
+        DeleteCells();
     }
 
     private void DeleteCells(int startFolder = 0)
@@ -97,7 +104,7 @@ public class ArenaCells : MonoBehaviour
 
         for (int i = 0; i < _barriers.Count; i++)
         {
-            barriersCount = Random.Range(1, _maxBarrier + 1 + 3);
+            barriersCount = Random.Range(1, _maxBarrier + 1);
 
             for(int j = 0; j < barriersCount; j++)
             {
