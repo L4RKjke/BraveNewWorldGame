@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TransitionToCelebrate : Transition
+public class TransitionToIdle : Transition
 {
     private Fighter _currentUnit;
 
@@ -9,9 +9,9 @@ public class TransitionToCelebrate : Transition
         _currentUnit = GetComponent<Fighter>();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
-        if ((int)_currentUnit.Units.GetLength(_currentUnit.EnemyType) == 0)
+        if (_currentUnit.Units.GetLength(_currentUnit.EnemyType) == 0)
         {
             NeedTransit = true;
         }

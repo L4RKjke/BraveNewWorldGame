@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public abstract class Fighter : MonoBehaviour
@@ -6,9 +7,11 @@ public abstract class Fighter : MonoBehaviour
     [SerializeField] private int HP;
     [SerializeField] private Fighter _currentTarget;
     [SerializeField] private Weapon _weapon;
-
+    private NavMeshAgent _agent;
     private int _health;
     private ushort _damage;
+    private float _speed;
+    private float _defaultSpeed = 1.6f;
     private bool _canBeDamaged = true;
 
     private readonly ushort _maxDamage = 100;
@@ -19,6 +22,8 @@ public abstract class Fighter : MonoBehaviour
     public ushort Damage => _damage;
 
     public int Health => _health;
+
+    public float Speed => _speed;
 
     public Fighter CurrentTarget => _currentTarget;
 
@@ -46,11 +51,12 @@ public abstract class Fighter : MonoBehaviour
 
     private void Start()
     {
+        _agent = GetComponent<NavMeshAgent>();
+        _speed = _agent.speed;
         InvertedScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         DefoaltScale = new Vector2(transform.localScale.x, transform.localScale.y);
     }
 
-    /// Для теста
     private void Update()
     {
         if (CurrentTarget != null)
@@ -60,7 +66,7 @@ public abstract class Fighter : MonoBehaviour
             else
                 transform.localScale = DefoaltScale;
         }
-
+        ///for test in inspecotor
         HP = _health;
         _currentTarget = CurrentTarget;
     }
@@ -88,6 +94,16 @@ public abstract class Fighter : MonoBehaviour
     public void UpdateCurrentTarget()
     {
         _currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);
+    }
+
+    public void MakeUnmovable()
+    {
+        _speed = 0;
+    }
+
+    public void MakeMoveble()
+    {
+        _speed = _defaultSpeed;
     }
 
     public void MakeImmortal() 

@@ -5,7 +5,7 @@ public abstract class Weapon : MonoBehaviour, IItem
 {
     private WeaponAbility _ability;
 
-    private readonly float _abilityDelay = 1; 
+    private readonly float _abilityDelay = 4; 
 
     private void Awake()
     {

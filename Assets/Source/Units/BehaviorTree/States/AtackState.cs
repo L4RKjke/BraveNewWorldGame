@@ -7,7 +7,6 @@ public abstract class AtackState : State
 
     public void CompleteAtack()
     {
-
     }
 
     public IEnumerator LaunchActack()

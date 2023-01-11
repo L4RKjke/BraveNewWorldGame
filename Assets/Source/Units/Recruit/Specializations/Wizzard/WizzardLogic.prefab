@@ -299,10 +299,10 @@ GameObject:
   - component: {fileID: 989668497598042492}
   - component: {fileID: 3412563752548952615}
   - component: {fileID: 7637028430228168938}
+  - component: {fileID: 5398836669561645176}
   - component: {fileID: -7661915826060495276}
   - component: {fileID: 989668497598042488}
   - component: {fileID: -4591508929873418072}
-  - component: {fileID: 959631696457259803}
   - component: {fileID: -6979574114090558712}
   - component: {fileID: 989668497598042485}
   - component: {fileID: 989668497598042486}
@@ -366,7 +366,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cac9a2fcfd1e5a47af8ee26949c6713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _firstState: {fileID: -7661915826060495276}
+  _firstState: {fileID: 5398836669561645176}
+--- !u!114 &5398836669561645176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d07fb3fb6fa18b43aa99721916426a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transitions:
+  - {fileID: -6979574114090558712}
 --- !u!114 &-7661915826060495276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +410,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 989668497598042486}
+  - {fileID: -6979574114090558712}
   _type: 1
 --- !u!114 &-4591508929873418072
 MonoBehaviour:
@@ -410,22 +425,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transitions:
-  - {fileID: -6979574114090558712}
   - {fileID: 989668497598042485}
+  - {fileID: -6979574114090558712}
   _controller: {fileID: 5884008997876937322}
---- !u!114 &959631696457259803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 989668497598042495}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77c87de39453bb743bed8a26a656410d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions: []
 --- !u!114 &-6979574114090558712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +479,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e980b013c8f636249a30a71ffc84cf5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 959631696457259803}
+  _targetState: {fileID: 5398836669561645176}
 --- !u!114 &989668497598042483
 MonoBehaviour:
   m_ObjectHideFlags: 0

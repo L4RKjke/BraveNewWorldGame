@@ -6,7 +6,7 @@ public class HeroAnimatorContreller : MonoBehaviour
     [SerializeField] private Animator _animator;
     private RecruitAtackState _atackState;
     private WalkState _walkState;
-    private CelebrationState _celebrationState;
+    private FindTargetState _findTargetState;
 
     public UnityAction AtackCompleted;
 
@@ -20,17 +20,17 @@ public class HeroAnimatorContreller : MonoBehaviour
         if (gameObject.transform.parent.TryGetComponent(out WalkState walkState))
             _walkState = walkState;
 
-        if (gameObject.transform.parent.TryGetComponent(out CelebrationState celebrateState))
-            _celebrationState = celebrateState;
+        if (gameObject.transform.parent.TryGetComponent(out FindTargetState celebrateState))
+            _findTargetState = celebrateState;
 
-        _celebrationState.EnemiesDied += OnCelebrateState;
+        _findTargetState.StateActivated += OnIdleAnimation;
         _atackState.AtackStarted += OnHeroAtacking;
         _walkState.MovementStarted += OnHeroWalking;
     }
 
     private void OnDisable()
     {
-        _celebrationState.EnemiesDied -= OnCelebrateState;
+        _findTargetState.StateActivated -= OnIdleAnimation;
         _atackState.AtackStarted -= OnHeroAtacking;
         _walkState.MovementStarted -= OnHeroWalking;
     }
