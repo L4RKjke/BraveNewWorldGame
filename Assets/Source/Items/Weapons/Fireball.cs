@@ -7,7 +7,7 @@ public class Fireball : MonoBehaviour
 {
     private ushort _bulletDamage = 4;
 
-    private readonly float _speed = 2;
+    private readonly float _speed = 3;
     private readonly float _lifetime = 5;
 
     private void Start()

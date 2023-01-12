@@ -4,6 +4,7 @@ using UnityEngine;
 public class Priest : Recruit
 {
     [SerializeField] private GameObject _passiveLighting;
+    [SerializeField] private GameObject _healPart;
 
     private float _currentHealingTime = 0;
 
@@ -28,7 +29,12 @@ public class Priest : Recruit
 
     public override void UsePassiveSkill()
     {
-        Units.GetById(GetRandom(), FighterType.Recruit).Heal();
+        var randomMate = Units.GetById(GetRandom(), FighterType.Recruit);
+
+        randomMate.Heal();
+        _healPart.SetActive(true);
+        _healPart.GetComponent<ParticleSystem>().Play();
+        _healPart.GetComponent<HealPartMover>().Init(randomMate);
     }
 
     private IEnumerator StartHealing()

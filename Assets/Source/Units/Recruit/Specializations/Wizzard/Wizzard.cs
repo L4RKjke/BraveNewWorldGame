@@ -39,9 +39,9 @@ public class Wizzard : Recruit
 
     private void InstantiateBullet(float angel)
     {
-        Instantiate(_fireball, transform.position, Quaternion.Euler(new Vector3(0, 0, angel)));
+        Instantiate(_fireball, _firePoint.position, Quaternion.Euler(new Vector3(0, 0, angel)));
     }
 
     private float GetAngle() => (180 / Mathf.PI) *
-        Mathf.Atan((CurrentTarget.transform.position.y - transform.position.y) / (CurrentTarget.transform.position.x - transform.position.x));
+        Mathf.Atan((CurrentTarget.transform.position.y - _firePoint.position.y) / (CurrentTarget.transform.position.x - _firePoint.position.x));
 }

@@ -7,6 +7,8 @@ public abstract class Fighter : MonoBehaviour
     [SerializeField] private int HP;
     [SerializeField] private Fighter _currentTarget;
     [SerializeField] private Weapon _weapon;
+    [SerializeField] private Transform _healPoint;
+
     private NavMeshAgent _agent;
     private int _health;
     private ushort _damage;
@@ -16,6 +18,8 @@ public abstract class Fighter : MonoBehaviour
 
     private readonly ushort _maxDamage = 100;
     private readonly int _maxHealth = 100;
+
+    public Transform HealPoint => _healPoint;
 
     public Weapon Weapon => _weapon;
 
