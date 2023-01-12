@@ -6,9 +6,9 @@ public class FindTargetState : State
 
     /// Заменить если шо на апдейт, чтобы все работало
 
-    private void OnEnable()
+    private void OnEnable ()
     {
-        GetComponent<Fighter>().UpdateCurrentTarget();
+        Fighter.UpdateCurrentTarget();
         StateActivated?.Invoke();
     }
 }

@@ -3,15 +3,22 @@ using UnityEngine;
 
 public class ImmortalAbility : WeaponAbility
 {
-    private float _immortalTime = 5;
+    private float _immortalTime = 15;
 
     public override void ActivateAbility()
     {
-        MakeImmortal();
+        StartCoroutine("MakeImmortal");
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine("MakeImmortal");
     }
 
     private IEnumerator MakeImmortal()
     {
+        Debug.Log("ImmortalTest");
+
         int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Recruit));
         Fighter friendlyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Recruit);
 

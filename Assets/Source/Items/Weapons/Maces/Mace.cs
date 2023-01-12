@@ -14,9 +14,11 @@ public class Mace : Weapon
 
     override public void UseWeapon()
     {
+        Debug.Log("MaceUsed");
+
         for (int i = 0; i < _currentFighter.Units.GetLength(FighterType.Enemy); i++)
         {
-            _currentFighter.Units.GetById(0, FighterType.Enemy).TakeDamage(_damage);
+            _currentFighter.Units.GetById(i, FighterType.Enemy).TakeDamage(_damage);
         }
     }
 }

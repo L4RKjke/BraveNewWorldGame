@@ -5,6 +5,8 @@ public class StunAbility : WeaponAbility
 {
     private float _stunTime = 3;
 
+
+    /// Возможно просто будет уменьшать скорость всем врагам
     override public void ActivateAbility()
     {
         StartCoroutine("Stun");

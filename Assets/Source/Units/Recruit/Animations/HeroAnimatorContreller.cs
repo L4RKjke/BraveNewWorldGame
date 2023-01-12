@@ -16,29 +16,43 @@ public class HeroAnimatorContreller : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         if (gameObject.transform.parent.TryGetComponent(out RecruitAtackState atackState))
+        {
             _atackState = atackState;
+            _atackState.AtackStarted += OnHeroAtacking;
+        }
 
         if (gameObject.transform.parent.TryGetComponent(out WalkState walkState))
+        {
             _walkState = walkState;
+            _walkState.MovementStarted += OnHeroWalking;
+        }
 
         if (gameObject.transform.parent.TryGetComponent(out FindTargetState findTarget))
+        {
             _findTargetState = findTarget;
+            _findTargetState.StateActivated += OnIdleAnimation;
+        }
 
         if (gameObject.transform.parent.TryGetComponent(out MeleeState melee))
+        {
             _meleeState = melee;
-
-        _findTargetState.StateActivated += OnIdleAnimation;
-        _atackState.AtackStarted += OnHeroAtacking;
-        _walkState.MovementStarted += OnHeroWalking;
-        _meleeState.StateActivated += OnMelee;
+            _meleeState.StateActivated += OnMelee;
+        }
     }
 
     private void OnDisable()
     {
-        _findTargetState.StateActivated -= OnIdleAnimation;
-        _atackState.AtackStarted -= OnHeroAtacking;
-        _walkState.MovementStarted -= OnHeroWalking;
-        _meleeState.StateActivated -= OnMelee;
+        if (_findTargetState != null)
+            _findTargetState.StateActivated -= OnIdleAnimation;
+
+        if (_atackState != null)
+            _atackState.AtackStarted -= OnHeroAtacking;
+
+        if (_walkState != null)
+            _walkState.MovementStarted -= OnHeroWalking;
+
+        if (_meleeState != null)
+            _meleeState.StateActivated -= OnMelee;
     }
 
     public void OnHeroAtacking()

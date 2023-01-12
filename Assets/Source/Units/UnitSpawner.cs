@@ -21,8 +21,8 @@ public class UnitSpawner : MonoBehaviour
 
     private void Start()
     {
-        EnemiesCount = 3;
-        RecruitsCount = 4;
+        EnemiesCount = 5;
+        RecruitsCount = 5;
         CreateEnemies();
         CreatePlayerUnits();
     }
@@ -41,7 +41,7 @@ public class UnitSpawner : MonoBehaviour
     {
         for (int i = 0; i < unitCount; i++)
         {
-            var newFighter = Instantiate(templates[0], new Vector2(positions[i].position.x, positions[i].position.y), Quaternion.identity).GetComponent<Fighter>();
+            var newFighter = Instantiate(templates[Random.Range(0, 3)], new Vector2(positions[i].position.x, positions[i].position.y), Quaternion.identity).GetComponent<Fighter>();
 
             newFighter.Init(type, enemyType, _fighters, 5, 150);
             units.AddNewFighter(newFighter);

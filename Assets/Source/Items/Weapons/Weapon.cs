@@ -5,7 +5,7 @@ public abstract class Weapon : MonoBehaviour, IItem
 {
     private WeaponAbility _ability;
 
-    private readonly float _abilityDelay = 2; 
+    private readonly float _abilityDelay = 7; 
 
     private void OnEnable()
     {

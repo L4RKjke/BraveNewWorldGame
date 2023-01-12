@@ -12,6 +12,8 @@ public class Sword : Weapon
     {
         ushort strength = (ushort)(_swordSharpness + transform.parent.GetComponent<Fighter>().Damage);
         transform.parent.GetComponent<Fighter>().CurrentTarget.TakeDamage(_swordSharpness);
+
+        Debug.Log("SwordUsed");
     }
 
     public void IncreaseDamage(ushort amplifier)

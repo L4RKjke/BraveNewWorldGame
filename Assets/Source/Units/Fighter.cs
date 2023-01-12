@@ -62,6 +62,8 @@ public abstract class Fighter : MonoBehaviour
 
     private void Update()
     {
+        /*_currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);*/
+
         if (CurrentTarget != null)
         {
             if (CurrentTarget.transform.position.x > transform.position.x)
@@ -71,7 +73,6 @@ public abstract class Fighter : MonoBehaviour
         }
         ///for test in inspecotor
         HP = _health;
-        _currentTarget = CurrentTarget;
     }
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health)
@@ -101,12 +102,14 @@ public abstract class Fighter : MonoBehaviour
 
     public void MakeUnmovable()
     {
-        _agent.speed = 0;
+        if (_agent != null)
+            _agent.speed = 0;
     }
 
     public void MakeMoveble()
     {
-        _agent.speed = _defaultSpeed;
+        if (_agent != null)
+            _agent.speed = _defaultSpeed;
     }
 
     public void MakeImmortal() 
