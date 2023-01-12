@@ -21,7 +21,7 @@ public class Priest : Recruit
         StopCoroutine(StartHealing());
     }
 
-    public override void UseAdvancedAtack()
+    public override void UsePassiveSkill()
     {
         Units.GetById(GetRandom(), FighterType.Recruit).Heal();
     }

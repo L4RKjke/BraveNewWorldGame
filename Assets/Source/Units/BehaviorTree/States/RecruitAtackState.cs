@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +6,7 @@ using UnityEngine.Events;
 public class RecruitAtackState : AtackState
 {
     [SerializeField] private HeroAnimatorContreller _controller;
+
     private Recruit _recruit;
 
     private readonly int _passiveSkillChance = 15;
@@ -31,7 +31,7 @@ public class RecruitAtackState : AtackState
         }
     }
 
-    public override void StartAtack()
+    protected override void StartAtack()
     {
         AtackStarted?.Invoke();
     }
@@ -44,7 +44,7 @@ public class RecruitAtackState : AtackState
         var randomNumber = Random.Range(minParcent, maxPercent);
 
         if (randomNumber < _passiveSkillChance)
-            _recruit.UseAdvancedAtack();
+            _recruit.UsePassiveSkill();
         else
             if (_recruit.Weapon == null)
             _recruit.Atack();

@@ -21,8 +21,8 @@ public class UnitSpawner : MonoBehaviour
 
     private void Start()
     {
-        EnemiesCount = 1;
-        RecruitsCount = 1;
+        EnemiesCount = 3;
+        RecruitsCount = 4;
         CreateEnemies();
         CreatePlayerUnits();
     }

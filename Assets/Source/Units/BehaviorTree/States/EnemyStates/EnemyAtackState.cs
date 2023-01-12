@@ -20,7 +20,7 @@ public class EnemyAtackState : AtackState
         StopCoroutine(_lauchAtack);
     }
 
-    public override void StartAtack()
+    protected override void StartAtack()
     {
         _enemy.Atack();
         Atacked?.Invoke();

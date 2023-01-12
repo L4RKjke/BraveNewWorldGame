@@ -5,20 +5,20 @@ public abstract class Weapon : MonoBehaviour, IItem
 {
     private WeaponAbility _ability;
 
-    private readonly float _abilityDelay = 4; 
+    private readonly float _abilityDelay = 2; 
 
-    private void Awake()
+    private void OnEnable()
     {
         if (TryGetComponent(out WeaponAbility ability))
         {
             _ability = ability;
-            StartCoroutine(LounchAbilityCorutine());
+            StartCoroutine("LounchAbilityCorutine");
         }
     }
 
     private void OnDisable()
     {
-        StopCoroutine(LounchAbilityCorutine());
+        StopCoroutine("LounchAbilityCorutine");
     }
 
     public void UseWeaponAbility(WeaponAbility ability)

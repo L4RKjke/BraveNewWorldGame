@@ -26,7 +26,7 @@ public class Wizzard : Recruit
         }
     }
 
-    public override void UseAdvancedAtack()
+    public override void UsePassiveSkill()
     {
         if (CurrentTarget != null)
         {

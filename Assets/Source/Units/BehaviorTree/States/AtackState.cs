@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class AtackState : State
 {
-    public abstract void StartAtack();
+    protected abstract void StartAtack();
 
     public void CompleteAtack()
     {

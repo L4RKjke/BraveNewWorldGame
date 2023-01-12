@@ -7,6 +7,7 @@ public class HeroAnimatorContreller : MonoBehaviour
     private RecruitAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
+    private MeleeState _meleeState;
 
     public UnityAction AtackCompleted;
 
@@ -20,12 +21,16 @@ public class HeroAnimatorContreller : MonoBehaviour
         if (gameObject.transform.parent.TryGetComponent(out WalkState walkState))
             _walkState = walkState;
 
-        if (gameObject.transform.parent.TryGetComponent(out FindTargetState celebrateState))
-            _findTargetState = celebrateState;
+        if (gameObject.transform.parent.TryGetComponent(out FindTargetState findTarget))
+            _findTargetState = findTarget;
+
+        if (gameObject.transform.parent.TryGetComponent(out MeleeState melee))
+            _meleeState = melee;
 
         _findTargetState.StateActivated += OnIdleAnimation;
         _atackState.AtackStarted += OnHeroAtacking;
         _walkState.MovementStarted += OnHeroWalking;
+        _meleeState.StateActivated += OnMelee;
     }
 
     private void OnDisable()
@@ -33,6 +38,7 @@ public class HeroAnimatorContreller : MonoBehaviour
         _findTargetState.StateActivated -= OnIdleAnimation;
         _atackState.AtackStarted -= OnHeroAtacking;
         _walkState.MovementStarted -= OnHeroWalking;
+        _meleeState.StateActivated -= OnMelee;
     }
 
     public void OnHeroAtacking()
@@ -55,9 +61,9 @@ public class HeroAnimatorContreller : MonoBehaviour
         _animator.SetTrigger("Idle");
     }
 
-    public void OnCelebrateState()
+    public void OnMelee()
     {
-        _animator.SetTrigger("Idle");
+        _animator.SetTrigger("HandAtack");
     }
 
     public void OnAtackAnimationOver()

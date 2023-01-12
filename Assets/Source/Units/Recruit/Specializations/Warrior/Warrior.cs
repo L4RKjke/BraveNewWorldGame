@@ -15,7 +15,7 @@ public class Warrior : Recruit
             CurrentTarget.TakeDamage(_currentDamage);
     }
 
-    public override void UseAdvancedAtack()
+    public override void UsePassiveSkill()
     {
         _currentDamage *= _damageMultiplier;
     }

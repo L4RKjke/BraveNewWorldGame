@@ -11,7 +11,7 @@ public abstract class Fighter : MonoBehaviour
     private int _health;
     private ushort _damage;
     private float _speed;
-    private float _defaultSpeed = 1.6f;
+    private float _defaultSpeed = 1.1f;
     private bool _canBeDamaged = true;
 
     private readonly ushort _maxDamage = 100;
@@ -27,13 +27,17 @@ public abstract class Fighter : MonoBehaviour
 
     public Fighter CurrentTarget => _currentTarget;
 
-    /// Убрать мб эти 2 поля, не особо нужны
-
     public FighterType RecruitType { get; private set; }
 
     public FighterType EnemyType { get; private set; }
 
     public UnitPool Units { get; private set; }
+
+    public FighterStats Stats { get; private set; }
+
+    public Vector2 InvertedScale { get; private set; }
+
+    public Vector2 DefoaltScale { get; private set; }
 
     public UnityAction <Fighter>Died;
 
@@ -43,14 +47,13 @@ public abstract class Fighter : MonoBehaviour
 
     public UnityAction Imortaled;
 
-    public FighterStats Stats { get; private set; }
-
-    public Vector2 InvertedScale { get; private set;}
-    public Vector2 DefoaltScale { get; private set; }
-
-
     private void Start()
     {
+        if (transform.GetChild(0).TryGetComponent(out Weapon weapon))
+        {
+            _weapon = weapon;
+        }
+
         _agent = GetComponent<NavMeshAgent>();
         _speed = _agent.speed;
         InvertedScale = new Vector2(-transform.localScale.x, transform.localScale.y);
@@ -98,12 +101,12 @@ public abstract class Fighter : MonoBehaviour
 
     public void MakeUnmovable()
     {
-        _speed = 0;
+        _agent.speed = 0;
     }
 
     public void MakeMoveble()
     {
-        _speed = _defaultSpeed;
+        _agent.speed = _defaultSpeed;
     }
 
     public void MakeImmortal() 
