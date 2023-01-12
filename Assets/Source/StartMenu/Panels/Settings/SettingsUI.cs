@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -7,18 +8,30 @@ using UnityEngine.UI;
 public class SettingsUI : MonoBehaviour
 {
     [SerializeField] private AudioMixer _audioMixer;
-    [SerializeField] private Slider _slider;
+    [SerializeField] private Slider _sliderSound;
     [SerializeField] private AudioSource _backGroundTrack;
+    [SerializeField] private TMP_Dropdown _dropdownQuality;
 
+    string _quality = "Quality";
     string _volume = "Volume";
     int _valueDecrease = 20;
     string _start = "Start";
 
-    private void Start()
+    private void Awake()
     {
-        _slider.value = PlayerPrefs.GetFloat(_volume);
+        Debug.Log("Start");
+
+        if (PlayerPrefs.GetFloat(_volume) == 0)
+        {
+            float startVolume = 0.5f;
+            PlayerPrefs.SetFloat(_volume, startVolume);
+        }
+
+        _sliderSound.value = PlayerPrefs.GetFloat(_volume);
         _audioMixer.SetFloat(_volume, Mathf.Log10(0.0001f) * _valueDecrease);
         SoundFading(_start);
+        SetQuality(PlayerPrefs.GetInt(_quality));
+        _dropdownQuality.value = PlayerPrefs.GetInt(_quality);
     }
 
     public void SoundFading(string choice = "End")
@@ -43,6 +56,7 @@ public class SettingsUI : MonoBehaviour
     public void SetQuality(int qualitiIndex)
     {
         QualitySettings.SetQualityLevel(qualitiIndex);
+        PlayerPrefs.SetInt(_quality, qualitiIndex);
     }
 
     public void Sound()
