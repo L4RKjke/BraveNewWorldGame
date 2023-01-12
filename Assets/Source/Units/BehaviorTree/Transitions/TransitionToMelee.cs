@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class TransitionToMelee : Transition
 {
-    private readonly float _meleeDistance = 1.5f;
+    private readonly float _meleeDistance = 1.3f;
 
     private void Update()
     {
