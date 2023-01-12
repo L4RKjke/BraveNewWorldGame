@@ -448,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4359618469531077404}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.48, z: 0}
   m_LocalScale: {x: 1.6666666, y: 1.6666666, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -801,7 +801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7015081488435228426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.66, z: 0}
+  m_LocalPosition: {x: 0, y: -1.3, z: 0}
   m_LocalScale: {x: 5, y: 1.6666666, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -955,9 +955,9 @@ GameObject:
   - component: {fileID: 7202684072523486757}
   - component: {fileID: 2912791758381119950}
   - component: {fileID: 7202684072523486754}
-  - component: {fileID: 8285125353207979752}
+  - component: {fileID: 1743501052702321301}
   m_Layer: 9
-  m_Name: PossessedWolf
+  m_Name: PossessedBoar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1001,7 +1001,7 @@ Animator:
   m_GameObject: {fileID: 7202684072523486756}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ec5486525ee795a41bd3cd5947c73299, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1011,7 +1011,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8285125353207979752
+--- !u!114 &1743501052702321301
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1020,6 +1020,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7202684072523486756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06f2651afe64d62449d0accf5c5784ce, type: 3}
+  m_Script: {fileID: 11500000, guid: f8402b1d832a3e04484549b5c754a7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

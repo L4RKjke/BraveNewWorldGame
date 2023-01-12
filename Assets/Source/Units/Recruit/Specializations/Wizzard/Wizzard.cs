@@ -33,7 +33,7 @@ public class Wizzard : Recruit
             CurrentTarget.TakeDamage(_passiveAbilityDamage);
             _electricity.SetActive(true);
             _electricity.GetComponent<ParticleSystem>().Play();
-            _electricity.transform.position = new Vector2(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y + 9);
+            _electricity.transform.position = new Vector2(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y);
         }
     }
 

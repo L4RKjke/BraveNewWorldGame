@@ -17,8 +17,6 @@ public class ImmortalAbility : WeaponAbility
 
     private IEnumerator MakeImmortal()
     {
-        Debug.Log("ImmortalTest");
-
         int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Recruit));
         Fighter friendlyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Recruit);
 

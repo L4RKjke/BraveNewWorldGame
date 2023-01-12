@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Priest : Recruit
 {
+    [SerializeField] private GameObject _passiveLighting;
+
     private float _currentHealingTime = 0;
 
     private readonly float _healDelay = 0.2f;
@@ -14,6 +16,9 @@ public class Priest : Recruit
     {
         if (CurrentTarget != null)
             CurrentTarget.TakeDamage(Damage);
+        _passiveLighting.SetActive(true);
+        _passiveLighting.GetComponent<ParticleSystem>().Play();
+        _passiveLighting.transform.position = new Vector2(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y);
     }
 
     private void OnDisable()
