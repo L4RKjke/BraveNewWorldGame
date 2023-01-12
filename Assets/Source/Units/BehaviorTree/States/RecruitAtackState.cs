@@ -5,45 +5,50 @@ using UnityEngine.Events;
 
 public class RecruitAtackState : AtackState
 {
+    [SerializeField] private HeroAnimatorContreller _controller;
+
     private Recruit _recruit;
-    private bool _isUltivateUsed = false;
 
-    private readonly int _passiveSkillChance = 20;
+    private readonly int _passiveSkillChance = 15;
 
-    public UnityAction RecruitAtacked;
+    public UnityAction AtackStarted;
 
     private void OnEnable()
     {
         _recruit = GetComponent<Recruit>();
+        StartCoroutine("LaunchActack");
 
-        if (_isUltivateUsed == false) 
-        {
-            _recruit.UseUltimate();
-            _isUltivateUsed = true;
-        }
-
-        StartCoroutine(LaunchActack());
+        _controller.AtackCompleted += OnAtackComplete;
     }
 
     private void OnDisable()
     {
-        StopCoroutine(LaunchActack());
+        StopCoroutine("LaunchActack");
+
+        if (_controller != null)
+        {
+            _controller.AtackCompleted -= OnAtackComplete;
+        }
     }
 
-    override public void Atack()
+    protected override void StartAtack()
+    {
+        AtackStarted?.Invoke();
+    }
+
+
+    private void OnAtackComplete()
     {
         var minParcent = 0;
         var maxPercent = 100;
         var randomNumber = Random.Range(minParcent, maxPercent);
 
-        RecruitAtacked?.Invoke();
-
         if (randomNumber < _passiveSkillChance)
-            _recruit.UseAdvancedAtack();
+            _recruit.UsePassiveSkill();
         else
             if (_recruit.Weapon == null)
-                _recruit.Atack();
-            else
-                _recruit.Weapon.UseWeapon();
+            _recruit.Atack();
+        else
+            _recruit.Weapon.UseWeapon();
     }
 }

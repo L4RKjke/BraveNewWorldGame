@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Events;
 
 public abstract class Fighter : MonoBehaviour
@@ -6,9 +7,11 @@ public abstract class Fighter : MonoBehaviour
     [SerializeField] private int HP;
     [SerializeField] private Fighter _currentTarget;
     [SerializeField] private Weapon _weapon;
-
+    private NavMeshAgent _agent;
     private int _health;
     private ushort _damage;
+    private float _speed;
+    private float _defaultSpeed = 1.1f;
     private bool _canBeDamaged = true;
 
     private readonly ushort _maxDamage = 100;
@@ -20,15 +23,21 @@ public abstract class Fighter : MonoBehaviour
 
     public int Health => _health;
 
-    public Fighter CurrentTarget => _currentTarget;
+    public float Speed => _speed;
 
-    /// Убрать мб эти 2 поля, не особо нужны
+    public Fighter CurrentTarget => _currentTarget;
 
     public FighterType RecruitType { get; private set; }
 
     public FighterType EnemyType { get; private set; }
 
     public UnitPool Units { get; private set; }
+
+    public FighterStats Stats { get; private set; }
+
+    public Vector2 InvertedScale { get; private set; }
+
+    public Vector2 DefoaltScale { get; private set; }
 
     public UnityAction <Fighter>Died;
 
@@ -38,21 +47,23 @@ public abstract class Fighter : MonoBehaviour
 
     public UnityAction Imortaled;
 
-    public FighterStats Stats { get; private set; }
-
-    public Vector2 InvertedScale { get; private set;}
-    public Vector2 DefoaltScale { get; private set; }
-
-
     private void Start()
     {
+        if (transform.GetChild(0).TryGetComponent(out Weapon weapon))
+        {
+            _weapon = weapon;
+        }
+
+        _agent = GetComponent<NavMeshAgent>();
+        _speed = _agent.speed;
         InvertedScale = new Vector2(-transform.localScale.x, transform.localScale.y);
         DefoaltScale = new Vector2(transform.localScale.x, transform.localScale.y);
     }
 
-    /// Для теста
     private void Update()
     {
+        /*_currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);*/
+
         if (CurrentTarget != null)
         {
             if (CurrentTarget.transform.position.x > transform.position.x)
@@ -60,9 +71,8 @@ public abstract class Fighter : MonoBehaviour
             else
                 transform.localScale = DefoaltScale;
         }
-
+        ///for test in inspecotor
         HP = _health;
-        _currentTarget = CurrentTarget;
     }
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health)
@@ -88,6 +98,18 @@ public abstract class Fighter : MonoBehaviour
     public void UpdateCurrentTarget()
     {
         _currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);
+    }
+
+    public void MakeUnmovable()
+    {
+        if (_agent != null)
+            _agent.speed = 0;
+    }
+
+    public void MakeMoveble()
+    {
+        if (_agent != null)
+            _agent.speed = _defaultSpeed;
     }
 
     public void MakeImmortal() 

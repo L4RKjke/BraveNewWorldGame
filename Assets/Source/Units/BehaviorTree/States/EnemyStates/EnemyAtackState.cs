@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine.Events;
 
 public class EnemyAtackState : AtackState
@@ -19,7 +20,7 @@ public class EnemyAtackState : AtackState
         StopCoroutine(_lauchAtack);
     }
 
-    override public void Atack()
+    protected override void StartAtack()
     {
         _enemy.Atack();
         Atacked?.Invoke();

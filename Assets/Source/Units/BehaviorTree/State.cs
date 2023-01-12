@@ -11,7 +11,7 @@ public abstract class State : MonoBehaviour
 
     protected Vector2 TargetPosition;
 
-    private void Start()
+    private void Awake()
     {
         Fighter = GetComponent<Fighter>();
     }
