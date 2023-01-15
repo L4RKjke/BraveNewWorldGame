@@ -57,6 +57,11 @@ public class DragAndDrop : MonoBehaviour
             ReturnCharacter();
     }
 
+    public void InstantiateCell(Cell cell)
+    {
+        _lastCell = cell;
+    }
+
     private bool FindDistance(List<Collider2D> blocks)
     {
         float distance = 1000;

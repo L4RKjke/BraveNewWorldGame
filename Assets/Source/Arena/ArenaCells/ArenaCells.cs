@@ -6,6 +6,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(ObjectsSaver))]
 public class ArenaCells : MonoBehaviour
 {
+    [SerializeField] private List<GameObject> _playerCharacters;
     [SerializeField] private List<Cell> _cell;
     [SerializeField] private List<Barrier> _barriers;
     [SerializeField] private List<EnemyTest> _enemies;
@@ -21,18 +22,31 @@ public class ArenaCells : MonoBehaviour
     private int _width = 11;
     private int _playerWidth = 4;
 
-
     private void Start()
     {
         _objectsSaver = GetComponent<ObjectsSaver>();
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
+        CreateCharacters();
         HideCells(_playerWidth);
         DeleteCells(_playerWidth + 1);
         _navMesh.BuildNavMesh();
         _battleFieldNavMesh.enabled = false;
         //PlayStartBattle();
+    }
+
+    private void CreateCharacters()
+    {
+
+        for(int i = 0; i < _playerCharacters.Count; i++)
+        {
+            Cell cell = _objectsSaver.GetCell(i, 0);
+            GameObject playerCharacters = Instantiate(_playerCharacters[i], cell.transform.position, Quaternion.identity);
+            cell.ChangeFull();
+            cell.ChangeStayCharacter();
+            playerCharacters.GetComponent<DragAndDrop>().InstantiateCell(cell);
+        }
     }
 
     public void PlayStartBattle()
