@@ -57,7 +57,11 @@ public class ArenaCells : MonoBehaviour
             dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
 
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Fighter>();
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 5f);
+            ///Временно
+            if (newUnit.transform.GetChild(1).TryGetComponent<Warrior>(out _))
+                newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 1.2f);
+            else 
+                newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 5f);
 
             _fighters.AddNewFighter(newUnit);
         }

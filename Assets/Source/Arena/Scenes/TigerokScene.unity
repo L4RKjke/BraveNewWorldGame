@@ -30235,7 +30235,7 @@ PrefabInstance:
       objectReference: {fileID: 8927706449902697089, guid: 7361692eda71cb3408c5643b9eb05160, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _playerCharacters.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _playerCharacters.Array.data[0]
@@ -30252,7 +30252,11 @@ PrefabInstance:
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _playerCharacters.Array.data[3]
       value: 
-      objectReference: {fileID: 3879505713152868838, guid: ad9a48839a1e13043b4304ef46682801, type: 3}
+      objectReference: {fileID: 3879505713152868838, guid: 6e65ced8f2c81ce4db5291a1a102e8b8, type: 3}
+    - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
+      propertyPath: _playerCharacters.Array.data[4]
+      value: 
+      objectReference: {fileID: 3879505713152868838, guid: 6e65ced8f2c81ce4db5291a1a102e8b8, type: 3}
     - target: {fileID: 4295777523692713961, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _parentFolderCell
       value: 
