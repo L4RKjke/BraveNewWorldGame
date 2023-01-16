@@ -2,7 +2,7 @@ public class TransitionToFindTarget : Transition
 {
     private void Update()
     {
-        if (CurrentFighter.CurrentTarget == null /*&& CurrentFighter.Units.GetLength(CurrentFighter.EnemyType) == 0*/)
+        if (CurrentFighter.CurrentTarget == null)
         {
             NeedTransit = true;
         }

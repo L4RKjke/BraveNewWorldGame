@@ -12,7 +12,7 @@ public class ObjectsSaver : MonoBehaviour
     public Transform ParentFolderEnemy => _parentFolderEnemy;
     public GameObject ParentFolderCell => _parentFolderCell;
 
-    public Cell GetRandomCell(int minNumberFolder = 0)
+    public Cell GetRandomCell(int minNumberFolder = 1)
     {
         int numberCells1;
         int numberCells2;
@@ -25,6 +25,13 @@ public class ObjectsSaver : MonoBehaviour
         currentCell = numberFolderCell.GetChild(numberCells2);
 
         currentCell.TryGetComponent(out Cell cell);
+
+        return cell;
+    }
+
+    public Cell GetCell(int x, int y)
+    {
+        transform.GetChild(y).GetChild(x).TryGetComponent<Cell>(out Cell cell);
 
         return cell;
     }
@@ -71,12 +78,5 @@ public class ObjectsSaver : MonoBehaviour
         }
 
         return true;
-    }
-
-    private Cell GetCell(int x, int y)
-    {
-        transform.GetChild(y).GetChild(x).TryGetComponent<Cell>(out Cell cell);
-
-        return cell;
     }
 }

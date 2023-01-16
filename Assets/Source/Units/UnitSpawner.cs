@@ -41,10 +41,16 @@ public class UnitSpawner : MonoBehaviour
     {
         for (int i = 0; i < unitCount; i++)
         {
-            var newFighter = Instantiate(templates[Random.Range(0, 3)], new Vector2(positions[i].position.x, positions[i].position.y), Quaternion.identity).GetComponent<Fighter>();
+            var newFighter = Instantiate(templates[Random.Range(0, 3)], new Vector2(positions[i].position.x, positions[i].position.y), Quaternion.identity);
 
-            newFighter.Init(type, enemyType, _fighters, 5, 150);
-            units.AddNewFighter(newFighter);
+            var newUnit = newFighter.transform.GetChild(1).GetComponent<Fighter>();
+
+            if (enemyType == FighterType.Recruit)
+                newUnit.Init(type, enemyType, _fighters, 20, 150, 1.3f);
+            if (enemyType == FighterType.Enemy)
+                newUnit.Init(type, enemyType, _fighters, 20, 150, 9f);
+
+            units.AddNewFighter(newUnit);
         }
     }
 }

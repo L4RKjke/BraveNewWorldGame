@@ -1,31 +1,26 @@
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
-
-[RequireComponent(typeof(NavMesh))]
 
 public class WalkState : State
 {
     [SerializeField] private FighterType _type;
 
     private Fighter _currentUnit;
-    private NavMeshAgent _agent;
 
     private readonly float _speed = 1.6f;
 
     public UnityAction MovementStarted;
 
-    private void Awake()
-    {
-        _agent = GetComponent<NavMeshAgent>();
-        SetAgentSettings();
-    }
-
     private void OnEnable()
     {
-        GetComponent<NavMeshAgent>().isStopped = false;
+        Fighter.Agent.isStopped = false;
         _currentUnit = GetComponent<Fighter>();
         MovementStarted?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        Fighter.Agent.isStopped = true;
     }
 
     private void Update()
@@ -33,23 +28,13 @@ public class WalkState : State
         MoveToTarget();
     }
 
-    private void OnDisable()
-    {
-        GetComponent<NavMeshAgent>().isStopped = true;
-    }
-
-    private void SetAgentSettings()
-    {
-        _agent.speed = _speed;
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-    }
-
+    /// Привязаться к рут модели
     private void MoveToTarget()
     {
         if (_currentUnit.CurrentTarget != null && _currentUnit != null)
         {
-            _agent.SetDestination(_currentUnit.CurrentTarget.transform.position);
+            /*_currentUnit.transform.parent.position = Vector3.MoveTowards(_currentUnit.transform.parent.position, _currentUnit.CurrentTarget.transform.position, Time.deltaTime * _speed);*/
+            Fighter.Agent.SetDestination(Fighter.CurrentTarget.transform.position/*_currentUnit.CurrentTarget.transform.position*/);
         }
     }
 }

@@ -9,12 +9,12 @@ public class DamageBoosterAbility : WeaponAbility
     override public void ActivateAbility()
     {
         _sword = GetComponent<Sword>();
-        Fighter.FighterHitted += OnFighterHitted;
+        Fighter.HealthChanged += OnFighterHitted;
     }
 
     private void OnDisable()
     {
-        Fighter.FighterHitted -= OnFighterHitted;
+        Fighter.HealthChanged -= OnFighterHitted;
     }
 
     private void OnFighterHitted(ushort damage)

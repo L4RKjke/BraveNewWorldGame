@@ -9,7 +9,7 @@ public class RecruitAtackState : AtackState
 
     private Recruit _recruit;
 
-    private readonly int _passiveSkillChance = 10;
+    private readonly int _passiveSkillChance = 25;
 
     public UnityAction AtackStarted;
 

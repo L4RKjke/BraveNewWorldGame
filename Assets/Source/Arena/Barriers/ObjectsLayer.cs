@@ -21,6 +21,5 @@ public class ObjectsLayer : MonoBehaviour
         int layer;
         layer = (int)(((transform.position.y - _minArenaY) / _cellYHeight) + 1);
         _sprite.sortingOrder = -layer;
-        Debug.Log(layer);
     }
 }

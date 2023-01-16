@@ -5,8 +5,6 @@ public abstract class State : MonoBehaviour
 {
     [SerializeField] private List<Transition> _transitions;
 
-    protected UnityEngine.AI.NavMeshAgent Agent { get; private set; }
-
     protected Fighter Fighter { get; private set; }
 
     protected Vector2 TargetPosition;

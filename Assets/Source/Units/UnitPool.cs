@@ -19,6 +19,11 @@ public class UnitPool : MonoBehaviour
         return _fighters.Where(fighter => fighter.RecruitType == fighterType).Count();
     }
 
+    public int GetLength()
+    {
+        return _fighters.Count;
+    }
+
     public void RemoveFighter(Fighter fighter)
     {
         _fighters.Remove(fighter);
@@ -35,6 +40,14 @@ public class UnitPool : MonoBehaviour
         var fighters = _fighters.Where(fighter => fighter.RecruitType == type).ToArray();
 
        return fighters[id];
+    }
+
+    public Fighter GetById(int id)
+    {
+        if (id <= _fighters.Count && id >= 0)
+            return _fighters[id];
+        else 
+            return null;
     }
 
     public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 

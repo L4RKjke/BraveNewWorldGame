@@ -19,10 +19,10 @@ public class Wizzard : Recruit
     {
         if (CurrentTarget != null)
         {
-            if (CurrentTarget.transform.position.x > transform.position.x)
-                InstantiateBullet(GetAngle());
-            else
+            if (CurrentTarget.transform.parent.position.x - _firePoint.position.x < 0)
                 InstantiateBullet(GetAngle() + 180);
+            else
+                InstantiateBullet(GetAngle());
         }
     }
 

@@ -1,12 +1,9 @@
-using UnityEngine;
-using UnityEngine.AI;
-
-public class TransitionToWalk : Transition
+public class TransitionToWalk : DistanceChecker
 {
     private void Update()
     {
         if (CurrentFighter.CurrentTarget != null)
-            if (Vector2.Distance(transform.position, CurrentFighter.CurrentTarget.transform.position) > Agent.stoppingDistance)
+            if (DistanceToTarget >= AtackDistance)
             {
                 NeedTransit = true;
             }

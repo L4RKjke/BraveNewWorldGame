@@ -1,13 +1,11 @@
-using UnityEngine;
-
-public class TransitionToMelee : Transition
+public class TransitionToMelee : DistanceChecker
 {
-    private readonly float _meleeDistance = 1.3f;
+    private readonly float _meleeDistance = 1.5f;
 
     private void Update()
     {
         if (CurrentFighter.CurrentTarget != null)
-            if (Vector2.Distance(transform.position, CurrentFighter.CurrentTarget.transform.position) < _meleeDistance)
+            if (DistanceToTarget < _meleeDistance)
             {
                 NeedTransit = true;
             }

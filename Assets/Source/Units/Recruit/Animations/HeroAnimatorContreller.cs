@@ -3,7 +3,10 @@ using UnityEngine.Events;
 
 public class HeroAnimatorContreller : MonoBehaviour
 {
-    [SerializeField] private Animator _animator;
+    [SerializeField] private Recruit _recruit;
+    [SerializeField] private GameObject _deathTemplate;
+
+    private Animator _animator;
     private RecruitAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
@@ -15,28 +18,33 @@ public class HeroAnimatorContreller : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
 
-        if (gameObject.transform.parent.TryGetComponent(out RecruitAtackState atackState))
+        if (_recruit != null)
         {
-            _atackState = atackState;
-            _atackState.AtackStarted += OnHeroAtacking;
-        }
+            _recruit.Died += OnHeroDied;
 
-        if (gameObject.transform.parent.TryGetComponent(out WalkState walkState))
-        {
-            _walkState = walkState;
-            _walkState.MovementStarted += OnHeroWalking;
-        }
+            if (_recruit.TryGetComponent(out RecruitAtackState atackState))
+            {
+                _atackState = atackState;
+                _atackState.AtackStarted += OnHeroAtacking;
+            }
 
-        if (gameObject.transform.parent.TryGetComponent(out FindTargetState findTarget))
-        {
-            _findTargetState = findTarget;
-            _findTargetState.StateActivated += OnIdleAnimation;
-        }
+            if (_recruit.TryGetComponent(out WalkState walkState))
+            {
+                _walkState = walkState;
+                _walkState.MovementStarted += OnHeroWalking;
+            }
 
-        if (gameObject.transform.parent.TryGetComponent(out MeleeState melee))
-        {
-            _meleeState = melee;
-            _meleeState.StateActivated += OnMelee;
+            if (_recruit.TryGetComponent(out FindTargetState findTarget))
+            {
+                _findTargetState = findTarget;
+                _findTargetState.StateActivated += OnIdleAnimation;
+            }
+
+            if (_recruit.TryGetComponent(out MeleeState melee))
+            {
+                _meleeState = melee;
+                _meleeState.StateActivated += OnMelee;
+            }
         }
     }
 
@@ -65,9 +73,9 @@ public class HeroAnimatorContreller : MonoBehaviour
         _animator.SetTrigger("Walk");
     }
 
-    public void OnHeroDied()
+    public void OnHeroDied(Fighter fighter)
     {
-        _animator.SetTrigger("Died");
+        Instantiate(_deathTemplate, transform.position, Quaternion.Euler(fighter.transform.localScale));
     }
 
     public void OnIdleAnimation()

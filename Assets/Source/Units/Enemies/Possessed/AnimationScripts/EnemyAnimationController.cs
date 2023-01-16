@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
+    [SerializeField] private GameObject _deathTemplate;
+    [SerializeField] private Enemy _enemy;
+
     private Animator _animator;
     private EnemyAtackState _atackState;
     private WalkState _walkState;
@@ -12,12 +15,15 @@ public class EnemyAnimationController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _animator.fireEvents = false;
 
-        if (gameObject.transform.parent.TryGetComponent(out EnemyAtackState atackState))
+
+        _enemy.Died += OnEnemieDied;
+
+        if (_enemy.TryGetComponent(out EnemyAtackState atackState))
             _atackState = atackState;
 
-        if (gameObject.transform.parent.TryGetComponent(out WalkState walkState))
+        if (_enemy.TryGetComponent(out WalkState walkState))
             _walkState = walkState;
-        if (gameObject.transform.parent.TryGetComponent(out FindTargetState findTarget))
+        if (_enemy.TryGetComponent(out FindTargetState findTarget))
             _findTargetState = findTarget;
 
         _findTargetState.StateActivated += OnIdle;
@@ -45,5 +51,10 @@ public class EnemyAnimationController : MonoBehaviour
     private void OnIdle()
     {
         _animator.SetTrigger("Idle");
+    }
+
+    private void OnEnemieDied(Fighter fighter)
+    {
+        Instantiate(_deathTemplate, transform.position, Quaternion.identity);
     }
 }
