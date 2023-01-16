@@ -22,7 +22,7 @@ public class InventoryUI : MonoBehaviour
 
     public EventSystem _eventSystem;
 
-    public void Start()
+    private void Start()
     {
         if (_items.Count == 0)
             AddGraphics();
@@ -40,11 +40,34 @@ public class InventoryUI : MonoBehaviour
         RectTransform temp = _inventoryContent.GetComponent<RectTransform>();
     }
 
-    public void Update()
+    private void Update()
     {
         if(_currentId != -1)
             MoveObject();
 
+    }
+
+    public void SelectObject()
+    {
+        if (_currentId == -1)
+        {
+            _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
+            _currentItem = CopyInventoryItem(_items[_currentId]);
+            _movingObject.gameObject.SetActive(true);
+            _movingObject.GetComponent<Image>().sprite = _inventoryStorage.GetItem(_items[_currentId].Id).Image;
+
+            AddItem(_currentId, _inventoryStorage.GetItem(0));
+        }
+        else
+        {
+            ItemInventory temp = _items[int.Parse(_eventSystem.currentSelectedGameObject.name)];
+
+            AddInventoryItem(_currentId, temp);
+            AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
+            _currentId = -1;
+
+            _movingObject.gameObject.SetActive(false);
+        }
     }
 
     private void AddItem(int id, Item item)
@@ -79,29 +102,6 @@ public class InventoryUI : MonoBehaviour
             tempButton.onClick.AddListener(delegate { SelectObject(); });
 
             _items.Add(itemInventory);
-        }
-    }
-
-    private void SelectObject()
-    {
-        if (_currentId == -1)
-        {
-            _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
-            _currentItem = CopyInventoryItem(_items[_currentId]);
-            _movingObject.gameObject.SetActive(true);
-            _movingObject.GetComponent<Image>().sprite = _inventoryStorage.GetItem(_items[_currentId].Id).Image;
-
-            AddItem(_currentId, _inventoryStorage.GetItem(0));
-        }
-        else
-        {
-            ItemInventory temp = _items[int.Parse(_eventSystem.currentSelectedGameObject.name)];
-
-            AddInventoryItem(_currentId, temp);
-            AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
-            _currentId = -1;
-
-            _movingObject.gameObject.SetActive(false);
         }
     }
 
