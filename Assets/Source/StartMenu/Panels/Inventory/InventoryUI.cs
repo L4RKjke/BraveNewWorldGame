@@ -8,19 +8,44 @@ using TMPro;
 public class InventoryUI : MonoBehaviour
 {
     [SerializeField] private InventoryStorage _inventoryStorage;
-    [SerializeField] private GameObject _inventoryMainObject;
+    [SerializeField] private GameObject _inventoryContent;
     [SerializeField] private GameObject _gameObjectShow;
+    [SerializeField] private RectTransform _movingObject;
 
     private List<ItemInventory> _items = new List<ItemInventory>();
-    private int _maxCount;
+    private int _maxCount = 50;
 
-    private int _currentId;
+    private int _currentId = -1;
     private ItemInventory _currentItem;
 
-    private RectTransform _movingObject;
-    private Vector3 _offSet;
+    private Vector3 _offSet = new Vector3(1,-1,0);
 
     public EventSystem _eventSystem;
+
+    public void Start()
+    {
+        if (_items.Count == 0)
+            AddGraphics();
+
+        for(int i = 0; i < _maxCount; i++) // test
+        {
+            int random = Random.Range(1, _inventoryStorage.CountItems);
+            Debug.Log(random + "random");
+            Item item = _inventoryStorage.GetItem(random);
+            Debug.Log(item.Id);
+            AddItem(i, item);
+        }
+
+        UpdateInventory();
+        RectTransform temp = _inventoryContent.GetComponent<RectTransform>();
+    }
+
+    public void Update()
+    {
+        if(_currentId != -1)
+            MoveObject();
+
+    }
 
     private void AddItem(int id, Item item)
     {
@@ -37,7 +62,7 @@ public class InventoryUI : MonoBehaviour
     {
         for(int i = 0; i < _maxCount; i++)
         {
-            GameObject newItem = Instantiate(_gameObjectShow, _inventoryMainObject.transform) as GameObject;
+            GameObject newItem = Instantiate(_gameObjectShow, _inventoryContent.transform) as GameObject;
 
             newItem.name = i.ToString();
 
@@ -59,19 +84,20 @@ public class InventoryUI : MonoBehaviour
 
     private void SelectObject()
     {
-        if (_currentId == 1)
+        if (_currentId == -1)
         {
             _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
             _currentItem = CopyInventoryItem(_items[_currentId]);
             _movingObject.gameObject.SetActive(true);
-            _movingObject.GetComponent<Image>().sprite = _inventoryStorage.GetItem(_currentId).Image;
+            _movingObject.GetComponent<Image>().sprite = _inventoryStorage.GetItem(_items[_currentId].Id).Image;
 
             AddItem(_currentId, _inventoryStorage.GetItem(0));
         }
         else
         {
-            AddInventoryItem(_currentId, _items[int.Parse(_eventSystem.currentSelectedGameObject.name)]);
+            ItemInventory temp = _items[int.Parse(_eventSystem.currentSelectedGameObject.name)];
 
+            AddInventoryItem(_currentId, temp);
             AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
             _currentId = -1;
 
@@ -91,7 +117,7 @@ public class InventoryUI : MonoBehaviour
     private void MoveObject()
     {
         Vector3 position = Input.mousePosition + _offSet;
-        position.z = _inventoryMainObject.GetComponent<RectTransform>().position.z;
+        position.z = _inventoryContent.GetComponent<RectTransform>().position.z;
         _movingObject.position = Camera.main.ScreenToWorldPoint(position);
     }
 

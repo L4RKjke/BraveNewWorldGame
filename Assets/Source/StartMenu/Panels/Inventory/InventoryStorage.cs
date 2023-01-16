@@ -5,7 +5,9 @@ using UnityEngine.UI;
 
 public class InventoryStorage : MonoBehaviour
 {
-    private List<Item> _items = new List<Item>();
+    [SerializeField] private List<Item> _items = new List<Item>();
+
+    public int CountItems => _items.Count;
 
     public Item GetItem(int id)
     {
