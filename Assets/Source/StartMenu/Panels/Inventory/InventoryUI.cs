@@ -28,10 +28,16 @@ public class InventoryUI : MonoBehaviour
         if (_items.Count == 0)
             AddGraphics();
 
-        for(int i = 0; i < _maxCount; i++) // test
+        for(int i = 0; i < _maxCount/2; i++) // test
         {
             int random = Random.Range(1, _inventoryStorage.CountItems);
             Item item = _inventoryStorage.GetItem(random);
+            AddItem(i, item);
+        }
+
+        for(int i = _maxCount/2; i < _maxCount; i++) // test
+        {
+            Item item = _inventoryStorage.GetItem(0);
             AddItem(i, item);
         }
 
@@ -62,14 +68,45 @@ public class InventoryUI : MonoBehaviour
             temp.onClick.AddListener(delegate { UnequipItem(button, _inventoryStorage.GetItem(_charactersItemUI.GetId(button))); });
 
             if (_items[_currentId].Id == 0)
-            UpdateInventory(_currentId);
+            {
+                bool needSorting = CheckSorting();
+
+                if(needSorting)
+                SortingInventory(_currentId);
+            }
 
             _currentId = -1;
             _movingObject.gameObject.SetActive(false);
         }
     }
 
-    public void UnequipItem(GameObject button, Item item)
+    private bool CheckSorting()
+    {
+        bool needSorting = true;
+        int lastId = 0;
+        int countSortingBreak = 0;
+
+        for (int i = 0; i < _items.Count; i++)
+        {
+
+            if (_items[i].Id == 0 && lastId != _items[i].Id)
+            {
+                countSortingBreak++;
+                Debug.Log(countSortingBreak);
+                if (countSortingBreak == 3)
+                {
+                    needSorting = false;
+                    break;
+                }
+            }
+
+            lastId = _items[i].Id;
+        }
+
+        return needSorting;
+    }
+
+    private void UnequipItem(GameObject button, Item item)
     {
         _charactersItemUI.UpdateButtonGraphics(button);
         ReturnItem(item);
@@ -91,7 +128,7 @@ public class InventoryUI : MonoBehaviour
         AddItem(int.Parse(temp.ItemObject.name), item);
     }
 
-    private void UpdateInventory(int startId)
+    private void SortingInventory(int startId)
     {
         for (int i = startId; i < _items.Count; i++)
         {
@@ -189,47 +226,5 @@ public class InventoryUI : MonoBehaviour
         newItem.Assign—haracteristics(oldItem.Name, oldItem.Image, oldItem.Type);
 
         return newItem;
-    }
-}
-
-[System.Serializable]
-
-public class ItemInventory
-{
-    [SerializeField] private int _id;
-    [SerializeField] private GameObject _itemObject;
-
-    public GameObject ItemObject => _itemObject;
-    public Sprite Image { get; private set; }
-    public string Name { get; private set; }
-    public string Type { get; private set; }
-    public int Id => _id;
-
-
-    public void AssignGameObject(GameObject item)
-    {
-        _itemObject = item;
-    }
-
-    public void AssignId(int id)
-    {
-        _id = id;
-    }
-
-    public void Assign—haracteristics(string name, Sprite image, string type)
-    {
-        Name = name;
-        _itemObject.GetComponentInChildren<TMP_Text>().text = Name;
-
-        Image = image;
-        _itemObject.GetComponent<Image>().sprite = Image;
-
-        Type = type;
-    }
-
-    public void UpdateInformation(int id, Sprite image, string name, string type)
-    {
-        AssignId(id);
-        Assign—haracteristics(name, image, type);
     }
 }

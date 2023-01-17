@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+
+public class ItemInventory : MonoBehaviour
+{
+    [SerializeField] private int _id;
+    [SerializeField] private GameObject _itemObject;
+
+    public GameObject ItemObject => _itemObject;
+    public Sprite Image { get; private set; }
+    public string Name { get; private set; }
+    public string Type { get; private set; }
+    public int Id => _id;
+
+
+    public void AssignGameObject(GameObject item)
+    {
+        _itemObject = item;
+    }
+
+    public void AssignId(int id)
+    {
+        _id = id;
+    }
+
+    public void Assign—haracteristics(string name, Sprite image, string type)
+    {
+        Name = name;
+        _itemObject.GetComponentInChildren<TMP_Text>().text = Name;
+
+        Image = image;
+        _itemObject.GetComponent<Image>().sprite = Image;
+
+        Type = type;
+    }
+
+    public void UpdateInformation(int id, Sprite image, string name, string type)
+    {
+        AssignId(id);
+        Assign—haracteristics(name, image, type);
+    }
+}
