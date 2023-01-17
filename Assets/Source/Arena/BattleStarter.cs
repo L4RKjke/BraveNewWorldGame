@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class StartBattle : MonoBehaviour
+public class BattleStarter : MonoBehaviour
 {
     [SerializeField] private UnitPool _pool;
     [SerializeField] private ArenaCells _arenaCells;

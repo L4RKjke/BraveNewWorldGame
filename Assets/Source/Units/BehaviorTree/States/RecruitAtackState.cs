@@ -5,39 +5,37 @@ using UnityEngine.Events;
 
 public class RecruitAtackState : AtackState
 {
-    [SerializeField] private HeroAnimatorContreller _controller;
-
     private Recruit _recruit;
 
     private readonly int _passiveSkillChance = 25;
 
-    public UnityAction AtackStarted;
+    public UnityAction RangeAtackStarted;
 
     private void OnEnable()
     {
         _recruit = GetComponent<Recruit>();
-        StartCoroutine("LaunchActack");
+        StartCoroutine(Launch);
 
-        _controller.AtackCompleted += OnAtackComplete;
+        Controller.AtackCompleted += CompleteAtack;
     }
 
     private void OnDisable()
     {
-        StopCoroutine("LaunchActack");
+        StopCoroutine(Launch);
 
-        if (_controller != null)
+        if (Controller != null)
         {
-            _controller.AtackCompleted -= OnAtackComplete;
+            Controller.AtackCompleted -= CompleteAtack;
         }
     }
 
     protected override void StartAtack()
     {
-        AtackStarted?.Invoke();
+        RangeAtackStarted?.Invoke();
     }
 
 
-    private void OnAtackComplete()
+    protected override void CompleteAtack()
     {
         var minParcent = 0;
         var maxPercent = 100;
@@ -46,9 +44,6 @@ public class RecruitAtackState : AtackState
         if (randomNumber < _passiveSkillChance)
             _recruit.UsePassiveSkill();
         else
-            if (_recruit.Weapon == null)
             _recruit.Atack();
-        else
-            _recruit.Weapon.UseWeapon();
     }
 }

@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(ObjectsSaver))]
+
 public class ArenaCells : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _playerCharacters;
@@ -58,10 +58,7 @@ public class ArenaCells : MonoBehaviour
 
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Fighter>();
             ///Временно
-            if (newUnit.transform.GetChild(1).TryGetComponent<Warrior>(out _))
-                newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 1.2f);
-            else 
-                newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 5f);
+            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 1.2f);
 
             _fighters.AddNewFighter(newUnit);
         }
@@ -175,7 +172,12 @@ public class ArenaCells : MonoBehaviour
                 enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
 
                 var newUnit = enemy.transform.GetChild(1).GetComponent<Fighter>();
-                newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150, 1.1f);
+                ///Временно
+                ///
+                if (newUnit.TryGetComponent<RangeAtacker>(out _))
+                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150, 5f);
+                else 
+                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150, 1.2f);
 
                 _fighters.AddNewFighter(newUnit);
 

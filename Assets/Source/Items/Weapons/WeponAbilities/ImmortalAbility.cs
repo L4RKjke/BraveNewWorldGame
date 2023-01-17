@@ -5,25 +5,30 @@ public class ImmortalAbility : WeaponAbility
 {
     private float _immortalTime = 15;
 
+    private readonly string _makeImmortal = "MakeImmortal";
+
     public override void ActivateAbility()
     {
-        StartCoroutine("MakeImmortal");
+        StartCoroutine(_makeImmortal);
     }
 
     private void OnDisable()
     {
-        StopCoroutine("MakeImmortal");
+        StopCoroutine(_makeImmortal);
     }
 
     private IEnumerator MakeImmortal()
     {
-        int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Recruit));
-        Fighter friendlyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Recruit);
+        if (Fighter != null)
+        {
+            int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Recruit));
+            Fighter friendlyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Recruit);
 
-        friendlyUnit.MakeImmortal();
+            friendlyUnit.MakeImmortal();
 
-        yield return new WaitForSeconds(_immortalTime);
+            yield return new WaitForSeconds(_immortalTime);
 
-        friendlyUnit.MakeMortal();
+            friendlyUnit.MakeMortal();
+        }
     }
 }

@@ -1,24 +1,27 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Sword))]
+[RequireComponent(typeof(Weapon))]
 
 public class DamageBoosterAbility : WeaponAbility
 {
-    private Sword _sword;
+    private Weapon _weapon;
 
     override public void ActivateAbility()
     {
-        _sword = GetComponent<Sword>();
-        Fighter.HealthChanged += OnFighterHitted;
+        _weapon = GetComponent<Weapon>();
+         
+        if (Fighter != null)
+            Fighter.HealthChanged += OnFighterHitted;
     }
 
     private void OnDisable()
     {
-        Fighter.HealthChanged -= OnFighterHitted;
+        if (Fighter != null)
+            Fighter.HealthChanged -= OnFighterHitted;
     }
 
     private void OnFighterHitted(ushort damage)
     {
-        _sword.IncreaseDamage((ushort)(damage/10));
+        _weapon.IncreaseDamage((ushort)(damage/10));
     }
 }

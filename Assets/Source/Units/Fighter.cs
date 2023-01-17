@@ -4,14 +4,12 @@ using UnityEngine.Events;
 
 public abstract class Fighter : MonoBehaviour
 {
-    [SerializeField] private int HP;
-    [SerializeField] private Fighter _currentTarget;
-    [SerializeField] private Weapon _weapon;
     [SerializeField] private Transform _healPoint;
     [SerializeField] Transform _buttonPostion;
     [SerializeField] GameObject _rootModel;
     [SerializeField] private NavMeshAgent _agent;
 
+    private Fighter _currentTarget;
     private int _maxHealth;
     private float _atackDistace;
     private int _health;
@@ -31,8 +29,6 @@ public abstract class Fighter : MonoBehaviour
     public Transform ButtonPostition => _buttonPostion;
 
     public Transform HealPoint => _healPoint;
-
-    public Weapon Weapon => _weapon;
 
     public ushort Damage => _damage;
 
@@ -66,48 +62,10 @@ public abstract class Fighter : MonoBehaviour
 
     private void Start()
     {
-        _agent = RootModel.GetComponent<NavMeshAgent>();
-        _agent.updateRotation = false;
-        _agent.updateUpAxis = false;
-        _agent.stoppingDistance = 0;
-
+        InitAgent();
         _maxHealth = Health;
-
-        if (transform.GetChild(0).TryGetComponent(out Weapon weapon))
-        {
-            _weapon = weapon;
-        }
-
-/*        _agent = transform.parent.GetComponent<NavMeshAgent>();
-        _speed = _agent.speed;*/
         InvertedScale = new Vector2(-transform.parent.localScale.x, transform.parent.localScale.y);
         DefoaltScale = new Vector2(transform.parent.localScale.x, transform.parent.localScale.y);
-    }
-
-    private void Update()
-    {
-        /*_currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);*/
-        /// Перенести то в другой скрипт
-        if (CurrentTarget != null)
-        {
-            if (RecruitType == FighterType.Recruit)
-            {
-                if (CurrentTarget.transform.position.x > transform.position.x)
-                    transform.parent.localScale = DefoaltScale;
-                else
-                    transform.parent.localScale = InvertedScale;
-            }
-            else
-            {
-                if (CurrentTarget.transform.position.x > transform.position.x)
-                    transform.parent.localScale = InvertedScale;
-                else
-                    transform.parent.localScale = DefoaltScale;
-            }
-
-        }
-        ///for test in inspecotor
-        HP = _health;
     }
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health, float atackDistance)
@@ -141,7 +99,7 @@ public abstract class Fighter : MonoBehaviour
     public void MakeUnmovable()
     {
         if (_agent != null)
-            _agent.speed = _defaultSpeed/2;
+            _agent.speed = 0.2f;
     }
 
     public void MakeMoveble()
@@ -177,5 +135,13 @@ public abstract class Fighter : MonoBehaviour
         }
 
         HealthChanged?.Invoke((ushort)_health);
+    }
+
+    private void InitAgent()
+    {
+        _agent = RootModel.GetComponent<NavMeshAgent>();
+        _agent.updateRotation = false;
+        _agent.updateUpAxis = false;
+        _agent.stoppingDistance = 0;
     }
 }

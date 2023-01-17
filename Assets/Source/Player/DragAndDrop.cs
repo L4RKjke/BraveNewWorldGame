@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +9,8 @@ public class DragAndDrop : MonoBehaviour
     private Cell _lastCell;
     private Vector3 _pointScreen;
     private Vector3 _offSet;
-    private float _radiusDrop = 0.3f;
+
+    private readonly int _distance = 1000;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -59,13 +59,13 @@ public class DragAndDrop : MonoBehaviour
 
     private bool FindDistance(List<Collider2D> blocks)
     {
-        float distance = 1000;
+        float distance = _distance;
         int numberOfMassive = 0;
         bool canStay;
 
         for (int i = 0; i < blocks.Count; i++)
         {
-            if (distance == 1000 || Vector3.Distance(transform.position, blocks[i].transform.position) < distance)
+            if (distance == _distance || Vector3.Distance(transform.position, blocks[i].transform.position) < distance)
             {
                 distance = Vector3.Distance(transform.position, blocks[i].transform.position);
                 numberOfMassive = i;
@@ -112,7 +112,6 @@ public class DragAndDrop : MonoBehaviour
 
     private void PlayerStay(Cell cell)
     {
-        Debug.Log("PlayerStay");
         cell.ChangeFull();
         cell.ChangeStayCharacter();
     }

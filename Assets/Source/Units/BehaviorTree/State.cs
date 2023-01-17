@@ -5,14 +5,9 @@ public abstract class State : MonoBehaviour
 {
     [SerializeField] private List<Transition> _transitions;
 
-    protected Fighter Fighter { get; private set; }
-
     protected Vector2 TargetPosition;
 
-    private void Awake()
-    {
-        Fighter = GetComponent<Fighter>();
-    }
+    protected Fighter Fighter => GetComponent<Fighter>();
 
     public void Enter ()
     {

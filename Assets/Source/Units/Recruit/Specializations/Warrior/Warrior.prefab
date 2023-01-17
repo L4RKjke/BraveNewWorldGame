@@ -595,11 +595,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832294b2c0e445647a1dbc7d6bb474a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _currentTarget: {fileID: 0}
-  _weapon: {fileID: 8295432102161933449}
   _healPoint: {fileID: 6632039353466057767}
-  _buttonPostion: {fileID: 0}
+  _buttonPostion: {fileID: 6632039353466057767}
   _rootModel: {fileID: 3879505713152868838}
   _agent: {fileID: 5469436046601616549}
 --- !u!114 &7604797453349662639
@@ -701,6 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 993470713354870333}
+  _atackDistance: 1.25
 --- !u!114 &5470306470981562112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,8 +783,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 629521602624677378}
-  - component: {fileID: 8295432102161933449}
   - component: {fileID: 6340964421934157184}
+  - component: {fileID: 8902585909993071583}
   m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
@@ -809,18 +807,6 @@ Transform:
   m_Father: {fileID: 993470713354870329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8295432102161933449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1059025442377678140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98edff8d2210d5841ba6db478032ff76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6340964421934157184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -831,6 +817,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9316e0fc77efbc4f9e69ff0a50ade2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8902585909993071583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059025442377678140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1a04b69095d2b4fa51e7ecb39a0447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1227186828049848793
@@ -1960,7 +1958,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4002797098355912468}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038000006, y: 0.3, z: 0.120000005}
+  m_LocalPosition: {x: 0.038000006, y: 0.313, z: 0.120000005}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2731,7 +2729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recruit: {fileID: 4224959571754055807}
+  _unit: {fileID: 4224959571754055807}
   _deathTemplate: {fileID: 6359960676554105764, guid: a4d4f8ada66901f40b3aa0ab1dcaa03a, type: 3}
 --- !u!210 &6602107756864295238
 SortingGroup:
@@ -2743,7 +2741,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 200
 --- !u!114 &6908052485358722776
 MonoBehaviour:
   m_ObjectHideFlags: 0

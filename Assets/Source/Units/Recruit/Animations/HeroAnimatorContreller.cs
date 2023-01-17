@@ -1,49 +1,40 @@
 using UnityEngine;
-using UnityEngine.Events;
 
-public class HeroAnimatorContreller : MonoBehaviour
+public class HeroAnimatorContreller : AnimationCotroller
 {
-    [SerializeField] private Recruit _recruit;
-    [SerializeField] private GameObject _deathTemplate;
-
-    private Animator _animator;
     private RecruitAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
     private MeleeState _meleeState;
 
-    public UnityAction AtackCompleted;
-
-    private void Awake()
+    private void Start()
     {
-        _animator = GetComponent<Animator>();
-
-        if (_recruit != null)
+        if (CurrentUnit != null)
         {
-            _recruit.Died += OnHeroDied;
+            /*CurrentUnit.HealthChanged += OnHitted;*/
 
-            if (_recruit.TryGetComponent(out RecruitAtackState atackState))
+            if (CurrentUnit.TryGetComponent(out RecruitAtackState atackState))
             {
                 _atackState = atackState;
-                _atackState.AtackStarted += OnHeroAtacking;
+                _atackState.RangeAtackStarted += OnHeroAtacking;
             }
 
-            if (_recruit.TryGetComponent(out WalkState walkState))
+            if (CurrentUnit.TryGetComponent(out WalkState walkState))
             {
                 _walkState = walkState;
                 _walkState.MovementStarted += OnHeroWalking;
             }
 
-            if (_recruit.TryGetComponent(out FindTargetState findTarget))
+            if (CurrentUnit.TryGetComponent(out FindTargetState findTarget))
             {
                 _findTargetState = findTarget;
                 _findTargetState.StateActivated += OnIdleAnimation;
             }
 
-            if (_recruit.TryGetComponent(out MeleeState melee))
+            if (CurrentUnit.TryGetComponent(out MeleeState melee))
             {
                 _meleeState = melee;
-                _meleeState.StateActivated += OnMelee;
+                _meleeState.MelleeAtackStarted += OnMelee;
             }
         }
     }
@@ -54,42 +45,40 @@ public class HeroAnimatorContreller : MonoBehaviour
             _findTargetState.StateActivated -= OnIdleAnimation;
 
         if (_atackState != null)
-            _atackState.AtackStarted -= OnHeroAtacking;
+            _atackState.RangeAtackStarted -= OnHeroAtacking;
 
         if (_walkState != null)
             _walkState.MovementStarted -= OnHeroWalking;
 
         if (_meleeState != null)
-            _meleeState.StateActivated -= OnMelee;
+            _meleeState.MelleeAtackStarted -= OnMelee;
+/*
+        if (CurrentUnit != null)
+            CurrentUnit.HealthChanged -= OnHitted;*/
     }
 
     public void OnHeroAtacking()
     {
-        _animator.SetTrigger("CastSpell");
+        Animator.SetTrigger("CastSpell");
     }
 
     public void OnHeroWalking()
     {
-        _animator.SetTrigger("Walk");
-    }
-
-    public void OnHeroDied(Fighter fighter)
-    {
-        Instantiate(_deathTemplate, transform.position, Quaternion.Euler(fighter.transform.localScale));
+        Animator.SetTrigger("Walk");
     }
 
     public void OnIdleAnimation()
     {
-        _animator.SetTrigger("Idle");
+        Animator.SetTrigger("Idle");
     }
 
     public void OnMelee()
     {
-        _animator.SetTrigger("HandAtack");
+        Animator.SetTrigger("HandAtack");
     }
 
-    public void OnAtackAnimationOver()
+    public void OnHitted(ushort damage)
     {
-        AtackCompleted?.Invoke();
+        Animator.SetTrigger("Hitted");
     }
 }

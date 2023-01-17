@@ -1,6 +1,6 @@
 public class TransitionToMelee : DistanceChecker
 {
-    private readonly float _meleeDistance = 1.5f;
+    private readonly float _meleeDistance = 1.3f;
 
     private void Update()
     {

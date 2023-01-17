@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249173986120181267}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038000006, y: -0.044999998, z: 0.120000005}
+  m_LocalPosition: {x: 0.038000006, y: 0.14, z: 0.120000005}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -208,8 +208,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8657605217067042100}
-  - component: {fileID: 5255286154073447691}
   - component: {fileID: 112929383254974863}
+  - component: {fileID: 7779630408892720202}
   m_Layer: 0
   m_Name: Mace
   m_TagString: Untagged
@@ -232,18 +232,6 @@ Transform:
   m_Father: {fileID: 993470713354870329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5255286154073447691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405229461662831006}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f13236b0d07cc4b8af0f9ef2d69993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &112929383254974863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,6 +242,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd2dfee0852430644be2f26ef92a125a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7779630408892720202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 405229461662831006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c1a04b69095d2b4fa51e7ecb39a0447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &503467031315458788
@@ -769,9 +769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4573bf30271d6c24d987a93b67f9ade2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _currentTarget: {fileID: 0}
-  _weapon: {fileID: 5255286154073447691}
   _healPoint: {fileID: 1711566901525057050}
   _buttonPostion: {fileID: 0}
   _rootModel: {fileID: 3879505713152868838}
@@ -894,6 +891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 993470713354870333}
+  _atackDistance: 5
 --- !u!114 &993470713354870323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2589,7 +2587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _recruit: {fileID: 78390691072599307}
+  _unit: {fileID: 78390691072599307}
   _deathTemplate: {fileID: 3020216106616921806, guid: 05fc5840eca32cd43941c0f8cd0c8edc, type: 3}
 --- !u!210 &6602107756864295238
 SortingGroup:
@@ -2601,7 +2599,7 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 200
 --- !u!114 &6908052485358722776
 MonoBehaviour:
   m_ObjectHideFlags: 0

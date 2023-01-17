@@ -1,24 +1,36 @@
 using UnityEngine;
 using System.Collections;
 
-public abstract class Weapon : MonoBehaviour, IItem
+public class Weapon : MonoBehaviour
 {
     private WeaponAbility _ability;
 
-    private readonly float _abilityDelay = 7; 
+    private readonly float _abilityDelay = 7;
+
+    protected readonly string AbilityCorutine = "LounchAbilityCorutine";
+
+    public ushort Damage { get; private set; } = 15;
 
     private void OnEnable()
     {
         if (TryGetComponent(out WeaponAbility ability))
         {
             _ability = ability;
-            StartCoroutine("LounchAbilityCorutine");
+            StartCoroutine(AbilityCorutine);
         }
     }
 
     private void OnDisable()
     {
-        StopCoroutine("LounchAbilityCorutine");
+        if (TryGetComponent(out WeaponAbility ability))
+        {
+            StopCoroutine(AbilityCorutine);
+        }
+    }
+
+    public void Init(ushort damage)
+    {
+        Damage = damage;
     }
 
     public void UseWeaponAbility(WeaponAbility ability)
@@ -26,7 +38,10 @@ public abstract class Weapon : MonoBehaviour, IItem
         ability.ActivateAbility();
     }
 
-    abstract public void UseWeapon();
+    public void IncreaseDamage(ushort amplifier)
+    {
+        Damage += amplifier;
+    }
 
     private IEnumerator LounchAbilityCorutine()
     {

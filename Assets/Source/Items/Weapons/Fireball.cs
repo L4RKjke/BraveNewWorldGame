@@ -10,6 +10,7 @@ public class Fireball : MonoBehaviour
     private readonly float _speed = 3;
     private readonly float _lifetime = 5;
 
+
     private void Start()
     {
         GetComponent<Rigidbody2D>().velocity = transform.right * _speed;
@@ -28,7 +29,7 @@ public class Fireball : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Enemy target))
+        if (collision.TryGetComponent(out Fighter target))
         {
             target.TakeDamage(_bulletDamage);
             Destroy(gameObject);

@@ -4,15 +4,16 @@ using UnityEngine;
 public class UnitDeathAnimation : MonoBehaviour
 {
     private readonly float _destroyTime = 1;
+    private readonly string _waitUntilDid = "WaitUntilDie";
 
     private void OnEnable()
     {
-        StartCoroutine("WaitUntilDie");
+        StartCoroutine(_waitUntilDid);
     }
 
     private void OnDestroy()
     {
-        StopCoroutine("WaitUntilDie");
+        StopCoroutine(_waitUntilDid);
     }
 
     private IEnumerator WaitUntilDie()

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 806424852354590285}
-  - component: {fileID: 3179053132114679551}
+  - component: {fileID: 335432362845057257}
   - component: {fileID: 4966263244183875238}
   m_Layer: 0
   m_Name: MagicWand
@@ -33,7 +33,7 @@ Transform:
   m_Father: {fileID: 993470713354870329}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3179053132114679551
+--- !u!114 &335432362845057257
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,7 +42,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 32062480990657082}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb198bc9a20912429b740f13043835e, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c1a04b69095d2b4fa51e7ecb39a0447, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &4966263244183875238
@@ -395,6 +395,7 @@ GameObject:
   - component: {fileID: 993470713354870326}
   - component: {fileID: 4488452677723674077}
   - component: {fileID: 3885374938697441876}
+  - component: {fileID: 4865506451327489053}
   m_Layer: 7
   m_Name: WizzardModel
   m_TagString: Untagged
@@ -432,13 +433,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b451f500bc399744ad643839ec762dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _currentTarget: {fileID: 0}
-  _weapon: {fileID: 0}
   _healPoint: {fileID: 6632039353466057767}
-  _buttonPostion: {fileID: 0}
+  _buttonPostion: {fileID: 6632039353466057767}
   _rootModel: {fileID: 3879505713152868838}
-  _agent: {fileID: 0}
+  _agent: {fileID: 5469436046601616549}
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 806424852354590285}
   _electricity: {fileID: 7094530131039576185}
@@ -558,6 +556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 993470713354870333}
+  _atackDistance: 5
 --- !u!114 &993470713354870323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,6 +645,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4865506451327489053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993470713354870330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0de777b8c60f9543beb8bebe1f93371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1072098004271271523
 GameObject:
   m_ObjectHideFlags: 0
@@ -2927,9 +2938,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2212189348514420069}
   - component: {fileID: 5029361911947629904}
+  - component: {fileID: 6908052485358722776}
   - component: {fileID: 5899070213778095407}
   - component: {fileID: 6602107756864295238}
-  - component: {fileID: 6908052485358722776}
   m_Layer: 0
   m_Name: WizzardView
   m_TagString: Untagged
@@ -2975,31 +2986,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 1
---- !u!114 &5899070213778095407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _recruit: {fileID: 3399754549071799650}
-  _deathTemplate: {fileID: 7252319987826963898, guid: cf9e7fae08b451942a3492a8fc413b2b, type: 3}
---- !u!210 &6602107756864295238
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
 --- !u!114 &6908052485358722776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3012,6 +2998,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5899070213778095407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579663485919828451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 3399754549071799650}
+  _deathTemplate: {fileID: 7252319987826963898, guid: cf9e7fae08b451942a3492a8fc413b2b, type: 3}
+--- !u!210 &6602107756864295238
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579663485919828451}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 200
 --- !u!1 &6185334425908822932
 GameObject:
   m_ObjectHideFlags: 0
@@ -8174,7 +8185,7 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 2100000, guid: b8c75b4b8c79c684d8c519bc41051478, type: 2}
+  - {fileID: 2100000, guid: d2485172a88e2bc4b87dae8b6b1a8dfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8453,7 +8464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8386662153204376486}
   m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.038, y: 0.3, z: 0.12}
+  m_LocalPosition: {x: 0.038, y: 0.387, z: 0.12}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

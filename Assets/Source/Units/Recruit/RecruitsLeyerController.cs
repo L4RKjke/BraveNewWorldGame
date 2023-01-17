@@ -11,6 +11,7 @@ public class RecruitsLeyerController : MonoBehaviour
     private void Start()
     {
         _sortingGroup = GetComponent<SortingGroup>();
+        _primaryLayerId = _sortingGroup.sortingOrder;
     }
 
     private void FixedUpdate()

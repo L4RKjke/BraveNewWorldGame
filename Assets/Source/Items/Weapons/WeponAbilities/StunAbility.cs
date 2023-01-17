@@ -5,30 +5,33 @@ public class StunAbility : WeaponAbility
 {
     private float _stunTime = 3;
 
+    private readonly string _stun = "Stun";
 
-    /// Возможно просто будет уменьшать скорость всем врагам
     override public void ActivateAbility()
     {
-        StartCoroutine("Stun");
+        StartCoroutine(_stun);
     }
 
     private void OnDisable()
     {
-        StopCoroutine("Stun");
+        StopCoroutine(_stun);
     }
 
     private IEnumerator Stun()
     {
-        int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Enemy));
-
-        if (randomUnitNumber != 0)
+        if (Fighter != null)
         {
-            Fighter enemyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Enemy);
-            enemyUnit.MakeUnmovable();
+            int randomUnitNumber = Random.Range(0, Fighter.Units.GetLength(FighterType.Enemy));
 
-            yield return new WaitForSeconds(_stunTime);
+            if (randomUnitNumber != 0)
+            {
+                Fighter enemyUnit = Fighter.Units.GetById(randomUnitNumber, FighterType.Enemy);
+                enemyUnit.MakeUnmovable();
 
-            enemyUnit.MakeMoveble();
+                yield return new WaitForSeconds(_stunTime);
+
+                enemyUnit.MakeMoveble();
+            }
         }
     }
 }

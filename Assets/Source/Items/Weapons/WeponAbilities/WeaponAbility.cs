@@ -8,7 +8,8 @@ public abstract class WeaponAbility : MonoBehaviour
 
     private void Awake()
     {
-        _fighter = transform.parent.GetComponent<Fighter>();
+        if (transform.parent.TryGetComponent(out Fighter fighter)) ;
+            _fighter = fighter;
     }
 
     abstract public void ActivateAbility();

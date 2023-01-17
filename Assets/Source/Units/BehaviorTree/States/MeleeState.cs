@@ -1,33 +1,43 @@
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MeleeState : AtackState
 {
-    [SerializeField] private HeroAnimatorContreller _controller;
-
-    public UnityAction StateActivated;
+    public UnityAction MelleeAtackStarted;
 
     private void OnEnable()
     {
-        StartCoroutine("LaunchActack");
-
-        _controller.AtackCompleted += OnAtackComplete;
+        StartCoroutine(Launch);
+        Controller.AtackCompleted += CompleteAtack;
     }
 
     private void OnDisable()
     {
-        StopCoroutine("LaunchActack");
-
-        _controller.AtackCompleted -= OnAtackComplete;
+        StopCoroutine(Launch);
+        Controller.AtackCompleted -= CompleteAtack;
     }
 
     override protected void StartAtack()
     {
-        StateActivated?.Invoke();
+        MelleeAtackStarted?.Invoke();
     }
 
-    private void OnAtackComplete()
+    override protected void CompleteAtack()
     {
-        Fighter.CurrentTarget.TakeDamage(20);
+        ///?? переделать
+        if (TryGetComponent(out Recruit recruit))
+        {
+            if (recruit.Weapon == null)
+                recruit.CurrentTarget.TakeDamage(recruit.Damage);
+            else
+            {
+                recruit.CurrentTarget.TakeDamage((ushort)(recruit.Damage + recruit.Weapon.Damage));
+            }
+
+        } 
+        else
+        {
+            Fighter.CurrentTarget.TakeDamage(Fighter.Damage);
+        }
     }
 }

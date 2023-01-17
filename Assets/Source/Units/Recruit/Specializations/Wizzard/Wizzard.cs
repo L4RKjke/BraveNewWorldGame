@@ -3,27 +3,28 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(FireBallInstantiator))]
+
 public class Wizzard : Recruit
 {
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private GameObject _electricity;
 
+    private FireBallInstantiator _bulletInstantiator;
+
     public Fireball Fireball => _fireball;
 
-    /*Переделать на на наносит урон, равный проценты от хп (процент можно увеличивать от предметов или праченной абилки)*/
-    /*Добавить предметы, которые блокируют определенный тип урона или снижаеют его*/
     private readonly ushort _passiveAbilityDamage = 30;
+
+    private void Awake()
+    {
+        _bulletInstantiator = GetComponent<FireBallInstantiator>();
+    }
 
     public override void Atack()
     {
-        if (CurrentTarget != null)
-        {
-            if (CurrentTarget.transform.parent.position.x - _firePoint.position.x < 0)
-                InstantiateBullet(GetAngle() + 180);
-            else
-                InstantiateBullet(GetAngle());
-        }
+        _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint);
     }
 
     public override void UsePassiveSkill()
@@ -36,12 +37,4 @@ public class Wizzard : Recruit
             _electricity.transform.position = new Vector2(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y);
         }
     }
-
-    private void InstantiateBullet(float angel)
-    {
-        Instantiate(_fireball, _firePoint.position, Quaternion.Euler(new Vector3(0, 0, angel)));
-    }
-
-    private float GetAngle() => (180 / Mathf.PI) *
-        Mathf.Atan((CurrentTarget.transform.position.y - _firePoint.position.y) / (CurrentTarget.transform.position.x - _firePoint.position.x));
 }

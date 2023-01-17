@@ -1,8 +1,15 @@
-public class Enemy : Fighter
+public abstract class Enemy : Fighter
 {
-    public void Atack()
+    abstract public void Atack();
+
+    private void Update()
     {
         if (CurrentTarget != null)
-            CurrentTarget.TakeDamage(Damage);
+        {
+            if (CurrentTarget.transform.position.x > transform.position.x)
+                transform.parent.localScale = InvertedScale;
+            else
+                transform.parent.localScale = DefoaltScale;
+        }
     }
 }
