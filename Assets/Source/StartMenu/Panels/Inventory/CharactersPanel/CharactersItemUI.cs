@@ -11,11 +11,41 @@ public class CharactersItemUI : MonoBehaviour
     [SerializeField] private GameObject _charactersItemsContent;
     [SerializeField] private InventoryUI _inventoryUI;
 
-    private List<Item> _equippedItems = new List<Item>();
+    private List<GameObject> _equippedItems = new List<GameObject>();
 
     private void Start()
     {
         AddGraphics();
+    }
+
+    public void AddItem(GameObject item)
+    {
+        _equippedItems.Add(item);
+    }
+
+    public void UpdateButtonGraphics(GameObject button)
+    {
+        int id = int.Parse(button.name);
+        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[id].ItemImage;
+        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemName;
+        _equipmentSlot[id].SetId();
+
+        Button temp = button.GetComponentInChildren<Button>();
+        temp.onClick.RemoveAllListeners();
+        temp.onClick.AddListener(delegate { _inventoryUI.EquipItem(_equipmentSlot[id].ItemName, button); });
+    }
+
+    public void SetIdSlot(GameObject button, int itemId)
+    {
+        int id = int.Parse(button.name);
+        _equipmentSlot[id].SetId(itemId);
+    }    
+
+    public int GetId(GameObject button)
+    {
+        int id = int.Parse(button.name);
+
+        return _equipmentSlot[id].ItemId;
     }
 
     private void AddGraphics()
@@ -23,10 +53,9 @@ public class CharactersItemUI : MonoBehaviour
         for (int i = 0; i < _equipmentSlot.Count; i++)
         {
             GameObject newButton = Instantiate(_gameObjectShow, _charactersItemsContent.transform) as GameObject;
+            newButton.name = i.ToString();
 
-            newButton.GetComponentInChildren<Button>().onClick.AddListener(delegate { _inventoryUI.SelectObject(); });
-            newButton.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[i].ItemImage;
-            newButton.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[i].ItemName;
+            UpdateButtonGraphics(newButton);
         }
     }
 }
@@ -40,4 +69,10 @@ class SlotItems
 
     public Sprite ItemImage => _itemImage;
     public string ItemName => _itemName;
+    public int ItemId;
+
+    public void SetId(int id = 0)
+    {
+        ItemId = id;
+    }
 }

@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 3
+  _type: Hand
   _name: Arrow
   _image: {fileID: 21300000, guid: 3892f4f5ee9e44ead818f487ed443de5, type: 3}
   _defense: 0

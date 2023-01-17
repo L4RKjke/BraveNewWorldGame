@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 1
+  _type: Weapon
   _name: Sword
   _image: {fileID: 21300000, guid: 940e5b52081c14fbca49b3d440713816, type: 3}
   _defense: 0

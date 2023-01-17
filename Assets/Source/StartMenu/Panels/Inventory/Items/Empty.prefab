@@ -45,8 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 0
+  _type: Emty
   _name: 
-  _image: {fileID: 21300000, guid: 924cae9b6d7d2a34aa7ee91a2c5adcee, type: 3}
+  _image: {fileID: 21300000, guid: ccda1e9d0a91445b08abb3958530382a, type: 3}
   _defense: 0
   _attack: 0
   _health: 0

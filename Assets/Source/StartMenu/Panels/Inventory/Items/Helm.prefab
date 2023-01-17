@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 4
+  _type: Head
   _name: Helm
   _image: {fileID: 21300000, guid: 3d5a3384ff67f443bac085daed5baca3, type: 3}
   _defense: 2

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     [SerializeField] private int _id;
+    [SerializeField] private string _type;
     [SerializeField] private string _name;
     [SerializeField] private Sprite _image;
     [SerializeField] private int _defense;
@@ -14,4 +15,5 @@ public class Item : MonoBehaviour
     public int Id => _id;
     public Sprite Image => _image;
     public string Name => _name;
+    public string Type => _type;
 }

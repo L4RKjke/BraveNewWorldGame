@@ -19,8 +19,6 @@ public class SettingsUI : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Start");
-
         if (PlayerPrefs.GetFloat(_volume) == 0)
         {
             float startVolume = 0.5f;
@@ -48,7 +46,6 @@ public class SettingsUI : MonoBehaviour
 
     public void SetVolume(float value)
     {
-        Debug.Log(value);
         _audioMixer.SetFloat(_volume, Mathf.Log10(value) * _valueDecrease);
         PlayerPrefs.SetFloat(_volume, value);
     }
@@ -80,8 +77,6 @@ public class SettingsUI : MonoBehaviour
             _audioMixer.SetFloat(_volume, Mathf.Log10(value * expiredTime) * _valueDecrease);
             yield return null;
         }
-
-        Debug.Log("End");
     }
 
     private IEnumerator CoroutineSoundDecrease(float value)
@@ -95,8 +90,6 @@ public class SettingsUI : MonoBehaviour
             _audioMixer.SetFloat(_volume, Mathf.Log10(value * expiredTime) * _valueDecrease);
             yield return null;
         }
-
-        Debug.Log("End");
     }
 
     private IEnumerator SoundOff(AudioSource track)

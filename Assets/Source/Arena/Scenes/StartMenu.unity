@@ -367,14 +367,19 @@ MonoBehaviour:
   _equipmentSlot:
   - _itemImage: {fileID: 21300000, guid: 2bc2b86b96325c84387a5f10ea3a8513, type: 3}
     _itemName: Head
+    ItemId: 0
   - _itemImage: {fileID: 21300000, guid: aa53df39e2ff3b1459a7ccdeed1275bc, type: 3}
     _itemName: Body
+    ItemId: 0
   - _itemImage: {fileID: 21300000, guid: d37e4a60dd7a0134e932e76b73a6de5f, type: 3}
     _itemName: Leg
+    ItemId: 0
   - _itemImage: {fileID: 21300000, guid: 3b1fc2175481486488d8d4fb4beb13c9, type: 3}
     _itemName: Hand
+    ItemId: 0
   - _itemImage: {fileID: 21300000, guid: cbb9d2b1b69d9594aab174dac1a2b88b, type: 3}
     _itemName: Weapon
+    ItemId: 0
   _gameObjectShow: {fileID: 4479576337731017684, guid: ffbbb43ae01dccd4bb3edc6783571166, type: 3}
   _charactersItemsContent: {fileID: 721885129}
   _inventoryUI: {fileID: 908689861}
@@ -2311,7 +2316,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 570018146959275610, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125.00001
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 570018147688528834, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2429,9 +2434,17 @@ PrefabInstance:
       propertyPath: _backGroundTrack
       value: 
       objectReference: {fileID: 2070987826}
+    - target: {fileID: 6341819191687973051, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.99998474
+      objectReference: {fileID: 0}
+    - target: {fileID: 6795944203761880592, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.819809
+      objectReference: {fileID: 0}
     - target: {fileID: 6795944204446501174, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.40008545
+      value: -0.40011597
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
@@ -2454,6 +2467,10 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 1676619712}
+    - target: {fileID: 7830513943641834444, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
+      propertyPath: _charactersItemUI
+      value: 
+      objectReference: {fileID: 761082366}
     - target: {fileID: 7830513943732932120, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

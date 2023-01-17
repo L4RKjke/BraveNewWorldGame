@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _id: 2
+  _type: Body
   _name: Armor
   _image: {fileID: 21300000, guid: 8bdfa25ecc63f49af872591a8729fe30, type: 3}
   _defense: 5
