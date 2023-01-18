@@ -4,10 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ItemInventory : MonoBehaviour
+public class ItemInventory
 {
-    [SerializeField] private int _id;
-    [SerializeField] private GameObject _itemObject;
+    private int _id;
+    private GameObject _itemObject;
 
     public GameObject ItemObject => _itemObject;
     public Sprite Image { get; private set; }

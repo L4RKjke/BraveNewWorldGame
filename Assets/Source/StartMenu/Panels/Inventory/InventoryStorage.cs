@@ -1,16 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InventoryStorage : MonoBehaviour
 {
-    [SerializeField] private List<Item> _items = new List<Item>();
+    private List<ItemInventory> _items = new List<ItemInventory>();
 
-    public int CountItems => _items.Count;
+    public int ItemCount => _items.Count;
 
-    public Item GetItem(int id)
+    public ItemInventory GetItem(int id)
     {
         return _items[id];
+    }
+
+    public void AddItem(int id, Item item)
+    {
+        _items[id].UpdateInformation(item.Id, item.Image, item.Name, item.Type);
+    }
+
+    public void AddSlot(ItemInventory slot)
+    {
+        _items.Add(slot);
+    }
+
+    public void SortingInventory(int startId, ItemStorage itemStorage)
+    {
+        for (int i = startId; i < ItemCount; i++)
+        {
+            if (i < ItemCount - 1)
+            {
+                AddItem(i, itemStorage.GetItem(GetItem(i + 1).Id));
+            }
+            else
+            {
+                AddItem(i, itemStorage.GetItem(0));
+            }
+        }
+    }
+
+    public bool CheckSorting()
+    {
+        bool needSorting = true;
+        int lastId = 0;
+        int countSortingBreak = 0;
+
+        for (int i = 0; i < _items.Count; i++)
+        {
+
+            if (_items[i].Id == 0 && lastId != _items[i].Id)
+            {
+                countSortingBreak++;
+                Debug.Log(countSortingBreak);
+                if (countSortingBreak == 3)
+                {
+                    needSorting = false;
+                    break;
+                }
+            }
+
+            lastId = _items[i].Id;
+        }
+
+        return needSorting;
     }
 }

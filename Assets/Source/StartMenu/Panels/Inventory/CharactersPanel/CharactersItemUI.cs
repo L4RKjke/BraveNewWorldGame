@@ -13,6 +13,11 @@ public class CharactersItemUI : MonoBehaviour
 
     private List<GameObject> _equippedItems = new List<GameObject>();
 
+    private InventoryStorage _inventoryStorage => _inventoryUI.InventoryStorage;
+    private ItemStorage _itemStorage => _inventoryUI.ItemStorage;
+    private int _currentId => _inventoryUI.CurrentId;
+    private ItemInventory _currentItem => _inventoryUI.CurrentItem;
+
     private void Start()
     {
         AddGraphics();
@@ -32,7 +37,7 @@ public class CharactersItemUI : MonoBehaviour
 
         Button temp = button.GetComponentInChildren<Button>();
         temp.onClick.RemoveAllListeners();
-        temp.onClick.AddListener(delegate { _inventoryUI.EquipItem(_equipmentSlot[id].ItemName, button); });
+        temp.onClick.AddListener(delegate { EquipItem(_equipmentSlot[id].ItemName, button); });
     }
 
     public void SetIdSlot(GameObject button, int itemId)
@@ -46,6 +51,40 @@ public class CharactersItemUI : MonoBehaviour
         int id = int.Parse(button.name);
 
         return _equipmentSlot[id].ItemId;
+    }
+
+    private void EquipItem(string type, GameObject button)
+    {
+
+        if (_currentId != -1 && _currentItem.Type == type)
+        {
+
+            button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _currentItem.Image;
+            button.GetComponentInChildren<TMP_Text>().text = _currentItem.Name;
+            AddItem(_currentItem.ItemObject);
+
+            Button temp = button.GetComponentInChildren<Button>();
+            temp.onClick.RemoveAllListeners();
+            SetIdSlot(button, _currentItem.Id);
+
+            temp.onClick.AddListener(delegate { UnequipItem(button, _itemStorage.GetItem(GetId(button))); });
+
+            if (_inventoryStorage.GetItem(_currentId).Id == 0)
+            {
+                bool needSorting = _inventoryStorage.CheckSorting();
+
+                if (needSorting)
+                    _inventoryStorage.SortingInventory(_currentId, _itemStorage);
+            }
+
+            _inventoryUI.ResetMovingObject();
+        }
+    }
+
+    private void UnequipItem(GameObject button, Item item)
+    {
+        UpdateButtonGraphics(button);
+        _inventoryUI.ReturnItem(item);
     }
 
     private void AddGraphics()

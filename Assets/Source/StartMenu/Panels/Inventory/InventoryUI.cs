@@ -5,40 +5,56 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+[RequireComponent(typeof(InventoryStorage))]
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private InventoryStorage _inventoryStorage;
+    [SerializeField] private ItemStorage _itemStorage;
     [SerializeField] private GameObject _inventoryContent;
     [SerializeField] private GameObject _gameObjectShow;
     [SerializeField] private RectTransform _movingObject;
     [SerializeField] private CharactersItemUI _charactersItemUI;
 
-    private List<ItemInventory> _items = new List<ItemInventory>();
+    private InventoryStorage _inventoryStorage;
     private int _maxCount = 50;
-
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
-    private Vector3 _offSet = new Vector3(1,-1,0);
+    private Vector3 _offSet = new(1,-1,0);
+
+    public InventoryStorage InventoryStorage => _inventoryStorage;
+    public ItemStorage ItemStorage => _itemStorage;
+    public ItemInventory CurrentItem => _currentItem;
+    public int CurrentId => _currentId;
 
     public EventSystem _eventSystem;
 
+    private void Awake()
+    {
+        _inventoryStorage = GetComponent<InventoryStorage>();
+    }
+
+    private void OnEnable()
+    {
+        _currentId = -1;
+    }
+
     private void Start()
     {
-        if (_items.Count == 0)
+
+        if (_inventoryStorage.ItemCount == 0)
             AddGraphics();
 
         for(int i = 0; i < _maxCount/2; i++) // test
         {
-            int random = Random.Range(1, _inventoryStorage.CountItems);
-            Item item = _inventoryStorage.GetItem(random);
-            AddItem(i, item);
+            int random = Random.Range(1, _itemStorage.CountItems);
+            Item item = _itemStorage.GetItem(random);
+            _inventoryStorage.AddItem(i, item);
         }
 
         for(int i = _maxCount/2; i < _maxCount; i++) // test
         {
-            Item item = _inventoryStorage.GetItem(0);
-            AddItem(i, item);
+            Item item = _itemStorage.GetItem(0);
+            _inventoryStorage.AddItem(i, item);
         }
 
         StartUpdateInventory();
@@ -51,112 +67,59 @@ public class InventoryUI : MonoBehaviour
 
     }
 
-    public void EquipItem(string type, GameObject button)
+    public void ButtonReturnItem()
     {
-
-        if (_currentId != -1 && _currentItem.Type == type)
-        {
-
-            button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _currentItem.Image;
-            button.GetComponentInChildren<TMP_Text>().text = _currentItem.Name;
-            _charactersItemUI.AddItem(_currentItem.ItemObject);
-
-            Button temp = button.GetComponentInChildren<Button>();
-            temp.onClick.RemoveAllListeners();
-            _charactersItemUI.SetIdSlot(button, _currentItem.Id);
-
-            temp.onClick.AddListener(delegate { UnequipItem(button, _inventoryStorage.GetItem(_charactersItemUI.GetId(button))); });
-
-            if (_items[_currentId].Id == 0)
-            {
-                bool needSorting = CheckSorting();
-
-                if(needSorting)
-                SortingInventory(_currentId);
-            }
-
-            _currentId = -1;
-            _movingObject.gameObject.SetActive(false);
-        }
+        ReturnItem();
     }
 
-    private bool CheckSorting()
-    {
-        bool needSorting = true;
-        int lastId = 0;
-        int countSortingBreak = 0;
-
-        for (int i = 0; i < _items.Count; i++)
-        {
-
-            if (_items[i].Id == 0 && lastId != _items[i].Id)
-            {
-                countSortingBreak++;
-                Debug.Log(countSortingBreak);
-                if (countSortingBreak == 3)
-                {
-                    needSorting = false;
-                    break;
-                }
-            }
-
-            lastId = _items[i].Id;
-        }
-
-        return needSorting;
-    }
-
-    private void UnequipItem(GameObject button, Item item)
-    {
-        _charactersItemUI.UpdateButtonGraphics(button);
-        ReturnItem(item);
-    }
-
-    private void ReturnItem(Item item)
+    public void ReturnItem(Item item = null)
     {
         ItemInventory temp = null;
         Debug.Log(item);
 
-        foreach (var itemInventory in _items)
+        for (int i = 0; i < _inventoryStorage.ItemCount; i++)
         {
-            if(itemInventory.Id == 0)
+            if (_inventoryStorage.GetItem(i).Id == 0)
             {
-                 temp = itemInventory;
+                temp = _inventoryStorage.GetItem(i);
                 break;
             }
         }
-        AddItem(int.Parse(temp.ItemObject.name), item);
+
+        if (item == null && _movingObject.gameObject.activeSelf == true)
+        {
+            item = _itemStorage.GetItem(_currentItem.Id);
+            _movingObject.gameObject.SetActive(false);
+        }
+
+        if(item != null)
+        _inventoryStorage.AddItem(int.Parse(temp.ItemObject.name), item);
     }
 
-    private void SortingInventory(int startId)
+    public void ResetMovingObject()
     {
-        for (int i = startId; i < _items.Count; i++)
-        {
-            if (i < _items.Count - 1)
-            {
-                AddItem(i, _inventoryStorage.GetItem(_items[i + 1].Id));
-            }
-            else
-            {
-                AddItem(i, _inventoryStorage.GetItem(0));
-            }
-        }
+        _currentId = -1;
+        _movingObject.gameObject.SetActive(false);
     }
 
     private void SelectObject()
     {
         if (_currentId == -1)
         {
-            _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
-            _currentItem = CopyInventoryItem(_items[_currentId]);
-            _movingObject.gameObject.SetActive(true);
-            _movingObject.GetComponent<Image>().sprite = _inventoryStorage.GetItem(_items[_currentId].Id).Image;
+            if (_inventoryStorage.GetItem(int.Parse(_eventSystem.currentSelectedGameObject.name)).Id == 0)
+                return;
 
-            AddItem(_currentId, _inventoryStorage.GetItem(0));
+            _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
+            _currentItem = CopyInventoryItem(_inventoryStorage.GetItem(_currentId));
+            Debug.Log(_currentItem.Type);
+            _movingObject.gameObject.SetActive(true);
+            _movingObject.GetComponent<Image>().sprite = _itemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
+
+            _inventoryStorage.AddItem(_currentId, _itemStorage.GetItem(0));
         }
         else
         {
-            ItemInventory temp = _items[int.Parse(_eventSystem.currentSelectedGameObject.name)];
+            ItemInventory temp = _inventoryStorage.GetItem(int.Parse(_eventSystem.currentSelectedGameObject.name));
 
             AddInventoryItem(_currentId, temp);
             AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
@@ -166,26 +129,21 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    private void AddItem(int id, Item item)
-    {
-        _items[id].UpdateInformation(item.Id, item.Image, item.Name, item.Type);
-    }
-
     private void AddInventoryItem(int id, ItemInventory inventoryItem)
     {
-        Item temp = _inventoryStorage.GetItem(inventoryItem.Id);
-        _items[id].UpdateInformation(inventoryItem.Id, temp.Image, temp.Name,temp.Type);
+        Item temp = _itemStorage.GetItem(inventoryItem.Id);
+        _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image, temp.Name,temp.Type);
     }
 
     private void AddGraphics()
     {
-        for(int i = _items.Count; i < _maxCount; i++)
+        for(int i = _inventoryStorage.ItemCount; i < _maxCount; i++)
         {
             GameObject newItem = Instantiate(_gameObjectShow, _inventoryContent.transform) as GameObject;
 
             newItem.name = i.ToString();
 
-            ItemInventory itemInventory = new ItemInventory();
+            ItemInventory itemInventory = new();
             itemInventory.AssignGameObject(newItem);
 
             RectTransform rectTransform = newItem.GetComponent<RectTransform>();
@@ -197,16 +155,16 @@ public class InventoryUI : MonoBehaviour
 
             tempButton.onClick.AddListener(delegate { SelectObject(); });
 
-            _items.Add(itemInventory);
+            _inventoryStorage.AddSlot(itemInventory);
         }
     }
 
     private void StartUpdateInventory()
     {
-        for(int i = 0; i < _items.Count; i++)
+        for(int i = 0; i < _inventoryStorage.ItemCount; i++)
         {
-            Item temp = _inventoryStorage.GetItem(_items[i].Id);
-            _items[i].AssignÑharacteristics(temp.Name, temp.Image, temp.Type);
+            Item temp = _itemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
+            _inventoryStorage.GetItem(i).AssignÑharacteristics(temp.Name, temp.Image, temp.Type);
         }
     }
 
@@ -219,7 +177,7 @@ public class InventoryUI : MonoBehaviour
 
     private ItemInventory CopyInventoryItem(ItemInventory oldItem)
     {
-        ItemInventory newItem = new ItemInventory();
+        ItemInventory newItem = new();
 
         newItem.AssignId(oldItem.Id);
         newItem.AssignGameObject(oldItem.ItemObject);
