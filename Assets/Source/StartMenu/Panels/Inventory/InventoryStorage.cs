@@ -41,7 +41,7 @@ public class InventoryStorage : MonoBehaviour
     public bool CheckSorting()
     {
         bool needSorting = true;
-        int lastId = 0;
+        int lastId = _items[0].Id;
         int countSortingBreak = 0;
 
         for (int i = 0; i < _items.Count; i++)
@@ -50,8 +50,8 @@ public class InventoryStorage : MonoBehaviour
             if (_items[i].Id == 0 && lastId != _items[i].Id)
             {
                 countSortingBreak++;
-                Debug.Log(countSortingBreak);
-                if (countSortingBreak == 3)
+
+                if (countSortingBreak == 2)
                 {
                     needSorting = false;
                     break;
