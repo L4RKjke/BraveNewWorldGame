@@ -6,13 +6,10 @@ using UnityEngine.EventSystems;
 using TMPro;
 
 [RequireComponent(typeof(InventoryStorage))]
-public class InventoryUI : MonoBehaviour
+public class InventoryUI : RenderUI
 {
     [SerializeField] private ItemStorage _itemStorage;
-    [SerializeField] private GameObject _inventoryContent;
-    [SerializeField] private GameObject _gameObjectShow;
     [SerializeField] private RectTransform _movingObject;
-    [SerializeField] private CharactersItemUI _charactersItemUI;
 
     private InventoryStorage _inventoryStorage;
     private int _maxCount = 50;
@@ -102,6 +99,30 @@ public class InventoryUI : MonoBehaviour
         _movingObject.gameObject.SetActive(false);
     }
 
+    protected override void AddGraphics()
+    {
+        for (int i = _inventoryStorage.ItemCount; i < _maxCount; i++)
+        {
+            GameObject newItem = Instantiate(Ñontainer, Content.transform) as GameObject;
+
+            newItem.name = i.ToString();
+
+            ItemInventory itemInventory = new();
+            itemInventory.AssignGameObject(newItem);
+
+            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
+            rectTransform.localPosition = Vector3.zero;
+            rectTransform.localScale = Vector3.one;
+            newItem.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
+
+            Button tempButton = newItem.GetComponent<Button>();
+
+            tempButton.onClick.AddListener(delegate { SelectObject(); });
+
+            _inventoryStorage.AddSlot(itemInventory);
+        }
+    }
+
     private void SelectObject()
     {
         if (_currentId == -1)
@@ -135,30 +156,6 @@ public class InventoryUI : MonoBehaviour
         _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image, temp.Name,temp.Type);
     }
 
-    private void AddGraphics()
-    {
-        for(int i = _inventoryStorage.ItemCount; i < _maxCount; i++)
-        {
-            GameObject newItem = Instantiate(_gameObjectShow, _inventoryContent.transform) as GameObject;
-
-            newItem.name = i.ToString();
-
-            ItemInventory itemInventory = new();
-            itemInventory.AssignGameObject(newItem);
-
-            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
-            rectTransform.localPosition = Vector3.zero;
-            rectTransform.localScale = Vector3.one;
-            newItem.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
-
-            Button tempButton = newItem.GetComponent<Button>();
-
-            tempButton.onClick.AddListener(delegate { SelectObject(); });
-
-            _inventoryStorage.AddSlot(itemInventory);
-        }
-    }
-
     private void StartUpdateInventory()
     {
         for(int i = 0; i < _inventoryStorage.ItemCount; i++)
@@ -171,7 +168,7 @@ public class InventoryUI : MonoBehaviour
     private void MoveObject()
     {
         Vector3 position = Input.mousePosition + _offSet;
-        position.z = _inventoryContent.GetComponent<RectTransform>().position.z;
+        position.z = Content.GetComponent<RectTransform>().position.z;
         _movingObject.position = Camera.main.ScreenToWorldPoint(position);
     }
 

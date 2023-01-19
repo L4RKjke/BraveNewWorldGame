@@ -4,14 +4,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharactersItemUI : MonoBehaviour
+public class CharactersItemUI : RenderUI
 {
     [SerializeField] private List<SlotItems> _equipmentSlot = new List<SlotItems>();
-    [SerializeField] private GameObject _gameObjectShow;
-    [SerializeField] private GameObject _charactersItemsContent;
     [SerializeField] private InventoryUI _inventoryUI;
-
-    private List<GameObject> _equippedItems = new List<GameObject>();
+    [SerializeField] private CharacterPlayerUI _characterPlayerUI;
 
     private InventoryStorage _inventoryStorage => _inventoryUI.InventoryStorage;
     private ItemStorage _itemStorage => _inventoryUI.ItemStorage;
@@ -21,23 +18,6 @@ public class CharactersItemUI : MonoBehaviour
     private void Start()
     {
         AddGraphics();
-    }
-
-    public void AddItem(GameObject item)
-    {
-        _equippedItems.Add(item);
-    }
-
-    public void UpdateButtonGraphics(GameObject button)
-    {
-        int id = int.Parse(button.name);
-        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[id].ItemImage;
-        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemName;
-        _equipmentSlot[id].SetId();
-
-        Button temp = button.GetComponentInChildren<Button>();
-        temp.onClick.RemoveAllListeners();
-        temp.onClick.AddListener(delegate { EquipItem(_equipmentSlot[id].ItemName, button); });
     }
 
     public void SetIdSlot(GameObject button, int itemId)
@@ -53,21 +33,72 @@ public class CharactersItemUI : MonoBehaviour
         return _equipmentSlot[id].ItemId;
     }
 
+    public void UpdateAllButtons(GameObject character)
+    {
+        CharacterItems charactersItems = character.GetComponent<CharacterItems>();
+
+        for (int i = 0; i < _equipmentSlot.Count; i++)
+        {
+
+            Item tempItem = charactersItems.GetItem(_equipmentSlot[i].ItemType);
+
+            GameObject button = Content.transform.GetChild(i).gameObject;
+
+            if (tempItem != null)
+            {
+                UpdateButtonGraphicsEquip(button, tempItem);
+            }
+            else
+            {
+                UpdateButtonGraphicsUnequip(button);
+            }
+        }
+    }
+
+    protected override void AddGraphics()
+    {
+        for (int i = 0; i < _equipmentSlot.Count; i++)
+        {
+            GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;
+            newButton.name = i.ToString();
+
+            UpdateButtonGraphicsUnequip(newButton);
+        }
+    }
+
+    private void UpdateButtonGraphicsEquip(GameObject button, Item item)
+    {
+
+        button.GetComponentInChildren<Image>().sprite = item.Image;
+        button.GetComponentInChildren<TMP_Text>().text = _currentItem.Name;
+
+        Button tempButton = button.GetComponentInChildren<Button>();
+        tempButton.onClick.RemoveAllListeners();
+        SetIdSlot(button, _currentItem.Id);
+
+        tempButton.onClick.AddListener(delegate { UnequipItem(button, _itemStorage.GetItem(GetId(button))); });
+    }
+
+    private void UpdateButtonGraphicsUnequip(GameObject button)
+    {
+        int id = int.Parse(button.name);
+        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[id].ItemImage;
+        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemType;
+        _equipmentSlot[id].SetId();
+
+        Button temp = button.GetComponentInChildren<Button>();
+        temp.onClick.RemoveAllListeners();
+        temp.onClick.AddListener(delegate { EquipItem(_equipmentSlot[id].ItemType, button); });
+    }
+
     private void EquipItem(string type, GameObject button)
     {
 
-        if (_currentId != -1 && _currentItem.Type == type)
+        if (_currentId != -1 && _currentItem.Type.ToLower() == type.ToLower())
         {
+            Item item = _currentItem.ItemObject.GetComponent<Item>();
 
-            button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _currentItem.Image;
-            button.GetComponentInChildren<TMP_Text>().text = _currentItem.Name;
-            AddItem(_currentItem.ItemObject);
-
-            Button temp = button.GetComponentInChildren<Button>();
-            temp.onClick.RemoveAllListeners();
-            SetIdSlot(button, _currentItem.Id);
-
-            temp.onClick.AddListener(delegate { UnequipItem(button, _itemStorage.GetItem(GetId(button))); });
+            UpdateButtonGraphicsEquip(button, item);
 
             if (_inventoryStorage.GetItem(_currentId).Id == 0)
             {
@@ -77,25 +108,18 @@ public class CharactersItemUI : MonoBehaviour
                     _inventoryStorage.SortingInventory(_currentId, _itemStorage);
             }
 
+            _characterPlayerUI.EquipItem(type, true, item);
+
             _inventoryUI.ResetMovingObject();
         }
     }
 
     private void UnequipItem(GameObject button, Item item)
     {
-        UpdateButtonGraphics(button);
+        UpdateButtonGraphicsUnequip(button);
+        int id = int.Parse(button.name);
+        _characterPlayerUI.EquipItem(_equipmentSlot[id].ItemType, false, item);
         _inventoryUI.ReturnItem(item);
-    }
-
-    private void AddGraphics()
-    {
-        for (int i = 0; i < _equipmentSlot.Count; i++)
-        {
-            GameObject newButton = Instantiate(_gameObjectShow, _charactersItemsContent.transform) as GameObject;
-            newButton.name = i.ToString();
-
-            UpdateButtonGraphics(newButton);
-        }
     }
 }
 
@@ -104,11 +128,11 @@ public class CharactersItemUI : MonoBehaviour
 class SlotItems
 {
     [SerializeField] private Sprite _itemImage;
-    [SerializeField] private string _itemName;
+    [SerializeField] private string _itemType;
 
     public Sprite ItemImage => _itemImage;
-    public string ItemName => _itemName;
-    public int ItemId;
+    public string ItemType => _itemType;
+    public int ItemId { get; private set; }
 
     public void SetId(int id = 0)
     {

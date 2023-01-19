@@ -7,24 +7,49 @@ public class CharacterPlayerUI : MonoBehaviour
     [SerializeField] private List<GameObject> _characters;
     [SerializeField] private Transform _pointToCreate;
     [SerializeField] private GameObject _foldingScreen;
+    [SerializeField] private CharactersItemUI _charactersItemUI;
 
     private GameObject _currentCharacter;
+    private int _currentId = 0;
+    private Coroutine _coroutine;
 
     private void Start()
     {
         float delay = 0.5f;
-        StartCoroutine(Delay(delay,0));
+        _coroutine = StartCoroutine(Delay(delay));
     }
 
-    private void ShowCharacter(int id)
+    public void SelectCharacter(int next)
     {
-        _currentCharacter = Instantiate(_characters[id], _pointToCreate);
+        _currentId += next;
+
+        if (_currentId == _characters.Count)
+            _currentId = 0;
+        else if(_currentId < 0)
+            _currentId = _characters.Count - 1;
+
+        _charactersItemUI.UpdateAllButtons(_characters[_currentId]);
+
+        _foldingScreen.SetActive(false);
+        StopCoroutine(_coroutine);
+        _coroutine = StartCoroutine(Delay(0));
+    }
+
+    public void EquipItem(string type, bool isWear, Item item = null)
+    {
+        _characters[_currentId].GetComponent<CharacterItems>().ChangeItem(type, isWear, item);
+    }
+
+    private void ShowCharacter()
+    {
+        Destroy(_currentCharacter);
+        _currentCharacter = Instantiate(_characters[_currentId], _pointToCreate);
         _currentCharacter.GetComponent<StateMachine>().enabled = false;
         _currentCharacter.transform.position = _pointToCreate.position;
         _currentCharacter.transform.localScale = new Vector3(80f, 80f, 1);
     }
 
-    private IEnumerator Delay(float delay, int id)
+    private IEnumerator Delay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
@@ -32,6 +57,6 @@ public class CharacterPlayerUI : MonoBehaviour
         float delayScreen = 0.25f;
         yield return new WaitForSeconds(delayScreen);
 
-        ShowCharacter(id);
+        ShowCharacter();
     }
 }

@@ -4,22 +4,20 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatsRender : MonoBehaviour
+public class StatsUI : RenderUI
 {
     [SerializeField] private List<SlotStat> _stats = new List<SlotStat>();
-    [SerializeField] private GameObject _gameObjectShow;
-    [SerializeField] private GameObject _charactersStatsContent;
 
     private void Start()
     {
         AddGraphics();
     }
 
-    private void AddGraphics()
+    protected override void AddGraphics()
     {
         for (int i = 0; i < _stats.Count; i++)
         {
-            GameObject newStat = Instantiate(_gameObjectShow, _charactersStatsContent.transform) as GameObject;
+            GameObject newStat = Instantiate(Ñontainer, Content.transform) as GameObject;
             newStat.name = i.ToString();
 
             newStat.transform.GetComponentInChildren<Image>().sprite = _stats[i].Image;
@@ -35,7 +33,7 @@ public class StatsRender : MonoBehaviour
 
     private void UpdateStatText(int id)
     {
-        GameObject temp = _charactersStatsContent.transform.GetChild(id).gameObject;
+        GameObject temp = Content.transform.GetChild(id).gameObject;
         temp.transform.GetComponentInChildren<TMP_Text>().text = _stats[id].Stat.ToString();
     }
 }
