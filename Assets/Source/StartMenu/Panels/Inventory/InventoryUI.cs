@@ -132,7 +132,6 @@ public class InventoryUI : RenderUI
 
             _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
             _currentItem = CopyInventoryItem(_inventoryStorage.GetItem(_currentId));
-            Debug.Log(_currentItem.Type);
             _movingObject.gameObject.SetActive(true);
             _movingObject.GetComponent<Image>().sprite = _itemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
 

@@ -311,6 +311,8 @@ GameObject:
   - component: {fileID: -4737881412732822888}
   - component: {fileID: 3863554062749838609}
   - component: {fileID: 7446288658676314744}
+  - component: {fileID: 2585755542606513714}
+  - component: {fileID: 4587932334151701200}
   m_Layer: 7
   m_Name: WizzardLogic
   m_TagString: Untagged
@@ -562,6 +564,34 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2585755542606513714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e615ce2307fb9294589c714fb59d6fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Yura
+  _attack: 50
+  _defense: 15
+  _health: 150
+--- !u!114 &4587932334151701200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f7a9cf3915c8144a3a8162aeb4fd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1002459120236183972
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,7 @@ public class CharactersItemUI : RenderUI
     private int _currentId => _inventoryUI.CurrentId;
     private ItemInventory _currentItem => _inventoryUI.CurrentItem;
 
-    private void Start()
+    private void Awake()
     {
         AddGraphics();
     }
@@ -39,7 +39,6 @@ public class CharactersItemUI : RenderUI
 
         for (int i = 0; i < _equipmentSlot.Count; i++)
         {
-
             Item tempItem = charactersItems.GetItem(_equipmentSlot[i].ItemType);
 
             GameObject button = Content.transform.GetChild(i).gameObject;
@@ -69,12 +68,12 @@ public class CharactersItemUI : RenderUI
     private void UpdateButtonGraphicsEquip(GameObject button, Item item)
     {
 
-        button.GetComponentInChildren<Image>().sprite = item.Image;
-        button.GetComponentInChildren<TMP_Text>().text = _currentItem.Name;
+        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = item.Image;
+        button.GetComponentInChildren<TMP_Text>().text = item.Name;
 
         Button tempButton = button.GetComponentInChildren<Button>();
         tempButton.onClick.RemoveAllListeners();
-        SetIdSlot(button, _currentItem.Id);
+        SetIdSlot(button, item.Id);
 
         tempButton.onClick.AddListener(delegate { UnequipItem(button, _itemStorage.GetItem(GetId(button))); });
     }
@@ -96,7 +95,7 @@ public class CharactersItemUI : RenderUI
 
         if (_currentId != -1 && _currentItem.Type.ToLower() == type.ToLower())
         {
-            Item item = _currentItem.ItemObject.GetComponent<Item>();
+            Item item = _itemStorage.GetItem(_currentItem.Id);
 
             UpdateButtonGraphicsEquip(button, item);
 

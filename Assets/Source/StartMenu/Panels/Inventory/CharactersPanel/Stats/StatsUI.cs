@@ -7,10 +7,24 @@ using UnityEngine.UI;
 public class StatsUI : RenderUI
 {
     [SerializeField] private List<SlotStat> _stats = new List<SlotStat>();
+    [SerializeField] private TMP_Text _name;
 
-    private void Start()
+    private void Awake()
     {
         AddGraphics();
+    }
+
+    public void UpdateAllStats(int attack,int defense, int life)
+    {
+        UpdateStatText(0, attack);
+        UpdateStatText(1, defense);
+        UpdateStatText(2, life);
+        UpdateStatText(3, Random.Range(0,100));
+    }
+
+    public void UpdateName(string name)
+    {
+        _name.text = name;
     }
 
     protected override void AddGraphics()
@@ -21,20 +35,13 @@ public class StatsUI : RenderUI
             newStat.name = i.ToString();
 
             newStat.transform.GetComponentInChildren<Image>().sprite = _stats[i].Image;
-            UpdateStatText(i);
         }
     }
 
-    private void UpdateStatNumber(int id, int count)
-    {
-        _stats[id].UpdateStat(count);
-        UpdateStatText(id);
-    }
-
-    private void UpdateStatText(int id)
+    private void UpdateStatText(int id, int stat)
     {
         GameObject temp = Content.transform.GetChild(id).gameObject;
-        temp.transform.GetComponentInChildren<TMP_Text>().text = _stats[id].Stat.ToString();
+        temp.transform.GetComponentInChildren<TMP_Text>().text = stat.ToString();
     }
 }
 
@@ -47,10 +54,5 @@ class SlotStat
 
     public int Stat => _stat;
     public Sprite Image => _image;
-
-    public void UpdateStat(int number)
-    {
-        _stat += number;
-    }
 }
 

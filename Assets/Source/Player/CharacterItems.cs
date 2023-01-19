@@ -5,21 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterStats))]
 public class CharacterItems : MonoBehaviour
 {
-    private CharacterStats _characterStats;
     private Item _head;
     private Item _body;
     private Item _leg;
     private Item _hand;
     private Item _weapon;
 
-    private void Awake()
-    {
-        _characterStats = GetComponent<CharacterStats>();
-    }
-
     public Item GetItem(string type)
     {
-        type.ToLower();
+        type = type.ToLower();
 
         switch (type)
         {
@@ -40,33 +34,90 @@ public class CharacterItems : MonoBehaviour
 
     public void ChangeItem(string type, bool isWear, Item item = null)
     {
-        type.ToLower();
+        type = type.ToLower();
 
         switch (type)
         {
             case "weapon":
-                Equip(isWear, _weapon, item);
+                {
+                    if (isWear)
+                    {
+                        _weapon = item;
+                        ChangeStats(_weapon, isWear);
+                    }
+                    else
+                    {
+                        ChangeStats(_weapon, isWear);
+                        _weapon = null;
+                    }
+                }
                 break;
             case "hand":
-                Equip(isWear, _hand, item);
+                {
+                    if (isWear)
+                    {
+                        _hand = item;
+                        ChangeStats(_hand, isWear);
+                    }
+                    else
+                    {
+                        ChangeStats(_hand, isWear);
+                        _hand = null;
+                    }
+                }
                 break;
             case "head":
-                Equip(isWear, _head, item);
+                {
+                    if (isWear)
+                    {
+                        _head = item;
+                        ChangeStats(_head, isWear);
+                    }
+                    else
+                    {
+                        ChangeStats(_head, isWear);
+                        _head = null;
+                    }
+                }
                 break;
             case "body":
-                Equip(isWear, _body, item);
+                {
+                    if (isWear)
+                    {
+                        _body = item;
+                        ChangeStats(_body, isWear);
+                    }
+                    else
+                    {
+                        ChangeStats(_body, isWear);
+                        _body = null;
+                    }
+                }
                 break;
             case "leg":
-                Equip(isWear, _leg, item);
+                {
+                    if (isWear)
+                    {
+                        _leg = item;
+                        ChangeStats(_leg, isWear);
+                    }
+                    else
+                    {
+                        ChangeStats(_leg, isWear);
+                        _leg = null;
+                    }
+                }
                 break;
         }
     }
 
-    private void Equip(bool isWear, Item characterItem, Item equipItem)
+    private void ChangeStats(Item item, bool isWear)
     {
+        CharacterStats characterStats = GetComponent<CharacterStats>();
+
         if (isWear)
-            characterItem = equipItem;
+            characterStats.AssignStat(item.Attack, item.Defense, item.Health);
         else
-            characterItem = null;
+            characterStats.AssignStat(-item.Attack, -item.Defense, -item.Health);
     }
 }

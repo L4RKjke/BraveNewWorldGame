@@ -8,6 +8,7 @@ public class CharacterPlayerUI : MonoBehaviour
     [SerializeField] private Transform _pointToCreate;
     [SerializeField] private GameObject _foldingScreen;
     [SerializeField] private CharactersItemUI _charactersItemUI;
+    [SerializeField] private StatsUI _statsUI;
 
     private GameObject _currentCharacter;
     private int _currentId = 0;
@@ -17,6 +18,9 @@ public class CharacterPlayerUI : MonoBehaviour
     {
         float delay = 0.5f;
         _coroutine = StartCoroutine(Delay(delay));
+        _charactersItemUI.UpdateAllButtons(_characters[_currentId]);
+        ShowStats();
+        _statsUI.UpdateName(_characters[_currentId].GetComponent<CharacterStats>().Name);
     }
 
     public void SelectCharacter(int next)
@@ -29,6 +33,8 @@ public class CharacterPlayerUI : MonoBehaviour
             _currentId = _characters.Count - 1;
 
         _charactersItemUI.UpdateAllButtons(_characters[_currentId]);
+        ShowStats();
+        _statsUI.UpdateName(_characters[_currentId].GetComponent<CharacterStats>().Name);
 
         _foldingScreen.SetActive(false);
         StopCoroutine(_coroutine);
@@ -38,6 +44,13 @@ public class CharacterPlayerUI : MonoBehaviour
     public void EquipItem(string type, bool isWear, Item item = null)
     {
         _characters[_currentId].GetComponent<CharacterItems>().ChangeItem(type, isWear, item);
+        ShowStats();
+    }
+
+    private void ShowStats()
+    {
+        CharacterStats characterStats = _characters[_currentId].GetComponent<CharacterStats>();
+        _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health);
     }
 
     private void ShowCharacter()

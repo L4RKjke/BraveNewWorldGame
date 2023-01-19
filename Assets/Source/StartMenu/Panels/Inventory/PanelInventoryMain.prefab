@@ -236,21 +236,17 @@ MonoBehaviour:
   Content: {fileID: 721885129}
   _equipmentSlot:
   - _itemImage: {fileID: 21300000, guid: 2bc2b86b96325c84387a5f10ea3a8513, type: 3}
-    _itemName: Head
-    ItemId: 0
+    _itemType: Head
   - _itemImage: {fileID: 21300000, guid: aa53df39e2ff3b1459a7ccdeed1275bc, type: 3}
-    _itemName: Body
-    ItemId: 0
+    _itemType: Body
   - _itemImage: {fileID: 21300000, guid: d37e4a60dd7a0134e932e76b73a6de5f, type: 3}
-    _itemName: Leg
-    ItemId: 0
+    _itemType: Leg
   - _itemImage: {fileID: 21300000, guid: 3b1fc2175481486488d8d4fb4beb13c9, type: 3}
-    _itemName: Hand
-    ItemId: 0
+    _itemType: Hand
   - _itemImage: {fileID: 21300000, guid: cbb9d2b1b69d9594aab174dac1a2b88b, type: 3}
-    _itemName: Weapon
-    ItemId: 0
+    _itemType: Weapon
   _inventoryUI: {fileID: 7830513943641834444}
+  _characterPlayerUI: {fileID: 8022819898317358636}
 --- !u!1 &861127918
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.18250275, y: -23.13086}
-  m_SizeDelta: {x: -0.36, y: -46.271}
+  m_AnchoredPosition: {x: -5, y: -23.13086}
+  m_SizeDelta: {x: -10, y: -46.27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &861127920
 MonoBehaviour:
@@ -1109,7 +1105,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1375,6 +1371,8 @@ MonoBehaviour:
   - {fileID: 989668497598042495, guid: 0941d4702fecf1e45bca771088a2f44e, type: 3}
   _pointToCreate: {fileID: 7085308655083600835}
   _foldingScreen: {fileID: 5548925543517154658}
+  _charactersItemUI: {fileID: 761082366}
+  _statsUI: {fileID: 8403536760263503984}
 --- !u!1 &6513910745597994671
 GameObject:
   m_ObjectHideFlags: 0
@@ -1758,7 +1756,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2101,7 +2099,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.04296875, y: -29.929932}
+  m_AnchoredPosition: {x: 0.04296875, y: -29.929962}
   m_SizeDelta: {x: -0.49, y: -69.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7830513944482512628
@@ -2572,6 +2570,7 @@ MonoBehaviour:
     _stat: 4
   - _image: {fileID: 21300000, guid: a330341716ee64ffd8f92101938b00e8, type: 3}
     _stat: 1
+  _name: {fileID: 7952979996089570776}
 --- !u!1 &8968664918501082569
 GameObject:
   m_ObjectHideFlags: 0
@@ -2895,7 +2894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8968664919179346670
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2981,7 +2980,6 @@ MonoBehaviour:
   Content: {fileID: 7830513943855182000}
   _itemStorage: {fileID: 7830513944083912373}
   _movingObject: {fileID: 7830513944908793639}
-  _charactersItemUI: {fileID: 761082366}
   _eventSystem: {fileID: 0}
 --- !u!1 &8968664919515185144
 GameObject:

@@ -16,4 +16,7 @@ public class Item : MonoBehaviour
     public Sprite Image => _image;
     public string Name => _name;
     public string Type => _type;
+    public int Defense => _defense;
+    public int Attack => _attack;
+    public int Health => _health;
 }

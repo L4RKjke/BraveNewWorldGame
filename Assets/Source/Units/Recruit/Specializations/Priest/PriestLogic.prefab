@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: -4737881412732822888}
   - component: {fileID: 3863554062749838609}
   - component: {fileID: 7446288658676314744}
+  - component: {fileID: 4307316241536244211}
+  - component: {fileID: 1544602812463222786}
   m_Layer: 7
   m_Name: PriestLogic
   m_TagString: Untagged
@@ -240,6 +242,34 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &4307316241536244211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e615ce2307fb9294589c714fb59d6fec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _name: Alina
+  _attack: 5
+  _defense: 3
+  _health: 100
+--- !u!114 &1544602812463222786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f7a9cf3915c8144a3a8162aeb4fd32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6543008646396759311
 PrefabInstance:
   m_ObjectHideFlags: 0
