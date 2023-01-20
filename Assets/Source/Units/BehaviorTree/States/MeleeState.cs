@@ -1,43 +1,26 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+
+
 public class MeleeState : AtackState
 {
-    public UnityAction MelleeAtackStarted;
+    private IMeleeAtacker _meleeAtacker;
 
-    private void OnEnable()
+    public UnityAction AtackStarted;
+
+    private void Start()
     {
-        StartCoroutine(Launch);
-        Controller.AtackCompleted += CompleteAtack;
+        _meleeAtacker = GetComponent<IMeleeAtacker>();
     }
 
-    private void OnDisable()
+    protected override void StartAtack()
     {
-        StopCoroutine(Launch);
-        Controller.AtackCompleted -= CompleteAtack;
+        AtackStarted?.Invoke();
     }
 
-    override protected void StartAtack()
+    protected override void CompleteAtack()
     {
-        MelleeAtackStarted?.Invoke();
-    }
-
-    override protected void CompleteAtack()
-    {
-        ///?? переделать
-        if (TryGetComponent(out Recruit recruit))
-        {
-            if (recruit.Weapon == null)
-                recruit.CurrentTarget.TakeDamage(recruit.Damage);
-            else
-            {
-                recruit.CurrentTarget.TakeDamage((ushort)(recruit.Damage + recruit.Weapon.Damage));
-            }
-
-        } 
-        else
-        {
-            Fighter.CurrentTarget.TakeDamage(Fighter.Damage);
-        }
+        _meleeAtacker.Atack(Damage);
     }
 }

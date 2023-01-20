@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 3197748091920506360}
   - component: {fileID: 6058060237288043377}
   - component: {fileID: 3428194597397445092}
-  - component: {fileID: 9035725997248292605}
   - component: {fileID: 6510095487715379492}
   - component: {fileID: 3428194597397445100}
   - component: {fileID: 3428194597397445101}
@@ -120,11 +119,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04191c43effe72b4ca3e8df89402d2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
-  _currentTarget: {fileID: 0}
-  _weapon: {fileID: 0}
   _healPoint: {fileID: 0}
   _buttonPostion: {fileID: 7024910067795168153}
+  _rootModel: {fileID: 0}
+  _agent: {fileID: 0}
+  _fighterView: {fileID: 0}
 --- !u!114 &3231446979557770531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,21 +181,6 @@ MonoBehaviour:
   - {fileID: 6510095487715379492}
   - {fileID: 3428194597397445100}
   _type: 0
---- !u!114 &9035725997248292605
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3428194597397445091}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1d6e4965fa674e40a5eecf1efe398f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _transitions:
-  - {fileID: 6510095487715379492}
-  - {fileID: 3428194597397445101}
 --- !u!114 &6510095487715379492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,7 +206,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84346703e15762f49a2367e198095d0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetState: {fileID: 9035725997248292605}
+  _targetState: {fileID: 0}
+  _meleeDistance: 0
+  _walkDistance: 0
 --- !u!114 &3428194597397445101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,6 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3428194597397445092}
+  _meleeDistance: 0
+  _walkDistance: 0
 --- !u!114 &3428194597397445102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,8 +701,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8402b1d832a3e04484549b5c754a7fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unit: {fileID: 0}
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
-  _enemy: {fileID: 3428194597397445097}
+  _TMPro: {fileID: 0}
+  _characterView: {fileID: 0}
 --- !u!1 &7202684073431941364
 GameObject:
   m_ObjectHideFlags: 0

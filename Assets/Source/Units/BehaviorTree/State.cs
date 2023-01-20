@@ -7,7 +7,7 @@ public abstract class State : MonoBehaviour
 
     protected Vector2 TargetPosition;
 
-    protected Fighter Fighter => GetComponent<Fighter>();
+    public Fighter CurrentFighter => GetComponent<Fighter>();
 
     public void Enter ()
     {

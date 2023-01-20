@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private ushort _bulletDamage = 4;
+    private ushort _damage = 4;
 
     private readonly float _speed = 3;
     private readonly float _lifetime = 5;
+    private FighterType _targetType;
 
 
     private void Start()
@@ -17,9 +18,15 @@ public class Fireball : MonoBehaviour
         StartCoroutine(LifeTimeCorutine());
     }
 
+    public void Init(FighterType targetType, ushort damage)
+    {
+        _targetType = targetType;
+        _damage = damage;
+    }
+
     public void IncreaseDamage(ushort damage)
     {
-        _bulletDamage += damage;
+        _damage += damage;
     }
 
     private void OnDestroy()
@@ -31,8 +38,11 @@ public class Fireball : MonoBehaviour
     {
         if (collision.TryGetComponent(out Fighter target))
         {
-            target.TakeDamage(_bulletDamage);
-            Destroy(gameObject);
+            if (_targetType == target.MyType)
+            {
+                target.TakeDamage(_damage);
+                Destroy(gameObject);
+            }
         }
     }
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3120355151549051555}
   - component: {fileID: 9170819708893192992}
   - component: {fileID: -2929875871426686447}
+  - component: {fileID: 7685837332953516866}
   m_Layer: 0
   m_Name: FireballPart
   m_TagString: Untagged
@@ -4983,6 +4984,17 @@ CircleCollider2D:
   m_Offset: {x: -0.0047362843, y: 0}
   serializedVersion: 2
   m_Radius: 0.2158151
+--- !u!210 &7685837332953516866
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3120355151549051564}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 300
 --- !u!1 &7107646521427139888
 GameObject:
   m_ObjectHideFlags: 0
@@ -5055,9 +5067,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 300
   m_Sprite: {fileID: 21300000, guid: ef72862eebb634a24928a4ba7c50e564, type: 3}
-  m_Color: {r: 1, g: 0, b: 0.07710934, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.07710934, a: 0.78431374}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

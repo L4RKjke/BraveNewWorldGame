@@ -12,7 +12,6 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private List<GameObject> _enemies;
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private NavMeshSurface2d _navMesh;
-    [SerializeField] private BoxCollider2D _battleFieldNavMesh;
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private UnitPool _fighters;
 
@@ -25,22 +24,24 @@ public class ArenaCells : MonoBehaviour
     private int _playerWidth = 4;
 
 
-    private void Start()
+    private void Awake()
     {
         _objectsSaver = GetComponent<ObjectsSaver>();
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
         CreateCharacters();
-        HideCells(_playerWidth);
-        DeleteCells(_playerWidth + 1);
+        /*HideCells(_playerWidth);*/
+    }
+
+    private void Start()
+    {
         _navMesh.BuildNavMesh();
-        _battleFieldNavMesh.enabled = false;
     }
 
     public void PlayStartBattle()
     {
-        DeleteCells();
+        /*DeleteCells();*/
     }
 
     private void CreateCharacters()
@@ -58,7 +59,7 @@ public class ArenaCells : MonoBehaviour
 
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Fighter>();
             ///Временно
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 1.2f);
+            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150);
 
             _fighters.AddNewFighter(newUnit);
         }
@@ -143,6 +144,7 @@ public class ArenaCells : MonoBehaviour
                 Barrier barrier = Instantiate(_barriers[i], cell.transform.position, Quaternion.identity);
                 barrier.transform.SetParent(_objectsSaver.ParentFolderBarrier);
                 cell.ChangeFull();
+                cell.GetComponent<NavMeshModifier>().area = 1;
             }
         }
     }
@@ -174,10 +176,10 @@ public class ArenaCells : MonoBehaviour
                 var newUnit = enemy.transform.GetChild(1).GetComponent<Fighter>();
                 ///Временно
                 ///
-                if (newUnit.TryGetComponent<RangeAtacker>(out _))
-                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150, 5f);
+                if (newUnit.TryGetComponent<IRangeAtacker>(out _))
+                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
                 else 
-                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150, 1.2f);
+                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
 
                 _fighters.AddNewFighter(newUnit);
 

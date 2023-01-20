@@ -6,7 +6,7 @@ public class FindTargetState : State
 
     private void OnEnable()
     {
-        Fighter.UpdateCurrentTarget();
+        CurrentFighter.UpdateCurrentTarget();
         StateActivated?.Invoke();
     }
 }

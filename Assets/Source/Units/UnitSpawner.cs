@@ -46,9 +46,9 @@ public class UnitSpawner : MonoBehaviour
             var newUnit = newFighter.transform.GetChild(1).GetComponent<Fighter>();
 
             if (enemyType == FighterType.Recruit)
-                newUnit.Init(type, enemyType, _fighters, 20, 150, 1.3f);
+                newUnit.Init(type, enemyType, _fighters, 20, 150);
             if (enemyType == FighterType.Enemy)
-                newUnit.Init(type, enemyType, _fighters, 20, 150, 9f);
+                newUnit.Init(type, enemyType, _fighters, 20, 150);
 
             units.AddNewFighter(newUnit);
         }

@@ -3,21 +3,21 @@ using UnityEngine.Events;
 
 public class WalkState : State
 {
-    [SerializeField] private FighterType _type;
+    [SerializeField] private NavMeshRootController _navMeshCotroller;
 
-    private readonly float _speed = 1.6f;
-
-    public UnityAction MovementStarted;
+    public UnityAction<float> SpeedChanged;
 
     private void OnEnable()
     {
-        Fighter.Agent.isStopped = false;
-        MovementStarted?.Invoke();
+        _navMeshCotroller.MakeMoveble();
+        _navMeshCotroller.SetStoppingDistance(CurrentFighter.WalkDistance- 0.1f);
+        SpeedChanged?.Invoke(CurrentFighter.Speed);
     }
 
     private void OnDisable()
     {
-        Fighter.Agent.isStopped = true;
+        _navMeshCotroller.StopAgent();
+        SpeedChanged?.Invoke(0);
     }
 
     private void Update()
@@ -27,9 +27,9 @@ public class WalkState : State
 
     private void MoveToTarget()
     {
-        if (Fighter.CurrentTarget != null && Fighter != null)
+        if (CurrentFighter.CurrentTarget != null && CurrentFighter != null)
         {
-            Fighter.Agent.SetDestination(Fighter.CurrentTarget.transform.position);
+            _navMeshCotroller.MoveTo(CurrentFighter.CurrentTarget.transform.position, CurrentFighter.Speed);
         }
     }
 }

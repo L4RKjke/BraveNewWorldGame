@@ -1,11 +1,11 @@
-public class TransitionToMelee : DistanceChecker
-{
-    private readonly float _meleeDistance = 1.3f;
+using UnityEngine;
 
+public class TransitionToMelee : DistanceTransition
+{
     private void Update()
     {
         if (CurrentFighter.CurrentTarget != null)
-            if (DistanceToTarget < _meleeDistance)
+            if (DistanceToTarget < CurrentFighter.MeleeDistance)
             {
                 NeedTransit = true;
             }

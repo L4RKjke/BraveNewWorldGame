@@ -8,12 +8,12 @@ public class UnitDeathAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        StartCoroutine(_waitUntilDid);
+        StartCoroutine("WaitUntilDie");
     }
 
     private void OnDestroy()
     {
-        StopCoroutine(_waitUntilDid);
+        StopCoroutine("WaitUntilDie");
     }
 
     private IEnumerator WaitUntilDie()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HeroAnimatorContreller : AnimationCotroller
 {
-    private RecruitAtackState _atackState;
+    private RangeAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
     private MeleeState _meleeState;
@@ -11,18 +11,16 @@ public class HeroAnimatorContreller : AnimationCotroller
     {
         if (CurrentUnit != null)
         {
-            /*CurrentUnit.HealthChanged += OnHitted;*/
-
-            if (CurrentUnit.TryGetComponent(out RecruitAtackState atackState))
+            if (CurrentUnit.TryGetComponent(out RangeAtackState atackState))
             {
                 _atackState = atackState;
-                _atackState.RangeAtackStarted += OnHeroAtacking;
+                _atackState.AtackStarted += OnHeroAtacking;
             }
 
             if (CurrentUnit.TryGetComponent(out WalkState walkState))
             {
                 _walkState = walkState;
-                _walkState.MovementStarted += OnHeroWalking;
+                _walkState.SpeedChanged += OnHeroWalking;
             }
 
             if (CurrentUnit.TryGetComponent(out FindTargetState findTarget))
@@ -34,7 +32,7 @@ public class HeroAnimatorContreller : AnimationCotroller
             if (CurrentUnit.TryGetComponent(out MeleeState melee))
             {
                 _meleeState = melee;
-                _meleeState.MelleeAtackStarted += OnMelee;
+                _meleeState.AtackStarted += OnMelee;
             }
         }
     }
@@ -45,16 +43,13 @@ public class HeroAnimatorContreller : AnimationCotroller
             _findTargetState.StateActivated -= OnIdleAnimation;
 
         if (_atackState != null)
-            _atackState.RangeAtackStarted -= OnHeroAtacking;
+            _atackState.AtackStarted -= OnHeroAtacking;
 
         if (_walkState != null)
-            _walkState.MovementStarted -= OnHeroWalking;
+            _walkState.SpeedChanged -= OnHeroWalking;
 
         if (_meleeState != null)
-            _meleeState.MelleeAtackStarted -= OnMelee;
-/*
-        if (CurrentUnit != null)
-            CurrentUnit.HealthChanged -= OnHitted;*/
+            _meleeState.AtackStarted -= OnMelee;
     }
 
     public void OnHeroAtacking()
@@ -62,9 +57,9 @@ public class HeroAnimatorContreller : AnimationCotroller
         Animator.SetTrigger("CastSpell");
     }
 
-    public void OnHeroWalking()
+    public void OnHeroWalking(float speed)
     {
-        Animator.SetTrigger("Walk");
+        Animator.SetFloat("Speed", speed);
     }
 
     public void OnIdleAnimation()
@@ -75,10 +70,5 @@ public class HeroAnimatorContreller : AnimationCotroller
     public void OnMelee()
     {
         Animator.SetTrigger("HandAtack");
-    }
-
-    public void OnHitted(ushort damage)
-    {
-        Animator.SetTrigger("Hitted");
     }
 }

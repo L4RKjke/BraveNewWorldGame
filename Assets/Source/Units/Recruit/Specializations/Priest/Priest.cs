@@ -1,55 +1,35 @@
 using System.Collections;
 using UnityEngine;
 
-public class Priest : Recruit
+public class Priest : Recruit, IRangeAtacker
 {
-    [SerializeField] private GameObject _passiveLighting;
     [SerializeField] private GameObject _healPart;
 
-    private float _currentHealingTime = 0;
-
-    private readonly float _healDelay = 0.2f;
-    private readonly float _maxHealingTime = 30;
-
-    /// Божественная кара, просто удар молнией или лучом по цели.
-
-    public override void Atack()
+    public void Shoot(ushort damage)
     {
-        if (CurrentTarget != null)
-            CurrentTarget.TakeDamage(Damage);
-        _passiveLighting.SetActive(true);
-        _passiveLighting.GetComponent<ParticleSystem>().Play();
-        _passiveLighting.transform.position = new Vector2(CurrentTarget.transform.position.x, CurrentTarget.transform.position.y);
-    }
+        var mate = GetWounded();
+        mate.Heal();
 
-    private void OnDisable()
-    {
-        StopCoroutine(StartHealing());
-    }
-
-    public override void UsePassiveSkill()
-    {
-        var randomMate = Units.GetById(GetRandom(), FighterType.Recruit);
-
-        randomMate.Heal();
         _healPart.SetActive(true);
         _healPart.GetComponent<ParticleSystem>().Play();
-        _healPart.GetComponent<HealPartMover>().Init(randomMate);
+        _healPart.GetComponent<HealPartMover>().Init(mate);
     }
 
-    private IEnumerator StartHealing()
+    private Fighter GetWounded()
     {
-        while (true)
+        float minHealth = Mathf.Infinity;
+        Fighter fighter = null;
+
+        for (int i = 0; i < Units.GetLength(FighterType.Recruit); i++)
         {
-            Units.GetById(GetRandom(), FighterType.Recruit).AddHealthPoint();
-            _currentHealingTime += _healDelay;
+            var unit = Units.GetById(i, FighterType.Recruit);
 
-            if (_currentHealingTime >= _maxHealingTime)
-                yield break;
-
-            yield return new WaitForSeconds(_healDelay);
+            if (unit.Health < minHealth)
+            {
+                fighter = unit;
+                minHealth = Units.GetById(i, FighterType.Recruit).Health;
+            }
         }
+        return fighter;
     }
-
-    private int GetRandom() => Random.Range(0, Units.GetLength(FighterType.Recruit));
 }

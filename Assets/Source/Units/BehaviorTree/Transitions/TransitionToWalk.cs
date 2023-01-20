@@ -1,13 +1,11 @@
 using UnityEngine;
 
-public class TransitionToWalk : DistanceChecker
+public class TransitionToWalk : DistanceTransition
 {
-     [SerializeField] private float _atackDistance = 1.2f;
-
     private void Update()
     {
         if (CurrentFighter.CurrentTarget != null)
-            if (DistanceToTarget >= _atackDistance)
+            if (DistanceToTarget > CurrentFighter.WalkDistance)
             {
                 NeedTransit = true;
             }

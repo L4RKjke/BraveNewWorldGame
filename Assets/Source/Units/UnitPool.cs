@@ -16,7 +16,7 @@ public class UnitPool : MonoBehaviour
 
     public int GetLength(FighterType fighterType)
     {
-        return _fighters.Where(fighter => fighter.RecruitType == fighterType).Count();
+        return _fighters.Where(fighter => fighter.MyType == fighterType).Count();
     }
 
     public int GetLength()
@@ -37,7 +37,7 @@ public class UnitPool : MonoBehaviour
 
     public Fighter GetById(int id, FighterType type)
     {
-        var fighters = _fighters.Where(fighter => fighter.RecruitType == type).ToArray();
+        var fighters = _fighters.Where(fighter => fighter.MyType == type).ToArray();
 
        return fighters[id];
     }
@@ -57,7 +57,7 @@ public class UnitPool : MonoBehaviour
 
         foreach (var fighter in _fighters)
         {
-            if (fighter.RecruitType == fighterType)
+            if (fighter.MyType == fighterType)
             {
                 float distance = Vector2.Distance(fighter.transform.position, position);
 

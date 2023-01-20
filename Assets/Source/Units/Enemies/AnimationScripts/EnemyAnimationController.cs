@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public class EnemyAnimationController : AnimationCotroller
 {
-    private EnemyAtackState _atackState;
+    private RangeAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
     private MeleeState _meleeState;
@@ -14,12 +14,10 @@ public class EnemyAnimationController : AnimationCotroller
     {
         if (CurrentUnit != null)
         {
-            /*CurrentUnit.HealthChanged += OnHitted;*/
-
             if (CurrentUnit.TryGetComponent(out MeleeState melee))
                 _meleeState = melee;
 
-            if (CurrentUnit.TryGetComponent(out EnemyAtackState atackState))
+            if (CurrentUnit.TryGetComponent(out RangeAtackState atackState))
                 _atackState = atackState;
 
             if (CurrentUnit.TryGetComponent(out WalkState walkState))
@@ -31,32 +29,27 @@ public class EnemyAnimationController : AnimationCotroller
             if (_findTargetState != null)
                 _findTargetState.StateActivated += OnIdle;
             if (_atackState != null)
-                _atackState.EnemyAtackStarted += OnRangeAtack;
+                _atackState.AtackStarted += OnRangeAtack;
             if (_walkState != null)
-                _walkState.MovementStarted += OnWalk;
+                _walkState.SpeedChanged += OnWalk;
             if (_meleeState != null)
-                _meleeState.MelleeAtackStarted += OnAtack;
+                _meleeState.AtackStarted += OnAtack;
         }
     }
 
     private void OnDisable()
     {
         if (_atackState != null)
-            _atackState.EnemyAtackStarted -= OnRangeAtack;
+            _atackState.AtackStarted -= OnRangeAtack;
         if (_walkState != null)
-            _walkState.MovementStarted -= OnWalk;
+            _walkState.SpeedChanged -= OnWalk;
         if (_findTargetState != null)
             _findTargetState.StateActivated -= OnIdle;
         if (_meleeState != null)
-            _meleeState.MelleeAtackStarted -= OnAtack;
-
-/*        if (CurrentUnit != null)
-        {
-            CurrentUnit.HealthChanged -= OnHitted;
-        }*/
+            _meleeState.AtackStarted -= OnAtack;
     }
 
-    private void OnWalk()
+    private void OnWalk(float speed)
     {
         Animator.SetTrigger("Walk");
     }
@@ -74,10 +67,5 @@ public class EnemyAnimationController : AnimationCotroller
     private void OnIdle()
     {
         Animator.SetTrigger("Idle");
-    }
-
-    public void OnHitted(ushort damage)
-    {
-        Animator.SetTrigger("Hitted");
     }
 }
