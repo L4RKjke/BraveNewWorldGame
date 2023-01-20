@@ -12,7 +12,7 @@ public class ItemInventory
     public GameObject ItemObject => _itemObject;
     public Sprite Image { get; private set; }
     public string Name { get; private set; }
-    public string Type { get; private set; }
+    public ItemType Type { get; private set; }
     public int Id => _id;
 
 
@@ -26,7 +26,7 @@ public class ItemInventory
         _id = id;
     }
 
-    public void Assign—haracteristics(string name, Sprite image, string type)
+    public void Assign—haracteristics(string name, Sprite image, ItemType type)
     {
         Name = name;
         _itemObject.GetComponentInChildren<TMP_Text>().text = Name;
@@ -37,7 +37,7 @@ public class ItemInventory
         Type = type;
     }
 
-    public void UpdateInformation(int id, Sprite image, string name, string type)
+    public void UpdateInformation(int id, Sprite image, string name, ItemType type)
     {
         AssignId(id);
         Assign—haracteristics(name, image, type);

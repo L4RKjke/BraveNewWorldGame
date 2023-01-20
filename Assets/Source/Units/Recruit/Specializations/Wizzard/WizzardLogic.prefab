@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 7446288658676314744}
   - component: {fileID: 2585755542606513714}
   - component: {fileID: 4587932334151701200}
+  - component: {fileID: 3320888342367986970}
   m_Layer: 7
   m_Name: WizzardLogic
   m_TagString: Untagged
@@ -329,7 +330,7 @@ Transform:
   m_GameObject: {fileID: 989668497598042495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2217671406800755232}
@@ -549,7 +550,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989668497598042495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.08
   m_Speed: 2
@@ -592,6 +593,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f7a9cf3915c8144a3a8162aeb4fd32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3320888342367986970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 805b54682fdecf14d931ced7fb2d3f66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _armor: {fileID: 7227414308371503617}
+  _helmet: {fileID: 7256801626611450056}
+  _earRight: {fileID: 6641394903616507722}
+  _hair: {fileID: 7244688247468218650}
+  _armRightArmor: {fileID: 3336156474666113143}
+  _armLeftArmor: {fileID: 4751667290293017525}
+  _legRightArmor: {fileID: 2867732800477875896}
+  _legLeftArmor: {fileID: 3806354709991081182}
+  _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  PrimaryWeapon: {fileID: 8686717600435745396}
+  SecondaryWeapon: {fileID: 7516246607745037787}
+  Shield: {fileID: 3512366448718331958}
+  Sleeve: {fileID: 7964387109074328355}
+  BackQuiver: {fileID: 130784416400561297}
 --- !u!1 &1002459120236183972
 GameObject:
   m_ObjectHideFlags: 0
@@ -917,7 +944,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1181989203045523379}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -956,7 +983,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 3.58}
+  m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -1411,15 +1438,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 21300000, guid: 024246f8ead37fe4583c02238593d920, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.01, y: 2.01}
+  m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &2297210983223234744
@@ -2103,7 +2130,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

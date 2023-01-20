@@ -41,10 +41,11 @@ public class CharacterPlayerUI : MonoBehaviour
         _coroutine = StartCoroutine(Delay(0));
     }
 
-    public void EquipItem(string type, bool isWear, Item item = null)
+    public void EquipItem(ItemType type, bool isWear, Item item, bool isHand = false)
     {
-        _characters[_currentId].GetComponent<CharacterItems>().ChangeItem(type, isWear, item);
+        _characters[_currentId].GetComponent<CharacterItems>().ChangeItem(type, isWear, item, isHand);
         ShowStats();
+        ShowCharacter();
     }
 
     private void ShowStats()
@@ -56,7 +57,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void ShowCharacter()
     {
         Destroy(_currentCharacter);
-        _currentCharacter = Instantiate(_characters[_currentId], _pointToCreate);
+        _currentCharacter = Instantiate(_characters[_currentId], _pointToCreate) as GameObject;
         _currentCharacter.GetComponent<StateMachine>().enabled = false;
         _currentCharacter.transform.position = _pointToCreate.position;
         _currentCharacter.transform.localScale = new Vector3(80f, 80f, 1);

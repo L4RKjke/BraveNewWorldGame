@@ -11,104 +11,102 @@ public class CharacterItems : MonoBehaviour
     private Item _hand;
     private Item _weapon;
 
-    public Item GetItem(string type)
+    public Item GetItem(ItemType type)
     {
-        type = type.ToLower();
-
         switch (type)
         {
-            case "weapon":
+            case ItemType.Weapon:
                 return _weapon;
-            case "hand":
+            case ItemType.Hand:
                 return _hand;
-            case "head":
+            case ItemType.Head:
                 return _head;
-            case "body":
+            case ItemType.Body:
                 return _body;
-            case "leg":
+            case ItemType.Leg:
                 return _leg;
         }
 
         return null;
     }
 
-    public void ChangeItem(string type, bool isWear, Item item = null)
+    public void ChangeItem(ItemType type, bool isWear, Item item, bool isHand = false)
     {
-        type = type.ToLower();
+       ItemRender itemRender = GetComponent<ItemRender>();
+       itemRender.ChangeItem(type, isWear, item, isHand);
 
         switch (type)
         {
-            case "weapon":
+            case ItemType.Weapon:
                 {
                     if (isWear)
                     {
-                        _weapon = item;
-                        ChangeStats(_weapon, isWear);
+                        if(isHand == false)
+                        {
+                            _weapon = item;
+                        }    
+                        else
+                        {
+                            _hand = item;
+                        }
                     }
                     else
                     {
-                        ChangeStats(_weapon, isWear);
                         _weapon = null;
                     }
                 }
                 break;
-            case "hand":
+            case ItemType.Hand:
                 {
                     if (isWear)
                     {
                         _hand = item;
-                        ChangeStats(_hand, isWear);
                     }
                     else
                     {
-                        ChangeStats(_hand, isWear);
                         _hand = null;
                     }
                 }
                 break;
-            case "head":
+            case ItemType.Head:
                 {
                     if (isWear)
                     {
                         _head = item;
-                        ChangeStats(_head, isWear);
                     }
                     else
                     {
-                        ChangeStats(_head, isWear);
                         _head = null;
                     }
                 }
                 break;
-            case "body":
+            case ItemType.Body:
                 {
                     if (isWear)
                     {
                         _body = item;
-                        ChangeStats(_body, isWear);
                     }
                     else
                     {
-                        ChangeStats(_body, isWear);
                         _body = null;
                     }
                 }
                 break;
-            case "leg":
+            case ItemType.Leg:
                 {
                     if (isWear)
                     {
                         _leg = item;
-                        ChangeStats(_leg, isWear);
                     }
                     else
                     {
-                        ChangeStats(_leg, isWear);
                         _leg = null;
                     }
                 }
                 break;
         }
+
+        ChangeStats(item, isWear);
     }
 
     private void ChangeStats(Item item, bool isWear)

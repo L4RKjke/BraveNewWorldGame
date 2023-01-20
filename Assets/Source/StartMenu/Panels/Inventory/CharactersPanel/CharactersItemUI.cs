@@ -82,18 +82,23 @@ public class CharactersItemUI : RenderUI
     {
         int id = int.Parse(button.name);
         button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[id].ItemImage;
-        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemType;
+        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemType.ToString();
         _equipmentSlot[id].SetId();
 
         Button temp = button.GetComponentInChildren<Button>();
         temp.onClick.RemoveAllListeners();
         temp.onClick.AddListener(delegate { EquipItem(_equipmentSlot[id].ItemType, button); });
+
+        if(_equipmentSlot[id].ItemType == ItemType.Hand)
+        {
+            temp.onClick.AddListener(delegate { EquipItem(ItemType.Weapon, button, true); });
+        }
     }
 
-    private void EquipItem(string type, GameObject button)
+    private void EquipItem(ItemType type, GameObject button, bool isHand = false)
     {
 
-        if (_currentId != -1 && _currentItem.Type.ToLower() == type.ToLower())
+        if (_currentId != -1 && _currentItem.Type == type)
         {
             Item item = _itemStorage.GetItem(_currentItem.Id);
 
@@ -107,7 +112,7 @@ public class CharactersItemUI : RenderUI
                     _inventoryStorage.SortingInventory(_currentId, _itemStorage);
             }
 
-            _characterPlayerUI.EquipItem(type, true, item);
+            _characterPlayerUI.EquipItem(type, true, item, isHand);
 
             _inventoryUI.ResetMovingObject();
         }
@@ -127,10 +132,10 @@ public class CharactersItemUI : RenderUI
 class SlotItems
 {
     [SerializeField] private Sprite _itemImage;
-    [SerializeField] private string _itemType;
+    [SerializeField] private ItemType _itemType;
 
     public Sprite ItemImage => _itemImage;
-    public string ItemType => _itemType;
+    public ItemType ItemType => _itemType;
     public int ItemId { get; private set; }
 
     public void SetId(int id = 0)

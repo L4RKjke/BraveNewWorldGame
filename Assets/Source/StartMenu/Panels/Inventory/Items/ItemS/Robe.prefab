@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7416709609468726893
+--- !u!1 &1525031929873510776
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 915380213004895092}
-  - component: {fileID: 2586413143316055163}
+  - component: {fileID: 2333972115150680605}
+  - component: {fileID: 3450378437174320406}
   m_Layer: 0
-  m_Name: Helm
+  m_Name: Robe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &915380213004895092
+--- !u!4 &2333972115150680605
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416709609468726893}
+  m_GameObject: {fileID: 1525031929873510776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,22 +32,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2586413143316055163
+--- !u!114 &3450378437174320406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416709609468726893}
+  m_GameObject: {fileID: 1525031929873510776}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 604d6b314a3c86d4290f691d9316ceee, type: 3}
+  m_Script: {fileID: 11500000, guid: 2765fe1a5e85e1a4785bdfd194bb6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 4
-  _type: Head
-  _name: Helm
-  _image: {fileID: 21300000, guid: 3d5a3384ff67f443bac085daed5baca3, type: 3}
-  _defense: 2
+  _id: 2
+  _name: Robe
+  _image: {fileID: 21300000, guid: 71945b7d3fd3995408e99443f5a8df07, type: 3}
+  _defense: 5
   _attack: 0
-  _health: 2
+  _health: 0
+  ItemType: 4
+  _armorSprite: {fileID: 21300086, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+  _armRight: {fileID: 21300084, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+  _armLeft: {fileID: 21300092, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}

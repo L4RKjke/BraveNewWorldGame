@@ -236,15 +236,15 @@ MonoBehaviour:
   Content: {fileID: 721885129}
   _equipmentSlot:
   - _itemImage: {fileID: 21300000, guid: 2bc2b86b96325c84387a5f10ea3a8513, type: 3}
-    _itemType: Head
+    _itemType: 2
   - _itemImage: {fileID: 21300000, guid: aa53df39e2ff3b1459a7ccdeed1275bc, type: 3}
-    _itemType: Body
+    _itemType: 4
   - _itemImage: {fileID: 21300000, guid: d37e4a60dd7a0134e932e76b73a6de5f, type: 3}
-    _itemType: Leg
+    _itemType: 3
   - _itemImage: {fileID: 21300000, guid: 3b1fc2175481486488d8d4fb4beb13c9, type: 3}
-    _itemType: Hand
+    _itemType: 1
   - _itemImage: {fileID: 21300000, guid: cbb9d2b1b69d9594aab174dac1a2b88b, type: 3}
-    _itemType: Weapon
+    _itemType: 0
   _inventoryUI: {fileID: 7830513943641834444}
   _characterPlayerUI: {fileID: 8022819898317358636}
 --- !u!1 &861127918
@@ -1105,7 +1105,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1756,7 +1756,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1964,11 +1964,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _items:
   - {fileID: 4545001789381223743, guid: ac64f4540a6e36c4f9567b6aefafca08, type: 3}
-  - {fileID: 6727076782114515326, guid: b15b1a329062c014ea08719ed1d31e55, type: 3}
-  - {fileID: 1321148053504785636, guid: 15001bad3fa004a42adfec1e0ed89014, type: 3}
-  - {fileID: 4497018489012339553, guid: 7d885d598a37e21409862384308b7ed1, type: 3}
-  - {fileID: 2586413143316055163, guid: c6003eeb9c32a164d9d4c0bbaf630cb3, type: 3}
-  - {fileID: 1684339949855345853, guid: 36d9cbf31313fe34c82037e5804f5c6c, type: 3}
+  - {fileID: -3989407726143169856, guid: b15b1a329062c014ea08719ed1d31e55, type: 3}
+  - {fileID: 3450378437174320406, guid: 15001bad3fa004a42adfec1e0ed89014, type: 3}
+  - {fileID: 8907564783915029660, guid: 7d885d598a37e21409862384308b7ed1, type: 3}
+  - {fileID: 3225613569580159272, guid: c6003eeb9c32a164d9d4c0bbaf630cb3, type: 3}
+  - {fileID: 7017217039784981348, guid: 36d9cbf31313fe34c82037e5804f5c6c, type: 3}
 --- !u!1 &7830513944419761145
 GameObject:
   m_ObjectHideFlags: 0
