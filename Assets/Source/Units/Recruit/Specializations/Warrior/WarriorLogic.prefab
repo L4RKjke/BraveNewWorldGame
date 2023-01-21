@@ -70,7 +70,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989668497598042495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1cac9a2fcfd1e5a47af8ee26949c6713, type: 3}
   m_Name: 
@@ -181,7 +181,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989668497598042495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -292,6 +292,7 @@ MonoBehaviour:
   _legRightArmor: {fileID: 3194975749665607709}
   _legLeftArmor: {fileID: 7762094106033382083}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  _headAnchor: {fileID: 8713384221402341334}
   PrimaryWeapon: {fileID: 981168978213229364}
   SecondaryWeapon: {fileID: 5107080370497547605}
   Shield: {fileID: 7198895600381473996}
@@ -501,6 +502,11 @@ SpriteRenderer:
 --- !u!212 &8256099128209218185 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6251614227710511049, guid: 7b1999bcc80a57e4c9ff68724a5145e5, type: 3}
+  m_PrefabInstance: {fileID: 2617080041596788032}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8713384221402341334 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6682660863713346198, guid: 7b1999bcc80a57e4c9ff68724a5145e5, type: 3}
   m_PrefabInstance: {fileID: 2617080041596788032}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &9123286252529356331 stripped

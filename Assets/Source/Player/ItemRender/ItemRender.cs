@@ -13,12 +13,15 @@ public abstract class ItemRender : MonoBehaviour
     [SerializeField] private SpriteRenderer _legRightArmor; //
     [SerializeField] private SpriteRenderer _legLeftArmor; //
     [SerializeField] private Sprite _standartArmor;
+    [SerializeField] private GameObject _headAnchor;
 
     [SerializeField] protected SpriteRenderer PrimaryWeapon; //
     [SerializeField] protected SpriteRenderer SecondaryWeapon; //
     [SerializeField] protected SpriteRenderer Shield; //
     [SerializeField] protected SpriteRenderer Sleeve; //
     [SerializeField] protected SpriteRenderer BackQuiver;
+
+    public GameObject Head => _headAnchor;
 
     public void ChangeItem(ItemType type, bool isWear, Item item, bool isHand)
     {

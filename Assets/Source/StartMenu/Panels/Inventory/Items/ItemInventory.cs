@@ -32,7 +32,7 @@ public class ItemInventory
         _itemObject.GetComponentInChildren<TMP_Text>().text = Name;
 
         Image = image;
-        _itemObject.GetComponent<Image>().sprite = Image;
+        _itemObject.transform.GetChild(0).GetComponent<Image>().sprite = Image;
 
         Type = type;
     }

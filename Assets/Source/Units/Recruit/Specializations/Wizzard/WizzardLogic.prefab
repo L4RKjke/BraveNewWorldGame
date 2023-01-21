@@ -614,6 +614,7 @@ MonoBehaviour:
   _legRightArmor: {fileID: 2867732800477875896}
   _legLeftArmor: {fileID: 3806354709991081182}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  _headAnchor: {fileID: 6911078924216841161}
   PrimaryWeapon: {fileID: 8686717600435745396}
   SecondaryWeapon: {fileID: 7516246607745037787}
   Shield: {fileID: 3512366448718331958}
