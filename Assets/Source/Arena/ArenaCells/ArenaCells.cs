@@ -31,7 +31,6 @@ public class ArenaCells : MonoBehaviour
         CreateBarriers();
         CreateEnemies();
         CreateCharacters();
-        /*HideCells(_playerWidth);*/
     }
 
     private void Start()
@@ -41,7 +40,7 @@ public class ArenaCells : MonoBehaviour
 
     public void PlayStartBattle()
     {
-        /*DeleteCells();*/
+        DeleteCells();
     }
 
     private void CreateCharacters()
@@ -51,7 +50,7 @@ public class ArenaCells : MonoBehaviour
         {
             Cell cell = _objectsSaver.GetCell(i, 0);
             GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
-            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector2(cell.transform.position.x, cell.transform.position.y + 0.38f), Quaternion.identity);
+            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y + 0.38f), Quaternion.identity);
             playerCharacter.transform.SetParent(dragAndDrop.transform);
             cell.ChangeFull();
             cell.ChangeStayCharacter();
@@ -69,7 +68,11 @@ public class ArenaCells : MonoBehaviour
     {
         for (int i = startFolder; i < _objectsSaver.transform.childCount; i++)
         {
-            Destroy(_objectsSaver.transform.GetChild(i).gameObject);
+            for (int j = 0; j < _objectsSaver.transform.GetChild(i).childCount; j++)
+            {
+                _objectsSaver.transform.GetChild(i).GetChild(j).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite);
+                sprite.enabled = false;
+            }
         }
     }
 
@@ -78,6 +81,7 @@ public class ArenaCells : MonoBehaviour
         for (int i = 0; i < _objectsSaver.transform.GetChild(folderHide).childCount; i++)
         {
             _objectsSaver.transform.GetChild(_playerWidth).GetChild(i).TryGetComponent<Cell>(out Cell cell);
+
             if (cell.IsFull == false)
             {
                 cell.ChangeFull();

@@ -14,33 +14,18 @@ public abstract class AtackState : State
 
     protected ushort Damage => GetDamage();
 
-    private void OnEnable()
-    {
-        StartCoroutine(Launch);
-
-        Controller.AtackCompleted += CompleteAtack;
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(Launch);
-
-        if (Controller != null)
-        {
-            Controller.AtackCompleted -= CompleteAtack;
-        }
-    }
-
     protected abstract void CompleteAtack();
 
     protected abstract void StartAtack();
 
-    protected IEnumerator LaunchActack()
+    protected IEnumerator LaunchActack(float atackDelay)
     {
+        var spread = Random.Range(-0.1f, 0.1f);
+
         while (true)
         {
             StartAtack();
-            yield return new WaitForSeconds(CurrentFighter.AtackDelay);
+            yield return new WaitForSeconds(atackDelay + spread);
         }
     }
 

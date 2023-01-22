@@ -10,7 +10,7 @@ public class WalkState : State
     private void OnEnable()
     {
         _navMeshCotroller.MakeMoveble();
-        _navMeshCotroller.SetStoppingDistance(CurrentFighter.WalkDistance- 0.1f);
+        /*_navMeshCotroller.SetStoppingDistance(CurrentFighter.WalkDistance);*/
         SpeedChanged?.Invoke(CurrentFighter.Speed);
     }
 

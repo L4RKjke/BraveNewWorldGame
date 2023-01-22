@@ -58,20 +58,6 @@ public class ViewDirection : MonoBehaviour
             }
         }
     }
-
-/*    private Vector2 GetDirection(Vector2 defoaltScale, Vector2 invertedScale)
-    {
-        if (_fighter.CurrentTarget.transform.position.x > _fighter.transform.position.x)
-        {
-            transform.localScale = defoaltScale;
-            _currentDirection = FaceDirection.Right;
-        }
-        else
-        {
-            transform.localScale = invertedScale;
-            _currentDirection = FaceDirection.Left;
-        }
-    }*/
 }
 
 public enum FaceDirection

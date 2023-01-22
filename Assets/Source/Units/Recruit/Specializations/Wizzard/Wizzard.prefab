@@ -491,7 +491,7 @@ MonoBehaviour:
   - {fileID: 993470713354870320}
   - {fileID: 2258014573361779789}
   - {fileID: 5470306470981562112}
-  _controller: {fileID: 5899070213778095407}
+  _controller: {fileID: 7582716960574673696}
 --- !u!114 &3665925495992290421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -506,7 +506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 2258014573361779789}
-  _controller: {fileID: 5899070213778095407}
+  _controller: {fileID: 7582716960574673696}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2185,7 +2185,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3879505713152868838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2203,7 +2203,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3879505713152868838}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.04
   m_Speed: 1.2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2212,7 +2212,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.51
+  m_Height: 1
   m_BaseOffset: 0.39
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -3064,9 +3064,9 @@ GameObject:
   - component: {fileID: 2212189348514420069}
   - component: {fileID: 5029361911947629904}
   - component: {fileID: 6908052485358722776}
-  - component: {fileID: 5899070213778095407}
   - component: {fileID: 6890197483968057643}
   - component: {fileID: 6602107756864295238}
+  - component: {fileID: 7582716960574673696}
   m_Layer: 0
   m_Name: WizzardView
   m_TagString: Untagged
@@ -3124,22 +3124,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5899070213778095407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75bb274773c3e3c478d4e3c4d56fcfef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 3399754549071799650}
-  _deathTemplate: {fileID: 3020216106616921806, guid: 58220778c7e5b9d46b188640d293397b, type: 3}
-  _TMPro: {fileID: 3303087040560647676}
-  _characterView: {fileID: 7342852378465608332}
 --- !u!114 &6890197483968057643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3166,6 +3150,22 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 200
+--- !u!114 &7582716960574673696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579663485919828451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7224ba4b82dec774ebe403df36f3e484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 3399754549071799650}
+  _deathTemplate: {fileID: 3020216106616921806, guid: 58220778c7e5b9d46b188640d293397b, type: 3}
+  _TMPro: {fileID: 3303087040560647676}
+  _characterView: {fileID: 7342852378465608332}
 --- !u!1 &5589401219046875448
 GameObject:
   m_ObjectHideFlags: 0

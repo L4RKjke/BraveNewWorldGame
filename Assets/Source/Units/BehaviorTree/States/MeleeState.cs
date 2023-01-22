@@ -1,17 +1,35 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-
+[RequireComponent(typeof(IMeleeAtacker))]
 
 public class MeleeState : AtackState
 {
     private IMeleeAtacker _meleeAtacker;
 
     public UnityAction AtackStarted;
+    private Coroutine _atackCourutine;
 
-    private void Start()
+    private readonly float _meleeAtackDelay = 1.5f;
+
+    private void OnEnable()
     {
+        var spreadValue = 0.1f;
+        var delaySpread = Random.Range(-spreadValue, spreadValue);
+
+        _atackCourutine = StartCoroutine(LaunchActack(_meleeAtackDelay + delaySpread));
         _meleeAtacker = GetComponent<IMeleeAtacker>();
+        Controller.AtackCompleted += CompleteAtack;
+    }
+
+    private void OnDisable()
+    {
+        StopCoroutine(_atackCourutine);
+
+        if (Controller != null)
+        {
+            Controller.AtackCompleted -= CompleteAtack;
+        }
     }
 
     protected override void StartAtack()

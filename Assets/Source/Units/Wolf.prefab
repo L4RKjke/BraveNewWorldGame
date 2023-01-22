@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 5296168789010194902}
+  _controller: {fileID: 6212776850053402278}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1357,9 +1357,9 @@ GameObject:
   - component: {fileID: 4787516303284067223}
   - component: {fileID: 714364924544873596}
   - component: {fileID: 4787516303284067216}
-  - component: {fileID: 5296168789010194902}
   - component: {fileID: 9054150215380608885}
   - component: {fileID: 4748257672274226231}
+  - component: {fileID: 6212776850053402278}
   m_Layer: 9
   m_Name: View
   m_TagString: Untagged
@@ -1416,22 +1416,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5296168789010194902
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4787516303284067222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8402b1d832a3e04484549b5c754a7fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _unit: {fileID: 6260857310878462056}
-  _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
-  _TMPro: {fileID: 7679764936993250607}
-  _characterView: {fileID: 4787516303284067222}
 --- !u!114 &9054150215380608885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1459,6 +1443,22 @@ MonoBehaviour:
   CharacterView: {fileID: 4787516302044777798}
   _baseDirection: 1
   _fighter: {fileID: 6260857310878462056}
+--- !u!114 &6212776850053402278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4787516303284067222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7224ba4b82dec774ebe403df36f3e484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _unit: {fileID: 6260857310878462056}
+  _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
+  _TMPro: {fileID: 7679764936993250607}
+  _characterView: {fileID: 4787516302044777798}
 --- !u!1 &5102677961843069954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1752,7 +1752,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8927706449902697089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.415, y: 0.91779107, z: 0}
+  m_LocalPosition: {x: -0.415, y: 0.91779107, z: 0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1770,7 +1770,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8927706449902697089}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.04
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1779,7 +1779,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.3
+  m_Height: 1
   m_BaseOffset: -0.12
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
