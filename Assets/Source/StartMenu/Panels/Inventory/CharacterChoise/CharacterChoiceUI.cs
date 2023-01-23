@@ -13,8 +13,7 @@ public class CharacterChoiceUI : RenderUI
 
     private void Start()
     {
-        if (AllCharacters > Content.transform.childCount)
-            AddGraphics();
+        AddGraphics();
     }
 
     public GameObject GetCharacter(int id)
@@ -24,14 +23,6 @@ public class CharacterChoiceUI : RenderUI
 
     protected override void AddGraphics()
     {
-        if(Content.transform.childCount > 0)
-        {
-            for(int i = 0; i < _characters.Count; i++)
-            {
-                Destroy(Content.transform.GetChild(i)) ;
-            }
-        }
-
         for (int i = 0; i < AllCharacters; i++)
         {
             GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;
@@ -77,19 +68,23 @@ public class CharacterChoiceUI : RenderUI
     {
         for(int i = 0; i < head.transform.childCount; i++)
         {
-            AddSprite(buttonHead, head ,i);
-
-            for(int k = 0; k < head.transform.GetChild(i).transform.childCount;k++)
+            if (buttonHead.transform.GetChild(i).GetComponent<Image>() != null)
             {
-                AddSprite(buttonHead.transform.GetChild(i).gameObject, head.transform.GetChild(i).gameObject,k);
+                AddSprite(buttonHead, head, i);
+
+                for (int k = 0; k < head.transform.GetChild(i).transform.childCount; k++)
+                {
+                    AddSprite(buttonHead.transform.GetChild(i).gameObject, head.transform.GetChild(i).gameObject, k);
+                    Debug.Log(buttonHead.transform.GetChild(i).gameObject);
+                }
             }
         }
     }
 
     private void AddSprite(GameObject objectIMG, GameObject objectSprite, int id)
     {
-        Image tempIMG = objectIMG.transform.GetChild(id).GetComponent<Image>();
-        SpriteRenderer tempSprite = objectSprite.transform.GetChild(id).GetComponent<SpriteRenderer>();
+        objectIMG.transform.GetChild(id).TryGetComponent(out Image tempIMG);
+        objectSprite.transform.GetChild(id).TryGetComponent(out SpriteRenderer tempSprite);
         tempIMG.sprite = tempSprite.sprite;
         tempIMG.color = tempSprite.color;
 

@@ -6,8 +6,8 @@ public abstract class ItemRender : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _armor; //
     [SerializeField] private SpriteRenderer _helmet; //
-    [SerializeField] private GameObject _earRight; //
-    [SerializeField] private GameObject _hair; //
+    [SerializeField] private SpriteRenderer _earRight; //
+    [SerializeField] private SpriteRenderer _hair; //
     [SerializeField] private SpriteRenderer _armRightArmor; //
     [SerializeField] private SpriteRenderer _armLeftArmor; //
     [SerializeField] private SpriteRenderer _legRightArmor; //
@@ -20,6 +20,15 @@ public abstract class ItemRender : MonoBehaviour
     [SerializeField] protected SpriteRenderer Shield; //
     [SerializeField] protected SpriteRenderer Sleeve; //
     [SerializeField] protected SpriteRenderer BackQuiver;
+
+    private Sprite _baseHair;
+    private Sprite _baseEarRight;
+
+    private void Awake()
+    {
+        _baseHair = _hair.sprite;
+        _baseEarRight = _earRight.sprite;
+    }
 
     public GameObject Head => _headAnchor;
 
@@ -147,7 +156,15 @@ public abstract class ItemRender : MonoBehaviour
 
     private void ChangeHelmItem(bool isWear)
     {
-        _hair.SetActive(!isWear);
-        _earRight.SetActive(!isWear);
+        if (isWear)
+        {
+            _hair.sprite = null;
+            _earRight.sprite = null;
+        }
+        else
+        {
+            _hair.sprite = _baseHair;
+            _earRight.sprite = _baseEarRight;
+        }
     }
 }

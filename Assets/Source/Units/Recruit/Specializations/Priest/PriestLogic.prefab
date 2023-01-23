@@ -285,8 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _armor: {fileID: 4690327946084486620}
   _helmet: {fileID: 2568093004186521893}
-  _earRight: {fileID: 6220066977654767150}
-  _hair: {fileID: 1174098776563033557}
+  _earRight: {fileID: 7959233493708814929}
+  _hair: {fileID: 5058803575879697820}
   _armRightArmor: {fileID: 5240220929305504144}
   _armLeftArmor: {fileID: 4378549274439747335}
   _legRightArmor: {fileID: 4953973491225121301}
@@ -443,11 +443,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8104701571811334780, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
   m_PrefabInstance: {fileID: 9126780420450590302}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1174098776563033557 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7990488489452911499, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
-  m_PrefabInstance: {fileID: 9126780420450590302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!212 &2568093004186521893 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 6704563060969213819, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
@@ -478,6 +473,11 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 4208854418749017163, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
   m_PrefabInstance: {fileID: 9126780420450590302}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &5058803575879697820 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4079326005204589506, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
+  m_PrefabInstance: {fileID: 9126780420450590302}
+  m_PrefabAsset: {fileID: 0}
 --- !u!212 &5240220929305504144 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3896131840181860302, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
@@ -488,11 +488,6 @@ SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 3773636802471034885, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
   m_PrefabInstance: {fileID: 9126780420450590302}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6220066977654767150 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2952896369017053296, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
-  m_PrefabInstance: {fileID: 9126780420450590302}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7014392522774757468 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2301610689063017986, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
@@ -501,6 +496,11 @@ GameObject:
 --- !u!212 &7069473911028826364 stripped
 SpriteRenderer:
   m_CorrespondingSourceObject: {fileID: 2068004896878190242, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
+  m_PrefabInstance: {fileID: 9126780420450590302}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &7959233493708814929 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1214906329061467151, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
   m_PrefabInstance: {fileID: 9126780420450590302}
   m_PrefabAsset: {fileID: 0}
 --- !u!212 &9116555703375356304 stripped
