@@ -5,31 +5,37 @@ public class WalkState : State
 {
     [SerializeField] private NavMeshRootController _navMeshCotroller;
 
+    public NavMeshRootController NavMeshCotroller => _navMeshCotroller;
+
     public UnityAction<float> SpeedChanged;
 
     private void OnEnable()
     {
         _navMeshCotroller.MakeMoveble();
-        /*_navMeshCotroller.SetStoppingDistance(CurrentFighter.WalkDistance);*/
         SpeedChanged?.Invoke(CurrentFighter.Speed);
     }
 
     private void OnDisable()
     {
-        _navMeshCotroller.StopAgent();
+        if (_navMeshCotroller.enabled)
+            _navMeshCotroller.StopAgent();
+
         SpeedChanged?.Invoke(0);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         MoveToTarget();
     }
 
     private void MoveToTarget()
     {
+        CurrentFighter.UpdateCurrentTarget();
+
         if (CurrentFighter.CurrentTarget != null && CurrentFighter != null)
         {
-            _navMeshCotroller.MoveTo(CurrentFighter.CurrentTarget.transform.position, CurrentFighter.Speed);
+            if (_navMeshCotroller.enabled)
+                _navMeshCotroller.MoveTo(CurrentFighter.CurrentTarget.transform.position, CurrentFighter.Speed);
         }
     }
 }

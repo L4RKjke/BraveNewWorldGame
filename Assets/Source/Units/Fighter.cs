@@ -12,12 +12,10 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     [SerializeField] private float _atackDelay;
     [SerializeField] private float _speed;
 
-
     private Fighter _currentTarget;
     private int _maxHealth;
     private int _health;
     private ushort _damage;
-    private float _defaultSpeed = 1.1f;
     private bool _canBeDamaged = true;
 
     private readonly ushort _maxDamage = 100;
@@ -112,13 +110,12 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
 
         if (_canBeDamaged)
         {
-            _health -= damage;/*Mathf.FloorToInt(Mathf.Lerp(_health, _minHealth, damage));*/
+            _health -= damage;
         }
 
         if (_health <= 0)
         {
             Died?.Invoke(this);
-            Destroy(transform.parent.gameObject);
         }
 
         HealthChanged?.Invoke((ushort)_health);

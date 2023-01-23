@@ -2,9 +2,8 @@ using UnityEngine;
 
 public class ViewDirection : MonoBehaviour
 {
-    [SerializeField] private GameObject CharacterView;
+    [SerializeField] private Fighter _unit;
     [SerializeField] private FaceDirection _baseDirection;
-    [SerializeField] private Fighter _fighter;
 
     private Vector2 _defoaltScale;
     private Vector2 _invertedScale;
@@ -24,37 +23,28 @@ public class ViewDirection : MonoBehaviour
 
     private void Flip()
     {
-        if (_fighter.CurrentTarget != null)
-        {
-            if (_baseDirection == FaceDirection.Right)
-            {
-                if (_fighter.CurrentTarget.transform.position.x > _fighter.transform.position.x)
-                {
-                    transform.localScale = _invertedScale;
-                    _currentDirection = FaceDirection.Left;
-                }
-                    
-                else
-                {
-                    transform.localScale = _defoaltScale;
-                    _currentDirection = FaceDirection.Right;
-                }
+        if (_baseDirection == FaceDirection.Right)
+            Rotate(_invertedScale, _defoaltScale);
 
+        else
+            Rotate(_defoaltScale, _invertedScale);
+
+    }
+
+    private void Rotate(Vector2 leftScale, Vector2 rightScale)
+    {
+        if (_unit.CurrentTarget != null)
+        {
+            if ((_unit.CurrentTarget.transform.position.x > transform.position.x) && (_currentDirection != FaceDirection.Left))
+            {
+                transform.localScale = leftScale;
+                _currentDirection = FaceDirection.Left;
             }
 
-            else
+            if (_unit.CurrentTarget.transform.position.x <= transform.position.x && _currentDirection != FaceDirection.Right)
             {
-                if (_fighter.CurrentTarget.transform.position.x > _fighter.transform.position.x)
-                {
-                    transform.localScale = _defoaltScale;
-                    _currentDirection = FaceDirection.Right;
-                }
-
-                else
-                {
-                    transform.localScale = _invertedScale;
-                    _currentDirection = FaceDirection.Left;
-                }
+                transform.localScale = rightScale;
+                _currentDirection = FaceDirection.Right;
             }
         }
     }

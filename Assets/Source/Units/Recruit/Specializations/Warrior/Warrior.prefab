@@ -811,6 +811,7 @@ MonoBehaviour:
   - {fileID: 2258014573361779789}
   - {fileID: 993470713354870320}
   _controller: {fileID: 4553583624612725095}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2924,9 +2925,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterView: {fileID: 3945106861713173172}
+  _unit: {fileID: 4224959571754055807}
   _baseDirection: 0
-  _fighter: {fileID: 4224959571754055807}
 --- !u!114 &4553583624612725095
 MonoBehaviour:
   m_ObjectHideFlags: 0

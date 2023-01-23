@@ -336,9 +336,11 @@ MonoBehaviour:
   _rootModel: {fileID: 3879505713152868838}
   _meleeDistance: 1
   _walkDistance: 5
-  _atackDelay: 7
+  _atackDelay: 4
   _speed: 0.9
   _healPart: {fileID: 6088536809057938850}
+  _fireball: {fileID: -398907195106601213, guid: fe3f37e2cce3f14418c5b8c4b30162c9, type: 3}
+  _firePoint: {fileID: 3700395033072069307}
 --- !u!114 &7604797453349662639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3081,9 +3083,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterView: {fileID: 6810932783448721060}
+  _unit: {fileID: 2019061382180785708}
   _baseDirection: 0
-  _fighter: {fileID: 2019061382180785708}
 --- !u!114 &7666088606890761115
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -59,8 +59,8 @@ MonoBehaviour:
   _healPoint: {fileID: 4681704887866361387}
   _buttonPostion: {fileID: 4681704887866361387}
   _rootModel: {fileID: 8927706449902697089}
-  _meleeDistance: 1.1
-  _walkDistance: 1.1
+  _meleeDistance: 1
+  _walkDistance: 1
   _atackDelay: 1
   _speed: 1
 --- !u!114 &963163797568080017
@@ -1440,9 +1440,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterView: {fileID: 4787516302044777798}
+  _unit: {fileID: 6260857310878462056}
   _baseDirection: 1
-  _fighter: {fileID: 6260857310878462056}
 --- !u!114 &6212776850053402278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,7 +1769,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8927706449902697089}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.04
+  m_Radius: 0.1
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1780,7 +1779,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: -0.12
+  m_BaseOffset: 0.18
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &1261894970219592810

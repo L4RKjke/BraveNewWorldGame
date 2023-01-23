@@ -9,7 +9,6 @@ public class Wizzard : Recruit, IRangeAtacker
 {
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
-    [SerializeField] private GameObject _electricity;
 
     private FireBallInstantiator _bulletInstantiator;
 

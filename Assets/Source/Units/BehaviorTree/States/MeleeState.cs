@@ -5,12 +5,14 @@ using UnityEngine.Events;
 
 public class MeleeState : AtackState
 {
+    [SerializeField] private GameObject _hitEffect;
+
     private IMeleeAtacker _meleeAtacker;
 
     public UnityAction AtackStarted;
     private Coroutine _atackCourutine;
 
-    private readonly float _meleeAtackDelay = 1.5f;
+    private readonly float _meleeAtackDelay = 1f;
 
     private void OnEnable()
     {
@@ -39,6 +41,7 @@ public class MeleeState : AtackState
 
     protected override void CompleteAtack()
     {
+        Instantiate(_hitEffect, CurrentFighter.CurrentTarget.transform.position, Quaternion.identity);
         _meleeAtacker.Atack(Damage);
     }
 }

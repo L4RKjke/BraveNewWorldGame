@@ -74,6 +74,7 @@ public class UnitPool : MonoBehaviour
 
     private void OnUnitDied(Fighter fighter)
     {
+        Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
     }
 }

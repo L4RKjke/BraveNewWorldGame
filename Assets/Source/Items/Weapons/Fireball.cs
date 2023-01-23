@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private ushort _damage = 4;
+    [SerializeField] private GameObject _hitEffect;
+
+    private ushort _damage;
 
     private readonly float _speed = 3;
-    private readonly float _lifetime = 5;
+    private readonly float _lifetime = 3;
     private FighterType _targetType;
 
 
@@ -31,6 +33,7 @@ public class Fireball : MonoBehaviour
 
     private void OnDestroy()
     {
+        Instantiate(_hitEffect, transform.position, Quaternion.identity);
         StopCoroutine(LifeTimeCorutine());
     }
 

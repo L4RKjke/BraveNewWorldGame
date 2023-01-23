@@ -416,7 +416,6 @@ MonoBehaviour:
   _speed: 0.95
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 3700395033072069307}
-  _electricity: {fileID: 7094530131039576185}
 --- !u!114 &7604797453349662639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3136,9 +3135,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterView: {fileID: 7342852378465608332}
+  _unit: {fileID: 3399754549071799650}
   _baseDirection: 0
-  _fighter: {fileID: 3399754549071799650}
 --- !u!210 &6602107756864295238
 SortingGroup:
   m_ObjectHideFlags: 0
