@@ -11,7 +11,7 @@ public class CharactersItemUI : RenderUI
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
 
     private InventoryStorage _inventoryStorage => _inventoryUI.InventoryStorage;
-    private ItemStorage _itemStorage => _inventoryUI.ItemStorage;
+    private PlayerItemStorage _itemStorage => _inventoryUI.PlayerItemStorage;
     private int _currentId => _inventoryUI.CurrentId;
     private ItemInventory _currentItem => _inventoryUI.CurrentItem;
 

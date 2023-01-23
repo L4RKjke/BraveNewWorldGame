@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ItemStorage : MonoBehaviour
+public class PlayerItemStorage : MonoBehaviour
 {
     [SerializeField] private List<Item> _items = new List<Item>();
 
@@ -12,5 +12,10 @@ public class ItemStorage : MonoBehaviour
     public Item GetItem(int id)
     {
         return _items[id];
+    }
+
+    public void AddItem(Item item)
+    {
+        _items.Add(item);
     }
 }

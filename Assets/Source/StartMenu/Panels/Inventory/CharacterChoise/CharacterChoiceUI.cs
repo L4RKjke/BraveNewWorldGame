@@ -8,6 +8,7 @@ public class CharacterChoiceUI : RenderUI
 {
     [SerializeField] private List<GameObject> _characters;
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
+    [SerializeField] private Sprite _choised;
 
     public int AllCharacters => _characters.Count;
 
@@ -45,6 +46,8 @@ public class CharacterChoiceUI : RenderUI
     {
         GameObject button = Content.transform.GetChild(currentId).gameObject;
         button.transform.GetChild(1).GetComponent<Image>().enabled = true;
+        Sprite spriteFree = button.GetComponent<Image>().sprite;
+        button.GetComponent<Image>().sprite = _choised;
         Button tempButton = button.GetComponent<Button>();
         tempButton.onClick.RemoveAllListeners();
 
@@ -52,6 +55,7 @@ public class CharacterChoiceUI : RenderUI
         {
             GameObject button2 = Content.transform.GetChild(previosId).gameObject;
             button2.transform.GetChild(1).GetComponent<Image>().enabled = false;
+            button2.GetComponent<Image>().sprite = spriteFree;
             AddListenerButton(button2);
         }
     }
@@ -64,20 +68,12 @@ public class CharacterChoiceUI : RenderUI
         AddListenerButton(button);
     }
 
-    private void UpdateCharactersIcon(GameObject buttonHead, GameObject head)
+    private void UpdateCharactersIcon(GameObject buttonHead, GameObject head, int id = 0)
     {
-        for(int i = 0; i < head.transform.childCount; i++)
+        for(int i = 0; i < head.transform.GetChild(id).childCount; i++)
         {
-            if (buttonHead.transform.GetChild(i).GetComponent<Image>() != null)
-            {
-                AddSprite(buttonHead, head, i);
-
-                for (int k = 0; k < head.transform.GetChild(i).transform.childCount; k++)
-                {
-                    AddSprite(buttonHead.transform.GetChild(i).gameObject, head.transform.GetChild(i).gameObject, k);
-                    Debug.Log(buttonHead.transform.GetChild(i).gameObject);
-                }
-            }
+            AddSprite(buttonHead.transform.GetChild(id).gameObject, head.transform.GetChild(id).gameObject, i);
+            UpdateCharactersIcon(buttonHead.transform.GetChild(id).gameObject, head.transform.GetChild(id).gameObject, i);
         }
     }
 
@@ -90,6 +86,8 @@ public class CharacterChoiceUI : RenderUI
 
         if (objectSprite.transform.GetChild(id).GetComponent<SpriteRenderer>().sprite == null)
             tempIMG.color = new Color(tempIMG.color.r, tempIMG.color.g, tempIMG.color.b, 0);
+
+        tempIMG.enabled = tempSprite.enabled;
     }
 
     private void AddListenerButton(GameObject button)

@@ -6,7 +6,10 @@ public class InventoryStorage : MonoBehaviour
 {
     private List<ItemInventory> _items = new List<ItemInventory>();
 
-    public int ItemCount => _items.Count;
+    private int _itemsCount = 0;
+
+    public int InventorySize => _items.Count;
+    public int ItemsCount => _itemsCount;
 
     public ItemInventory GetItem(int id)
     {
@@ -18,16 +21,24 @@ public class InventoryStorage : MonoBehaviour
         _items[id].UpdateInformation(item.Id, item.Image, item.Name, item.Type);
     }
 
+    public void CreateInventory(int count, Item item)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            AddItem(i, item);
+        }
+    }
+
     public void AddSlot(ItemInventory slot)
     {
         _items.Add(slot);
     }
 
-    public void SortingInventory(int startId, ItemStorage itemStorage)
+    public void SortingInventory(int startId, PlayerItemStorage itemStorage)
     {
-        for (int i = startId; i < ItemCount; i++)
+        for (int i = startId; i < InventorySize; i++)
         {
-            if (i < ItemCount - 1)
+            if (i < InventorySize - 1)
             {
                 AddItem(i, itemStorage.GetItem(GetItem(i + 1).Id));
             }

@@ -8,7 +8,7 @@ using TMPro;
 [RequireComponent(typeof(InventoryStorage))]
 public class InventoryUI : RenderUI
 {
-    [SerializeField] private ItemStorage _itemStorage;
+    [SerializeField] private PlayerItemStorage _playerItemStorage;
     [SerializeField] private RectTransform _movingObject;
 
     private InventoryStorage _inventoryStorage;
@@ -19,7 +19,7 @@ public class InventoryUI : RenderUI
     private Vector3 _offSet = new(1,-1,0);
 
     public InventoryStorage InventoryStorage => _inventoryStorage;
-    public ItemStorage ItemStorage => _itemStorage;
+    public PlayerItemStorage PlayerItemStorage => _playerItemStorage;
     public ItemInventory CurrentItem => _currentItem;
     public int CurrentId => _currentId;
 
@@ -38,21 +38,18 @@ public class InventoryUI : RenderUI
     private void Start()
     {
 
-        if (_inventoryStorage.ItemCount == 0)
+        if (_inventoryStorage.InventorySize == 0)
             AddGraphics();
 
-        for(int i = 0; i < _maxCount/2; i++) // test
+        for(int i = 1; i < _playerItemStorage.CountItems; i++)
         {
-            int random = Random.Range(1, _itemStorage.CountItems);
-            Item item = _itemStorage.GetItem(random);
-            _inventoryStorage.AddItem(i, item);
+            Item NewItem = _playerItemStorage.GetItem(i);
+            _inventoryStorage.AddItem(i - 1, NewItem);
         }
 
-        for(int i = _maxCount/2; i < _maxCount; i++) // test
-        {
-            Item item = _itemStorage.GetItem(0);
-            _inventoryStorage.AddItem(i, item);
-        }
+        Item item = _playerItemStorage.GetItem(0);
+        _inventoryStorage.CreateInventory(_maxCount, item);
+
 
         StartUpdateInventory();
     }
@@ -74,7 +71,7 @@ public class InventoryUI : RenderUI
         ItemInventory temp = null;
         Debug.Log(item);
 
-        for (int i = 0; i < _inventoryStorage.ItemCount; i++)
+        for (int i = 0; i < _inventoryStorage.InventorySize; i++)
         {
             if (_inventoryStorage.GetItem(i).Id == 0)
             {
@@ -85,7 +82,7 @@ public class InventoryUI : RenderUI
 
         if (item == null && _movingObject.gameObject.activeSelf == true)
         {
-            item = _itemStorage.GetItem(_currentItem.Id);
+            item = _playerItemStorage.GetItem(_currentItem.Id);
             _movingObject.gameObject.SetActive(false);
         }
 
@@ -101,7 +98,7 @@ public class InventoryUI : RenderUI
 
     protected override void AddGraphics()
     {
-        for (int i = _inventoryStorage.ItemCount; i < _maxCount; i++)
+        for (int i = _inventoryStorage.InventorySize; i < _maxCount; i++)
         {
             GameObject newItem = Instantiate(Ñontainer, Content.transform) as GameObject;
 
@@ -133,9 +130,9 @@ public class InventoryUI : RenderUI
             _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
             _currentItem = CopyInventoryItem(_inventoryStorage.GetItem(_currentId));
             _movingObject.gameObject.SetActive(true);
-            _movingObject.GetComponent<Image>().sprite = _itemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
+            _movingObject.GetComponent<Image>().sprite = _playerItemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
 
-            _inventoryStorage.AddItem(_currentId, _itemStorage.GetItem(0));
+            _inventoryStorage.AddItem(_currentId, _playerItemStorage.GetItem(0));
         }
         else
         {
@@ -151,15 +148,15 @@ public class InventoryUI : RenderUI
 
     private void AddInventoryItem(int id, ItemInventory inventoryItem)
     {
-        Item temp = _itemStorage.GetItem(inventoryItem.Id);
+        Item temp = _playerItemStorage.GetItem(inventoryItem.Id);
         _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image, temp.Name,temp.Type);
     }
 
     private void StartUpdateInventory()
     {
-        for(int i = 0; i < _inventoryStorage.ItemCount; i++)
+        for(int i = 0; i < _inventoryStorage.InventorySize; i++)
         {
-            Item temp = _itemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
+            Item temp = _playerItemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
             _inventoryStorage.GetItem(i).AssignÑharacteristics(temp.Name, temp.Image, temp.Type);
         }
     }

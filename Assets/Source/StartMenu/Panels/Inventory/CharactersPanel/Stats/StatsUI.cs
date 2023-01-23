@@ -50,9 +50,7 @@ public class StatsUI : RenderUI
 class SlotStat
 {
     [SerializeField] private Sprite _image;
-    [SerializeField] private int _stat;
 
-    public int Stat => _stat;
     public Sprite Image => _image;
 }
 

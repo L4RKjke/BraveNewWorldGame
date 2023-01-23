@@ -21,15 +21,6 @@ public abstract class ItemRender : MonoBehaviour
     [SerializeField] protected SpriteRenderer Sleeve; //
     [SerializeField] protected SpriteRenderer BackQuiver;
 
-    private Sprite _baseHair;
-    private Sprite _baseEarRight;
-
-    private void Awake()
-    {
-        _baseHair = _hair.sprite;
-        _baseEarRight = _earRight.sprite;
-    }
-
     public GameObject Head => _headAnchor;
 
     public void ChangeItem(ItemType type, bool isWear, Item item, bool isHand)
@@ -156,15 +147,7 @@ public abstract class ItemRender : MonoBehaviour
 
     private void ChangeHelmItem(bool isWear)
     {
-        if (isWear)
-        {
-            _hair.sprite = null;
-            _earRight.sprite = null;
-        }
-        else
-        {
-            _hair.sprite = _baseHair;
-            _earRight.sprite = _baseEarRight;
-        }
+        _hair.enabled = !isWear;
+        _earRight.enabled = !isWear;
     }
 }
