@@ -6,11 +6,23 @@ using UnityEngine.UI;
 
 public class CharacterChoiceUI : RenderUI
 {
-    [SerializeField] private List<GameObject> _characters;
+    [SerializeField] private List<GameObject> _temp;
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
     [SerializeField] private Sprite _choised;
 
+    private List<GameObject> _characters = new List<GameObject>();
+
     public int AllCharacters => _characters.Count;
+
+    private void Awake()
+    {
+        for(int i = 0; i < _temp.Count; i++)
+        {
+            _characters.Add(Instantiate(_temp[i]));
+            _characters[i].SetActive(false);
+            _characters[i].transform.SetParent(_characterPlayerUI.PointToCreate);
+        }
+    }
 
     private void Start()
     {
@@ -40,6 +52,11 @@ public class CharacterChoiceUI : RenderUI
         {
             ChoisedCharacter(0);
         }
+    }
+
+    public void UpdateHead(int id)
+    {
+        UpdateButtonGraphics(Content.transform.GetChild(id).gameObject, _characters[id]);
     }
 
     public void ChoisedCharacter(int currentId, int previosId = -1)

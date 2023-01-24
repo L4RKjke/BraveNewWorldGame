@@ -15,14 +15,24 @@ public class CharacterPlayerUI : MonoBehaviour
     private Coroutine _coroutine;
 
     public GameObject CurrentCharacter => _currentCharacter;
+    public Transform PointToCreate => _pointToCreate;
 
     private void Start()
     {
-        float delay = 0.5f;
-        _coroutine = StartCoroutine(Delay(delay));
         _charactersItemUI.UpdateAllButtons(_characterChoice.GetCharacter(_currentId));
         ShowStats();
         _statsUI.UpdateName(_characterChoice.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+    }
+
+    private void OnEnable()
+    {
+        float delay = 0.5f;
+        _coroutine = StartCoroutine(Delay(delay));
+    }
+
+    private void OnDisable()
+    {
+        _currentCharacter.SetActive(false);
     }
 
     public void SetCurrentCharacter(int newID)
@@ -58,7 +68,7 @@ public class CharacterPlayerUI : MonoBehaviour
     {
         _characterChoice.GetCharacter(_currentId).GetComponent<CharacterItems>().ChangeItem(type, isWear, item, isHand);
         ShowStats();
-        ShowCharacter();
+        _characterChoice.UpdateHead(_currentId);
     }
 
     private void SetCharacter()
@@ -80,11 +90,13 @@ public class CharacterPlayerUI : MonoBehaviour
 
     private void ShowCharacter()
     {
-        Destroy(_currentCharacter);
-        _currentCharacter = Instantiate(_characterChoice.GetCharacter(_currentId), _pointToCreate) as GameObject;
-        _currentCharacter.GetComponent<StateMachine>().enabled = false;
+        if (_currentCharacter != null)
+            _currentCharacter.SetActive(false);
+
+        _currentCharacter = _characterChoice.GetCharacter(_currentId);
         _currentCharacter.transform.position = _pointToCreate.position;
         _currentCharacter.transform.localScale = new Vector3(80f, 80f, 1);
+        _currentCharacter.SetActive(true);
     }
 
     private IEnumerator Delay(float delay)

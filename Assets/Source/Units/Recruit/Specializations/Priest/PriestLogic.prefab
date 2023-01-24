@@ -388,6 +388,14 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 4.8
       objectReference: {fileID: 0}
+    - target: {fileID: 7616743808372856171, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7616743808372856171, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8104701571811334780, guid: cf9078fd85e2f904d82e1d5e6e635dc1, type: 3}
       propertyPath: m_RootOrder
       value: 0
