@@ -294,6 +294,7 @@ GameObject:
   - component: {fileID: 4488452677723674077}
   - component: {fileID: 3885374938697441876}
   - component: {fileID: 4865506451327489053}
+  - component: {fileID: 5087508098236414437}
   m_Layer: 7
   m_Name: WizzardModel
   m_TagString: Untagged
@@ -431,6 +432,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2258014573361779789}
   _controller: {fileID: 7666088606890761115}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -555,6 +557,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0de777b8c60f9543beb8bebe1f93371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5087508098236414437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993470713354870330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1080747567943169732

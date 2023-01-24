@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1015239990429004892}
   - component: {fileID: 222595321678975477}
   - component: {fileID: 7969377432999366460}
+  - component: {fileID: 6281247391200999933}
   m_Layer: 9
   m_Name: WolfModel
   m_TagString: Untagged
@@ -136,6 +137,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8925359221573485718}
   _controller: {fileID: 6212776850053402278}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +239,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6281247391200999933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015239990429004881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1050903786683131799
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +553,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 1000
   m_TargetDisplay: 0
@@ -622,14 +636,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3775034299851060250}
-  m_LocalRotation: {x: -0, y: -0, z: 0.2884292, w: 0.9575013}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2884302, w: 0.95750093}
   m_LocalPosition: {x: 0, y: 0, z: 90}
   m_LocalScale: {x: 0.033014994, y: 0.033014994, z: 0.022009999}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6941268941170412242}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -33.528}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 33.528}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.858, y: -0.261}
@@ -672,7 +686,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278255451
+    rgba: 4278190335
   m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

@@ -20,7 +20,7 @@ public class AnimationCotroller : MonoBehaviour
     private MeleeState _meleeState;
 
     private readonly float _showTextTime = 0.3f;
-    private readonly string _showText = "ShowText";
+    private readonly string _showText = "ShowHitEffect";
 
     protected Fighter CurrentUnit => _unit;
 
@@ -28,11 +28,11 @@ public class AnimationCotroller : MonoBehaviour
 
     public UnityAction AtackCompleted;
 
-    private void OnEnable()
+    private void Start()
     {   
         Animator = GetComponent<Animator>();
-        _unit.Died += OnUnitDied;
-        _unit.HealthChanged += OnHealthChanged;
+        _unit.Health.Died += OnUnitDied;
+        _unit.Health.HealthChanged += OnHealthChanged;
 
         if (CurrentUnit != null)
         {
@@ -64,8 +64,8 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
-        _unit.Died -= OnUnitDied;
-        _unit.HealthChanged -= OnHealthChanged;
+        _unit.Health.Died -= OnUnitDied;
+        _unit.Health.HealthChanged -= OnHealthChanged;
         StopCoroutine(_showText);
 
         if (_findTargetState != null)
@@ -112,7 +112,7 @@ public class AnimationCotroller : MonoBehaviour
         AtackCompleted?.Invoke();
     }
 
-    private void OnHealthChanged(ushort currentHealth)
+    private void OnHealthChanged(int currentHealth)
     {
         _healthTxt = currentHealth.ToString();
 
@@ -120,10 +120,11 @@ public class AnimationCotroller : MonoBehaviour
             StartCoroutine(_showText);
     }
 
-    private IEnumerator ShowText()
+    private IEnumerator ShowHitEffect()
     {
         _TMPro.text = _healthTxt;
         _characterView.transform.localScale = _characterView.transform.localScale * _damagedScale;
+        _TMPro.rectTransform.rotation = Quaternion.Euler(_TMPro.rectTransform.rotation.x, _TMPro.rectTransform.rotation.y, _TMPro.rectTransform.rotation.z + Random.Range(-10, 10));
 
         yield return new WaitForSeconds(_showTextTime);
 

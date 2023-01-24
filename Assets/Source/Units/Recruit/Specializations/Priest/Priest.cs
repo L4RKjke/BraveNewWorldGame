@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(FireBallInstantiator))]
@@ -9,6 +8,8 @@ public class Priest : Recruit, IRangeAtacker
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
+    private int _magicPower = 0;
+
     private FireBallInstantiator _bulletInstantiator;
 
     private void Awake()
@@ -16,13 +17,14 @@ public class Priest : Recruit, IRangeAtacker
         _bulletInstantiator = GetComponent<FireBallInstantiator>();
     }
 
-    public void Shoot(ushort damage)
+    public void Shoot(int damage)
     {
         var mate = GetWounded();
 
-        if (mate.Health != MaxHealth)
+        if (mate.Health.Value != Health.MaxHealth)
         {
-            mate.Heal();
+            mate.Health.Heal(_magicPower);
+            ///Эту херовину вынести в приствью
             _healPart.SetActive(true);
             _healPart.GetComponent<ParticleSystem>().Play();
             _healPart.GetComponent<HealPartMover>().Init(mate);
@@ -30,9 +32,8 @@ public class Priest : Recruit, IRangeAtacker
 
         else
         {
-            _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, damage);
+            _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, damage + _magicPower);
         }
-
     }
 
     private Fighter GetWounded()
@@ -44,10 +45,10 @@ public class Priest : Recruit, IRangeAtacker
         {
             var unit = Units.GetById(i, FighterType.Recruit);
 
-            if (unit.Health < minHealth)
+            if (unit.Health.Value < minHealth)
             {
                 fighter = unit;
-                minHealth = Units.GetById(i, FighterType.Recruit).Health;
+                minHealth = Units.GetById(i, FighterType.Recruit).Health.Value;
             }
         }
         return fighter;

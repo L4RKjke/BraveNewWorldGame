@@ -4,5 +4,5 @@ using System;
 
 public interface IRangeAtacker
 {
-    public abstract void Shoot(ushort damage);
+    public abstract void Shoot(int damage);
 }

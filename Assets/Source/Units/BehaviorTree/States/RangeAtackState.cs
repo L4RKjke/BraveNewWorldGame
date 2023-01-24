@@ -9,6 +9,7 @@ public class RangeAtackState : AtackState
     private Coroutine _atackCourutine;
 
     public UnityAction AtackStarted;
+    public UnityAction AtackCompleted;
 
     private void Start()
     {
@@ -38,5 +39,6 @@ public class RangeAtackState : AtackState
     protected override void CompleteAtack()
     {
         _rangeAtacker.Shoot(Damage);
+        AtackCompleted?.Invoke();
     }
 }

@@ -10,7 +10,7 @@ public class UnitPool : MonoBehaviour
     {
         for (int i = 0; i < _fighters.Count; i++)
         {
-            _fighters[i].Died -= OnUnitDied;
+            _fighters[i].Health.Died -= OnUnitDied;
         }
     }
 
@@ -32,7 +32,7 @@ public class UnitPool : MonoBehaviour
     public void AddNewFighter(Fighter fighter)
     {
         _fighters.Add(fighter);
-        fighter.Died += OnUnitDied;
+        fighter.Health.Died += OnUnitDied;
     }
 
     public Fighter GetById(int id, FighterType type)

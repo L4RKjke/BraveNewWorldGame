@@ -7,7 +7,7 @@ public class Fireball : MonoBehaviour
 {
     [SerializeField] private GameObject _hitEffect;
 
-    private ushort _damage;
+    private int _damage;
 
     private readonly float _speed = 3;
     private readonly float _lifetime = 3;
@@ -20,13 +20,13 @@ public class Fireball : MonoBehaviour
         StartCoroutine(LifeTimeCorutine());
     }
 
-    public void Init(FighterType targetType, ushort damage)
+    public void Init(FighterType targetType, int damage)
     {
         _targetType = targetType;
         _damage = damage;
     }
 
-    public void IncreaseDamage(ushort damage)
+    public void IncreaseDamage(int damage)
     {
         _damage += damage;
     }
@@ -43,7 +43,7 @@ public class Fireball : MonoBehaviour
         {
             if (_targetType == target.MyType)
             {
-                target.TakeDamage(_damage);
+                target.Health.TakeDamage(_damage);
                 Destroy(gameObject);
             }
         }

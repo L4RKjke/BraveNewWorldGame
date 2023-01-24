@@ -4,7 +4,7 @@ public class FireBallInstantiator : MonoBehaviour
 {
     private FighterType _targetType;
 
-    public void Shoot(Fighter currentTarget, Fireball fireball, Transform firePoint, FighterType targetType, ushort damage)
+    public void Shoot(Fighter currentTarget, Fireball fireball, Transform firePoint, FighterType targetType, int damage)
     {
         _targetType = targetType;
 
@@ -17,7 +17,7 @@ public class FireBallInstantiator : MonoBehaviour
         }
     }
 
-    private void InstantiateBullet(float angel, Fireball fireball, Transform firePoint, ushort damage)
+    private void InstantiateBullet(float angel, Fireball fireball, Transform firePoint, int damage)
     {
         var newFireball = Instantiate(fireball, firePoint.position, Quaternion.Euler(new Vector3(0, 0, angel)));
         newFireball.Init(_targetType, damage);

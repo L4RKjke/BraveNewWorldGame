@@ -184,6 +184,7 @@ GameObject:
   - component: {fileID: 222595321678975477}
   - component: {fileID: 7969377432999366460}
   - component: {fileID: 4709100872121525332}
+  - component: {fileID: 6281247391200999933}
   m_Layer: 9
   m_Name: DevilAtackerModel
   m_TagString: Untagged
@@ -229,7 +230,6 @@ MonoBehaviour:
   _speed: 1.3
   _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
   _firePoint: {fileID: 6144207867878172590}
-  _electricity: {fileID: 0}
 --- !u!114 &963163797568080017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +320,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8925359221573485718}
   _controller: {fileID: 1958286969823689352}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,6 +445,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0de777b8c60f9543beb8bebe1f93371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6281247391200999933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015239990429004881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1324064182948924343

@@ -10,6 +10,7 @@ public class MeleeState : AtackState
     private IMeleeAtacker _meleeAtacker;
 
     public UnityAction AtackStarted;
+    public UnityAction AtackCompleted;
     private Coroutine _atackCourutine;
 
     private readonly float _meleeAtackDelay = 1f;
@@ -43,5 +44,6 @@ public class MeleeState : AtackState
     {
         Instantiate(_hitEffect, CurrentFighter.CurrentTarget.transform.position, Quaternion.identity);
         _meleeAtacker.Atack(Damage);
+        AtackCompleted?.Invoke();
     }
 }

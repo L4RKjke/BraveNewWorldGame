@@ -8,17 +8,17 @@ public class Healthbar : MonoBehaviour
 
     private void Start()
     {
-        _fighter.HealthChanged += ChangeFill;
+        _fighter.Health.HealthChanged += ChangeFill;
     }
 
     private void OnDisable()
     {
-        _fighter.HealthChanged -= ChangeFill;
+        _fighter.Health.HealthChanged -= ChangeFill;
     }
 
-    private void ChangeFill(ushort value)
+    private void ChangeFill(int value)
     {
-        float damageValue = (float)value / _fighter.MaxHealth;
+        float damageValue = (float)value / _fighter.Health.MaxHealth;
         _slider.value = damageValue;
     }
 }

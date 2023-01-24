@@ -10,6 +10,8 @@ public class Wizzard : Recruit, IRangeAtacker
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
+    private ushort _magicPower = 0;
+
     private FireBallInstantiator _bulletInstantiator;
 
     public Fireball Fireball => _fireball;
@@ -19,7 +21,7 @@ public class Wizzard : Recruit, IRangeAtacker
         _bulletInstantiator = GetComponent<FireBallInstantiator>();
     }
 
-    public void Shoot(ushort damage)
+    public void Shoot(int damage)
     {
         _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, damage);
     }
