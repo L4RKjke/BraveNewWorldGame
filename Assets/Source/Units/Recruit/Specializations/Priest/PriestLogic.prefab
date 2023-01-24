@@ -259,6 +259,7 @@ MonoBehaviour:
   _attack: 5
   _defense: 3
   _health: 100
+  _magic: 75
 --- !u!114 &1544602812463222786
 MonoBehaviour:
   m_ObjectHideFlags: 0

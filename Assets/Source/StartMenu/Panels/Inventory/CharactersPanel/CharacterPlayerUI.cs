@@ -75,7 +75,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void ShowStats()
     {
         CharacterStats characterStats = _characterChoice.GetCharacter(_currentId).GetComponent<CharacterStats>();
-        _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health);
+        _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
     }
 
     private void ShowCharacter()

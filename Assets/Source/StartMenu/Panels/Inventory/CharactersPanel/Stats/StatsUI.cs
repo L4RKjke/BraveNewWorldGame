@@ -14,12 +14,12 @@ public class StatsUI : RenderUI
         AddGraphics();
     }
 
-    public void UpdateAllStats(int attack,int defense, int life)
+    public void UpdateAllStats(int attack,int defense, int life, int magicPower)
     {
         UpdateStatText(0, attack);
         UpdateStatText(1, defense);
         UpdateStatText(2, life);
-        UpdateStatText(3, Random.Range(0,100));
+        UpdateStatText(3, magicPower);
     }
 
     public void UpdateName(string name)

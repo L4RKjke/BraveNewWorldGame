@@ -5,14 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
+[RequireComponent(typeof(PlayerItemStorage))]
 [RequireComponent(typeof(InventoryStorage))]
 public class InventoryUI : RenderUI
 {
-    [SerializeField] private PlayerItemStorage _playerItemStorage;
     [SerializeField] private RectTransform _movingObject;
 
+    private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
-    private int _maxCount = 50;
+    private int _maxCount = 3;
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
@@ -22,36 +23,41 @@ public class InventoryUI : RenderUI
     public PlayerItemStorage PlayerItemStorage => _playerItemStorage;
     public ItemInventory CurrentItem => _currentItem;
     public int CurrentId => _currentId;
+    public int MaxCount => _maxCount;
+
 
     public EventSystem _eventSystem;
 
     private void Awake()
     {
         _inventoryStorage = GetComponent<InventoryStorage>();
-    }
-
-    private void OnEnable()
-    {
-        _currentId = -1;
+        _playerItemStorage = GetComponent<PlayerItemStorage>();
     }
 
     private void Start()
     {
-
         if (_inventoryStorage.InventorySize == 0)
             AddGraphics();
 
-        for(int i = 1; i < _playerItemStorage.CountItems; i++)
-        {
-            Item NewItem = _playerItemStorage.GetItem(i);
-            _inventoryStorage.AddItem(i - 1, NewItem);
-        }
 
         Item item = _playerItemStorage.GetItem(0);
         _inventoryStorage.CreateInventory(_maxCount, item);
 
 
+        for (int i = 1; i < _playerItemStorage.CountItems; i++)
+        {
+            Item NewItem = _playerItemStorage.GetItem(i);
+            Debug.Log(NewItem);
+            _inventoryStorage.AddItem(i - 1, NewItem);
+        }
+
+
         StartUpdateInventory();
+    }
+
+    private void OnEnable()
+    {
+        _currentId = -1;
     }
 
     private void Update()
@@ -69,7 +75,6 @@ public class InventoryUI : RenderUI
     public void ReturnItem(Item item = null)
     {
         ItemInventory temp = null;
-        Debug.Log(item);
 
         for (int i = 0; i < _inventoryStorage.InventorySize; i++)
         {

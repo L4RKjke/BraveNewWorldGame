@@ -44,10 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea9c2e7c6df40d4b9c60c62fe4b096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 5
   _name: WoodenWand
   _image: {fileID: 21300000, guid: 3fde0f9b79086954d926623c53498598, type: 3}
   _defense: 0
   _attack: 20
   _health: 5
+  _magic: 35
+  ItemType: 0
   _weaponSprite: {fileID: 21300000, guid: 9e0bdf2c5996c0d469aefec34b0a51d4, type: 3}

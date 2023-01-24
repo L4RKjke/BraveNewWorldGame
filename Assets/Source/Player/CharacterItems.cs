@@ -114,8 +114,8 @@ public class CharacterItems : MonoBehaviour
         CharacterStats characterStats = GetComponent<CharacterStats>();
 
         if (isWear)
-            characterStats.AssignStat(item.Attack, item.Defense, item.Health);
+            characterStats.AssignStat(item.Attack, item.Defense, item.Health, item.Magic);
         else
-            characterStats.AssignStat(-item.Attack, -item.Defense, -item.Health);
+            characterStats.AssignStat(-item.Attack, -item.Defense, -item.Health, -item.Magic);
     }
 }

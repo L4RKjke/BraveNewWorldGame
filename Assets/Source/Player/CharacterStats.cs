@@ -8,16 +8,19 @@ public class CharacterStats : MonoBehaviour
     [SerializeField] private int _attack;
     [SerializeField] private int _defense;
     [SerializeField] private int _health;
+    [SerializeField] private int _magic;
 
     public string Name => _name;
     public int Attack => _attack;
     public int Defense => _defense;
     public int Health => _health;
+    public int Magic => _magic;
 
-    public void AssignStat(int attack, int defense, int health)
+    public void AssignStat(int attack, int defense, int health, int magic)
     {
         _attack += attack;
         _defense += defense;
         _health += health;
+        _magic += magic;
     }
 }

@@ -578,9 +578,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Yura
-  _attack: 65
-  _defense: 15
-  _health: 262
+  _attack: 50
+  _defense: 5
+  _health: 150
+  _magic: 50
 --- !u!114 &4587932334151701200
 MonoBehaviour:
   m_ObjectHideFlags: 0
