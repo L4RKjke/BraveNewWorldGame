@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class CharacterChoiceUI : RenderUI
 {
-    [SerializeField] private List<GameObject> _temp;
+    [SerializeField] private List<GameObject> _temp; //test
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
     [SerializeField] private Sprite _choised;
 
@@ -16,7 +16,7 @@ public class CharacterChoiceUI : RenderUI
 
     private void Awake()
     {
-        for(int i = 0; i < _temp.Count; i++)
+        for(int i = 0; i < _temp.Count; i++) //test
         {
             _characters.Add(Instantiate(_temp[i]));
             _characters[i].SetActive(false);
