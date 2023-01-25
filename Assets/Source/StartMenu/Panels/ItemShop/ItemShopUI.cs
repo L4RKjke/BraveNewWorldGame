@@ -36,7 +36,7 @@ public class ItemShopUI : RenderUI
     private void AddButton(Item item)
     {
         GameObject newItemButton = Instantiate(Ñontainer, Content.transform) as GameObject;
-        newItemButton.name = Content.transform.childCount.ToString();
+        newItemButton.name = (Content.transform.childCount - 1).ToString();
         StatsUI statsUI = newItemButton.GetComponent<StatsUI>();
         newItemButton.GetComponentInChildren<TMP_Text>().text = item.Name;
         newItemButton.GetComponentInChildren<Image>().sprite = item.Image;

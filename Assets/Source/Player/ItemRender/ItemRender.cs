@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Appearance))]
 public abstract class ItemRender : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _armor; //
     [SerializeField] private SpriteRenderer _helmet; //
-    [SerializeField] private SpriteRenderer _earRight; //
-    [SerializeField] private SpriteRenderer _hair; //
     [SerializeField] private SpriteRenderer _armRightArmor; //
     [SerializeField] private SpriteRenderer _armLeftArmor; //
     [SerializeField] private SpriteRenderer _legRightArmor; //
     [SerializeField] private SpriteRenderer _legLeftArmor; //
-    [SerializeField] private Sprite _standartArmor;
     [SerializeField] private GameObject _headAnchor;
 
     [SerializeField] protected SpriteRenderer PrimaryWeapon; //
@@ -102,14 +100,14 @@ public abstract class ItemRender : MonoBehaviour
 
     private void ChangeHead(bool isWear, Item item)
     {
+        gameObject.GetComponent<Appearance>().ChangeHelmItem(isWear);
+
         if (isWear)
         {
-            ChangeHelmItem(isWear);
             _helmet.sprite = item.GetComponent<HeadItem>().Head;
         }
         else
         {
-            ChangeHelmItem(isWear);
             _helmet.sprite = null;
         }
     }
@@ -142,12 +140,6 @@ public abstract class ItemRender : MonoBehaviour
 
     private void TakeOfArmor()
     {
-        _armor.sprite = _standartArmor;
-    }
-
-    private void ChangeHelmItem(bool isWear)
-    {
-        _hair.enabled = !isWear;
-        _earRight.enabled = !isWear;
+        _armor.sprite = gameObject.GetComponent<Appearance>().StandartArmor;
     }
 }

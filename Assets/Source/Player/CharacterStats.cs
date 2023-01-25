@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    [SerializeField] private string _name;
-    [SerializeField] private int _attack;
-    [SerializeField] private int _defense;
-    [SerializeField] private int _health;
-    [SerializeField] private int _magic;
+    private string _name;
+    private int _attack = 0;
+    private int _defense = 0;
+    private int _health = 0;
+    private int _magic = 0;
 
     public string Name => _name;
     public int Attack => _attack;
@@ -22,5 +22,10 @@ public class CharacterStats : MonoBehaviour
         _defense += defense;
         _health += health;
         _magic += magic;
+    }
+
+    public void SetName(string name)
+    {
+        _name = name;
     }
 }

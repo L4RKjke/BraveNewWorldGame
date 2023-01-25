@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class HeroCreater : MonoBehaviour
+public abstract class HeroStatsCreater : ScriptableObject
 {
-    [SerializeField] private List<string> _names;
     [SerializeField] private int[] _minMaxAttack;
     [SerializeField] private int[] _minMaxDefense;
     [SerializeField] private int[] _minMaxHealth;

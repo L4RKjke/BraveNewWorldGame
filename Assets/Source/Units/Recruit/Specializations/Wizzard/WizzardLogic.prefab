@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 2585755542606513714}
   - component: {fileID: 4587932334151701200}
   - component: {fileID: 3320888342367986970}
+  - component: {fileID: 3786314384361636544}
   m_Layer: 7
   m_Name: WizzardLogic
   m_TagString: Untagged
@@ -608,19 +609,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _armor: {fileID: 7227414308371503617}
   _helmet: {fileID: 7256801626611450056}
-  _earRight: {fileID: 7051256085453731699}
-  _hair: {fileID: 3885108966406816698}
   _armRightArmor: {fileID: 3336156474666113143}
   _armLeftArmor: {fileID: 4751667290293017525}
   _legRightArmor: {fileID: 2867732800477875896}
   _legLeftArmor: {fileID: 3806354709991081182}
-  _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
   _headAnchor: {fileID: 6911078924216841161}
   PrimaryWeapon: {fileID: 8686717600435745396}
   SecondaryWeapon: {fileID: 7516246607745037787}
   Shield: {fileID: 3512366448718331958}
   Sleeve: {fileID: 7964387109074328355}
   BackQuiver: {fileID: 130784416400561297}
+--- !u!114 &3786314384361636544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989668497598042495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2595d2910eb4afc419caf9051fd1433e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _earRight: {fileID: 7051256085453731699}
+  _hair: {fileID: 3885108966406816698}
+  _body: {fileID: 2279257311978530453}
+  _head: {fileID: 8614899659894777805}
+  _eyes: {fileID: 8209816933717891064}
+  _eyesbrows: {fileID: 7753288098616172629}
+  _mouth: {fileID: 4933657598083365937}
+  _armL: {fileID: 3891048922189391063}
+  _handL: {fileID: 1437435983807638065}
+  _fingersL: {fileID: 4458835439331323296}
+  _armR: {fileID: 3532430482054618438}
+  _handR: {fileID: 7687730620548809579}
+  _legL: {fileID: 1401035279062708161}
+  _legR: {fileID: 1013754369348389449}
+  _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
 --- !u!1 &1002459120236183972
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +671,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002459120236183972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
