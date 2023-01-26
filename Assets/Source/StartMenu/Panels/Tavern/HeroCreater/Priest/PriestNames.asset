@@ -9,23 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7641f89e6c5f347a6f719807da9ec9, type: 3}
-  m_Name: WizardNames
+  m_Script: {fileID: 11500000, guid: 7fe7f0d59217a4b48b37aa007f0dc31c, type: 3}
+  m_Name: PriestNames
   m_EditorClassIdentifier: 
   _heroNames:
-  - Shinorim
-  - Uridarin
-  - Inaxx
-  - Aqirax
-  - Egorim
-  - Aniviar
-  - Adosior
-  - Qeneth
-  - Udrubarin
-  - Dhitior
-  - Iguxon
-  - Udel
-  - Aqihr
-  - Adarius
-  - Daforn
-  - Yra
+  - Elenaril
+  - Farryn
+  - Phelorna
+  - Ithronel
+  - Artin
+  - Tisha
+  - Mylaela
+  - Darshee
+  - Ryllae
+  - Ilsevel
+  - Darshee
+  - Nithroel
+  - Mhoryga
+  - Zaleria
+  - Ciradyl
+  - Alina

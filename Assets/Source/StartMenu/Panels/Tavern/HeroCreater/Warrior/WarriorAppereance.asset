@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: WarriorAppereance
   m_EditorClassIdentifier: 
   _skeenColor:
-  - {r: 0.8117647, g: 0.5975042, b: 0.24313721, a: 1}
-  - {r: 0.8773585, g: 0.38290277, b: 0.30210927, a: 1}
-  - {r: 0.6037736, g: 0.4590822, b: 0.16803133, a: 1}
-  - {r: 0.6887035, g: 0.8018868, b: 0.47281063, a: 1}
-  - {r: 0.6603774, g: 0.27620742, b: 0.12771448, a: 1}
+  - {r: 0.27716514, g: 0.5849056, b: 0.08552865, a: 1}
+  - {r: 0.4034772, g: 0.9339623, b: 0.118948035, a: 1}
+  - {r: 0.13336597, g: 0.3490566, b: 0.14332877, a: 1}
+  - {r: 0.69804883, g: 0.8679245, b: 0.36436453, a: 1}
+  - {r: 0.58199996, g: 0.8301887, b: 0.56781775, a: 1}
   _hairColor:
   - {r: 0.7264151, g: 0.28535435, b: 0.065103225, a: 1}
   - {r: 0.745283, g: 0.6931711, b: 0.6714578, a: 1}
@@ -54,19 +54,12 @@ MonoBehaviour:
   - {fileID: 21300004, guid: 6cba9f90a2e573346912da99d5625d59, type: 3}
   - {fileID: 21300004, guid: 0ad2125d276975a4e9ad1d3af7cbc72c, type: 3}
   - {fileID: 21300004, guid: 643f589ccb205e144a5a647b6d1a2ef4, type: 3}
-  - {fileID: 21300002, guid: 0d2b06f8f35ae4747ab68a7b8dbf1c8b, type: 3}
   - {fileID: 21300004, guid: 8db8c1c34bb23114ca1ae578d00426fd, type: 3}
   - {fileID: 21300004, guid: ac0da8b0426a3274fbb27e5c10d41a26, type: 3}
   - {fileID: 21300004, guid: 87b82580c3cb58247a3cbe6ab66cacaa, type: 3}
   - {fileID: 21300004, guid: ee6a973d988dfb14bbf2d63be0706259, type: 3}
   - {fileID: 21300004, guid: fc546d30f33818648a99c50aa78ebc18, type: 3}
-  _eyesbrows:
-  - {fileID: 21300004, guid: 282e8ed7eaf75284aab6a8ab5a9cbdcc, type: 3}
-  - {fileID: 21300004, guid: fc3420a0e48d52d4fb6df0048ad88b3f, type: 3}
-  - {fileID: 21300002, guid: 5bfc6e175255e2c48b850861f9e084b4, type: 3}
-  - {fileID: 21300004, guid: b7d62034cf94b4c4c94e51a37d76ab48, type: 3}
-  - {fileID: 21300004, guid: 77f371ded70a4c74a83357c2593b986e, type: 3}
-  - {fileID: 21300004, guid: aad28951219ef62449de5a58d6233ba2, type: 3}
+  _eyesbrows: []
   _mouth:
   - {fileID: 21300004, guid: 7bca1bb38618692469629172ade65633, type: 3}
   - {fileID: 21300004, guid: 9fb9a968dbfe4304b9d413f364a09331, type: 3}

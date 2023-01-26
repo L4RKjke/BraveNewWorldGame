@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2350825f138a3394ea231c4248f3fceb, type: 3}
+  m_Name: PriestStats
+  m_EditorClassIdentifier: 
+  _minMaxAttack: 0400000008000000
+  _minMaxDefense: 0500000008000000
+  _minMaxHealth: 640000008c000000
+  _minMaxMagic: 080000000c000000
+  _maxStatsPoint: 50
+  _pointToDefense: 2
+  _healthToPoint: 10

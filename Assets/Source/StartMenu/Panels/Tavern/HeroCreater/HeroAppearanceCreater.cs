@@ -35,7 +35,11 @@ public class HeroAppearanceCreater : ScriptableObject
         Sprite hair = _hair[Random.Range(0, _hair.Count)];
         Sprite head = _head[Random.Range(0, _head.Count)];
         Sprite eyes = _eyes[Random.Range(0, _eyes.Count)];
-        Sprite eyesbrows = _eyesbrows[Random.Range(0, _eyesbrows.Count)];
+        Sprite eyesbrows = null;
+
+        if (_eyesbrows.Count > 0)
+            eyesbrows = _eyesbrows[Random.Range(0, _eyesbrows.Count)];
+
         Sprite mouth = _mouth[Random.Range(0, _mouth.Count)];
 
         appearance.SetHead(hairColor, skeenColor, ear, hair, head, eyes, eyesbrows, mouth);

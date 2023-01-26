@@ -13,15 +13,19 @@ MonoBehaviour:
   m_Name: WarriorNames
   m_EditorClassIdentifier: 
   _heroNames:
-  - Misha
-  - Volodya
-  - Golem
-  - Gena
-  - Ruslan
-  - Aslan
-  - Salvar
+  - Zabghat
+  - Yamarz
+  - Snakha
+  - Zaghig
+  - Ulam
+  - Carthurg
+  - Nomgulg
+  - Saghig
+  - Ogrumbu
+  - Nargulg
+  - Hrolkug
+  - Wumkbanok
+  - Mash
+  - Pargu
+  - Shat
   - Nikita
-  - Yra
-  - George
-  - Cheburator
-  - Gibich

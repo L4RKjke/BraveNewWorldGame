@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 3
   _name: Bloodmoon
   _image: {fileID: 21300000, guid: ffaef790e8dd40d48a586855fc3f79bb, type: 3}
-  _defense: 5
-  _attack: 2
-  _health: 25
+  _defense: 6
+  _attack: 6
+  _health: 60
+  _magic: 1
   ItemType: 1
   _rightHand: {fileID: 21300002, guid: 31e70442345ee904f8f45d0f3665afc6, type: 3}
   _leftHand: {fileID: 21300000, guid: 31e70442345ee904f8f45d0f3665afc6, type: 3}

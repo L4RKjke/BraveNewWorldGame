@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7416709609468726893
+--- !u!1 &3140920568252314784
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 915380213004895092}
-  - component: {fileID: 3225613569580159272}
+  - component: {fileID: 1298249467069209517}
+  - component: {fileID: 7017217039784981348}
   m_Layer: 0
-  m_Name: Hood
+  m_Name: WoodenWand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &915380213004895092
+--- !u!4 &1298249467069209517
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416709609468726893}
+  m_GameObject: {fileID: 3140920568252314784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,23 +32,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3225613569580159272
+--- !u!114 &7017217039784981348
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7416709609468726893}
+  m_GameObject: {fileID: 3140920568252314784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ea9c2e7c6df40d4b9c60c62fe4b096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Hood
-  _image: {fileID: 21300000, guid: 1b2d040742440a94bb3fde097acb96b4, type: 3}
-  _defense: 2
-  _attack: 15
-  _health: 20
+  _name: WoodenWand
+  _image: {fileID: 21300000, guid: 3fde0f9b79086954d926623c53498598, type: 3}
+  _defense: 0
+  _attack: 10
+  _health: 0
   _magic: 20
-  ItemType: 2
-  _head: {fileID: 21300082, guid: 61f0eed518203d643bc453cebb9c6d21, type: 3}
+  ItemType: 0
+  _weaponSprite: {fileID: 21300000, guid: 9e0bdf2c5996c0d469aefec34b0a51d4, type: 3}
