@@ -16,7 +16,16 @@ public class ItemShopUI : RenderUI
     private void Awake()
     {
         _itemStorage = GetComponent<ItemStorage>();
+    }
+
+    private void OnEnable()
+    {
         AddGraphics();
+    }
+
+    private void OnDisable()
+    {
+        DeleteAllButtons();
     }
 
     protected override void AddGraphics()

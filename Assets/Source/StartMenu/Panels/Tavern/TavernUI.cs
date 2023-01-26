@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TavernUI : RenderUI
 {
@@ -8,10 +10,19 @@ public class TavernUI : RenderUI
     [SerializeField] private List<HeroNamesCreater> _heroNamesCreater;
     [SerializeField] private List<HeroStatsCreater> _heroStatsCreater;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
+    [SerializeField] private PlayerWallet _wallet;
+    [SerializeField] private CharactersStorage _charactersStorage;
+    [SerializeField] private GameObject _disclaimer;
+    [SerializeField] private GameObject _characterChangeUI;
 
-    private void Start()
+    private void OnEnable()
     {
         AddGraphics();
+    }
+
+    private void OnDisable()
+    {
+        DeleteAllButtons();
     }
 
     protected override void AddGraphics()
@@ -32,11 +43,48 @@ public class TavernUI : RenderUI
         StatsUI statsUI = newSaler.GetComponentInChildren<StatsUI>();
         statsUI.UpdateName(characterStats.Name);
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
+
+        Button temp = newSaler.GetComponentInChildren<Button>();
+        temp.onClick.AddListener(delegate { SellCharacter(newSaler); });
     }
 
-    private IEnumerator Delay(float delay)
+    private void SellCharacter(GameObject button)
     {
-        yield return new WaitForSeconds(delay);
-        AddGraphics();
+        GameObject character = button.GetComponentInChildren<TavernCharactersUI>().GetCharacter();
+
+        int heroPrice = 500;
+
+        if (_charactersStorage._isFree)
+        {
+            if (_wallet.Gold >= heroPrice)
+            {
+                _wallet.ChangeGold(-heroPrice);
+
+                _charactersStorage.AddNewCharacter(character);
+
+                button.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+                button.transform.GetChild(button.transform.childCount - 1).gameObject.SetActive(true);
+            }
+            else
+            {
+                string notMoney = "Not enough money";
+
+                DisclaimerOn(button, notMoney);
+            }
+        }
+        else
+        {
+            _characterChangeUI.SetActive(true);
+
+            _characterChangeUI.GetComponent<CharacterChangeUI>().Init(_charactersStorage, button);
+        }
+    }
+
+    private void DisclaimerOn(GameObject button, string text)
+    {
+        _disclaimer.SetActive(false);
+        _disclaimer.GetComponentInChildren<TMP_Text>().text = text;
+        _disclaimer.transform.position = button.transform.position;
+        _disclaimer.SetActive(true);
     }
 }

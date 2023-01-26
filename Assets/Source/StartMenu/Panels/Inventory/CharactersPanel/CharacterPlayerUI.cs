@@ -14,14 +14,14 @@ public class CharacterPlayerUI : MonoBehaviour
     private int _currentId = 0;
     private Coroutine _coroutine;
 
-    public GameObject CurrentCharacter => _currentCharacter;
+    public int CurrentId => _currentId;
     public Transform PointToCreate => _pointToCreate;
 
     private void Start()
     {
-        _charactersItemUI.UpdateAllButtons(_characterChoice.GetCharacter(_currentId));
+        _charactersItemUI.UpdateAllButtons(_characterChoice.CharactersStorageMain.GetCharacter(_currentId));
         ShowStats();
-        _statsUI.UpdateName(_characterChoice.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+        _statsUI.UpdateName(_characterChoice.CharactersStorageMain.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
     }
 
     private void OnEnable()
@@ -46,14 +46,14 @@ public class CharacterPlayerUI : MonoBehaviour
     {
         _currentId += next;
 
-        if (_currentId == _characterChoice.AllCharacters)
+        if (_currentId == _characterChoice.CharactersStorageMain.AllCharacters)
         {
             _currentId = 0;
-            _characterChoice.ChoisedCharacter(_currentId, _characterChoice.AllCharacters - 1);
+            _characterChoice.ChoisedCharacter(_currentId, _characterChoice.CharactersStorageMain.AllCharacters - 1);
         }
         else if (_currentId < 0)
         {
-            _currentId = _characterChoice.AllCharacters - 1;
+            _currentId = _characterChoice.CharactersStorageMain.AllCharacters - 1;
             _characterChoice.ChoisedCharacter(_currentId, 0);
         }
         else
@@ -66,16 +66,16 @@ public class CharacterPlayerUI : MonoBehaviour
 
     public void EquipItem(ItemType type, bool isWear, Item item, bool isHand = false)
     {
-        _characterChoice.GetCharacter(_currentId).GetComponent<CharacterItems>().ChangeItem(type, isWear, item, isHand);
+        _characterChoice.CharactersStorageMain.GetCharacter(_currentId).GetComponent<CharacterItems>().ChangeItem(type, isWear, item, isHand);
         ShowStats();
         _characterChoice.UpdateHead(_currentId);
     }
 
     private void SetCharacter()
     {
-        _charactersItemUI.UpdateAllButtons(_characterChoice.GetCharacter(_currentId));
+        _charactersItemUI.UpdateAllButtons(_characterChoice.CharactersStorageMain.GetCharacter(_currentId));
         ShowStats();
-        _statsUI.UpdateName(_characterChoice.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+        _statsUI.UpdateName(_characterChoice.CharactersStorageMain.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
 
         _foldingScreen.SetActive(false);
         StopCoroutine(_coroutine);
@@ -84,7 +84,7 @@ public class CharacterPlayerUI : MonoBehaviour
 
     private void ShowStats()
     {
-        CharacterStats characterStats = _characterChoice.GetCharacter(_currentId).GetComponent<CharacterStats>();
+        CharacterStats characterStats = _characterChoice.CharactersStorageMain.GetCharacter(_currentId).GetComponent<CharacterStats>();
         _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
     }
 
@@ -93,7 +93,7 @@ public class CharacterPlayerUI : MonoBehaviour
         if (_currentCharacter != null)
             _currentCharacter.SetActive(false);
 
-        _currentCharacter = _characterChoice.GetCharacter(_currentId);
+        _currentCharacter = _characterChoice.CharactersStorageMain.GetCharacter(_currentId);
         _currentCharacter.transform.position = _pointToCreate.position;
         _currentCharacter.transform.localScale = new Vector3(80f, 80f, 1);
         _currentCharacter.SetActive(true);

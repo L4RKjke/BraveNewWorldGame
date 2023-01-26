@@ -20,10 +20,10 @@ public abstract class HeroStatsCreater : ScriptableObject
     public void CreateStats(CharacterStats characterStats)
     {
         _leftStatsPoint = _maxStatsPoint;
-        int attack = Random.Range(_minMaxAttack[0], _minMaxAttack[1]);
-        int defense = Random.Range(_minMaxDefense[0], _minMaxDefense[1]);
-        int health = Random.Range(_minMaxHealth[0], _minMaxHealth[1]);
-        int magic = Random.Range(_minMaxMagic[0], _minMaxMagic[1]);
+        int attack = Random.Range(_minMaxAttack[0], _minMaxAttack[1] + 1);
+        int defense = Random.Range(_minMaxDefense[0], _minMaxDefense[1] + 1);
+        int health = Random.Range(_minMaxHealth[0], _minMaxHealth[1] + 1);
+        int magic = Random.Range(_minMaxMagic[0], _minMaxMagic[1] + 1);
         _leftStatsPoint -= attack + defense * _pointToDefense + health / _healthToPoint + magic;
         characterStats.AssignStat(attack, defense, health, magic);
 

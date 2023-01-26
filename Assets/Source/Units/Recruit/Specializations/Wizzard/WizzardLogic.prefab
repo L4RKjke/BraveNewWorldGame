@@ -578,11 +578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615ce2307fb9294589c714fb59d6fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Yura
-  _attack: 50
-  _defense: 5
-  _health: 150
-  _magic: 50
 --- !u!114 &4587932334151701200
 MonoBehaviour:
   m_ObjectHideFlags: 0

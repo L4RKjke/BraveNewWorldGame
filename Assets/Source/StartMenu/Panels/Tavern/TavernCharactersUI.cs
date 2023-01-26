@@ -8,14 +8,23 @@ public class TavernCharactersUI : MonoBehaviour
     [SerializeField] private StatsUI _statsUI;
     [SerializeField] private GameObject _foldingScreen;
 
+    public Transform PointToCreate => _pointToCreate;
+    private GameObject _currentCharacter;
+
+    public GameObject GetCharacter()
+    {
+        return _currentCharacter;
+    }
 
     public CharacterStats ShowCharacter(GameObject character, HeroAppearanceCreater appereance)
     {
         GameObject newCharacter = Instantiate(character, _pointToCreate);
         newCharacter.transform.position = _pointToCreate.position;
         appereance.CreateAppereance(newCharacter.GetComponent<Appearance>());
-        CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
         newCharacter.transform.localScale = new Vector3(50f, 50f, 1);
-        return characterStats;
+
+        _currentCharacter = newCharacter;
+
+        return newCharacter.GetComponent<CharacterStats>();
     }
 }

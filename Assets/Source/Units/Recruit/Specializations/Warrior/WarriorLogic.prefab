@@ -256,11 +256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e615ce2307fb9294589c714fb59d6fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Nikita
-  _attack: 20
-  _defense: 20
-  _health: 250
-  _magic: 10
 --- !u!114 &-6307699738618667694
 MonoBehaviour:
   m_ObjectHideFlags: 0
