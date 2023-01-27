@@ -8,7 +8,7 @@ public class CharactersStorage : MonoBehaviour
 
     private List<GameObject> _characters = new List<GameObject>();
 
-    private int _maxSizeCharacters = 2;
+    private int _maxSizeCharacters = 6;
 
     public bool IsFree => _maxSizeCharacters > _characters.Count;
     public int AllCharacters => _characters.Count;

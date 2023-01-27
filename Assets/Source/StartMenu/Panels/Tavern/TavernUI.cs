@@ -17,6 +17,7 @@ public class TavernUI : RenderUI
 
     private void OnEnable()
     {
+        _disclaimer.SetActive(false);
         AddGraphics();
     }
 

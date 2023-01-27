@@ -20,6 +20,7 @@ public class ItemShopUI : RenderUI
 
     private void OnEnable()
     {
+        _disclaimer.SetActive(false);
         AddGraphics();
     }
 
