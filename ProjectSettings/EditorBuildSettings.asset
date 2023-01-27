@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Source/Arena/Scenes/StartMenu.unity
+    guid: 4a5ee67e10c0eb54cabd9d306f94c027
+  - enabled: 1
     path: Assets/Source/Arena/Scenes/TigerokScene.unity
     guid: 1b9a91db46d305546b576aac94322998
   m_configObjects: {}
