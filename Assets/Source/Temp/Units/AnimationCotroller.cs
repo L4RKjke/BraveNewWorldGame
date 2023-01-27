@@ -63,7 +63,9 @@ public class AnimationCotroller : MonoBehaviour
     {
         AtackCompleted -= ShowDamageEffect;
         _unit.Health.Died -= OnUnitDied;
-        StopCoroutine(_waitAtackAnimationCoroutine);
+        
+        if (_waitAtackAnimationCoroutine is not null)
+            StopCoroutine(_waitAtackAnimationCoroutine);
 
         if (_findTargetState != null)
             _findTargetState.StateActivated -= OnIdleAnimation;
