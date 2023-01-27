@@ -727,9 +727,9 @@ MonoBehaviour:
   "\u0421ontainer": {fileID: 879661627469288933, guid: 5d46e96d266a8874a89129224d11b65d, type: 3}
   Content: {fileID: 8437663370332208517}
   _characters:
-  - {fileID: 989668497598042495, guid: 8b9680dff05f0fb4794cb0e26b8f0131, type: 3}
-  - {fileID: 989668497598042495, guid: 0941d4702fecf1e45bca771088a2f44e, type: 3}
-  - {fileID: 989668497598042495, guid: c0b4a2503e3ac3b40a0702e162c068c2, type: 3}
+  - {fileID: 9095389991581320105, guid: f4c507579b991fe418653d9a347ee2c0, type: 3}
+  - {fileID: 2390632718027333168, guid: 307a1ac9ddbe9a741883a6f718cb0b08, type: 3}
+  - {fileID: 2279928410411204104, guid: 06d77edbde1f1c345abe7ef0812db213, type: 3}
   _heroNamesCreater:
   - {fileID: 11400000, guid: 0dc3aa024e731504684c7831649f1ec8, type: 2}
   - {fileID: 11400000, guid: 41c9171a925f17c43b565aa57258e5fd, type: 2}
@@ -1068,7 +1068,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.20996094, y: -14.397919}
+  m_AnchoredPosition: {x: 0.20996094, y: -14.397949}
   m_SizeDelta: {x: -15.22, y: -87.04994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8437663370332208515

@@ -21,7 +21,7 @@ public class TavernCharactersUI : MonoBehaviour
         GameObject newCharacter = Instantiate(character, _pointToCreate);
         newCharacter.transform.position = _pointToCreate.position;
         appereance.CreateAppereance(newCharacter.GetComponent<Appearance>());
-        newCharacter.transform.localScale = new Vector3(50f, 50f, 1);
+        newCharacter.transform.localScale = new Vector3(70f, 70f, 1);
 
         _currentCharacter = newCharacter;
 

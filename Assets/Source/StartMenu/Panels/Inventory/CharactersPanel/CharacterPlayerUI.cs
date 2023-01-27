@@ -102,7 +102,7 @@ public class CharacterPlayerUI : MonoBehaviour
 
         _currentCharacter = _characterChoice.CharactersStorageMain.GetCharacter(_currentId);
         _currentCharacter.transform.position = _pointToCreate.position;
-        _currentCharacter.transform.localScale = new Vector3(80f, 80f, 1);
+        _currentCharacter.transform.localScale = new Vector3(100f, 100f, 1);
         _currentCharacter.SetActive(true);
     }
 
