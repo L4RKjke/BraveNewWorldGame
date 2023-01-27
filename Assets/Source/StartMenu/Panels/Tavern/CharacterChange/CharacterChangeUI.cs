@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class CharacterChangeUI : AllCharactersPanel
 {
+    [SerializeField] private PlayerItemStorage _playerItemStorage;
+
     private GameObject _currentButton;
 
     private void OnDisable()
@@ -23,9 +25,17 @@ public class CharacterChangeUI : AllCharactersPanel
     protected override void AddListenerButton(GameObject button, int id)
     {
         Button tempButton = button.GetComponent<Button>();
-        tempButton.onClick.AddListener(delegate { CharactersStorage.DeleteCharacter(id); });
-        tempButton.onClick.AddListener(delegate { ChangeCharacter(); });
-        tempButton.onClick.AddListener(delegate { ClosePanel(); });
+        tempButton.onClick.AddListener(delegate { TryChangeCharacter(id); });
+    }
+
+    private void TryChangeCharacter(int id)
+    {
+        GameObject character = CharactersStorage.GetCharacter(id);
+        character.GetComponent<CharacterItems>().ReturnItems(_playerItemStorage);
+
+        CharactersStorage.DeleteCharacter(id);
+        ChangeCharacter();
+        ClosePanel();
     }
 
     private void ChangeCharacter()

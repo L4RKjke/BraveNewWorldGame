@@ -59,7 +59,7 @@ public class ItemShopUI : RenderUI
 
     private void SellItem(Item item, GameObject button)
     {
-        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - _playerItemStorage.EmptySlots - 1)
+        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1)
         {
             if (_wallet.Gold >= item.Price)
             {
@@ -73,7 +73,9 @@ public class ItemShopUI : RenderUI
                 else
                     _playerItemStorage.ChangeItem(item, id);
 
-                button.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+                Button temp = button.GetComponentInChildren<Button>();
+                temp.interactable = false;
+                temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = "Sold";
                 button.transform.GetChild(button.transform.childCount - 1).gameObject.SetActive(true);
             }
             else

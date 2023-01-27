@@ -10,8 +10,7 @@ public class CharactersStorage : MonoBehaviour
 
     private int _maxSizeCharacters = 2;
 
-    public bool _isFree => _maxSizeCharacters > _characters.Count;
-
+    public bool IsFree => _maxSizeCharacters > _characters.Count;
     public int AllCharacters => _characters.Count;
 
     private void Awake()

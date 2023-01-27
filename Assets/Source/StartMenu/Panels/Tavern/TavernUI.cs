@@ -45,16 +45,16 @@ public class TavernUI : RenderUI
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
 
         Button temp = newSaler.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { SellCharacter(newSaler); });
+        temp.onClick.AddListener(delegate { TrySellCharacter(newSaler); });
     }
 
-    private void SellCharacter(GameObject button)
+    private void TrySellCharacter(GameObject button)
     {
         GameObject character = button.GetComponentInChildren<TavernCharactersUI>().GetCharacter();
 
         int heroPrice = 500;
 
-        if (_charactersStorage._isFree)
+        if (_charactersStorage.IsFree)
         {
             if (_wallet.Gold >= heroPrice)
             {
@@ -62,7 +62,9 @@ public class TavernUI : RenderUI
 
                 _charactersStorage.AddNewCharacter(character);
 
-                button.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
+                Button temp = button.GetComponentInChildren<Button>();
+                temp.interactable = false;
+                temp.GetComponentInChildren<TMP_Text>().text = "Sold";
                 button.transform.GetChild(button.transform.childCount - 1).gameObject.SetActive(true);
             }
             else

@@ -59,6 +59,5 @@ public class Appearance : MonoBehaviour
     public void ChangeHelmItem(bool isWear)
     {
         _hair.enabled = !isWear;
-        _earRight.enabled = !isWear;
     }
 }

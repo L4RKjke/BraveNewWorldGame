@@ -28,6 +28,13 @@ public class CharacterPlayerUI : MonoBehaviour
     {
         float delay = 0.5f;
         _coroutine = StartCoroutine(Delay(delay));
+
+        if (_currentCharacter != null && _currentCharacter != _characterChoice.CharactersStorageMain.GetCharacter(_currentId))
+        {
+            _charactersItemUI.UpdateAllButtons(_characterChoice.CharactersStorageMain.GetCharacter(_currentId));
+            ShowStats();
+            _statsUI.UpdateName(_characterChoice.CharactersStorageMain.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+        }
     }
 
     private void OnDisable()

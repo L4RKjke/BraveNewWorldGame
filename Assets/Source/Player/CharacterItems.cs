@@ -30,6 +30,25 @@ public class CharacterItems : MonoBehaviour
         return null;
     }
 
+    public void ReturnItems(PlayerItemStorage playerItemStorage)
+    {
+
+        if (_head != null)
+            playerItemStorage.ReturnItem(_head);
+
+        if (_body != null)
+            playerItemStorage.ReturnItem(_body);
+
+        if (_leg != null)
+            playerItemStorage.ReturnItem(_leg);
+
+        if (_hand != null)
+            playerItemStorage.ReturnItem(_hand);
+
+        if (_weapon != null)
+            playerItemStorage.ReturnItem(_weapon);
+    }
+
     public void ChangeItem(ItemType type, bool isWear, Item item, bool isHand = false)
     {
        ItemRender itemRender = GetComponent<ItemRender>();
