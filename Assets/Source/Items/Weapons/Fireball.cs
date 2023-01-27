@@ -5,10 +5,14 @@ using UnityEngine;
 
 public class Fireball : MonoBehaviour
 {
-    private ushort _bulletDamage = 4;
+    [SerializeField] private GameObject _hitEffect;
 
-    private readonly float _speed = 2;
-    private readonly float _lifetime = 5;
+    private int _damage;
+
+    private readonly float _speed = 3;
+    private readonly float _lifetime = 3;
+    private FighterType _targetType;
+
 
     private void Start()
     {
@@ -16,22 +20,32 @@ public class Fireball : MonoBehaviour
         StartCoroutine(LifeTimeCorutine());
     }
 
-    public void IncreaseDamage(ushort damage)
+    public void Init(FighterType targetType, int damage)
     {
-        _bulletDamage += damage;
+        _targetType = targetType;
+        _damage = damage;
+    }
+
+    public void IncreaseDamage(int damage)
+    {
+        _damage += damage;
     }
 
     private void OnDestroy()
     {
+        Instantiate(_hitEffect, transform.position, Quaternion.identity);
         StopCoroutine(LifeTimeCorutine());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Enemy target))
+        if (collision.TryGetComponent(out Fighter target))
         {
-            target.TakeDamage(_bulletDamage);
-            Destroy(gameObject);
+            if (_targetType == target.MyType)
+            {
+                target.Health.TakeDamage(_damage);
+                Destroy(gameObject);
+            }
         }
     }
 
