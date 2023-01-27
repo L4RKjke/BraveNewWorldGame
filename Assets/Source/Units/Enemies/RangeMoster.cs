@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Eye : Enemy, IRangeAtacker
+public class RangeMoster : Fighter, IRangeAtacker
 {
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;

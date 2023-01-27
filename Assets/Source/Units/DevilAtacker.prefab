@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 222595321678975477}
   - component: {fileID: 7969377432999366460}
   - component: {fileID: 4709100872121525332}
+  - component: {fileID: 6281247391200999933}
   m_Layer: 9
   m_Name: DevilAtackerModel
   m_TagString: Untagged
@@ -60,16 +61,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae646db92d363b46ba7d0eb5e535e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healPoint: {fileID: 0}
-  _buttonPostion: {fileID: 4681704887866361387}
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1.2
   _walkDistance: 4
   _atackDelay: 1
   _speed: 1.3
-  _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
+  _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 6144207867878172590}
-  _electricity: {fileID: 0}
 --- !u!114 &963163797568080017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,7 +142,6 @@ MonoBehaviour:
   - {fileID: 1015239990429004895}
   - {fileID: 1485810557866026854}
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 1958286969823689352}
 --- !u!114 &6984914157924902175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,8 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 1958286969823689352}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,6 +280,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0de777b8c60f9543beb8bebe1f93371, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6281247391200999933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015239990429004881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1497299203253391132
@@ -928,7 +935,7 @@ Transform:
   m_GameObject: {fileID: 4787516303284067222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.24, y: 0.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 816993179394403741}
@@ -1009,6 +1016,7 @@ MonoBehaviour:
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 7699909001514636949}
   _characterView: {fileID: 2462174027911450915}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5109057181402846819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,7 +1635,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8927706449902697089}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.04
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50

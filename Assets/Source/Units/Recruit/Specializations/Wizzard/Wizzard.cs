@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(FireBallInstantiator))]
 
-public class Wizzard : Recruit, IRangeAtacker
+public class Wizzard : Fighter, IRangeAtacker
 {
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;

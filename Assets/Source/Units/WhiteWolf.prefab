@@ -141,8 +141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04191c43effe72b4ca3e8df89402d2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healPoint: {fileID: 4681704887866361387}
-  _buttonPostion: {fileID: 4681704887866361387}
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1
   _walkDistance: 1
@@ -221,7 +219,6 @@ MonoBehaviour:
   _transitions:
   - {fileID: 8925359221573485718}
   _controller: {fileID: 6212776850053402278}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1169,7 +1166,7 @@ Transform:
   m_GameObject: {fileID: 4787516303284067222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 0.26, y: 0.26, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5416704905165658606}
@@ -1251,6 +1248,7 @@ MonoBehaviour:
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 7679764936993250607}
   _characterView: {fileID: 2106659893045612457}
+  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5094159414655486147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1781,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8927706449902697089}
   m_Enabled: 0
   m_AgentTypeID: 0
-  m_Radius: 0.1
+  m_Radius: 0.04
   m_Speed: 1
   m_Acceleration: 8
   avoidancePriority: 50

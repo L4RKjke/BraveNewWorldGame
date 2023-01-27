@@ -1,10 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.Events;
 
 public class UnitPool : MonoBehaviour
 {
     private List<Fighter> _fighters = new List<Fighter> { };
+
+    public UnityAction<FighterType> UnitDied;
 
     private void OnDisable()
     {
@@ -76,5 +79,6 @@ public class UnitPool : MonoBehaviour
     {
         Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
+        UnitDied?.Invoke(fighter.MyType);
     }
 }

@@ -8,7 +8,7 @@ public class RangeAtackState : AtackState
     private IRangeAtacker _rangeAtacker;
     private Coroutine _atackCourutine;
 
-    public UnityAction AtackStarted;
+    public UnityAction<UnityAction> AtackStarted;
     public UnityAction AtackCompleted;
 
     private void Start()
@@ -17,28 +17,23 @@ public class RangeAtackState : AtackState
     }
     private void OnEnable()
     {
-        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
-        Controller.AtackCompleted += CompleteAtack;
+        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
     }
 
     private void OnDisable()
     {
         StopCoroutine(_atackCourutine);
-
-        if (Controller != null)
-        {
-            Controller.AtackCompleted -= CompleteAtack;
-        }
     }
 
-    protected override void StartAtack()
+    protected override void Atack()
     {
-        AtackStarted?.Invoke();
+        AtackStarted?.Invoke(CompleteAtack);
     }
 
     protected override void CompleteAtack()
     {
         _rangeAtacker.Shoot(Damage);
         AtackCompleted?.Invoke();
+        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
     }
 }

@@ -1,4 +1,4 @@
-public class Warrior : Recruit
+public class Warrior : Fighter
 {
     public float _damageBonus = 1.5f;
 

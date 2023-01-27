@@ -1,32 +1,28 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class AtackState : State
 {
-    [SerializeField] private AnimationCotroller _controller;
-
     private readonly int _critÑhance = 10;
     private readonly float _critMultiplier = 1.5f;
 
-    protected AnimationCotroller Controller => _controller;
+    public float FirstDelaySpread => Random.Range(0, 0.2f);
 
-    protected readonly string Launch  = "LaunchActack";
+    public UnityAction AtackCopleted;
 
     protected ushort Damage => GetDamage();
 
     protected abstract void CompleteAtack();
 
-    protected abstract void StartAtack();
+    protected abstract void Atack();
 
     protected IEnumerator LaunchActack(float atackDelay)
     {
-        var spread = Random.Range(-0.1f, 0.1f);
+        yield return new WaitForSeconds(atackDelay);
 
-        while (true)
-        {
-            StartAtack();
-            yield return new WaitForSeconds(atackDelay + spread);
-        }
+        if (this.enabled == true)
+            Atack();
     }
 
     private ushort GetDamage()

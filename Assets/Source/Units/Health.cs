@@ -10,7 +10,7 @@ public class Health : MonoBehaviour
 
     public UnityAction<Fighter> Died;
 
-    private int _maxHealth = 100;
+    private int _maxHealth = 150;
 
     private readonly int _minHealth = 0;
 
@@ -34,8 +34,7 @@ public class Health : MonoBehaviour
         if (healPoints < 0)
             healPoints = 0;
 
-        if (_value < _maxHealth)
-            _value += healPoints;
+        _value += healPoints;
 
         if (_value > _maxHealth)
             _value = _maxHealth;

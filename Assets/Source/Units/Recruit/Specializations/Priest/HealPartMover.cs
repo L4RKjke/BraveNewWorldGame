@@ -12,6 +12,6 @@ public class HealPartMover : MonoBehaviour
     private void Update()
     {
         if (_target != null)
-            transform.position = _target.HealPoint.position;
+            transform.position = _target.RootModel.transform.position;
     }
 }

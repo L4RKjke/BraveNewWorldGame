@@ -1,11 +1,26 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BattleStarter : MonoBehaviour
+public class Arena : MonoBehaviour
 {
     [SerializeField] private UnitPool _pool;
     [SerializeField] private ArenaCells _arenaCells;
     [SerializeField] private GameObject _startButton;
+    [SerializeField] private Timer _timer;
+    [SerializeField] private GameObject _endFrame;
+
+    private string _finalText = "";
+
+    private void OnEnable()
+    {
+        _pool.UnitDied += VerifyUnits;
+    }
+
+    private void OnDisable()
+    {
+        _pool.UnitDied += VerifyUnits;
+    }
 
     public void OnStartButtonClick()
     {
@@ -29,5 +44,28 @@ public class BattleStarter : MonoBehaviour
 
         _arenaCells.PlayStartBattle();
         _startButton.SetActive(false);
+
+        _timer.StartTimer();
+    }
+
+    private void VerifyUnits(FighterType type) 
+    {
+        if (_pool.GetLength(type) == 0)
+        {
+            if (type == FighterType.Recruit)
+                _finalText = "Lose!";
+            else
+                _finalText = "Win!";
+
+            EndBattle();
+        }
+
+    }
+
+    private void EndBattle()
+    {
+        _timer.StopTimer();
+        _endFrame.SetActive(true);
+        _endFrame.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = _finalText;
     }
 }

@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public abstract class Fighter : MonoBehaviour, IMeleeAtacker
 {
-    [SerializeField] private Transform _healPoint;
-    [SerializeField] Transform _buttonPostion;
     [SerializeField] GameObject _rootModel;
     [SerializeField] private float _meleeDistance;
     [SerializeField] private float _walkDistance;
@@ -35,9 +33,6 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
 
     public GameObject RootModel => _rootModel;
 
-    public Transform ButtonPostition => _buttonPostion;
-
-    public Transform HealPoint => _healPoint;
 
     public int Damage => _damage;
 
@@ -55,7 +50,8 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
 
     public virtual void Atack(int damage)
     {
-        CurrentTarget._health.TakeDamage(damage);
+        if (CurrentTarget != null)
+            CurrentTarget._health.TakeDamage(damage);
     }
 
     public void UpdateCurrentTarget()

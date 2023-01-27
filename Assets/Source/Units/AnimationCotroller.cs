@@ -11,16 +11,13 @@ public class AnimationCotroller : MonoBehaviour
     [SerializeField] private GameObject _deathTemplate;
     [SerializeField] private TextMeshProUGUI _TMPro;
     [SerializeField] private GameObject _characterView;
+    [SerializeField] private GameObject _hitEffect;
 
-    private string _healthTxt;
-    private float _damagedScale = 1.01f;
     private RangeAtackState _atackState;
     private WalkState _walkState;
     private FindTargetState _findTargetState;
     private MeleeState _meleeState;
-
-    private readonly float _showTextTime = 0.3f;
-    private readonly string _showText = "ShowHitEffect";
+    private Coroutine _waitAtackAnimationCoroutine;
 
     protected Fighter CurrentUnit => _unit;
 
@@ -29,10 +26,10 @@ public class AnimationCotroller : MonoBehaviour
     public UnityAction AtackCompleted;
 
     private void Start()
-    {   
+    {
+        AtackCompleted += ShowDamageEffect;
         Animator = GetComponent<Animator>();
         _unit.Health.Died += OnUnitDied;
-        _unit.Health.HealthChanged += OnHealthChanged;
 
         if (CurrentUnit != null)
         {
@@ -64,9 +61,9 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
+        AtackCompleted -= ShowDamageEffect;
         _unit.Health.Died -= OnUnitDied;
-        _unit.Health.HealthChanged -= OnHealthChanged;
-        StopCoroutine(_showText);
+        StopCoroutine(_waitAtackAnimationCoroutine);
 
         if (_findTargetState != null)
             _findTargetState.StateActivated -= OnIdleAnimation;
@@ -81,9 +78,11 @@ public class AnimationCotroller : MonoBehaviour
             _meleeState.AtackStarted -= OnMelee;
     }
 
-    public void OnHeroAtacking()
+    public void OnHeroAtacking(UnityAction callback)
     {
         Animator.SetTrigger("Shoot");
+
+        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
     }
 
     public void OnHeroWalking(float speed)
@@ -96,9 +95,23 @@ public class AnimationCotroller : MonoBehaviour
         Animator.SetTrigger("Idle");
     }
 
-    public void OnMelee()
+    public void OnMelee(UnityAction callback)
     {
         Animator.SetTrigger("Atack");
+
+        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
+    }
+
+    private IEnumerator WaitForAnimationOver(UnityAction callback)
+    {
+        var animationLenght = Animator.GetCurrentAnimatorStateInfo(0).length;
+
+        yield return new WaitForSeconds(animationLenght);
+
+        Animator.SetTrigger("Idle");
+        AtackCompleted?.Invoke();
+
+        callback();
     }
 
     private void OnUnitDied(Fighter fighter)
@@ -107,28 +120,9 @@ public class AnimationCotroller : MonoBehaviour
         unit.transform.localScale = _characterView.transform.localScale;
     }
 
-    private void OnAtackAnimationOver()
+    private void ShowDamageEffect()
     {
-        AtackCompleted?.Invoke();
-    }
-
-    private void OnHealthChanged(int currentHealth)
-    {
-        _healthTxt = currentHealth.ToString();
-
-        if (_TMPro != null)
-            StartCoroutine(_showText);
-    }
-
-    private IEnumerator ShowHitEffect()
-    {
-        _TMPro.text = _healthTxt;
-        _characterView.transform.localScale = _characterView.transform.localScale * _damagedScale;
-        _TMPro.rectTransform.rotation = Quaternion.Euler(_TMPro.rectTransform.rotation.x, _TMPro.rectTransform.rotation.y, _TMPro.rectTransform.rotation.z + Random.Range(-10, 10));
-
-        yield return new WaitForSeconds(_showTextTime);
-
-        _characterView.transform.localScale = _characterView.transform.localScale / _damagedScale;
-        _TMPro.text = "";
+        if (this != null && _unit.CurrentTarget != null)
+            Instantiate(_hitEffect, _unit.CurrentTarget.transform.position, Quaternion.identity);
     }
 }

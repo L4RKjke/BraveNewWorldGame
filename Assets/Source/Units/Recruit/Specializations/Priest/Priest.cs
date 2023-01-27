@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(FireBallInstantiator))]
 
-public class Priest : Recruit, IRangeAtacker
+public class Priest : Fighter, IRangeAtacker
 {
     [SerializeField] private GameObject _healPart;
     [SerializeField] private Fireball _fireball;
@@ -23,11 +23,11 @@ public class Priest : Recruit, IRangeAtacker
 
         if (mate.Health.Value != Health.MaxHealth)
         {
-            mate.Health.Heal(_magicPower);
+            mate.Health.Heal(mate.Health.MaxHealth);
             ///Эту херовину вынести в приствью
             _healPart.SetActive(true);
-            _healPart.GetComponent<ParticleSystem>().Play();
             _healPart.GetComponent<HealPartMover>().Init(mate);
+            _healPart.GetComponent<HealPartActivator>().Play();
         }
 
         else

@@ -15,7 +15,8 @@ public class HealAbillity : Ability
 
     private void OnDisable()
     {
-        StopCoroutine(_healCoroutine);
+        if (_healCoroutine != null)
+            StopCoroutine(_healCoroutine);
     }
 
     protected override void ActivateAbility()

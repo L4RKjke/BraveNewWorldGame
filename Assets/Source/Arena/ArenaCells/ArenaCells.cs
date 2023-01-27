@@ -50,7 +50,7 @@ public class ArenaCells : MonoBehaviour
         {
             Cell cell = _objectsSaver.GetCell(i, 0);
             GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
-            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y + 0.38f), Quaternion.identity);
+            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
             playerCharacter.transform.SetParent(dragAndDrop.transform);
             cell.ChangeFull();
             cell.ChangeStayCharacter();
@@ -118,6 +118,12 @@ public class ArenaCells : MonoBehaviour
 
                 if (numberCell == _cell.Count)
                     numberCell = 0;
+
+                if (i >= 4)
+                {
+                    cell.GetComponent<BoxCollider2D>().enabled = false;
+                    cell.GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
 
             _parentCellsY[parrentY].SetParent(transform);
@@ -155,37 +161,45 @@ public class ArenaCells : MonoBehaviour
 
     private void CreateEnemies()
     {
+        int currentWidth = 2;
+        int meleeEnemyWidth = 2;
+        int RangeEnemeWidth = 5;
         int enemiesCount;
         bool canStay;
         Cell cell;
 
         for (int i = 0; i < _enemies.Count; i++)
         {
-            enemiesCount = Random.Range(2, _maxEnemy + 1);
+            enemiesCount = 1/*Random.Range(2, _maxEnemy + 1)*/;
+
+            var newUnit = _enemies[i].transform.GetChild(1).GetComponent<Fighter>();
+
+            if (newUnit.TryGetComponent<IRangeAtacker>(out _))
+            {
+                currentWidth = RangeEnemeWidth;
+            }
+            else
+            {
+                currentWidth = meleeEnemyWidth;
+            }
 
             for (int j = 0; j < enemiesCount; j++)
             {
-                cell = _objectsSaver.GetRandomCell(_playerWidth);
+                cell = _objectsSaver.GetRandomCell(_playerWidth + currentWidth);
                 canStay = _objectsSaver.CheckCellsAround(cell.TransformX, cell.TransformY);
 
                 while (cell.IsFull == true || canStay == false)
                 {
-                    cell = _objectsSaver.GetRandomCell(_playerWidth);
+                    cell = _objectsSaver.GetRandomCell(_playerWidth + currentWidth);
                     canStay = _objectsSaver.CheckCellsAround(cell.TransformX, cell.TransformY);
                 }
 
                 GameObject enemy = Instantiate(_enemies[i], cell.transform.position, Quaternion.identity);
                 enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
 
-                var newUnit = enemy.transform.GetChild(1).GetComponent<Fighter>();
-                ///Временно
-                ///
-                if (newUnit.TryGetComponent<IRangeAtacker>(out _))
-                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
-                else 
-                    newUnit.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
-
-                _fighters.AddNewFighter(newUnit);
+                var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
+                newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
+                _fighters.AddNewFighter(newEnemy);
 
                 cell.ChangeFull();
                 cell.ChangeStayCharacter();

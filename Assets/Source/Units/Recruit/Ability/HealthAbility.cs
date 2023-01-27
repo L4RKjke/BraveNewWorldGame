@@ -1,3 +1,6 @@
+using System.Collections;
+using UnityEngine;
+
 public class HealthAbility : Ability
 {
     private bool _isActivated = false;

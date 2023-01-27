@@ -26,7 +26,10 @@ public class TheftAbility : Ability
 
     private void OnHealthChanged(int health)
     {
-        _targetDamage = Fighter.CurrentTarget.Damage;
-        ActivateAbility();
+        if (Fighter.CurrentTarget != null)
+        {
+            _targetDamage = Fighter.CurrentTarget.Damage;
+            ActivateAbility();
+        }
     }
 }
