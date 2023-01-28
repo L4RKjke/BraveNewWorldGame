@@ -1322,15 +1322,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501252911674185439, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501252911674185439, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501252911804843697, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -723.89
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501252911989032853, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_Value
@@ -1366,11 +1366,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7501252912712708107, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7501252912712708107, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181380754362913934, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
+      propertyPath: m_fontColor.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181380754362913934, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181380754362913934, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181380754362913934, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8804530089164377031, guid: 16be896a6e559464388b9aef38ee02f3, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

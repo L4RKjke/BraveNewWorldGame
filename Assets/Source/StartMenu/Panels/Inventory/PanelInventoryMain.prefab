@@ -127,7 +127,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0.000015258789, y: 41.454987}
-  m_SizeDelta: {x: 0, y: 80}
+  m_SizeDelta: {x: -344.38, y: 80}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &285403184
 MonoBehaviour:
@@ -179,7 +179,6 @@ GameObject:
   m_Component:
   - component: {fileID: 569381598}
   - component: {fileID: 569381599}
-  - component: {fileID: 8654820807814562570}
   m_Layer: 5
   m_Name: PanelCharacterChoice
   m_TagString: Untagged
@@ -224,19 +223,6 @@ MonoBehaviour:
   Content: {fileID: 285403182}
   _characterPlayerUI: {fileID: 8022819898317358636}
   _choised: {fileID: 21300000, guid: cf6a0ec11fde941d18c8e0157fdeb7c7, type: 3}
---- !u!114 &8654820807814562570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 569381597}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b50d7e323d74d8a43997421fc8b8cf02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _temp: []
 --- !u!1 &629440227
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,7 +807,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1194,7 +1180,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1624,7 +1610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7085308655083600835}
   m_Layer: 5
-  m_Name: PointCreate
+  m_Name: CharactersParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1932,7 +1918,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2197,6 +2183,7 @@ MonoBehaviour:
   _charactersItemUI: {fileID: 761082366}
   _statsUI: {fileID: 8403536760263503984}
   _characterChoice: {fileID: 569381599}
+  _characterStorage: {fileID: 0}
 --- !u!1 &6513910745597994671
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,7 +2567,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

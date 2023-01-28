@@ -3,19 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(CharactersStorage))]
 public class CharacterChoiceUI : AllCharactersPanel
 {
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
     [SerializeField] private Sprite _choised;
-
-    public CharactersStorage CharactersStorageMain => CharactersStorage;
-
-
-    private void Awake()
-    {
-        CharactersStorage = GetComponent<CharactersStorage>();
-    }
 
     private void OnEnable()
     {
@@ -27,9 +18,9 @@ public class CharacterChoiceUI : AllCharactersPanel
         DeleteAllButtons();
     }
 
-    public Transform GetParent()
+    public void Init(CharactersStorage charactersStorage)
     {
-        return _characterPlayerUI.PointToCreate;
+        CharactersStorage = charactersStorage;
     }
 
     public void UpdateHead(int id)
