@@ -13,7 +13,7 @@ public class InventoryUI : RenderUI
 
     private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
-    private int _maxCount = 3;
+    private int _maxCount = 25;
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
