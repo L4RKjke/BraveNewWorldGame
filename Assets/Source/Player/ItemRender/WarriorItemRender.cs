@@ -8,13 +8,19 @@ public class WarriorItemRender : ItemRender
     {
         if (item.Type == ItemType.Hand)
         {
+            HandItem temp = item.GetComponent<HandItem>();
+
             if (isWear)
             {
-                Sleeve.sprite = item.GetComponent<HandItem>().RightHand;
+                if (temp.IsWeapon)
+                    PrimaryWeapon.sprite = temp.RightHand;
+                else
+                    Sleeve.sprite = temp.RightHand;
             }
             else
             {
                 Sleeve.sprite = null;
+                PrimaryWeapon.sprite = null;
             }
         }
         else

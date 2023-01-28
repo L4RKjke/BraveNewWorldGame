@@ -13,7 +13,7 @@ public class InventoryUI : RenderUI
 
     private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
-    private int _maxCount = 30;
+    private int _maxCount = 3;
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
@@ -55,11 +55,6 @@ public class InventoryUI : RenderUI
         StartUpdateInventory();
     }
 
-    private void OnEnable()
-    {
-        _currentId = -1;
-    }
-
     private void Update()
     {
         if(_currentId != -1)
@@ -89,6 +84,7 @@ public class InventoryUI : RenderUI
         {
             item = _playerItemStorage.GetItem(_currentItem.Id);
             _movingObject.gameObject.SetActive(false);
+            _currentId = -1;
         }
 
         if(item != null)
@@ -143,7 +139,8 @@ public class InventoryUI : RenderUI
         {
             ItemInventory temp = _inventoryStorage.GetItem(int.Parse(_eventSystem.currentSelectedGameObject.name));
 
-            AddInventoryItem(_currentId, temp);
+            ReturnItem(_playerItemStorage.GetItem(temp.Id));
+
             AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
             _currentId = -1;
 

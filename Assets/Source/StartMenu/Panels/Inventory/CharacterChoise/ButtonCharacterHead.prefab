@@ -88,8 +88,9 @@ GameObject:
   - component: {fileID: 3862333412091103426}
   - component: {fileID: 1832637240678925562}
   - component: {fileID: 3435606967017283962}
+  - component: {fileID: -1927943319335346624}
   m_Layer: 5
-  m_Name: ButtonCharacterChoice
+  m_Name: ButtonCharacterHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,6 +202,23 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-1927943319335346624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209416841539710545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3607ed4a1a3cf44285779009ad597ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _headAnchor: {fileID: 2148724185279305492}
+  _chosed: {fileID: 8416291025333254647}
+  _ribbon: {fileID: 7242060253457223860}
+  _name: {fileID: 3929749928528669887}
+  _circle: {fileID: 1832637240678925562}
 --- !u!1 &1676424892690414472
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +480,7 @@ GameObject:
   - component: {fileID: 3710678308068746595}
   - component: {fileID: 7242060253457223860}
   m_Layer: 5
-  m_Name: BackGroundText
+  m_Name: Ribbon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

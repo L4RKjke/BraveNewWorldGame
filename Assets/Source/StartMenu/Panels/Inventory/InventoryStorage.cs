@@ -21,6 +21,17 @@ public class InventoryStorage : MonoBehaviour
         _cells[id].UpdateInformation(item.Id, item.Image, item.Name, item.Type);
     }
 
+    public int FindEmptySlots()
+    {
+        for(int i = 0; i < _cells.Count; i++)
+        {
+            if (_cells[i].Id == 0)
+                return i;
+        }
+
+        return -1;
+    }
+
     public void CreateInventory(int count, Item item)
     {
         for(int i = 0; i < count; i++)

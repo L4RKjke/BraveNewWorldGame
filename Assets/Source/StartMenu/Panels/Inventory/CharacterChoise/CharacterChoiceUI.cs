@@ -40,18 +40,22 @@ public class CharacterChoiceUI : AllCharactersPanel
     public void ChoisedCharacter(int currentId, int previosId = -1)
     {
         GameObject button = Content.transform.GetChild(currentId).gameObject;
-        Debug.Log(button.transform.GetChild(1).GetComponent<Image>().enabled);
-        button.transform.GetChild(1).GetComponent<Image>().enabled = true;
-        Sprite spriteFree = button.GetComponent<Image>().sprite;
-        button.GetComponent<Image>().sprite = _choised;
+        CharacterHeadButton temp = button.GetComponent<CharacterHeadButton>();
+
+        temp.ChoisedChange(true);
+
+        Sprite spriteFree = temp.Circle.sprite;
+        temp.SetCircle(_choised);
+
         Button tempButton = button.GetComponent<Button>();
         tempButton.onClick.RemoveAllListeners();
 
         if (previosId != -1)
         {
             GameObject button2 = Content.transform.GetChild(previosId).gameObject;
-            button2.transform.GetChild(1).GetComponent<Image>().enabled = false;
-            button2.GetComponent<Image>().sprite = spriteFree;
+            CharacterHeadButton temp2 = button2.GetComponent<CharacterHeadButton>();
+            temp2.ChoisedChange(false);
+            temp2.SetCircle(spriteFree);
             AddListenerButton(button2);
         }
     }

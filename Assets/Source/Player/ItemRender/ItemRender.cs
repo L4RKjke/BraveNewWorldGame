@@ -64,13 +64,19 @@ public abstract class ItemRender : MonoBehaviour
     {
         if (item.Type == ItemType.Hand)
         {
+            HandItem temp = item.GetComponent<HandItem>();
+
             if (isWear)
             {
-                Shield.sprite = item.GetComponent<HandItem>().LeftHand;
+                if (temp.IsWeapon)
+                    SecondaryWeapon.sprite = temp.RightHand;
+                else
+                    Shield.sprite = temp.LeftHand;
             }
             else
             {
                 Shield.sprite = null;
+                SecondaryWeapon.sprite = null;
             }
         }
         else
