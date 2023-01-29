@@ -57,8 +57,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootModel: {fileID: 8927706449902697089}
-  _meleeDistance: 0.7
-  _walkDistance: 0.7
+  _meleeDistance: 1
+  _walkDistance: 1
   _atackDelay: 1
   _speed: 1.12
 --- !u!114 &963163797568080017
@@ -200,7 +200,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05353403, y: 0.08905324}
+  m_Offset: {x: -0.092229605, y: 0.15560979}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -211,7 +211,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2347531, y: 0.6039694}
+  m_Size: {x: 0.8416054, y: 0.4708563}
   m_EdgeRadius: 0
 --- !u!50 &7969377432999366460
 Rigidbody2D:

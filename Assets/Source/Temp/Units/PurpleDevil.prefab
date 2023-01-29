@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1015239990429004889}
-  - component: {fileID: 3527853590513235166}
+  - component: {fileID: 111112492953449973}
   - component: {fileID: 963163797568080017}
   - component: {fileID: 1001225479096225866}
   - component: {fileID: 8473296227805167299}
@@ -209,7 +209,7 @@ Transform:
   m_Father: {fileID: 8927706449902697151}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3527853590513235166
+--- !u!114 &111112492953449973
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -222,10 +222,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rootModel: {fileID: 8927706449902697089}
-  _meleeDistance: 1.2
-  _walkDistance: 4
+  _meleeDistance: 1
+  _walkDistance: 3
   _atackDelay: 1
-  _speed: 1.3
+  _speed: 2
+  _view: {fileID: 714364924544873596}
   _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
   _firePoint: {fileID: 6144207867878172590}
 --- !u!114 &963163797568080017
@@ -302,7 +303,6 @@ MonoBehaviour:
   - {fileID: 1015239990429004895}
   - {fileID: 1485810557866026854}
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 1958286969823689352}
 --- !u!114 &6984914157924902175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +317,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 1958286969823689352}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -960,7 +959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 7002425103878821289}
-  _fighter: {fileID: 3527853590513235166}
+  _fighter: {fileID: 111112492953449973}
 --- !u!1 &3974203380259117848
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pool: {fileID: 0}
 --- !u!114 &5540050831220471690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1177,7 +1177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 3527853590513235166}
+  _unit: {fileID: 111112492953449973}
   _baseDirection: 1
 --- !u!114 &1958286969823689352
 MonoBehaviour:
@@ -1191,7 +1191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7224ba4b82dec774ebe403df36f3e484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unit: {fileID: 3527853590513235166}
+  _unit: {fileID: 111112492953449973}
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 7699909001514636949}
   _characterView: {fileID: 4787516303284067222}
@@ -1251,7 +1251,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5109057181402846819}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.679, y: 0.421, z: 0}
+  m_LocalPosition: {x: -0.825, y: 0.407, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

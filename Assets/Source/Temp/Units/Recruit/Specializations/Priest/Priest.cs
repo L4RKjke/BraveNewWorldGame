@@ -9,8 +9,9 @@ public class Priest : Fighter, IRangeAtacker
     [SerializeField] private Transform _firePoint;
 
     private int _magicPower = 0;
-
     private FireBallInstantiator _bulletInstantiator;
+    
+    private readonly int _healChance = 40;
 
     private void Awake()
     {
@@ -21,10 +22,12 @@ public class Priest : Fighter, IRangeAtacker
     {
         var mate = GetWounded();
 
-        if (mate.Health.Value != Health.MaxHealth)
+        var randomNumber = Random.Range(0, 100);
+
+        if (randomNumber <= _healChance && mate.Health.Value != Health.MaxHealth)
         {
             mate.Health.Heal(mate.Health.MaxHealth);
-            ///Эту херовину вынести в приствью
+
             _healPart.SetActive(true);
             _healPart.GetComponent<HealPartMover>().Init(mate);
             _healPart.GetComponent<HealPartActivator>().Play();

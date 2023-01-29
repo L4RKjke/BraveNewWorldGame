@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,16 +10,15 @@ public class MeleeState : AtackState
 
     public UnityAction<UnityAction> AtackStarted;
     public UnityAction AtackCompleted;
-
     private Coroutine _atackCourutine;
-
     private readonly float _meleeAtackDelay = 1f;
 
     private void OnEnable()
     {
-        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
         _meleeAtacker = GetComponent<IMeleeAtacker>();
+        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
     }
+
 
     private void OnDisable()
     {
@@ -33,7 +33,7 @@ public class MeleeState : AtackState
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
+        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
         AtackCompleted?.Invoke();
-        _atackCourutine = StartCoroutine(LaunchActack(_meleeAtackDelay));
     }
 }

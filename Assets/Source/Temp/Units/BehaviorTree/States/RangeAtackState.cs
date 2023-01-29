@@ -6,17 +6,14 @@ using UnityEngine.Events;
 public class RangeAtackState : AtackState 
 {
     private IRangeAtacker _rangeAtacker;
-    private Coroutine _atackCourutine;
 
     public UnityAction<UnityAction> AtackStarted;
     public UnityAction AtackCompleted;
+    private Coroutine _atackCourutine;
 
-    private void Start()
-    {
-        _rangeAtacker = GetComponent<IRangeAtacker>();
-    }
     private void OnEnable()
     {
+        _rangeAtacker = GetComponent<IRangeAtacker>();
         _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
     }
 
@@ -32,8 +29,8 @@ public class RangeAtackState : AtackState
 
     protected override void CompleteAtack()
     {
+        StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
         _rangeAtacker.Shoot(Damage);
         AtackCompleted?.Invoke();
-        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
     }
 }

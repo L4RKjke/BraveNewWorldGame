@@ -1,10 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(SortingGroup))]
 
-public class RecruitsLeyerController : MonoBehaviour
+public class LeyerController : MonoBehaviour
 {
+    [SerializeField] private UnitPool _pool;
+
     private SortingGroup _sortingGroup;
     private int _primaryLayerId = 200;
 
@@ -18,7 +21,7 @@ public class RecruitsLeyerController : MonoBehaviour
     {
         float start = -4;
         float end = 4;
-        int counter =  0;
+        int counter = 0;
 
         while (start <= end)
         {
@@ -33,3 +36,4 @@ public class RecruitsLeyerController : MonoBehaviour
         }
     }
 }
+

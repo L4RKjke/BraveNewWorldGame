@@ -308,7 +308,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 760631055806007602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.892, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -461,12 +461,10 @@ GameObject:
   - component: {fileID: 3885374938697441876}
   - component: {fileID: 4865506451327489053}
   - component: {fileID: 5087508098236414437}
-  - component: {fileID: 2035355618374074349}
-  - component: {fileID: 7113167595147947011}
   m_Layer: 7
   m_Name: WizzardModel
   m_TagString: Untagged
-  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -503,6 +501,7 @@ MonoBehaviour:
   _walkDistance: 5
   _atackDelay: 2.4
   _speed: 0.95
+  _view: {fileID: 0}
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 3700395033072069307}
 --- !u!114 &7604797453349662639
@@ -729,30 +728,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2035355618374074349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea3581c32911cc045b94a842b96fd4e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7113167595147947011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3fd4ff06ae13c0b45ab74e0d4b953b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1028254703974414942
@@ -2333,15 +2308,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a98603192af2bc47afefa3a7dca7c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 5.12}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &4453098078427637129
@@ -2887,6 +2862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pool: {fileID: 0}
 --- !u!114 &6890197483968057643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2925,9 +2901,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unit: {fileID: 3399754549071799650}
-  _deathTemplate: {fileID: 3020216106616921806, guid: 58220778c7e5b9d46b188640d293397b, type: 3}
+  _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 3303087040560647676}
-  _characterView: {fileID: 0}
+  _characterView: {fileID: 5579663485919828451}
   _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5589401219046875448
 GameObject:
@@ -3880,7 +3856,7 @@ SpriteRenderer:
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.8, y: 0.8}
+  m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0

@@ -83,7 +83,6 @@ public class AnimationCotroller : MonoBehaviour
     public void OnHeroAtacking(UnityAction callback)
     {
         Animator.SetTrigger("Shoot");
-
         _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
     }
 
@@ -106,13 +105,22 @@ public class AnimationCotroller : MonoBehaviour
 
     private IEnumerator WaitForAnimationOver(UnityAction callback)
     {
-        var animationLenght = Animator.GetCurrentAnimatorStateInfo(0).length;
+        float animationTime = 0;
 
-        yield return new WaitForSeconds(animationLenght);
+        RuntimeAnimatorController RunTimeController = Animator.runtimeAnimatorController;
+
+        for (int i = 0; i < RunTimeController.animationClips.Length; i++)                 
+        {
+            if (RunTimeController.animationClips[i].name == "Shoot" || RunTimeController.animationClips[i].name == "Atack")        
+            {
+                animationTime = RunTimeController.animationClips[i].length;
+            }
+        }
+
+        yield return new WaitForSeconds(animationTime);
 
         Animator.SetTrigger("Idle");
         AtackCompleted?.Invoke();
-
         callback();
     }
 

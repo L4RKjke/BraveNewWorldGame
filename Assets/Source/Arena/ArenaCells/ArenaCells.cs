@@ -198,7 +198,7 @@ public class ArenaCells : MonoBehaviour
                 enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
 
                 var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
-                newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
+                newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 500);
                 _fighters.AddNewFighter(newEnemy);
 
                 cell.ChangeFull();
