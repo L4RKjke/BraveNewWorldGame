@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -6,7 +5,7 @@ using UnityEngine.Rendering;
 
 public class LeyerController : MonoBehaviour
 {
-    [SerializeField] private UnitPool _pool;
+    [SerializeField] private Fighter _unit;
 
     private SortingGroup _sortingGroup;
     private int _primaryLayerId = 200;
@@ -19,21 +18,7 @@ public class LeyerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float start = -4;
-        float end = 4;
-        int counter = 0;
-
-        while (start <= end)
-        {
-            counter++;
-            start += 0.5f;
-
-            if (transform.position.y < start)
-            {
-                _sortingGroup.sortingOrder = _primaryLayerId - counter;
-                break;
-            }
-        }
+        _sortingGroup.sortingOrder = _primaryLayerId - _unit.Units.GetHorizontalIndex(_unit);
     }
 }
 

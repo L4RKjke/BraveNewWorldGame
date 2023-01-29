@@ -224,7 +224,7 @@ MonoBehaviour:
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1
   _walkDistance: 3
-  _atackDelay: 1
+  _atackDelay: 2
   _speed: 2
   _view: {fileID: 714364924544873596}
   _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
@@ -1164,7 +1164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 0}
+  _unit: {fileID: 111112492953449973}
 --- !u!114 &5540050831220471690
 MonoBehaviour:
   m_ObjectHideFlags: 0

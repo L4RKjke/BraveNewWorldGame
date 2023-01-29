@@ -29,7 +29,7 @@ public class RangeAtackState : AtackState
 
     protected override void CompleteAtack()
     {
-        StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
+        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
         _rangeAtacker.Shoot(Damage);
         AtackCompleted?.Invoke();
     }

@@ -19,7 +19,6 @@ public class MeleeState : AtackState
         _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
     }
 
-
     private void OnDisable()
     {
         StopCoroutine(_atackCourutine);

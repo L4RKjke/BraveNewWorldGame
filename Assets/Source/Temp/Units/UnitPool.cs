@@ -75,6 +75,16 @@ public class UnitPool : MonoBehaviour
         return target;
     }
 
+    public int GetHorizontalIndex(Fighter unit)
+    {
+        var result = _fighters.
+            OrderBy(fighter => fighter.transform.position.y).
+            Select(fighter => fighter).
+            ToList().IndexOf(unit);
+
+        return result;
+    }
+
     private void OnUnitDied(Fighter fighter)
     {
         Destroy(fighter.transform.parent.gameObject);
