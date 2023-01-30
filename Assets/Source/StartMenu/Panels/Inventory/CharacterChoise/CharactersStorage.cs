@@ -18,7 +18,9 @@ public class CharactersStorage : MonoBehaviour
     {
         for (int i = 0; i < _temp.Count; i++) //test
         {
-            AddNewCharacter(_temp[i]);
+            GameObject character = Instantiate(_temp[i]);
+            _characters.Add(character);
+            ReturnCharacter(_characters.Count - 1);
         }
     }
 

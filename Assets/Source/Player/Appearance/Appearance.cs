@@ -20,8 +20,10 @@ public class Appearance : MonoBehaviour
     [SerializeField] private SpriteRenderer _legR; //
 
     [SerializeField] private Sprite _standartArmor;
+    [SerializeField] private Sprite _standartWeapon;
 
     public Sprite StandartArmor => _standartArmor;
+    public Sprite StandartWeapon => _standartWeapon;
 
     public void SetHead(Color hairColor, Color skeenColor, Sprite ear, Sprite hair, Sprite head, Sprite eyes, Sprite eyesbrows, Sprite mouth)
     {

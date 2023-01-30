@@ -10,6 +10,7 @@ public class StarteBattleUI : RenderUI
     [SerializeField] private CharactersAddBattle _charactersAddBattle;
     [SerializeField] private Sprite[] _characterOffOn;
 
+    private List<int> _charactersId = new List<int>();
     private int _maxSizeParty = 5;
     private Vector3 _offSet = new(0, -1.5f, 0);
 
@@ -34,6 +35,7 @@ public class StarteBattleUI : RenderUI
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(delegate { ReturnCharacter(i, characterID); });
                 button.GetComponent<Image>().sprite = _characterOffOn[1];
+                button.GetComponent<CharacterHeadButton>().ChoisedChange(true);
                 AddCharacter(character, i, characterID);
                 return;
             }
@@ -53,6 +55,7 @@ public class StarteBattleUI : RenderUI
 
     private void AddCharacter(GameObject character, int buttonID, int characterID)
     {
+        _charactersId.Add(characterID);
         GameObject content = Ñontainer.transform.GetChild(buttonID).gameObject;
         character.SetActive(true);
         character.transform.SetParent(content.transform);
@@ -64,6 +67,7 @@ public class StarteBattleUI : RenderUI
     private void ReturnCharacter(int buttonID, int characterID)
     {
         _charactersStorage.ReturnCharacter(characterID);
+        _charactersId.Remove(characterID);
         Ñontainer.transform.GetChild(buttonID).GetComponent<Button>().onClick.RemoveAllListeners();
         _charactersAddBattle.ReturnListener(characterID, _characterOffOn[0]);
     }

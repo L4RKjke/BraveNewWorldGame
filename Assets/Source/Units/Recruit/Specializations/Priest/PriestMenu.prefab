@@ -872,6 +872,7 @@ MonoBehaviour:
   _legL: {fileID: 2344661977232553939}
   _legR: {fileID: 4771658594498208521}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  _standartWeapon: {fileID: 21300000, guid: 7bc7e3e3450a1d34e80ede04aad57abf, type: 3}
 --- !u!114 &8582254354611536599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4994,7 +4995,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7bc7e3e3450a1d34e80ede04aad57abf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -5002,7 +5003,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &6929808034525576359

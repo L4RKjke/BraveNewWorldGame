@@ -4578,7 +4578,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e6d50d8f7f5f6c144ba5d4c7b0e7e0a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4586,7 +4586,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &8812066759825205193
@@ -4793,8 +4793,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9095389991581320105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.7394786, y: 0.23822173, z: 90}
+  m_LocalScale: {x: 100, y: 100, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6151022756982986538}
@@ -4888,6 +4888,7 @@ MonoBehaviour:
   _legL: {fileID: 7313062406656588555}
   _legR: {fileID: 7202704685296430184}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  _standartWeapon: {fileID: 21300000, guid: e6d50d8f7f5f6c144ba5d4c7b0e7e0a5, type: 3}
 --- !u!114 &4407991965512476083
 MonoBehaviour:
   m_ObjectHideFlags: 0

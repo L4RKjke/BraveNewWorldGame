@@ -100,7 +100,7 @@ public abstract class ItemRender : MonoBehaviour
         }
         else
         {
-            PrimaryWeapon.sprite = null;
+            PrimaryWeapon.sprite = gameObject.GetComponent<Appearance>().StandartWeapon;
         }
     }
 

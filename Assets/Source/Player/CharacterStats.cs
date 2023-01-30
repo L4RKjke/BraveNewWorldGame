@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CharacterStats : MonoBehaviour
 {
-    private string _name;
+    private string _name = "AnimeTester";
     private int _attack = 0;
     private int _defense = 0;
-    private int _health = 0;
+    private int _health = 1;
     private int _magic = 0;
 
     public string Name => _name;

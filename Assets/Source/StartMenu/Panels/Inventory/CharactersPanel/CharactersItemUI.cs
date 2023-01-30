@@ -26,6 +26,13 @@ public class CharactersItemUI : RenderUI
         _equipmentSlot[id].SetId(itemId);
     }    
 
+    public ItemType GetType(GameObject button)
+    {
+        int id = int.Parse(button.name);
+
+        return _equipmentSlot[id].ItemType;
+    }
+
     public int GetId(GameObject button)
     {
         int id = int.Parse(button.name);

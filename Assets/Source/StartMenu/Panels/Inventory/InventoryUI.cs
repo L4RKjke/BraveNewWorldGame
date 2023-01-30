@@ -10,10 +10,12 @@ using TMPro;
 public class InventoryUI : RenderUI
 {
     [SerializeField] private RectTransform _movingObject;
+    [SerializeField] private Camera _camera;
+    [SerializeField] private CharactersItemUI _charactersItemUI;
 
     private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
-    private int _maxCount = 25;
+    private int _maxCount = 60;
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
@@ -62,11 +64,6 @@ public class InventoryUI : RenderUI
 
     }
 
-    public void ButtonReturnItem()
-    {
-        ReturnItem();
-    }
-
     public void ReturnItem(Item item = null)
     {
         ItemInventory temp = null;
@@ -103,6 +100,7 @@ public class InventoryUI : RenderUI
         {
             GameObject newItem = Instantiate(Ñontainer, Content.transform) as GameObject;
 
+            newItem.GetComponent<InventoryDragAndDrop>().Init(this, _camera, _charactersItemUI);
             newItem.name = i.ToString();
 
             ItemInventory itemInventory = new();
@@ -115,20 +113,20 @@ public class InventoryUI : RenderUI
 
             Button tempButton = newItem.GetComponent<Button>();
 
-            tempButton.onClick.AddListener(delegate { SelectObject(); });
+            //tempButton.onClick.AddListener(delegate { SelectObject(int.Parse(newItem.name)); });
 
             _inventoryStorage.AddSlot(itemInventory);
         }
     }
 
-    private void SelectObject()
+    public void SelectObject(int buttonID = -1)
     {
         if (_currentId == -1)
         {
-            if (_inventoryStorage.GetItem(int.Parse(_eventSystem.currentSelectedGameObject.name)).Id == 0)
+            if (_inventoryStorage.GetItem(buttonID).Id == 0)
                 return;
 
-            _currentId = int.Parse(_eventSystem.currentSelectedGameObject.name);
+            _currentId = buttonID;
             _currentItem = CopyInventoryItem(_inventoryStorage.GetItem(_currentId));
             _movingObject.gameObject.SetActive(true);
             _movingObject.GetComponent<Image>().sprite = _playerItemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
@@ -137,11 +135,11 @@ public class InventoryUI : RenderUI
         }
         else
         {
-            ItemInventory temp = _inventoryStorage.GetItem(int.Parse(_eventSystem.currentSelectedGameObject.name));
+            ItemInventory temp = _inventoryStorage.GetItem(buttonID);
 
             ReturnItem(_playerItemStorage.GetItem(temp.Id));
 
-            AddInventoryItem(int.Parse(_eventSystem.currentSelectedGameObject.name), _currentItem);
+            AddInventoryItem(buttonID, _currentItem);
             _currentId = -1;
 
             _movingObject.gameObject.SetActive(false);

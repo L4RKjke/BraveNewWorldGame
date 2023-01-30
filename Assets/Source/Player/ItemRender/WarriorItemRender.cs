@@ -44,7 +44,7 @@ public class WarriorItemRender : ItemRender
         }
         else
         {
-            SecondaryWeapon.sprite = null;
+            SecondaryWeapon.sprite = gameObject.GetComponent<Appearance>().StandartWeapon;
         }
     }
 }
