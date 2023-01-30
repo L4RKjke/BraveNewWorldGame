@@ -7,27 +7,24 @@ public abstract class AtackState : State
     private readonly int _critÑhance = 10;
     private readonly float _critMultiplier = 1.5f;
 
-    public float FirstDelaySpread => Random.Range(0, 0.2f);
+    public float FirstDelaySpread => Random.Range(0.1f, 0.25f);
+
+    public UnityAction AtackCompleted;
 
     public UnityAction<UnityAction> AtackStarted;
 
     protected ushort Damage => GetDamage();
 
-    public void Atack()
-    {
-        AtackStarted?.Invoke(CompleteAtack);
-    }
-
     protected abstract void CompleteAtack();
 
-    protected IEnumerator LaunchActack(float atackDelay)
+    protected IEnumerator LaunchActackCoroutine(float atackDelay)
     {
-        var spread = Random.Range(-0.2f, 0.2f);
+        var spread = Random.Range(0, 0.3f);
 
         yield return new WaitForSeconds(atackDelay + spread);
 
-        if (this.enabled == true)
-            Atack();
+        if (enabled == true)
+            AtackStarted?.Invoke(CompleteAtack); ;
     }
 
     private ushort GetDamage()

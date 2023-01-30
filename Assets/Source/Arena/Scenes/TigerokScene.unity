@@ -1638,8 +1638,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1299493719}
   - {fileID: 1669084983}
+  - {fileID: 1299493719}
   - {fileID: 1232536625}
   - {fileID: 1141622482}
   - {fileID: 371893294}
@@ -2556,7 +2556,7 @@ GameObject:
   - component: {fileID: 1299493721}
   - component: {fileID: 1299493720}
   m_Layer: 5
-  m_Name: Right
+  m_Name: RightHealthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2581,7 +2581,7 @@ RectTransform:
   - {fileID: 136261314}
   - {fileID: 1430319272}
   m_Father: {fileID: 974061283}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2846,7 +2846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 12.100006, y: -8.414501}
+  m_AnchoredPosition: {x: 10.100006, y: -8.414501}
   m_SizeDelta: {x: 8.63, y: -38.085}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1318520809
@@ -2869,7 +2869,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9079676599494355042, guid: 174818656b25145bb87ed63f541f1c13, type: 3}
+  m_Sprite: {fileID: 8208082878143402493, guid: e4cc3f57e79b144dd814e826a7aa8bd0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3307,7 +3307,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 6.817505, y: -12.450001}
+  m_AnchoredPosition: {x: 3, y: -12.450001}
   m_SizeDelta: {x: 13.635, y: -37.47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1622631615
@@ -3330,7 +3330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9079676599494355042, guid: 174818656b25145bb87ed63f541f1c13, type: 3}
+  m_Sprite: {fileID: 8208082878143402493, guid: e4cc3f57e79b144dd814e826a7aa8bd0, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3361,7 +3361,7 @@ GameObject:
   - component: {fileID: 1669084985}
   - component: {fileID: 1669084984}
   m_Layer: 5
-  m_Name: Left
+  m_Name: LeftHealthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3386,7 +3386,7 @@ RectTransform:
   - {fileID: 582171817}
   - {fileID: 1531397537}
   m_Father: {fileID: 974061283}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4382,7 +4382,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.size
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _parentFolderBarrier
@@ -4391,19 +4391,19 @@ PrefabInstance:
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[0]
       value: 
-      objectReference: {fileID: 8927706449902697089, guid: 11ff8ba940e4afb4aa829822f830ff9f, type: 3}
+      objectReference: {fileID: 8927706449902697089, guid: 1af1c3108c36ce54591fde908ba7729f, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[1]
       value: 
-      objectReference: {fileID: 8927706449902697089, guid: 8629e36937711d24c8fa62fb6852db0e, type: 3}
+      objectReference: {fileID: 8927706449902697089, guid: 7361692eda71cb3408c5643b9eb05160, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[2]
       value: 
-      objectReference: {fileID: 8927706449902697089, guid: 7361692eda71cb3408c5643b9eb05160, type: 3}
+      objectReference: {fileID: 8927706449902697089, guid: 11ff8ba940e4afb4aa829822f830ff9f, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[3]
       value: 
-      objectReference: {fileID: 8927706449902697089, guid: 48314f1d501afec44ab2a4852c45f4de, type: 3}
+      objectReference: {fileID: 8927706449902697089, guid: cf489732eb25b9849be29815908eb4b6, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[4]
       value: 
@@ -4411,7 +4411,7 @@ PrefabInstance:
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[5]
       value: 
-      objectReference: {fileID: 8927706449902697089, guid: cf489732eb25b9849be29815908eb4b6, type: 3}
+      objectReference: {fileID: 8927706449902697089, guid: 48314f1d501afec44ab2a4852c45f4de, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.data[6]
       value: 

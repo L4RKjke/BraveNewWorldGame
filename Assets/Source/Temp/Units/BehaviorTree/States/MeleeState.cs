@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(IMeleeAtacker))]
 
@@ -7,15 +6,15 @@ public class MeleeState : AtackState
 {
     private IMeleeAtacker _meleeAtacker;
 
-    public UnityAction AtackCompleted;
     private Coroutine _atackCourutine;
     private readonly float _meleeAtackDelay = 1f;
+    private float _meleeSpread;
 
     private void OnEnable()
     {
         _meleeAtacker = GetComponent<IMeleeAtacker>();
-        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
-    }
+        _atackCourutine = StartCoroutine(LaunchActackCoroutine(FirstDelaySpread));
+    }   
 
     private void OnDisable()
     {
@@ -25,7 +24,8 @@ public class MeleeState : AtackState
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
-        _atackCourutine = StartCoroutine(LaunchActack(_meleeAtackDelay));
         AtackCompleted?.Invoke();
+        StopCoroutine(_atackCourutine);
+        _atackCourutine = StartCoroutine(LaunchActackCoroutine(_meleeAtackDelay));
     }
 }

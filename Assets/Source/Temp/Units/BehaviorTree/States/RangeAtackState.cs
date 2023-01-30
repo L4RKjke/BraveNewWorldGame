@@ -7,24 +7,25 @@ public class RangeAtackState : AtackState
 {
     private IRangeAtacker _rangeAtacker;
 
-    public UnityAction AtackCompleted;
     private Coroutine _atackCourutine;
 
     private void OnEnable()
     {
         _rangeAtacker = GetComponent<IRangeAtacker>();
-        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
+        _atackCourutine = StartCoroutine(LaunchActackCoroutine(FirstDelaySpread));
     }
 
     private void OnDisable()
     {
         StopCoroutine(_atackCourutine);
+        AtackCompleted -= CompleteAtack;
     }
 
     protected override void CompleteAtack()
     {
-        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
         _rangeAtacker.Shoot(Damage);
         AtackCompleted?.Invoke();
+        StopCoroutine(_atackCourutine);
+        _atackCourutine = StartCoroutine(LaunchActackCoroutine(CurrentFighter.AtackDelay));
     }
 }
