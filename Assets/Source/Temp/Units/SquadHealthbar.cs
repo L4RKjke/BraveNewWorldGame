@@ -13,7 +13,7 @@ public class SquadHealthbar : Healthbar
     private int _maxHealth;
     private Coroutine _corutine;
 
-    private readonly float _healthRate = 0.20f;
+    private readonly float _healthRate = 0.12f;
 
     private void Start()
     {

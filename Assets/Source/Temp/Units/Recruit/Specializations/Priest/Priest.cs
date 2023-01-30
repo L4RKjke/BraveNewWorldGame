@@ -44,14 +44,14 @@ public class Priest : Fighter, IRangeAtacker
         float minHealth = Mathf.Infinity;
         Fighter fighter = null;
 
-        for (int i = 0; i < Units.GetLength(FighterType.Recruit); i++)
+        for (int i = 0; i < Units.GetLength(Unit.Type); i++)
         {
-            var unit = Units.GetById(i, FighterType.Recruit);
+            var unit = Units.GetById(i, Unit.Type);
 
             if (unit.Health.Value < minHealth)
             {
                 fighter = unit;
-                minHealth = Units.GetById(i, FighterType.Recruit).Health.Value;
+                minHealth = Units.GetById(i, Unit.Type).Health.Value;
             }
         }
         return fighter;

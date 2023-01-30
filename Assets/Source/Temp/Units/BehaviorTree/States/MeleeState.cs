@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -8,7 +7,6 @@ public class MeleeState : AtackState
 {
     private IMeleeAtacker _meleeAtacker;
 
-    public UnityAction<UnityAction> AtackStarted;
     public UnityAction AtackCompleted;
     private Coroutine _atackCourutine;
     private readonly float _meleeAtackDelay = 1f;
@@ -24,15 +22,10 @@ public class MeleeState : AtackState
         StopCoroutine(_atackCourutine);
     }
 
-    protected override void Atack()
-    {
-        AtackStarted?.Invoke(CompleteAtack);
-    }
-
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
-        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
+        _atackCourutine = StartCoroutine(LaunchActack(_meleeAtackDelay));
         AtackCompleted?.Invoke();
     }
 }

@@ -65,7 +65,8 @@ MonoBehaviour:
   _meleeDistance: 1.2
   _walkDistance: 4
   _atackDelay: 1
-  _speed: 1.3
+  _speed: 1
+  _view: {fileID: 0}
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 6144207867878172590}
 --- !u!114 &963163797568080017
@@ -986,6 +987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unit: {fileID: 3527853590513235166}
 --- !u!114 &5540050831220471690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1645,7 +1647,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 0
+  m_BaseOffset: -0.45
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &950682601429793518

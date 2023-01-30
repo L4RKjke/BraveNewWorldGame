@@ -41,7 +41,7 @@ public class Fireball : MonoBehaviour
     {
         if (collision.TryGetComponent(out Fighter target))
         {
-            if (_targetType == target.MyType)
+            if (_targetType == target.Type)
             {
                 target.Health.TakeDamage(_damage);
                 Destroy(gameObject);

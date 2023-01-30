@@ -20,6 +20,6 @@ public class HitEffectController : MonoBehaviour
     {
         yield return new WaitForSeconds(_effectLifeTime);
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

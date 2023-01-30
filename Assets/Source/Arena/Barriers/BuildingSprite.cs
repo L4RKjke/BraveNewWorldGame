@@ -5,7 +5,6 @@ using UnityEngine;
 public class BuildingSprite : MonoBehaviour
 {
     [SerializeField] private Sprite[] _sprites;
-
     [SerializeField] private SpriteRenderer _sprite;
 
     private void Start()

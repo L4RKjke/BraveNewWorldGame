@@ -265,6 +265,7 @@ MonoBehaviour:
   _walkDistance: 5
   _atackDelay: 3
   _speed: 0.9
+  _view: {fileID: 0}
   _healPart: {fileID: 2598481648348353678}
   _fireball: {fileID: -398907195106601213, guid: 0e6d2ab818ec386429eb074e48f5cbfe, type: 3}
   _firePoint: {fileID: 3700395033072069307}
@@ -2832,6 +2833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unit: {fileID: 2019061382180785708}
 --- !u!114 &6890197483968057643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3287,7 +3289,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a98603192af2bc47afefa3a7dca7c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3295,7 +3297,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6197433704284549523

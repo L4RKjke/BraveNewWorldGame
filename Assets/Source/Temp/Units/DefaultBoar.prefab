@@ -177,6 +177,7 @@ MonoBehaviour:
   _walkDistance: 0.9
   _atackDelay: 0.85
   _speed: 0.81
+  _view: {fileID: 0}
 --- !u!114 &963163797568080017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +250,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8925359221573485718}
-  _controller: {fileID: 6212776850053402278}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +317,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.05353403, y: 0.08905324}
+  m_Offset: {x: -0.075490296, y: 0.021188349}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -328,7 +328,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.2347531, y: 0.6039694}
+  m_Size: {x: 0.71977794, y: 0.4682396}
   m_EdgeRadius: 0
 --- !u!50 &7969377432999366460
 Rigidbody2D:
@@ -1094,6 +1094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unit: {fileID: 6260857310878462056}
 --- !u!114 &4748257672274226231
 MonoBehaviour:
   m_ObjectHideFlags: 0

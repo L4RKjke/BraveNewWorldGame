@@ -9,17 +9,22 @@ public abstract class AtackState : State
 
     public float FirstDelaySpread => Random.Range(0, 0.2f);
 
-    public UnityAction AtackCopleted;
+    public UnityAction<UnityAction> AtackStarted;
 
     protected ushort Damage => GetDamage();
 
-    protected abstract void CompleteAtack();
+    public void Atack()
+    {
+        AtackStarted?.Invoke(CompleteAtack);
+    }
 
-    protected abstract void Atack();
+    protected abstract void CompleteAtack();
 
     protected IEnumerator LaunchActack(float atackDelay)
     {
-        yield return new WaitForSeconds(atackDelay);
+        var spread = Random.Range(-0.2f, 0.2f);
+
+        yield return new WaitForSeconds(atackDelay + spread);
 
         if (this.enabled == true)
             Atack();

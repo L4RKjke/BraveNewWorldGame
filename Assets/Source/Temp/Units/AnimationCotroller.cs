@@ -27,9 +27,9 @@ public class AnimationCotroller : MonoBehaviour
 
     private void Start()
     {
-        AtackCompleted += ShowDamageEffect;
         Animator = GetComponent<Animator>();
         _unit.Health.Died += OnUnitDied;
+        _unit.Health.DamageTaken += ShowDamageEffect;
 
         if (CurrentUnit != null)
         {
@@ -61,9 +61,9 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
-        AtackCompleted -= ShowDamageEffect;
         _unit.Health.Died -= OnUnitDied;
-        
+        _unit.Health.DamageTaken -= ShowDamageEffect;
+
         if (_waitAtackAnimationCoroutine is not null)
             StopCoroutine(_waitAtackAnimationCoroutine);
 
@@ -99,23 +99,12 @@ public class AnimationCotroller : MonoBehaviour
     public void OnMelee(UnityAction callback)
     {
         Animator.SetTrigger("Atack");
-
         _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
     }
 
     private IEnumerator WaitForAnimationOver(UnityAction callback)
     {
-        float animationTime = 0;
-
-        RuntimeAnimatorController RunTimeController = Animator.runtimeAnimatorController;
-
-        for (int i = 0; i < RunTimeController.animationClips.Length; i++)                 
-        {
-            if (RunTimeController.animationClips[i].name == "Shoot" || RunTimeController.animationClips[i].name == "Atack")        
-            {
-                animationTime = RunTimeController.animationClips[i].length;
-            }
-        }
+        float animationTime = Animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
 
         yield return new WaitForSeconds(animationTime);
 
@@ -126,13 +115,16 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnUnitDied(Fighter fighter)
     {
-        var unit = Instantiate(_deathTemplate, transform.position, Quaternion.identity);
-        unit.transform.localScale = _characterView.transform.localScale;
+        if (this != null && _unit != null)
+        {
+            var unit = Instantiate(_deathTemplate, transform.position, Quaternion.identity);
+            unit.transform.localScale = _characterView.transform.localScale;
+        }
     }
 
     private void ShowDamageEffect()
     {
-        if (this != null && _unit.CurrentTarget != null)
-            Instantiate(_hitEffect, _unit.CurrentTarget.transform.position, Quaternion.identity);
+        if (this != null && _unit != null)
+            Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }
 }
