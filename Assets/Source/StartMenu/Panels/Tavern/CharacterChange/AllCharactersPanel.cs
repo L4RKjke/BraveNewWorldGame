@@ -10,6 +10,8 @@ public abstract class AllCharactersPanel : RenderUI
 
     protected override void AddGraphics()
     {
+        Debug.Log(CharactersStorage);
+
         for (int i = 0; i < CharactersStorage.AllCharacters; i++)
         {
             GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;

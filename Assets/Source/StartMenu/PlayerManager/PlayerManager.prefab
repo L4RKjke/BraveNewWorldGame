@@ -316,7 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _temp: []
-  _parent: {fileID: 0}
+  _parentCharactersUI: {fileID: 0}
 --- !u!1 &7377907706532903529
 GameObject:
   m_ObjectHideFlags: 0

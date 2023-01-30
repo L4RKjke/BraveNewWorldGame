@@ -8,4 +8,9 @@ public class ButtonScript : MonoBehaviour
     {
         panel.SetActive(true);
     }
+
+    public void ClosePanel(GameObject panel)
+    {
+        panel.SetActive(false);
+    }
 }

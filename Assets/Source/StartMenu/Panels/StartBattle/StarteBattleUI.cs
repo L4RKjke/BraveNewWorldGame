@@ -16,15 +16,12 @@ public class StarteBattleUI : RenderUI
     private void Awake()
     {
         _charactersAddBattle.Init(_charactersStorage, this);
-    }
-
-    private void OnEnable()
-    {
         AddGraphics();
     }
 
     private void OnDisable()
     {
+        ReturnAllCharacters();
         _disclaimer.SetActive(false);
     }
 
@@ -69,5 +66,16 @@ public class StarteBattleUI : RenderUI
         _charactersStorage.ReturnCharacter(characterID);
         Ñontainer.transform.GetChild(buttonID).GetComponent<Button>().onClick.RemoveAllListeners();
         _charactersAddBattle.ReturnListener(characterID, _characterOffOn[0]);
+    }
+
+    private void ReturnAllCharacters()
+    {
+        for (int i = 0; i < Ñontainer.transform.childCount; i++)
+        {
+            if (Ñontainer.transform.GetChild(i).childCount == 0)
+                return;
+
+            Ñontainer.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
+        }
     }
 }

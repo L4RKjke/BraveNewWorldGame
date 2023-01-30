@@ -2178,7 +2178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940dd24f973f2ec4b98ef57d60444729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointToCreate: {fileID: 7085308655083600835}
   _foldingScreen: {fileID: 5548925543517154658}
   _charactersItemUI: {fileID: 761082366}
   _statsUI: {fileID: 8403536760263503984}
