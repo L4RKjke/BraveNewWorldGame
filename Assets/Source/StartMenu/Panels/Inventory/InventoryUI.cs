@@ -73,7 +73,7 @@ public class InventoryUI : RenderUI
         _objectMoverUI.MoveSetActive(false);
     }
 
-    public void SelectObject(int buttonID = -1)
+    public void SelectObject(int buttonID)
     {
         if (_currentId == -1)
         {
@@ -91,11 +91,11 @@ public class InventoryUI : RenderUI
         }
         else
         {
-            ItemInventory temp = _inventoryStorage.GetItem(buttonID);
-
-            ReturnItem(_playerItemStorage.GetItem(temp.Id));
+            if (buttonID != _currentId)
+                AddInventoryItem(_currentId, _inventoryStorage.GetItem(buttonID));
 
             AddInventoryItem(buttonID, _currentItem);
+
             _currentId = -1;
 
             _objectMoverUI.MoveSetActive(false);
@@ -131,7 +131,7 @@ public class InventoryUI : RenderUI
     private void AddInventoryItem(int id, ItemInventory inventoryItem)
     {
         Item temp = _playerItemStorage.GetItem(inventoryItem.Id);
-        _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image, temp.Name,temp.Type);
+        _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image,temp.Type);
     }
 
     private void StartUpdateInventory()
@@ -139,7 +139,7 @@ public class InventoryUI : RenderUI
         for(int i = 0; i < _inventoryStorage.InventorySize; i++)
         {
             Item temp = _playerItemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
-            _inventoryStorage.GetItem(i).AssignÑharacteristics(temp.Name, temp.Image, temp.Type);
+            _inventoryStorage.GetItem(i).AssignÑharacteristics(temp.Image, temp.Type);
         }
     }
 
@@ -149,7 +149,7 @@ public class InventoryUI : RenderUI
 
         newItem.AssignId(oldItem.Id);
         newItem.AssignGameObject(oldItem.ItemObject);
-        newItem.AssignÑharacteristics(oldItem.Name, oldItem.Image, oldItem.Type);
+        newItem.AssignÑharacteristics(oldItem.Image, oldItem.Type);
 
         return newItem;
     }

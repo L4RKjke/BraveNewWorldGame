@@ -26,20 +26,17 @@ public class ItemInventory
         _id = id;
     }
 
-    public void Assign—haracteristics(string name, Sprite image, ItemType type)
+    public void Assign—haracteristics(Sprite image, ItemType type)
     {
-        Name = name;
-        _itemObject.GetComponentInChildren<TMP_Text>().text = Name;
-
         Image = image;
         _itemObject.transform.GetChild(0).GetComponent<Image>().sprite = Image;
 
         Type = type;
     }
 
-    public void UpdateInformation(int id, Sprite image, string name, ItemType type)
+    public void UpdateInformation(int id, Sprite image,ItemType type)
     {
         AssignId(id);
-        Assign—haracteristics(name, image, type);
+        Assign—haracteristics(image, type);
     }
 }

@@ -54,7 +54,7 @@ public class InventoryStorage : MonoBehaviour
 
     public void AddItem(int id, Item item)
     {
-        _cells[id].UpdateInformation(item.Id, item.Image, item.Name, item.Type);
+        _cells[id].UpdateInformation(item.Id, item.Image, item.Type);
     }
 
     public void AddSlot(ItemInventory slot)
