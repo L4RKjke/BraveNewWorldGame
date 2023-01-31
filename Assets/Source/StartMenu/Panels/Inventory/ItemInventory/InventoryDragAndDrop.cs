@@ -22,6 +22,13 @@ public class InventoryDragAndDrop : MonoBehaviour
             _inventoryUI.SelectObject(int.Parse(_button.name));
     }
 
+    private void OnMouseEnter()
+    {
+        if (_inventoryUI.CurrentId == -1)
+            _inventoryUI.UpdateDescription(int.Parse(this.name));
+
+    }
+
     private void OnMouseUp()
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);

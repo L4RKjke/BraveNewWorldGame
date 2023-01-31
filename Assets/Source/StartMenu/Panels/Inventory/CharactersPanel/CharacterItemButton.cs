@@ -4,7 +4,25 @@ using UnityEngine;
 
 public class CharacterItemButton : MonoBehaviour
 {
-    [SerializeField] private string _requireType;
+    private InventoryUI _inventoryUI;
+    private CharactersItemUI _charactersItemUI;
 
-    public string RequireType => _requireType;
+    private void OnMouseEnter()
+    {
+        if (_charactersItemUI.GetId(this.gameObject) != 0)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_charactersItemUI.GetId(this.gameObject)));
+
+    }
+
+    private void OnMouseExit()
+    {
+        if (_charactersItemUI.GetId(this.gameObject) != 0)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+    }
+
+    public void Init(InventoryUI inventoryUI, CharactersItemUI charactersItemUI)
+    {
+        _inventoryUI = inventoryUI;
+        _charactersItemUI = charactersItemUI;
+    }
 }

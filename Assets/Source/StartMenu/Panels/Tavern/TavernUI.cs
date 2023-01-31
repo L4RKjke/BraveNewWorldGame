@@ -36,8 +36,8 @@ public class TavernUI : RenderUI
 
     private void AddButton(int id)
     {
-        GameObject newSaler = Instantiate(Ñontainer, Content.transform) as GameObject;
-        newSaler.name = (Content.transform.childCount - 1).ToString();
+        GameObject newSaler = Instantiate(Content, Container.transform) as GameObject;
+        newSaler.name = (Container.transform.childCount - 1).ToString();
         CharacterStats characterStats = newSaler.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id], _heroAppearanceCreater[id]);
         _heroStatsCreater[id].CreateStats(characterStats);
         _heroNamesCreater[id].SetName(characterStats);

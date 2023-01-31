@@ -31,7 +31,7 @@ public class StatsUI : RenderUI
     {
         for (int i = 0; i < _stats.Count; i++)
         {
-            GameObject newStat = Instantiate(Ñontainer, Content.transform) as GameObject;
+            GameObject newStat = Instantiate(Content, Container.transform) as GameObject;
             newStat.name = i.ToString();
 
             newStat.transform.GetComponentInChildren<Image>().sprite = _stats[i].Image;
@@ -40,7 +40,7 @@ public class StatsUI : RenderUI
 
     private void UpdateStatText(int id, int stat)
     {
-        GameObject temp = Content.transform.GetChild(id).gameObject;
+        GameObject temp = Container.transform.GetChild(id).gameObject;
         temp.transform.GetComponentInChildren<TMP_Text>().text = stat.ToString();
     }
 }

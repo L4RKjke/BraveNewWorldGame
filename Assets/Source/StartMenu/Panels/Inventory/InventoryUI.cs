@@ -1,67 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using TMPro;
 
 [RequireComponent(typeof(PlayerItemStorage))]
 [RequireComponent(typeof(InventoryStorage))]
+[RequireComponent(typeof(ObjectMoverUI))]
 public class InventoryUI : RenderUI
 {
-    [SerializeField] private RectTransform _movingObject;
     [SerializeField] private Camera _camera;
     [SerializeField] private CharactersItemUI _charactersItemUI;
+    [SerializeField] private ItemDescriptionUI _itemDescriptionUI;
 
     private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
-    private int _maxCount = 60;
+    private ObjectMoverUI _objectMoverUI;
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
-    private Vector3 _offSet = new(1,-1,0);
-
+    public ItemDescriptionUI ItemDescriptionUI => _itemDescriptionUI;
     public InventoryStorage InventoryStorage => _inventoryStorage;
     public PlayerItemStorage PlayerItemStorage => _playerItemStorage;
     public ItemInventory CurrentItem => _currentItem;
     public int CurrentId => _currentId;
-    public int MaxCount => _maxCount;
-
-
-    public EventSystem _eventSystem;
+    public int MaxCount => _inventoryStorage.BagSize;
 
     private void Awake()
     {
         _inventoryStorage = GetComponent<InventoryStorage>();
         _playerItemStorage = GetComponent<PlayerItemStorage>();
+        _objectMoverUI = GetComponent<ObjectMoverUI>();
+        _objectMoverUI.Init(this, Container.GetComponent<RectTransform>().position.z);
     }
 
     private void Start()
     {
-        if (_inventoryStorage.InventorySize == 0)
-            AddGraphics();
-
-
-        Item item = _playerItemStorage.GetItem(0);
-        _inventoryStorage.CreateInventory(_maxCount, item);
-
-
-        for (int i = 1; i < _playerItemStorage.CountItems; i++)
-        {
-            Item NewItem = _playerItemStorage.GetItem(i);
-            Debug.Log(NewItem);
-            _inventoryStorage.AddItem(i - 1, NewItem);
-        }
-
-
-        StartUpdateInventory();
+        UpdateInventoryUI();
     }
 
-    private void Update()
+    public void UpdateInventoryUI()
     {
-        if(_currentId != -1)
-            MoveObject();
-
+        AddGraphics();
+        StartUpdateInventory();
     }
 
     public void ReturnItem(Item item = null)
@@ -77,10 +56,10 @@ public class InventoryUI : RenderUI
             }
         }
 
-        if (item == null && _movingObject.gameObject.activeSelf == true)
+        if (item == null && _objectMoverUI.MovingObject.gameObject.activeSelf == true)
         {
             item = _playerItemStorage.GetItem(_currentItem.Id);
-            _movingObject.gameObject.SetActive(false);
+            _objectMoverUI.MoveSetActive(false);
             _currentId = -1;
         }
 
@@ -91,32 +70,7 @@ public class InventoryUI : RenderUI
     public void ResetMovingObject()
     {
         _currentId = -1;
-        _movingObject.gameObject.SetActive(false);
-    }
-
-    protected override void AddGraphics()
-    {
-        for (int i = _inventoryStorage.InventorySize; i < _maxCount; i++)
-        {
-            GameObject newItem = Instantiate(—ontainer, Content.transform) as GameObject;
-
-            newItem.GetComponent<InventoryDragAndDrop>().Init(this, _camera, _charactersItemUI);
-            newItem.name = i.ToString();
-
-            ItemInventory itemInventory = new();
-            itemInventory.AssignGameObject(newItem);
-
-            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
-            rectTransform.localPosition = Vector3.zero;
-            rectTransform.localScale = Vector3.one;
-            newItem.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
-
-            Button tempButton = newItem.GetComponent<Button>();
-
-            //tempButton.onClick.AddListener(delegate { SelectObject(int.Parse(newItem.name)); });
-
-            _inventoryStorage.AddSlot(itemInventory);
-        }
+        _objectMoverUI.MoveSetActive(false);
     }
 
     public void SelectObject(int buttonID = -1)
@@ -126,10 +80,12 @@ public class InventoryUI : RenderUI
             if (_inventoryStorage.GetItem(buttonID).Id == 0)
                 return;
 
+            UpdateDescription(buttonID);
+
             _currentId = buttonID;
             _currentItem = CopyInventoryItem(_inventoryStorage.GetItem(_currentId));
-            _movingObject.gameObject.SetActive(true);
-            _movingObject.GetComponent<Image>().sprite = _playerItemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image;
+            _objectMoverUI.MoveSetActive(true);
+            _objectMoverUI.SetSprite(_playerItemStorage.GetItem(_inventoryStorage.GetItem(_currentId).Id).Image);
 
             _inventoryStorage.AddItem(_currentId, _playerItemStorage.GetItem(0));
         }
@@ -142,7 +98,33 @@ public class InventoryUI : RenderUI
             AddInventoryItem(buttonID, _currentItem);
             _currentId = -1;
 
-            _movingObject.gameObject.SetActive(false);
+            _objectMoverUI.MoveSetActive(false);
+        }
+    }
+
+    public void UpdateDescription(int id)
+    {
+        _itemDescriptionUI.UpdateDescription(_playerItemStorage.GetItem(_inventoryStorage.GetItem(id).Id));
+    }
+
+    protected override void AddGraphics()
+    {
+        for (int i = _inventoryStorage.InventorySize; i < _inventoryStorage.BagSize; i++)
+        {
+            GameObject newItem = Instantiate(Content, Container.transform) as GameObject;
+
+            newItem.GetComponent<InventoryDragAndDrop>().Init(this, _camera, _charactersItemUI);
+            newItem.name = i.ToString();
+
+            ItemInventory itemInventory = new();
+            itemInventory.AssignGameObject(newItem);
+
+            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
+            rectTransform.localPosition = Vector3.zero;
+            rectTransform.localScale = Vector3.one;
+            newItem.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
+
+            _inventoryStorage.AddSlot(itemInventory);
         }
     }
 
@@ -159,13 +141,6 @@ public class InventoryUI : RenderUI
             Item temp = _playerItemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
             _inventoryStorage.GetItem(i).Assign—haracteristics(temp.Name, temp.Image, temp.Type);
         }
-    }
-
-    private void MoveObject()
-    {
-        Vector3 position = Input.mousePosition + _offSet;
-        position.z = Content.GetComponent<RectTransform>().position.z;
-        _movingObject.position = Camera.main.ScreenToWorldPoint(position);
     }
 
     private ItemInventory CopyInventoryItem(ItemInventory oldItem)

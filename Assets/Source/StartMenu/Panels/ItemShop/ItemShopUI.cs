@@ -45,8 +45,8 @@ public class ItemShopUI : RenderUI
 
     private void AddButton(Item item)
     {
-        GameObject newItemButton = Instantiate(Ñontainer, Content.transform) as GameObject;
-        newItemButton.name = (Content.transform.childCount - 1).ToString();
+        GameObject newItemButton = Instantiate(Content, Container.transform) as GameObject;
+        newItemButton.name = (Container.transform.childCount - 1).ToString();
         StatsUI statsUI = newItemButton.GetComponent<StatsUI>();
         newItemButton.GetComponentInChildren<TMP_Text>().text = item.Name;
         newItemButton.GetComponentInChildren<Image>().sprite = item.Image;
@@ -66,7 +66,7 @@ public class ItemShopUI : RenderUI
             {
                 _wallet.ChangeGold(-item.Price);
 
-                int id = _playerItemStorage.GetFreeId();
+                int id = _playerItemStorage.CountItems;
                 item.SetId(id);
 
                 if (id == _playerItemStorage.CountItems)

@@ -25,12 +25,12 @@ public class CharacterChoiceUI : AllCharactersPanel
 
     public void UpdateHead(int id)
     {
-        UpdateButtonGraphics(Content.transform.GetChild(id).gameObject, CharactersStorage.GetCharacter(id));
+        UpdateButtonGraphics(Container.transform.GetChild(id).gameObject, CharactersStorage.GetCharacter(id));
     }
 
     public void ChoisedCharacter(int currentId, int previosId = -1)
     {
-        GameObject button = Content.transform.GetChild(currentId).gameObject;
+        GameObject button = Container.transform.GetChild(currentId).gameObject;
         CharacterHeadButton temp = button.GetComponent<CharacterHeadButton>();
 
         temp.ChoisedChange(true);
@@ -43,7 +43,7 @@ public class CharacterChoiceUI : AllCharactersPanel
 
         if (previosId != -1)
         {
-            GameObject button2 = Content.transform.GetChild(previosId).gameObject;
+            GameObject button2 = Container.transform.GetChild(previosId).gameObject;
             CharacterHeadButton temp2 = button2.GetComponent<CharacterHeadButton>();
             temp2.ChoisedChange(false);
             temp2.SetCircle(spriteFree);
@@ -55,7 +55,7 @@ public class CharacterChoiceUI : AllCharactersPanel
     {
         for (int i = 0; i < CharactersStorage.AllCharacters; i++)
         {
-            GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;
+            GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
             newButton.name = i.ToString();
             UpdateButtonGraphics(newButton, CharactersStorage.GetCharacter(i));
 

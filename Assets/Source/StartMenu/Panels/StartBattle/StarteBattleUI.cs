@@ -28,9 +28,9 @@ public class StarteBattleUI : RenderUI
 
     public void TryAddCharacter(GameObject character, Button button, int characterID)
     {
-        for (int i = 0; i < Ñontainer.transform.childCount; i++)
+        for (int i = 0; i < Container.transform.childCount; i++)
         {
-            if (Ñontainer.transform.GetChild(i).childCount == 0)
+            if (Container.transform.GetChild(i).childCount == 0)
             {
                 button.onClick.RemoveAllListeners();
                 button.onClick.AddListener(delegate { ReturnCharacter(i, characterID); });
@@ -48,7 +48,7 @@ public class StarteBattleUI : RenderUI
     {
         for(int i = 0; i < _maxSizeParty; i++)
         {
-            GameObject newContent = Instantiate(Content, Ñontainer.transform);
+            GameObject newContent = Instantiate(Content, Container.transform);
             newContent.name = i.ToString();
         }
     }
@@ -56,7 +56,7 @@ public class StarteBattleUI : RenderUI
     private void AddCharacter(GameObject character, int buttonID, int characterID)
     {
         _charactersId.Add(characterID);
-        GameObject content = Ñontainer.transform.GetChild(buttonID).gameObject;
+        GameObject content = Container.transform.GetChild(buttonID).gameObject;
         character.SetActive(true);
         character.transform.SetParent(content.transform);
         character.transform.position = content.transform.position + _offSet;
@@ -68,18 +68,18 @@ public class StarteBattleUI : RenderUI
     {
         _charactersStorage.ReturnCharacter(characterID);
         _charactersId.Remove(characterID);
-        Ñontainer.transform.GetChild(buttonID).GetComponent<Button>().onClick.RemoveAllListeners();
+        Container.transform.GetChild(buttonID).GetComponent<Button>().onClick.RemoveAllListeners();
         _charactersAddBattle.ReturnListener(characterID, _characterOffOn[0]);
     }
 
     private void ReturnAllCharacters()
     {
-        for (int i = 0; i < Ñontainer.transform.childCount; i++)
+        for (int i = 0; i < Container.transform.childCount; i++)
         {
-            if (Ñontainer.transform.GetChild(i).childCount == 0)
+            if (Container.transform.GetChild(i).childCount == 0)
                 return;
 
-            Ñontainer.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
+            Container.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
         }
     }
 }

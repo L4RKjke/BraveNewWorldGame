@@ -48,7 +48,7 @@ public class CharactersItemUI : RenderUI
         {
             Item tempItem = charactersItems.GetItem(_equipmentSlot[i].ItemType);
 
-            GameObject button = Content.transform.GetChild(i).gameObject;
+            GameObject button = Container.transform.GetChild(i).gameObject;
 
             if (tempItem != null)
             {
@@ -65,8 +65,9 @@ public class CharactersItemUI : RenderUI
     {
         for (int i = 0; i < _equipmentSlot.Count; i++)
         {
-            GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;
+            GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
             newButton.name = i.ToString();
+            newButton.GetComponent<CharacterItemButton>().Init(_inventoryUI, this);
 
             UpdateButtonGraphicsUnequip(newButton);
         }
@@ -113,10 +114,7 @@ public class CharactersItemUI : RenderUI
 
             if (_inventoryStorage.GetItem(_currentId).Id == 0)
             {
-                bool needSorting = _inventoryStorage.CheckSorting();
-
-                if (needSorting)
-                    _inventoryStorage.SortingInventory(_currentId, _itemStorage);
+                _inventoryStorage.TrySortingInventory(_currentId, _itemStorage);
             }
 
             _characterPlayerUI.EquipItem(type, true, item, isHand);

@@ -14,7 +14,7 @@ public abstract class AllCharactersPanel : RenderUI
 
         for (int i = 0; i < CharactersStorage.AllCharacters; i++)
         {
-            GameObject newButton = Instantiate(Ñontainer, Content.transform) as GameObject;
+            GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
             newButton.name = i.ToString();
             UpdateButtonGraphics(newButton, CharactersStorage.GetCharacter(i), i);
         }

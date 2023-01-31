@@ -25,7 +25,7 @@ public class CharactersAddBattle : AllCharactersPanel
 
     public void ReturnListener(int buttonId, Sprite spriteOff)
     {
-        GameObject button = Content.transform.GetChild(buttonId).gameObject;
+        GameObject button = Container.transform.GetChild(buttonId).gameObject;
         button.GetComponent<CharacterHeadButton>().ChoisedChange(false);
         button.GetComponent<Image>().sprite = spriteOff;
         AddListenerButton(button, buttonId);
