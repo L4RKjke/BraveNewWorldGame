@@ -1,32 +1,34 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using System.Collections;
 
 public abstract class AtackState : State
 {
+    [SerializeField] private AnimationCotroller _animationController;
+
     private readonly int _critСhance = 10;
     private readonly float _critMultiplier = 1.5f;
 
+    protected AnimationCotroller AnimationController => _animationController;
+
     public float FirstDelaySpread => Random.Range(0.1f, 0.25f);
 
-    public UnityAction AtackCompleted;
-
-    public UnityAction<UnityAction> AtackStarted;
+    public UnityAction AtackStarted;
 
     protected ushort Damage => GetDamage();
 
+    protected abstract void StartAtack();
+
     protected abstract void CompleteAtack();
 
-    protected IEnumerator LaunchActackCoroutine(float atackDelay)
+    protected IEnumerator LaunchAtack(float atackDelay)
     {
-        var spread = Random.Range(0, 0.3f);
+        yield return new WaitForSeconds(atackDelay);
 
-        yield return new WaitForSeconds(atackDelay + spread);
-
-        if (enabled == true)
-            AtackStarted?.Invoke(CompleteAtack); ;
+        StartAtack();
     }
 
+    /// Перенести это все в воина
     private ushort GetDamage()
     {
         var minParcent = 0;

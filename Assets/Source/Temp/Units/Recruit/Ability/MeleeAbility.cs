@@ -9,10 +9,10 @@ public class MeleeAbility : Ability
 
     private void OnEnable()
     {
-        if (TryGetComponent(out MeleeState meleeState))
+/*        if (TryGetComponent(out MeleeState meleeState))
             meleeState.AtackCompleted += ActivateAbility;
 
-        _health = GetComponent<Health>();
+        _health = GetComponent<Health>();*/
     }
 
     protected override void ActivateAbility()

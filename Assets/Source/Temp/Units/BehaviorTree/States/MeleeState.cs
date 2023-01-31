@@ -13,19 +13,24 @@ public class MeleeState : AtackState
     private void OnEnable()
     {
         _meleeAtacker = GetComponent<IMeleeAtacker>();
-        _atackCourutine = StartCoroutine(LaunchActackCoroutine(FirstDelaySpread));
+        AnimationController.AtackCompleted += CompleteAtack;
+        _atackCourutine = StartCoroutine(LaunchAtack(FirstDelaySpread));
     }   
 
     private void OnDisable()
     {
-        StopCoroutine(_atackCourutine);
+        AnimationController.AtackCompleted += CompleteAtack;
+    }
+
+    protected override void StartAtack()
+    {
+        AtackStarted?.Invoke();
     }
 
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
-        AtackCompleted?.Invoke();
         StopCoroutine(_atackCourutine);
-        _atackCourutine = StartCoroutine(LaunchActackCoroutine(_meleeAtackDelay));
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
     }
 }

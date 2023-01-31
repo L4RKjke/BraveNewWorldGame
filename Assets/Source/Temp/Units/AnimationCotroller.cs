@@ -19,11 +19,19 @@ public class AnimationCotroller : MonoBehaviour
     private MeleeState _meleeState;
     private Coroutine _waitAtackAnimationCoroutine;
 
+    private readonly string _idleAnimation = "Idle";
+    private readonly string _shootAnitmation = "Shoot";
+    private readonly string _walkAnimation = "Speed";
+    private readonly string _atackAnimation = "Atack";
+
+
     protected Fighter CurrentUnit => _unit;
 
     protected Animator Animator { get; private set; }
 
     public UnityAction AtackCompleted;
+    public UnityAction AtackAnimationCompleted;
+
 
     private void Start()
     {
@@ -80,37 +88,34 @@ public class AnimationCotroller : MonoBehaviour
             _meleeState.AtackStarted -= OnMelee;
     }
 
-    public void OnHeroAtacking(UnityAction callback)
+    public void OnHeroAtacking()
     {
-        Animator.SetTrigger("Shoot");
-        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
+        Animator.SetTrigger(_shootAnitmation);
     }
 
     public void OnHeroWalking(float speed)
     {
-        Animator.SetFloat("Speed", speed);
+        Animator.SetFloat(_walkAnimation, speed);
     }
 
     public void OnIdleAnimation()
     {
-        Animator.SetTrigger("Idle");
+        Animator.SetTrigger(_idleAnimation);
     }
 
-    public void OnMelee(UnityAction callback)
+    public void OnMelee()
     {
-        Animator.SetTrigger("Atack");
-        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
+        Animator.SetTrigger(_atackAnimation);
     }
 
-    private IEnumerator WaitForAnimationOver(UnityAction callback)
+    private void OnAnimationOver() 
     {
-        float animationTime = Animator.GetCurrentAnimatorClipInfo(0)[0].clip.length;
+        AtackAnimationCompleted?.Invoke();
+    }
 
-        yield return new WaitForSeconds(animationTime);
-
-        Animator.SetTrigger("Idle");
+    private void OnAtackOver()
+    {
         AtackCompleted?.Invoke();
-        callback();
     }
 
     private void OnUnitDied(Fighter fighter)

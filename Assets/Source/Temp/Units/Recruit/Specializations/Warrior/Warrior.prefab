@@ -440,6 +440,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2258014573361779789}
   - {fileID: 993470713354870320}
+  _animationController: {fileID: 4553583624612725095}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0

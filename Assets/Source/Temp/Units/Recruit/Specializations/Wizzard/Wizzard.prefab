@@ -578,6 +578,7 @@ MonoBehaviour:
   - {fileID: 993470713354870320}
   - {fileID: 2258014573361779789}
   - {fileID: 5470306470981562112}
+  _animationController: {fileID: 7582716960574673696}
 --- !u!114 &3665925495992290421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -592,6 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 2258014573361779789}
+  _animationController: {fileID: 7582716960574673696}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0

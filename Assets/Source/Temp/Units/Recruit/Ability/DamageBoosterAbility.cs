@@ -7,8 +7,8 @@ public class DamageBoosterAbility : Ability
 
     private void OnEnable()
     {
-        if (TryGetComponent(out MeleeState meleeState))
-            meleeState.AtackCompleted += ActivateAbility;
+/*        if (TryGetComponent(out MeleeState meleeState))
+            meleeState.AtackCompleted += ActivateAbility;*/
 
         _health = GetComponent<Health>();
     }

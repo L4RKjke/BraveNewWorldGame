@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(FireBallInstantiator))]
 
@@ -12,6 +13,8 @@ public class Priest : Fighter, IRangeAtacker
     private FireBallInstantiator _bulletInstantiator;
     
     private readonly int _healChance = 40;
+
+    public UnityAction _healStarted;
 
     private void Awake()
     {
@@ -27,7 +30,6 @@ public class Priest : Fighter, IRangeAtacker
         if (randomNumber <= _healChance && mate.Health.Value != Health.MaxHealth)
         {
             mate.Health.Heal(mate.Health.MaxHealth);
-
             _healPart.SetActive(true);
             _healPart.GetComponent<HealPartMover>().Init(mate);
             _healPart.GetComponent<HealPartActivator>().Play();

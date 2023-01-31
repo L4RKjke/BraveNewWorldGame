@@ -7,11 +7,11 @@ public class DamageAbility : Ability
 
     private void OnEnable()
     {
-        if (TryGetComponent(out MeleeState meleeState))
+/*        if (TryGetComponent(out MeleeState meleeState))
             meleeState.AtackCompleted += ActivateAbility;
 
         if (TryGetComponent(out RangeAtackState RangeState))
-            RangeState.AtackCompleted += ActivateAbility;
+            RangeState.AtackCompleted += ActivateAbility;*/
 
         _health = GetComponent<Health>();
     }
