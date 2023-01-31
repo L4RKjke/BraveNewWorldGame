@@ -26,12 +26,12 @@ public class Wizzard : Recruit, IRangeAtacker
 
     protected override void OnDefaultAtack()
     {
-        _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, Damage);
+        _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, Damage + MagicPower);
     }
 
     protected override void OnAdvancedAtack()
     {
-        base.Atack(Damage);
+        base.Atack(Damage + MagicPower);
         LightningUsed?.Invoke();
     }
 }

@@ -4920,7 +4920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eec538773fe021746a721282426f53b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitEffect: {fileID: 1779153016047530085, guid: f63f1980cc541bd428a642910c36ac96, type: 3}
+  _hitEffect: {fileID: 7431408903686353082, guid: e3d546a26b095fd42b9c293192b41f7d, type: 3}
 --- !u!198 &3120355151549051554
 ParticleSystem:
   m_ObjectHideFlags: 0

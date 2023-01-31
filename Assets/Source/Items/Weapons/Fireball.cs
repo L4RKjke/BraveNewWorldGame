@@ -31,9 +31,8 @@ public class Fireball : MonoBehaviour
         _damage += damage;
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
-        Instantiate(_hitEffect, transform.position, Quaternion.identity);
         StopCoroutine(LifeTimeCorutine());
     }
 
@@ -44,6 +43,7 @@ public class Fireball : MonoBehaviour
             if (_targetType == target.Type)
             {
                 target.Health.TakeDamage(_damage);
+                Instantiate(_hitEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
         }

@@ -9,18 +9,13 @@ public abstract class Recruit : Fighter
     private readonly int _maxMagicPower = 100;
     private readonly int _maxPercent = 100;
     private readonly int _minPercent = 0;
+    private readonly int _abilityChance = 60;
 
     public int MagicPower => _magicPower;
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health, int magicPower = 0)
     {
         base.Init(type, enemyType, units, damage, health);
-
-        if (magicPower > _maxMagicPower)
-            magicPower = _maxMagicPower;
-
-        if (magicPower < _minMagicPower)
-            magicPower = _minMagicPower;
 
         _magicPower = magicPower;
     }
@@ -29,7 +24,7 @@ public abstract class Recruit : Fighter
     {
         var randomNumber = Random.Range(_minPercent, _maxPercent);
 
-        if (randomNumber < _magicPower)
+        if (randomNumber < _abilityChance)
             AdvancedAtack();
 
         else

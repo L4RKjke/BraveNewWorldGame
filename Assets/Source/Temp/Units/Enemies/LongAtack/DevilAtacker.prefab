@@ -1019,7 +1019,7 @@ MonoBehaviour:
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 7699909001514636949}
   _characterView: {fileID: 2462174027911450915}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
+  _hitEffect: {fileID: 438691274745699577, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5109057181402846819
 GameObject:
   m_ObjectHideFlags: 0

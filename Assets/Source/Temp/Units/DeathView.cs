@@ -8,4 +8,9 @@ public class DeathView : MonoBehaviour
     {
         Destroy(gameObject, _dieTime);
     }
+
+    private void OnDisable()
+    {
+        if (!this.gameObject.scene.isLoaded) return;
+    }
 }

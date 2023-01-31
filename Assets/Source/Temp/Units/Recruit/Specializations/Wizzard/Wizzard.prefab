@@ -502,7 +502,6 @@ MonoBehaviour:
   _walkDistance: 5
   _atackDelay: 2.4
   _speed: 0.95
-  _view: {fileID: 0}
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 3700395033072069307}
 --- !u!114 &7604797453349662639
@@ -2907,7 +2906,7 @@ MonoBehaviour:
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 3303087040560647676}
   _characterView: {fileID: 5579663485919828451}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
+  _hitEffect: {fileID: 438691274745699577, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5589401219046875448
 GameObject:
   m_ObjectHideFlags: 0
