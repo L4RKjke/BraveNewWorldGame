@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Health))]
 
@@ -10,7 +9,6 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     [SerializeField] private float _walkDistance;
     [SerializeField] private float _atackDelay;
     [SerializeField] private float _speed;
-    [SerializeField] private SortingGroup _view;
 
     private Health _health;
     private Fighter _currentTarget;
@@ -21,8 +19,6 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     public FighterType EnemyType { get; private set; }
 
     public UnitPool Units { get; private set; }
-
-    public SortingGroup View => _view;
 
     public Health Health => _health;
 

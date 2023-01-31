@@ -7,19 +7,19 @@ public class MeleeState : AtackState
     private IMeleeAtacker _meleeAtacker;
 
     private Coroutine _atackCourutine;
-    private readonly float _meleeAtackDelay = 1f;
-    private float _meleeSpread;
 
     private void OnEnable()
     {
         _meleeAtacker = GetComponent<IMeleeAtacker>();
         AnimationController.AtackCompleted += CompleteAtack;
-        _atackCourutine = StartCoroutine(LaunchAtack(FirstDelaySpread));
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
+        StateActivated?.Invoke();
     }   
 
     private void OnDisable()
     {
         AnimationController.AtackCompleted += CompleteAtack;
+        StopCoroutine(_atackCourutine);
     }
 
     protected override void StartAtack()
@@ -30,7 +30,5 @@ public class MeleeState : AtackState
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
-        StopCoroutine(_atackCourutine);
-        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
     }
 }

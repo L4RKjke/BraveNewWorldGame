@@ -1,9 +1,23 @@
-public class Warrior : Fighter
+using UnityEngine;
+
+public class Warrior : Recruit
 {
-    public float _damageBonus = 1.5f;
+    private readonly int _magicPowerFactor = 20;
 
     public override void Atack(int damage)
     {
-        base.Atack((int)(damage * _damageBonus));
+        ChooseAtack(OnDefaultAtack, OnAdvancedAtack);
     }
+
+    protected override void OnDefaultAtack()
+    {
+        base.Atack(Damage);
+    }
+
+    override protected void OnAdvancedAtack()
+    {
+        base.Atack(GetAdvancedDamage());
+    }
+
+    private int GetAdvancedDamage() => (Damage * MagicPower / _magicPowerFactor);
 }

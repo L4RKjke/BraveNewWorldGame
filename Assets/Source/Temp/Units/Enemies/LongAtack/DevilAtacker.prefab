@@ -28,7 +28,7 @@ GameObject:
   m_Layer: 9
   m_Name: DevilAtackerModel
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -63,10 +63,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1.2
-  _walkDistance: 4
+  _walkDistance: 5
   _atackDelay: 1
   _speed: 1
-  _view: {fileID: 714364924544873596}
   _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
   _firePoint: {fileID: 6144207867878172590}
 --- !u!114 &963163797568080017
@@ -239,7 +238,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.030975312, y: -0.025195241}
+  m_Offset: {x: -0.030975312, y: -0.12825143}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -250,7 +249,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6035519, y: 0.61112165}
+  m_Size: {x: 0.6035519, y: 0.67001104}
   m_EdgeRadius: 0
 --- !u!50 &7969377432999366460
 Rigidbody2D:
@@ -937,7 +936,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4787516303284067222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.224, z: 0}
   m_LocalScale: {x: 0.24, y: 0.24, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1609,7 +1608,7 @@ GameObject:
   m_Layer: 0
   m_Name: DevilAtacker
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1621,7 +1620,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8927706449902697089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.415, y: 0.91779107, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1649,7 +1648,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: -0.45
+  m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &950682601429793518

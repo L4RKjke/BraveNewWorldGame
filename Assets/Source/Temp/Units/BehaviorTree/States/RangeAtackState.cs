@@ -13,7 +13,8 @@ public class RangeAtackState : AtackState
     {
         _rangeAtacker = GetComponent<IRangeAtacker>();
         AnimationController.AtackCompleted += CompleteAtack;
-        _atackCourutine = StartCoroutine(LaunchAtack(FirstDelaySpread));
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
+        StateActivated?.Invoke();
     }
 
     private void OnDisable()
@@ -30,7 +31,5 @@ public class RangeAtackState : AtackState
     protected override void CompleteAtack()
     {
         _rangeAtacker.Shoot(Damage);
-        StopCoroutine(_atackCourutine);
-        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
     }
 }

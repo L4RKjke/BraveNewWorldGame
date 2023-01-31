@@ -45,6 +45,7 @@ public class AnimationCotroller : MonoBehaviour
             {
                 _atackState = atackState;
                 _atackState.AtackStarted += OnHeroAtacking;
+                _atackState.StateActivated += OnIdleAnimation;
             }
 
             if (CurrentUnit.TryGetComponent(out WalkState walkState))
@@ -63,6 +64,7 @@ public class AnimationCotroller : MonoBehaviour
             {
                 _meleeState = melee;
                 _meleeState.AtackStarted += OnMelee;
+                _meleeState.StateActivated += OnIdleAnimation;
             }
         }
     }
@@ -79,13 +81,19 @@ public class AnimationCotroller : MonoBehaviour
             _findTargetState.StateActivated -= OnIdleAnimation;
 
         if (_atackState != null)
+        {
             _atackState.AtackStarted -= OnHeroAtacking;
+            _atackState.StateActivated -= OnIdleAnimation;
+        }
 
         if (_walkState != null)
             _walkState.SpeedChanged -= OnHeroWalking;
 
         if (_meleeState != null)
+        {
             _meleeState.AtackStarted -= OnMelee;
+            _meleeState.StateActivated -= OnIdleAnimation;
+        }
     }
 
     public void OnHeroAtacking()

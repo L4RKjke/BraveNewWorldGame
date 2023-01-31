@@ -6,16 +6,14 @@ public abstract class AtackState : State
 {
     [SerializeField] private AnimationCotroller _animationController;
 
-    private readonly int _critСhance = 10;
-    private readonly float _critMultiplier = 1.5f;
-
     protected AnimationCotroller AnimationController => _animationController;
 
     public float FirstDelaySpread => Random.Range(0.1f, 0.25f);
 
     public UnityAction AtackStarted;
+    public UnityAction StateActivated;
 
-    protected ushort Damage => GetDamage();
+    protected int Damage => CurrentFighter.Damage;
 
     protected abstract void StartAtack();
 
@@ -23,21 +21,10 @@ public abstract class AtackState : State
 
     protected IEnumerator LaunchAtack(float atackDelay)
     {
-        yield return new WaitForSeconds(atackDelay);
-
-        StartAtack();
-    }
-
-    /// Перенести это все в воина
-    private ushort GetDamage()
-    {
-        var minParcent = 0;
-        var maxPercent = 100;
-        var randomNumber = Random.Range(minParcent, maxPercent);
-
-        if (randomNumber < _critСhance)
-            return (ushort)(CurrentFighter.Damage * _critMultiplier);
-        else
-            return (ushort)(CurrentFighter.Damage);
+        while (true)
+        {
+            yield return new WaitForSeconds(atackDelay);
+            StartAtack();
+        }
     }
 }

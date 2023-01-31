@@ -3,18 +3,18 @@ using UnityEngine.Events;
 
 [RequireComponent(typeof(FireBallInstantiator))]
 
-public class Priest : Fighter, IRangeAtacker
+public class Priest : Recruit, IRangeAtacker
 {
     [SerializeField] private GameObject _healPart;
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
-    private int _magicPower = 0;
     private FireBallInstantiator _bulletInstantiator;
-    
-    private readonly int _healChance = 40;
+    private Fighter _mate;
 
-    public UnityAction _healStarted;
+    public Fighter Mate => _mate;
+
+    public UnityAction HealStarted;
 
     private void Awake()
     {
@@ -23,22 +23,20 @@ public class Priest : Fighter, IRangeAtacker
 
     public void Shoot(int damage)
     {
+        ChooseAtack(OnDefaultAtack, OnAdvancedAtack);
+    }
+
+    protected override void OnDefaultAtack()
+    {
+        _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, Damage + MagicPower);
+    }
+
+    protected override void OnAdvancedAtack()
+    {
         var mate = GetWounded();
-
-        var randomNumber = Random.Range(0, 100);
-
-        if (randomNumber <= _healChance && mate.Health.Value != Health.MaxHealth)
-        {
-            mate.Health.Heal(mate.Health.MaxHealth);
-            _healPart.SetActive(true);
-            _healPart.GetComponent<HealPartMover>().Init(mate);
-            _healPart.GetComponent<HealPartActivator>().Play();
-        }
-
-        else
-        {
-            _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, damage + _magicPower);
-        }
+        _mate = mate;
+        mate.Health.Heal(mate.Health.MaxHealth);
+        HealStarted?.Invoke();
     }
 
     private Fighter GetWounded()
