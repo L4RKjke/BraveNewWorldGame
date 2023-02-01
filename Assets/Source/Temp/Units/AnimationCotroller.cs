@@ -23,6 +23,7 @@ public class AnimationCotroller : MonoBehaviour
     private readonly string _shootAnitmation = "Shoot";
     private readonly string _walkAnimation = "Speed";
     private readonly string _atackAnimation = "Atack";
+    private readonly string _atackLeftAnimation = "AtackLeft";
 
 
     protected Fighter CurrentUnit => _unit;
@@ -113,7 +114,10 @@ public class AnimationCotroller : MonoBehaviour
 
     public void OnMelee()
     {
-        Animator.SetTrigger(_atackAnimation);
+        if (CurrentUnit.TryGetComponent<Warrior>(out _))
+            Animator.SetTrigger(_atackLeftAnimation);
+        else
+            Animator.SetTrigger(_atackAnimation);
     }
 
     private void OnAnimationOver() 

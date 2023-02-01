@@ -1,10 +1,13 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class RestartArena : MonoBehaviour
 {
+    [SerializeField] private UnitPool _pool;
+    [SerializeField] private ArenaCells _arenaCells;
+
     public void OnRestart()
     {
-        SceneManager.LoadScene(0);
+        _pool.CleanPool();
+        _arenaCells.PrepareArena();
     }
 }

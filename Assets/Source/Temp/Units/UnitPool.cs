@@ -75,6 +75,16 @@ public class UnitPool : MonoBehaviour
         return target;
     }
 
+    public void CleanPool()
+    {
+        for (int i = 0; i < GetLength(); i++)
+        {
+            Destroy(GetById(i).RootModel);
+        }
+
+        _fighters.Clear();
+    }
+
     public int GetHorizontalIndex(Fighter unit)
     {
         var result = _fighters.
