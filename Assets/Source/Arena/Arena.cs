@@ -8,7 +8,6 @@ public class Arena : MonoBehaviour
     [SerializeField] private ArenaCells _arenaCells;
     [SerializeField] private GameObject _startButton;
     [SerializeField] private Timer _timer;
-    [SerializeField] private GameObject _endFrame;
 
     private string _finalText = "";
 
@@ -57,7 +56,5 @@ public class Arena : MonoBehaviour
     private void EndBattle()
     {
         _timer.StopTimer();
-        _endFrame.SetActive(true);
-        _endFrame.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = _finalText;
     }
 }

@@ -14,6 +14,7 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private NavMeshSurface2d _navMesh;
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private UnitPool _fighters;
+    [SerializeField] private CharactersStorage _charactersStorage;
 
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
@@ -41,7 +42,12 @@ public class ArenaCells : MonoBehaviour
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
-        CreateCharacters();
+        //CreateCharacters();
+    }
+
+    public void AddCharacter(int characterID)
+    {
+        _playerCharacters.Add(_charactersStorage.GetCharacter(characterID));
     }
 
     public void PlayStartBattle()
@@ -59,7 +65,7 @@ public class ArenaCells : MonoBehaviour
         _parentCellsY.Clear();
     }
 
-    private void CreateCharacters()
+    public void CreateCharacters()
     {
 
         for (int i = 0; i < _playerCharacters.Count; i++)
@@ -71,9 +77,13 @@ public class ArenaCells : MonoBehaviour
             cell.ChangeStayCharacter();
             dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
 
-            var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Fighter>();
+            playerCharacter.GetComponent<CharacterInit>().enabled = true;
+            playerCharacter.transform.localScale = Vector3.one;
+            playerCharacter.SetActive(true);
+            CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
+            var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
             ///Временно
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150);
+            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
 
             _fighters.AddNewFighter(newUnit);
         }

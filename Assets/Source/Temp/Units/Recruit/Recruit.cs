@@ -13,7 +13,7 @@ public abstract class Recruit : Fighter
 
     public int MagicPower => _magicPower;
 
-    public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health, int magicPower = 0)
+    public void Init(FighterType type, FighterType enemyType, UnitPool units, int damage, int health, int magicPower = 0, int defense = 0)
     {
         base.Init(type, enemyType, units, damage, health);
 

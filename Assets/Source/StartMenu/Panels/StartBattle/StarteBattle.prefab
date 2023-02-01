@@ -319,7 +319,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.9399414, y: -7.18042}
+  m_AnchoredPosition: {x: -2.9400635, y: -7.18042}
   m_SizeDelta: {x: 44.12, y: 86.61}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7102709333905209793
@@ -430,39 +430,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7102709333060348640}
     m_Modifications:
-    - target: {fileID: 451250379158950290, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 92885073c980349c2a786888bd70f710, type: 3}
-    - target: {fileID: 7480767249064437433, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7480767249064437433, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8241256453653335679, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: Content
-      value: 
-      objectReference: {fileID: 1209416841539710545, guid: 6cc325de8203b534395d6fb260a8dc1f, type: 3}
-    - target: {fileID: 8241256453653335679, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: Container
-      value: 
-      objectReference: {fileID: 3459297394636819357}
-    - target: {fileID: 8495814874222918561, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
+    - target: {fileID: 4949266445458618109, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8495814874222918561, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
+    - target: {fileID: 4949266445458618109, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8495814874352528332, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: m_Name
-      value: Container
-      objectReference: {fileID: 0}
-    - target: {fileID: 8495814874352528335, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
+    - target: {fileID: 4949266446438285383, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
@@ -500,7 +476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495814875099862864, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -367.52
+      value: -399.27
       objectReference: {fileID: 0}
     - target: {fileID: 8495814875099862864, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_LocalPosition.x
@@ -536,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8495814875099862864, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -183.76001
+      value: -199.64
       objectReference: {fileID: 0}
     - target: {fileID: 8495814875099862864, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -562,21 +538,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8495814876149125026, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-      propertyPath: m_Value
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8495814875099862861, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
 --- !u!224 &3459297393890998017 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8495814875099862864, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
-  m_PrefabInstance: {fileID: 5036948784106446929}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &3459297394636819357 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8495814874352528332, guid: 983b70f024698ec4f9290494fbfe7f36, type: 3}
   m_PrefabInstance: {fileID: 5036948784106446929}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &4014964771155029550 stripped

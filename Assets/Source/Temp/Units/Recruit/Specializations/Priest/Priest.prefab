@@ -6492,6 +6492,7 @@ GameObject:
   - component: {fileID: 443737491713827045}
   - component: {fileID: 7280224540730346987}
   - component: {fileID: 6732707678840798521}
+  - component: {fileID: 8648996069001597331}
   m_Layer: 0
   m_Name: Priest
   m_TagString: Untagged
@@ -6602,6 +6603,7 @@ MonoBehaviour:
   _legL: {fileID: 791721550863501373}
   _legR: {fileID: 7515800924677430503}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
+  _standartWeapon: {fileID: 0}
 --- !u!114 &6732707678840798521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6626,6 +6628,22 @@ MonoBehaviour:
   Shield: {fileID: 2951204102750489837}
   Sleeve: {fileID: 1794927597063472392}
   BackQuiver: {fileID: 2733158887155568434}
+--- !u!114 &8648996069001597331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879505713152868838}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4fd048280cf59d488fbf6bfb30f1154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthBar: {fileID: 8649578933725606104}
+  _leyerController: {fileID: 6908052485358722776}
+  _viewDirection: {fileID: 6890197483968057643}
+  _animationController: {fileID: 7666088606890761115}
 --- !u!1 &3986250442594880954
 GameObject:
   m_ObjectHideFlags: 0
@@ -7651,7 +7669,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
@@ -7664,7 +7682,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f07434580dd43e40b9de73fd15a96b5, type: 3}
   m_Name: 
@@ -7678,7 +7696,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5579663485919828451}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7224ba4b82dec774ebe403df36f3e484, type: 3}
   m_Name: 
@@ -19170,7 +19188,7 @@ RectTransform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.031003952, y: -0.004989624}
   m_SizeDelta: {x: -0.2590027, y: -1.0860004}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19231,7 +19249,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8649578933725606108
 RectTransform:
   m_ObjectHideFlags: 0

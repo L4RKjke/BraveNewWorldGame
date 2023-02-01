@@ -9,6 +9,7 @@ public class StarteBattleUI : RenderUI
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private CharactersAddBattle _charactersAddBattle;
     [SerializeField] private Sprite[] _characterOffOn;
+    [SerializeField] private ArenaCells _arenaCells;
 
     private List<int> _charactersId = new List<int>();
     private int _maxSizeParty = 5;
@@ -17,6 +18,7 @@ public class StarteBattleUI : RenderUI
     private void Awake()
     {
         _charactersAddBattle.Init(_charactersStorage, this);
+        _charactersAddBattle.enabled = true;
         AddGraphics();
     }
 
@@ -42,6 +44,18 @@ public class StarteBattleUI : RenderUI
         }
 
         _disclaimer.SetActive(true);
+    }
+
+    public void AddCharactersInArena()
+    {
+        for(int i = 0; i < _charactersId.Count; i++)
+        {
+            _arenaCells.AddCharacter(_charactersId[i]);
+        }
+
+        ReturnAllCharacters();
+        _arenaCells.CreateCharacters();
+        this.gameObject.SetActive(false);
     }
 
     protected override void AddGraphics()

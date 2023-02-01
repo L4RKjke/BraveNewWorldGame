@@ -48,7 +48,7 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
             _meleeDistance = _walkDistance;
     }
 
-    public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health)
+    public void Init(FighterType type, FighterType enemyType, UnitPool units, int damage, int health)
     {
         _health = GetComponent<Health>();
         Type = type;
