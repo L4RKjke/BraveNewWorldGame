@@ -9,8 +9,8 @@ public class RangeAbility : Ability
 
     private void OnEnable()
     {
-        if (TryGetComponent(out RangeAtackState RangeState))
-            RangeState.AtackCompleted += ActivateAbility;
+/*        if (TryGetComponent(out RangeAtackState RangeState))
+            RangeState.AtackCompleted += ActivateAbility;*/
 
         _health = GetComponent<Health>();
     }

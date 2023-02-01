@@ -7,7 +7,7 @@ public class Health : MonoBehaviour
     private Fighter _unit;
 
     public UnityAction<int> HealthChanged;
-
+    public UnityAction DamageTaken;
     public UnityAction<Fighter> Died;
 
     private int _maxHealth = 150;
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     public int Value => _value;
 
-    private void Awake()
+    private void OnEnable()
     {
         _unit = GetComponent<Fighter>();
         _maxHealth = _value;
@@ -51,7 +51,11 @@ public class Health : MonoBehaviour
             damage = _value;
 
         if (_value > _minHealth)
+        {
             _value -= damage;
+            DamageTaken?.Invoke();
+        }
+
 
         if (_value < 0)
             _value = _minHealth;

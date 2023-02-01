@@ -322,17 +322,14 @@ GameObject:
   - component: {fileID: 2258014573361779789}
   - component: {fileID: 993470713354870320}
   - component: {fileID: 5470306470981562112}
+  - component: {fileID: 5087508098236414437}
   - component: {fileID: 993470713354870326}
   - component: {fileID: 4488452677723674077}
   - component: {fileID: 3885374938697441876}
-  - component: {fileID: 5087508098236414437}
-  - component: {fileID: 1622284445682072828}
-  - component: {fileID: 1244679483130301262}
-  - component: {fileID: 1337474359941039752}
   m_Layer: 7
   m_Name: WarriorModel
   m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
@@ -344,7 +341,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993470713354870330}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.011, y: 0, z: 0}
+  m_LocalPosition: {x: -0.011, y: 0.6, z: 0}
   m_LocalScale: {x: -0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -368,7 +365,6 @@ MonoBehaviour:
   _walkDistance: 1
   _atackDelay: 1
   _speed: 1.2
-  _damageBonus: 1.2
 --- !u!114 &7604797453349662639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,6 +438,7 @@ MonoBehaviour:
   _transitions:
   - {fileID: 2258014573361779789}
   - {fileID: 993470713354870320}
+  _animationController: {fileID: 4553583624612725095}
 --- !u!114 &2258014573361779789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +478,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 3665925495992290421}
+--- !u!114 &5087508098236414437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993470713354870330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &993470713354870326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -543,54 +552,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &5087508098236414437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19cd62151fd558d499c3e00ef898f771, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1622284445682072828
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c3312feec6c27848a2c0818a1a4882d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1244679483130301262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81945851712dfb8418b6e9956aea4ce6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1337474359941039752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993470713354870330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db6c5f1e1ae7014f85bb944223a20ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1026070719563457150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1300,15 +1261,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1370
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a98603192af2bc47afefa3a7dca7c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.56, y: 5.12}
+  m_Size: {x: 1.92, y: 1.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &3603762693457863392
@@ -1413,7 +1374,7 @@ GameObject:
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2246,7 +2207,7 @@ GameObject:
   m_Layer: 0
   m_Name: View
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2311,6 +2272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6dabbe9beed054e94c33788bc1b623, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _unit: {fileID: 4224959571754055807}
 --- !u!114 &302889972473890497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2338,10 +2300,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _unit: {fileID: 4224959571754055807}
-  _deathTemplate: {fileID: 6359960676554105764, guid: a4d4f8ada66901f40b3aa0ab1dcaa03a, type: 3}
+  _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 1809778966764908914}
-  _characterView: {fileID: 0}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
+  _characterView: {fileID: 1708376148336095777}
+  _hitEffect: {fileID: 438691274745699577, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &5746121504349355666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2754,7 +2716,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 850
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 3a98603192af2bc47afefa3a7dca7c9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2762,7 +2724,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 5.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6389040256880567630

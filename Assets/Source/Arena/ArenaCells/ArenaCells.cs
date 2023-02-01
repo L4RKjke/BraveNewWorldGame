@@ -27,10 +27,7 @@ public class ArenaCells : MonoBehaviour
     private void Awake()
     {
         _objectsSaver = GetComponent<ObjectsSaver>();
-        CreateArenaCells();
-        CreateBarriers();
-        CreateEnemies();
-        CreateCharacters();
+        PrepareArena();
     }
 
     private void Start()
@@ -38,9 +35,28 @@ public class ArenaCells : MonoBehaviour
         _navMesh.BuildNavMesh();
     }
 
+    public void PrepareArena()
+    {
+        DeleteArena();
+        CreateArenaCells();
+        CreateBarriers();
+        CreateEnemies();
+        CreateCharacters();
+    }
+
     public void PlayStartBattle()
     {
-        DeleteCells();
+        HideCells();
+    }
+
+    private void DeleteArena()
+    {
+        for (int i = 0; i < _parentCellsY.Count; i++)
+        {
+            Destroy(_parentCellsY[i].gameObject);
+        }
+
+        _parentCellsY.Clear();
     }
 
     private void CreateCharacters()
@@ -51,7 +67,6 @@ public class ArenaCells : MonoBehaviour
             Cell cell = _objectsSaver.GetCell(i, 0);
             GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
             GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
-            playerCharacter.transform.SetParent(dragAndDrop.transform);
             cell.ChangeFull();
             cell.ChangeStayCharacter();
             dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
@@ -64,7 +79,7 @@ public class ArenaCells : MonoBehaviour
         }
     }
 
-    private void DeleteCells(int startFolder = 0)
+    private void HideCells(int startFolder = 0)
     {
         for (int i = startFolder; i < _objectsSaver.transform.childCount; i++)
         {
@@ -76,7 +91,7 @@ public class ArenaCells : MonoBehaviour
         }
     }
 
-    private void HideCells(int folderHide)
+/*    private void HideCells(int folderHide)
     {
         for (int i = 0; i < _objectsSaver.transform.GetChild(folderHide).childCount; i++)
         {
@@ -91,7 +106,7 @@ public class ArenaCells : MonoBehaviour
             _objectsSaver.transform.GetChild(_playerWidth).GetChild(i).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite);
             sprite.enabled = false;
         }
-    }
+    }*/
 
 
     private void CreateArenaCells()

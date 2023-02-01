@@ -6,34 +6,30 @@ using UnityEngine.Events;
 public class RangeAtackState : AtackState 
 {
     private IRangeAtacker _rangeAtacker;
+
     private Coroutine _atackCourutine;
 
-    public UnityAction<UnityAction> AtackStarted;
-    public UnityAction AtackCompleted;
-
-    private void Start()
-    {
-        _rangeAtacker = GetComponent<IRangeAtacker>();
-    }
     private void OnEnable()
     {
-        _atackCourutine = StartCoroutine(LaunchActack(FirstDelaySpread));
+        _rangeAtacker = GetComponent<IRangeAtacker>();
+        AnimationController.AtackCompleted += CompleteAtack;
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
+        StateActivated?.Invoke();
     }
 
     private void OnDisable()
     {
         StopCoroutine(_atackCourutine);
+        AnimationController.AtackCompleted -= CompleteAtack;
     }
 
-    protected override void Atack()
+    protected override void StartAtack()
     {
-        AtackStarted?.Invoke(CompleteAtack);
+        AtackStarted?.Invoke();
     }
 
     protected override void CompleteAtack()
     {
         _rangeAtacker.Shoot(Damage);
-        AtackCompleted?.Invoke();
-        _atackCourutine = StartCoroutine(LaunchActack(CurrentFighter.AtackDelay));
     }
 }

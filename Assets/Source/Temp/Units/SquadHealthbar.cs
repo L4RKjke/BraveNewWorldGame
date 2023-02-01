@@ -8,6 +8,7 @@ public class SquadHealthbar : Healthbar
     [SerializeField] private UnitPool _units;
     [SerializeField] private FighterType _type;
     [SerializeField] private TextMeshProUGUI _healthText;
+    [SerializeField] private Image _redHealthbar;
 
     private int _maxHealth;
     private Coroutine _corutine;
@@ -61,6 +62,7 @@ public class SquadHealthbar : Healthbar
         if (_corutine is not null)
             StopCoroutine(_corutine);
 
+        _redHealthbar.fillAmount = damageValue;
         _corutine = StartCoroutine(SetHealth(damageValue));
     }
 

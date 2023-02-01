@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
 
@@ -15,7 +14,7 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     private Fighter _currentTarget;
     private int _damage;
 
-    public FighterType MyType { get; private set; }
+    public FighterType Type { get; private set; }
 
     public FighterType EnemyType { get; private set; }
 
@@ -33,15 +32,26 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
 
     public GameObject RootModel => _rootModel;
 
-
     public int Damage => _damage;
 
+    public Fighter Unit => this;
+
     public Fighter CurrentTarget => _currentTarget;
+
+    private void Start()
+    {
+        var randomSpread = Random.Range(-0.2f, 0.2f);
+ 
+        _walkDistance += randomSpread;
+
+        if (TryGetComponent<Warrior>(out _))
+            _meleeDistance = _walkDistance;
+    }
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, ushort damage, int health)
     {
         _health = GetComponent<Health>();
-        MyType = type;
+        Type = type;
         EnemyType = enemyType;
         Units = units;
         _damage = damage;

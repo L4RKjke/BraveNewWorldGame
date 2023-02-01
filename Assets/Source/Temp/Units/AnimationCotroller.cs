@@ -19,17 +19,26 @@ public class AnimationCotroller : MonoBehaviour
     private MeleeState _meleeState;
     private Coroutine _waitAtackAnimationCoroutine;
 
+    private readonly string _idleAnimation = "Idle";
+    private readonly string _shootAnitmation = "Shoot";
+    private readonly string _walkAnimation = "Speed";
+    private readonly string _atackAnimation = "Atack";
+    private readonly string _atackLeftAnimation = "AtackLeft";
+
+
     protected Fighter CurrentUnit => _unit;
 
     protected Animator Animator { get; private set; }
 
     public UnityAction AtackCompleted;
+    public UnityAction AtackAnimationCompleted;
+
 
     private void Start()
     {
-        AtackCompleted += ShowDamageEffect;
         Animator = GetComponent<Animator>();
         _unit.Health.Died += OnUnitDied;
+        _unit.Health.DamageTaken += ShowDamageEffect;
 
         if (CurrentUnit != null)
         {
@@ -37,6 +46,7 @@ public class AnimationCotroller : MonoBehaviour
             {
                 _atackState = atackState;
                 _atackState.AtackStarted += OnHeroAtacking;
+                _atackState.StateActivated += OnIdleAnimation;
             }
 
             if (CurrentUnit.TryGetComponent(out WalkState walkState))
@@ -55,15 +65,16 @@ public class AnimationCotroller : MonoBehaviour
             {
                 _meleeState = melee;
                 _meleeState.AtackStarted += OnMelee;
+                _meleeState.StateActivated += OnIdleAnimation;
             }
         }
     }
 
     private void OnDisable()
     {
-        AtackCompleted -= ShowDamageEffect;
         _unit.Health.Died -= OnUnitDied;
-        
+        _unit.Health.DamageTaken -= ShowDamageEffect;
+
         if (_waitAtackAnimationCoroutine is not null)
             StopCoroutine(_waitAtackAnimationCoroutine);
 
@@ -71,60 +82,66 @@ public class AnimationCotroller : MonoBehaviour
             _findTargetState.StateActivated -= OnIdleAnimation;
 
         if (_atackState != null)
+        {
             _atackState.AtackStarted -= OnHeroAtacking;
+            _atackState.StateActivated -= OnIdleAnimation;
+        }
 
         if (_walkState != null)
             _walkState.SpeedChanged -= OnHeroWalking;
 
         if (_meleeState != null)
+        {
             _meleeState.AtackStarted -= OnMelee;
+            _meleeState.StateActivated -= OnIdleAnimation;
+        }
     }
 
-    public void OnHeroAtacking(UnityAction callback)
+    public void OnHeroAtacking()
     {
-        Animator.SetTrigger("Shoot");
-
-        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
+        Animator.SetTrigger(_shootAnitmation);
     }
 
     public void OnHeroWalking(float speed)
     {
-        Animator.SetFloat("Speed", speed);
+        Animator.SetFloat(_walkAnimation, speed);
     }
 
     public void OnIdleAnimation()
     {
-        Animator.SetTrigger("Idle");
+        Animator.SetTrigger(_idleAnimation);
     }
 
-    public void OnMelee(UnityAction callback)
+    public void OnMelee()
     {
-        Animator.SetTrigger("Atack");
-
-        _waitAtackAnimationCoroutine = StartCoroutine(WaitForAnimationOver(callback));
+        if (CurrentUnit.TryGetComponent<Warrior>(out _))
+            Animator.SetTrigger(_atackLeftAnimation);
+        else
+            Animator.SetTrigger(_atackAnimation);
     }
 
-    private IEnumerator WaitForAnimationOver(UnityAction callback)
+    private void OnAnimationOver() 
     {
-        var animationLenght = Animator.GetCurrentAnimatorStateInfo(0).length;
+        AtackAnimationCompleted?.Invoke();
+    }
 
-        yield return new WaitForSeconds(animationLenght);
-
-        Animator.SetTrigger("Idle");
+    private void OnAtackOver()
+    {
         AtackCompleted?.Invoke();
-
-        callback();
     }
 
     private void OnUnitDied(Fighter fighter)
     {
-        var unit = Instantiate(_deathTemplate, transform.position, Quaternion.identity);
-        unit.transform.localScale = _characterView.transform.localScale;
+        if (this != null && _unit != null)
+        {
+            var unit = Instantiate(_deathTemplate, transform.position, Quaternion.identity);
+            unit.transform.localScale = _characterView.transform.localScale;
+        }
     }
 
     private void ShowDamageEffect()
     {
-        if (this != null && _unit.CurrentTarget != null)
-            Instantiate(_hitEffect, _unit.CurrentTarget.transform.position, Quaternion.identity);
+        if (this != null && _unit != null)
+            Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }
 }

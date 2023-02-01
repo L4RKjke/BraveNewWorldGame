@@ -1,9 +1,19 @@
-public class Warrior : Fighter
+public class Warrior : Recruit
 {
-    public float _damageBonus = 1.5f;
-
     public override void Atack(int damage)
     {
-        base.Atack((int)(damage * _damageBonus));
+        ChooseAtack(OnDefaultAtack, OnAdvancedAtack);
     }
+
+    protected override void OnDefaultAtack()
+    {
+        base.Atack(Damage);
+    }
+
+    override protected void OnAdvancedAtack()
+    {
+        base.Atack(GetAdvancedDamage());
+    }
+
+    private int GetAdvancedDamage() => (Damage * MagicPower);
 }

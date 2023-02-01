@@ -19,7 +19,7 @@ public class UnitPool : MonoBehaviour
 
     public int GetLength(FighterType fighterType)
     {
-        return _fighters.Where(fighter => fighter.MyType == fighterType).Count();
+        return _fighters.Where(fighter => fighter.Type == fighterType).Count();
     }
 
     public int GetLength()
@@ -40,7 +40,7 @@ public class UnitPool : MonoBehaviour
 
     public Fighter GetById(int id, FighterType type)
     {
-        var fighters = _fighters.Where(fighter => fighter.MyType == type).ToArray();
+        var fighters = _fighters.Where(fighter => fighter.Type == type).ToArray();
 
        return fighters[id];
     }
@@ -60,7 +60,7 @@ public class UnitPool : MonoBehaviour
 
         foreach (var fighter in _fighters)
         {
-            if (fighter.MyType == fighterType)
+            if (fighter.Type == fighterType)
             {
                 float distance = Vector2.Distance(fighter.transform.position, position);
 
@@ -75,10 +75,30 @@ public class UnitPool : MonoBehaviour
         return target;
     }
 
+    public void CleanPool()
+    {
+        for (int i = 0; i < GetLength(); i++)
+        {
+            Destroy(GetById(i).RootModel);
+        }
+
+        _fighters.Clear();
+    }
+
+    public int GetHorizontalIndex(Fighter unit)
+    {
+        var result = _fighters.
+            OrderBy(fighter => fighter.transform.position.y).
+            Select(fighter => fighter).
+            ToList().IndexOf(unit);
+
+        return result;
+    }
+
     private void OnUnitDied(Fighter fighter)
     {
         Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
-        UnitDied?.Invoke(fighter.MyType);
+        UnitDied?.Invoke(fighter.Type);
     }
 }

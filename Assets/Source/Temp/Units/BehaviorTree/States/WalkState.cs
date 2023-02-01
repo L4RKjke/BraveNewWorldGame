@@ -5,6 +5,8 @@ public class WalkState : State
 {
     [SerializeField] private NavMeshRootController _navMeshCotroller;
 
+    private readonly int _minSpeed = 0;
+
     public NavMeshRootController NavMeshCotroller => _navMeshCotroller;
 
     public UnityAction<float> SpeedChanged;
@@ -20,7 +22,7 @@ public class WalkState : State
         if (_navMeshCotroller.enabled)
             _navMeshCotroller.StopAgent();
 
-        SpeedChanged?.Invoke(0);
+        SpeedChanged?.Invoke(_minSpeed);
     }
 
     private void FixedUpdate()
