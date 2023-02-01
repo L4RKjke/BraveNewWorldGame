@@ -8,6 +8,8 @@ public class Arena : MonoBehaviour
     [SerializeField] private ArenaCells _arenaCells;
     [SerializeField] private GameObject _startButton;
     [SerializeField] private Timer _timer;
+    [SerializeField] private GameObject _panelWin;
+    [SerializeField] private GameObject _panelLose;
 
     private string _finalText = "";
 
@@ -44,9 +46,15 @@ public class Arena : MonoBehaviour
         if (_pool.GetLength(type) == 0)
         {
             if (type == FighterType.Recruit)
+            {
                 _finalText = "Lose!";
+                _panelLose.SetActive(true);
+            }
             else
+            {
                 _finalText = "Win!";
+                _panelWin.SetActive(true);
+            }
 
             EndBattle();
         }

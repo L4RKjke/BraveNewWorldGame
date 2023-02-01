@@ -55,13 +55,19 @@ public class ArenaCells : MonoBehaviour
         HideCells();
     }
 
-    private void DeleteArena()
+    public void DeleteArena()
     {
         for (int i = 0; i < _parentCellsY.Count; i++)
         {
             Destroy(_parentCellsY[i].gameObject);
         }
 
+        for (int i = 0; i < _objectsSaver.ParentFolderBarrier.transform.childCount; i++)
+        {
+            Destroy(_objectsSaver.ParentFolderBarrier.transform.GetChild(i).gameObject);
+        }
+
+        _playerCharacters.Clear();
         _parentCellsY.Clear();
     }
 
