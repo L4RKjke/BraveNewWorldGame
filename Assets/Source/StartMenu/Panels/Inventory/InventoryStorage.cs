@@ -24,9 +24,7 @@ public class InventoryStorage : MonoBehaviour
     private void Start()
     {
         _price = _button.transform.GetChild(0).GetComponent<TMP_Text>();
-        _count = _button.transform.GetChild(1).GetComponent<TMP_Text>();
         _inventoryUI = GetComponent<InventoryUI>();
-        _count.text = "+" + _bagUpCount;
         UpdateText();
     }
 
@@ -111,6 +109,6 @@ public class InventoryStorage : MonoBehaviour
 
     private void UpdateText()
     {
-        _price.text = " = " + _priceBagUp + "/" + _wallet.Crystals;
+        _price.text = "Bag UP: " + _priceBagUp;
     }
 }
