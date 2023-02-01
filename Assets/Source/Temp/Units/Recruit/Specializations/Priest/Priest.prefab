@@ -6603,7 +6603,7 @@ MonoBehaviour:
   _legL: {fileID: 791721550863501373}
   _legR: {fileID: 7515800924677430503}
   _standartArmor: {fileID: 21300086, guid: 78e4162d48c06ca4397925f33bbd6a23, type: 3}
-  _standartWeapon: {fileID: 0}
+  _standartWeapon: {fileID: 21300000, guid: 3a98603192af2bc47afefa3a7dca7c9e, type: 3}
 --- !u!114 &6732707678840798521
 MonoBehaviour:
   m_ObjectHideFlags: 0

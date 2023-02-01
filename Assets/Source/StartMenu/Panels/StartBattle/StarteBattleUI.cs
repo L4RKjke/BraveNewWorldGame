@@ -13,7 +13,7 @@ public class StarteBattleUI : RenderUI
 
     private List<int> _charactersId = new List<int>();
     private int _maxSizeParty = 5;
-    private Vector3 _offSet = new(0, -1.5f, 0);
+    private Vector3 _offSet = new(0, -0.6f, 0);
 
     private void Awake()
     {
@@ -73,6 +73,7 @@ public class StarteBattleUI : RenderUI
         GameObject content = Container.transform.GetChild(buttonID).gameObject;
         character.SetActive(true);
         character.transform.SetParent(content.transform);
+        character.transform.localScale = new Vector3(60f, 60f, 1);
         character.transform.position = content.transform.position + _offSet;
         Button button = content.GetComponent<Button>();
         button.onClick.AddListener(delegate { ReturnCharacter(buttonID, characterID); });
