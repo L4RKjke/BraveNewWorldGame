@@ -66,7 +66,7 @@ public class ItemShopUI : RenderUI
             {
                 _wallet.ChangeGold(-item.Price);
 
-                int id = _playerItemStorage.CountItems;
+                int id = _playerItemStorage.GetFreeId();
                 item.SetId(id);
 
                 if (id == _playerItemStorage.CountItems)

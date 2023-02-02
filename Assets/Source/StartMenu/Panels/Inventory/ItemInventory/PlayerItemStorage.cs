@@ -43,7 +43,7 @@ public class PlayerItemStorage : MonoBehaviour
     {
         for(int i = 1; i < _items.Count; i++)
         {
-            if (_items[i].Id == 0)
+            if (_items[i] == null)
             {
                 return i;
             }

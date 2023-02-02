@@ -10,6 +10,7 @@ public class Panel : MonoBehaviour
 
     private void Start()
     {
+        if (_panelText != null)
         _panelText.text = _panelName;
     }
 
