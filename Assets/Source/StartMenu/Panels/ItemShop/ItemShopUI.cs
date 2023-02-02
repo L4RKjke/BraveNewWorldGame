@@ -31,15 +31,15 @@ public class ItemShopUI : RenderUI
 
     protected override void AddGraphics()
     {
-        Item item = _itemStorage.GetHead(Random.Range(0,_itemStorage.HeadCount));
+        Item item = Instantiate(_itemStorage.GetHead(Random.Range(0,_itemStorage.HeadCount)));
         AddButton(item);
-        item = _itemStorage.GetBody(Random.Range(0,_itemStorage.BodyCount));
+        item = Instantiate(_itemStorage.GetBody(Random.Range(0,_itemStorage.BodyCount)));
         AddButton(item);
-        item = _itemStorage.GetLeg(Random.Range(0, _itemStorage.LegCount));
+        item = Instantiate(_itemStorage.GetLeg(Random.Range(0, _itemStorage.LegCount)));
         AddButton(item);
-        item = _itemStorage.GetHand(Random.Range(0, _itemStorage.HandCount));
+        item = Instantiate(_itemStorage.GetHand(Random.Range(0, _itemStorage.HandCount)));
         AddButton(item);
-        item = _itemStorage.GetWeapon(Random.Range(0, _itemStorage.WeaponCount));
+        item = Instantiate(_itemStorage.GetWeapon(Random.Range(0, _itemStorage.WeaponCount)));
         AddButton(item);
     }
 
@@ -72,7 +72,10 @@ public class ItemShopUI : RenderUI
                 if (id == _playerItemStorage.CountItems)
                     _playerItemStorage.AddItem(item);
                 else
+                {
                     _playerItemStorage.ChangeItem(item, id);
+                    _playerItemStorage.ReturnItem(item);
+                }
 
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;

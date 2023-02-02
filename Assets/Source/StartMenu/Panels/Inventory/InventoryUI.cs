@@ -96,9 +96,7 @@ public class InventoryUI : RenderUI
 
             AddInventoryItem(buttonID, _currentItem);
 
-            _currentId = -1;
-
-            _objectMoverUI.MoveSetActive(false);
+            ResetMovingObject();
         }
     }
 

@@ -10,11 +10,11 @@ public class ItemDescriptionUI : StatsUI
     public void UpdateDescription(Item item)
     {
         UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
-        UpdateName(item.Name, item.Type.ToString());
+        UpdateName(item.Name, item.Type.ToString(), item.Level);
     }
 
-    private void UpdateName(string name, string type)
+    private void UpdateName(string name, string type, int level)
     {
-        _itemDescription.text = name + " : " + type;
+        _itemDescription.text = name + " : " + type + " LVL - " + level;
     }
 }

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(BoxCollider2D))]
+[RequireComponent(typeof(Button))]
 public class ButtonForge : MonoBehaviour
 {
+    [SerializeField] private Image _image;
     [SerializeField] private Sprite _standartSprite;
 
     private string _requireName = null;
@@ -28,13 +31,14 @@ public class ButtonForge : MonoBehaviour
 
     public void SetSprite(Sprite sprite, Color color)
     {
-        this.GetComponent<Image>().sprite = sprite;
+        _image.sprite = sprite;
+        _image.color = color;
     }
 
     public void ResetInfo()
     {
         SetRequre(null,1);
-        SetSprite(_standartSprite, new Color(0, 0, 0, 255));
+        SetSprite(_standartSprite, new Color(255, 255, 255, 255));
         SetItemID(-1);
     }
 }

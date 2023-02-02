@@ -20,10 +20,10 @@ public class Item : MonoBehaviour
     public Sprite Image => _image;
     public string Name => _name;
     public ItemType Type => ItemType;
-    public int Defense => _defense;
-    public int Attack => _attack;
-    public int Health => _health;
-    public int Magic => _magic;
+    public int Defense => _defense * _level;
+    public int Attack => _attack * _level;
+    public int Health => _health * _level;
+    public int Magic => _magic * _level;
     public int Price => _price;
     public int Level => _level;
 

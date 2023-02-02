@@ -42,6 +42,11 @@ public class InventoryDragAndDrop : MonoBehaviour
             {
                 _inventoryUI.SelectObject(int.Parse(cell.gameObject.name));
             }
+            else if(cell.GetComponent<ButtonForge>() != null)
+            {
+                Button button = cell.GetComponentInChildren<Button>();
+                button.onClick.Invoke();
+            }
             else
             {
                 int id = _charactersItemUI.GetId(cell.gameObject);
