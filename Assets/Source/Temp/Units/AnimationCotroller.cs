@@ -72,8 +72,11 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
-        _unit.Health.Died -= OnUnitDied;
-        _unit.Health.DamageTaken -= ShowDamageEffect;
+        if (_unit.Health != null)
+        {
+            _unit.Health.Died -= OnUnitDied;
+            _unit.Health.DamageTaken -= ShowDamageEffect;
+        }
 
         if (_waitAtackAnimationCoroutine is not null)
             StopCoroutine(_waitAtackAnimationCoroutine);

@@ -12,6 +12,11 @@ public class NavMeshRootController : MonoBehaviour
         InitAgent();
     }
 
+    private void OnDisable()
+    {
+        _navMesh.enabled = false;
+    }
+
     public void SetStoppingDistance(float distance)
     {
         _navMesh.stoppingDistance = distance;

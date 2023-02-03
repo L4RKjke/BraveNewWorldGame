@@ -15,21 +15,30 @@ public class SquadHealthbar : Healthbar
 
     private readonly float _healthRate = 0.12f;
 
-    private void Start()
+    private void OnEnable()
     {
+        _maxHealth = 0;
+
         for (int i = 0; i < _units.GetLength(_type); i++)
         {
             var unit = _units.GetById(i, _type);
 
-            _maxHealth += unit.Health.MaxHealth;
-            unit.Health.HealthChanged += OnHealthChanged;
+            if (unit != null && unit.Health.HealthChanged != null)
+            {
+                _maxHealth += unit.Health.MaxHealth;
+                unit.Health.HealthChanged += OnHealthChanged;
+            }
         }
 
+        Slider.value = 1;
         _healthText.text = _maxHealth.ToString() + "/" + _maxHealth.ToString();
     }
 
     private void OnDisable()
     {
+        if (_corutine != null)
+            StopCoroutine(_corutine);
+
         Fighter unit;
 
         for (int i = 0; i < _units.GetLength(_type); i++)
@@ -39,9 +48,6 @@ public class SquadHealthbar : Healthbar
             if (unit != null)
                 _units.GetById(i, _type).Health.HealthChanged -= OnHealthChanged;
         }
-
-        if (_corutine != null)
-            StopCoroutine(_corutine);
     }
 
     private void OnHealthChanged(int health)
@@ -63,7 +69,9 @@ public class SquadHealthbar : Healthbar
             StopCoroutine(_corutine);
 
         _redHealthbar.fillAmount = damageValue;
-        _corutine = StartCoroutine(SetHealth(damageValue));
+
+        if (enabled == true)
+            _corutine = StartCoroutine(SetHealth(damageValue));
     }
 
     private IEnumerator SetHealth(float target)

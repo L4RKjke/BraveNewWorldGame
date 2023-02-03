@@ -10,11 +10,15 @@ public class Arena:  MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private GameObject _panelWin;
     [SerializeField] private GameObject _panelLose;
+    [SerializeField] private GameObject _canvasBar;
 
     private UnityAction<FighterType> _battleEnded;
 
     private void OnEnable()
     {
+        _panelWin.SetActive(false);
+        _panelLose.SetActive(false);
+        _startButton.SetActive(true);
         _pool.SquadLose += PickWinner;
         _battleEnded += EndBattle;
     }
@@ -23,6 +27,11 @@ public class Arena:  MonoBehaviour
     {
         _pool.SquadLose -= PickWinner;
         _battleEnded -= EndBattle;
+    }
+
+    public void OnStart()
+    {
+        _canvasBar.SetActive(true);
     }
 
     public void OnStartButtonClick()
@@ -34,13 +43,13 @@ public class Arena:  MonoBehaviour
 
         var parent = _pool.GetById(i).transform.parent.gameObject;
             parent.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + 0.1f);
-    }
+        }
 
-    _arenaCells.PlayStartBattle();
-    _startButton.SetActive(false);
+        _arenaCells.PlayStartBattle();
+        _startButton.SetActive(false);
 
     _timer.StartTimer();
-        }
+    }
 
     private void PickWinner(FighterType type)
         {
@@ -61,6 +70,7 @@ public class Arena:  MonoBehaviour
         else
             _panelLose.SetActive(true);
 
+        _canvasBar.SetActive(false);
         _timer.StopTimer();
     }
 }

@@ -7,13 +7,16 @@ public class RestartArena : MonoBehaviour
     [SerializeField] private GameObject _winPanel;
     [SerializeField] private GameObject _losePanel;
     [SerializeField] private GameObject _startButton;
+    [SerializeField] private GameObject _startBattleCanvas;
 
     public void OnRestart()
     {
-        _pool.CleanPool();
-        _arenaCells.PrepareArena();
+        Debug.Log("restart");
         _winPanel.SetActive(false);
         _losePanel.SetActive(false);
+        _startBattleCanvas.SetActive(true);
+        _pool.CleanPool();
+        _arenaCells.PrepareArena();
         _startButton.SetActive(true);
     }
 }

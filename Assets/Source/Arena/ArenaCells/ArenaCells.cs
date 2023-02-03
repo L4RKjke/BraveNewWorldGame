@@ -31,6 +31,7 @@ public class ArenaCells : MonoBehaviour
 
     public void PrepareArena()
     {
+        _playerCharacters.Clear();
         DeleteArena();
         CreateArenaCells();
         CreateBarriers();

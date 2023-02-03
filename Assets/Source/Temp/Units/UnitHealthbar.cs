@@ -7,12 +7,14 @@ public class UnitHealthbar : Healthbar
 
     private void Start()
     {
-        _fighter.Health.HealthChanged += ChangeFill;
+        if (_fighter.Health != null)
+            _fighter.Health.HealthChanged += ChangeFill;
     }
 
     private void OnDisable()
     {
-        _fighter.Health.HealthChanged -= ChangeFill;
+        if (_fighter.Health != null)
+            _fighter.Health.HealthChanged -= ChangeFill;
     }
 
     protected void ChangeFill(int value)
