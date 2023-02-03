@@ -10,9 +10,11 @@ public class PlayerItemStorage : MonoBehaviour
     [SerializeField] private Transform _itemsFolder;
 
     private InventoryUI _inventoryUI;
+    private int _nullSlots = 0;
 
     public int CountItems => _items.Count;
     public int MaxSizeInventory => _inventoryUI.MaxCount;
+    public int NullSlots => _nullSlots;
 
     private void Awake()
     {
@@ -22,6 +24,7 @@ public class PlayerItemStorage : MonoBehaviour
     public void DeleteItem(int id)
     {
         Destroy(_items[id].gameObject);
+        _nullSlots++;
     }
 
     public Item GetItem(int id)
@@ -53,6 +56,7 @@ public class PlayerItemStorage : MonoBehaviour
         {
             if (_items[i] == null)
             {
+                _nullSlots--;
                 return i;
             }
         }

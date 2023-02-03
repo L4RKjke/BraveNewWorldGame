@@ -9,6 +9,7 @@ public class ButtonForge : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _standartSprite;
+    [SerializeField] private InventoryUI _inventoryUI;
 
     private string _requireName = null;
     private int _requireLevel = 1;
@@ -17,6 +18,19 @@ public class ButtonForge : MonoBehaviour
     public string RequireName => _requireName;
     public int RequireLevel => _requireLevel;
     public int ItemID => _itemID;
+
+    private void OnMouseEnter()
+    {
+        if (_itemID != -1)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_itemID));
+
+    }
+
+    private void OnMouseExit()
+    {
+        if (_itemID != -1 && _inventoryUI.CurrentItem != null)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+    }
 
     public void SetRequre(string name, int level)
     {

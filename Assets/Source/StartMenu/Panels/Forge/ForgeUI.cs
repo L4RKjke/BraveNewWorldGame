@@ -9,6 +9,8 @@ public class ForgeUI : MonoBehaviour
     [SerializeField] private List<GameObject> _buttonsForge;
     [SerializeField] private Button _buttonStartForge;
     [SerializeField] private Button _buttonNewItem;
+    [SerializeField] private StatsUI _statsUI;
+    [SerializeField] private GameObject _statsContainer;
 
     private void Start()
     {
@@ -65,10 +67,13 @@ public class ForgeUI : MonoBehaviour
 
         if (newItemImage.sprite == null)
         {
+            Item item = _inventoryUI.PlayerItemStorage.GetItem(itemId1);
             _buttonStartForge.transform.GetChild(1).gameObject.SetActive(true);
             _buttonStartForge.onClick.RemoveAllListeners();
-            Item newItem = Instantiate(_inventoryUI.PlayerItemStorage.GetItem(itemId1));
-            newItem.SetLevel(_inventoryUI.PlayerItemStorage.GetItem(itemId1).Level + 1);
+            Item newItem = Instantiate(item);
+            newItem.SetLevel(item.Level + 1);
+            _statsContainer.SetActive(true);
+            _statsUI.UpdateAllStats(item.Attack / item.Level, item.Defense / item.Level, item.Health / item.Level, item.Magic / item.Level, true);
             _inventoryUI.PlayerItemStorage.DeleteItem(itemId1);
             _inventoryUI.PlayerItemStorage.DeleteItem(itemId2);
             _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
@@ -155,6 +160,7 @@ public class ForgeUI : MonoBehaviour
             _inventoryUI.ReturnItem(item);
         }
 
+        _statsContainer.SetActive(false);
         _buttonNewItem.onClick.RemoveAllListeners();
         _buttonNewItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
         _buttonNewItem.transform.GetChild(0).GetComponent<Image>().color = new Color(255, 255, 255, 0);

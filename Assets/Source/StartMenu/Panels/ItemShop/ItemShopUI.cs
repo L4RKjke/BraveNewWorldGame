@@ -52,6 +52,7 @@ public class ItemShopUI : RenderUI
         newItemButton.GetComponentInChildren<Image>().sprite = item.Image;
         statsUI.UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
         item.SetPrice();
+        item.transform.SetParent(newItemButton.transform);
 
         Button temp = newItemButton.GetComponentInChildren<Button>();
         temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
@@ -60,7 +61,7 @@ public class ItemShopUI : RenderUI
 
     private void SellItem(Item item, GameObject button)
     {
-        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1)
+        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1 - _playerItemStorage.NullSlots)
         {
             if (_wallet.Gold >= item.Price)
             {

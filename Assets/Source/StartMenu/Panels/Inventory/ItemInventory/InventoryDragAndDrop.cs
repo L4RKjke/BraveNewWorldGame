@@ -33,6 +33,7 @@ public class InventoryDragAndDrop : MonoBehaviour
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         Collider2D cell = Physics2D.OverlapPoint(mousePosition);
+        Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id);
 
         if (cell != null)
         {
@@ -43,7 +44,18 @@ public class InventoryDragAndDrop : MonoBehaviour
             else if(cell.GetComponent<ButtonForge>() != null)
             {
                 Button button = cell.GetComponentInChildren<Button>();
-                button.onClick.Invoke();
+                ButtonForge buttonForge = cell.GetComponent<ButtonForge>();
+
+                if (buttonForge.ItemID == -1)
+                {
+                    button.onClick.Invoke();
+                }
+                else
+                {
+                    _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+                    button.onClick.Invoke();
+                    button.onClick.Invoke();
+                }
             }
             else
             {
@@ -62,6 +74,7 @@ public class InventoryDragAndDrop : MonoBehaviour
 
                     if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))
                     {
+                        _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
                         button.onClick.Invoke();
                         button.onClick.Invoke();
                     }
@@ -71,7 +84,7 @@ public class InventoryDragAndDrop : MonoBehaviour
 
         if (_inventoryUI.CurrentId != -1)
         {
-            _inventoryUI.PlayerItemStorage.ReturnItem(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+            _inventoryUI.PlayerItemStorage.ReturnItem(item);
             _inventoryUI.ResetMovingObject();
         }
     }

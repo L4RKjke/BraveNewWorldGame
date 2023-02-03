@@ -46,7 +46,6 @@ public class InventoryUI : RenderUI
     public void ReturnItem(Item item = null)
     {
         ItemInventory temp = null;
-        Debug.Log(item);
 
         for (int i = 0; i < _inventoryStorage.InventorySize; i++)
         {
