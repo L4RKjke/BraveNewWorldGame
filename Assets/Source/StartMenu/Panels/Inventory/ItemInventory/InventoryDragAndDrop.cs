@@ -36,9 +36,7 @@ public class InventoryDragAndDrop : MonoBehaviour
 
         if (cell != null)
         {
-            cell.TryGetComponent<InventoryDragAndDrop>(out InventoryDragAndDrop dragAndDrop);
-
-            if (dragAndDrop != null)
+            if (cell.GetComponent<InventoryDragAndDrop>() != null)
             {
                 _inventoryUI.SelectObject(int.Parse(cell.gameObject.name));
             }
@@ -72,7 +70,10 @@ public class InventoryDragAndDrop : MonoBehaviour
         }
 
         if (_inventoryUI.CurrentId != -1)
-            _inventoryUI.SelectObject(int.Parse(_button.name));
+        {
+            _inventoryUI.PlayerItemStorage.ReturnItem(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+            _inventoryUI.ResetMovingObject();
+        }
     }
 
     public void Init(InventoryUI inventory, Camera camera, CharactersItemUI charactersItemUI)
