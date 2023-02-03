@@ -10,8 +10,6 @@ public class Arena:  MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private GameObject _panelWin;
     [SerializeField] private GameObject _panelLose;
-    [SerializeField] private SquadHealthbar _enemyHealthbar;
-    [SerializeField] private SquadHealthbar _playerHealthbar;
 
     private UnityAction<FighterType> _battleEnded;
 
@@ -25,17 +23,6 @@ public class Arena:  MonoBehaviour
     {
         _pool.SquadLose -= PickWinner;
         _battleEnded -= EndBattle;
-    }
-
-    public void RestartArena()
-    {
-        _pool.CleanPool();
-        _arenaCells.PrepareArena();
-        _panelWin.SetActive(false);
-        _panelLose.SetActive(false);
-        _startButton.SetActive(true);
-        _playerHealthbar.enabled = true;
-        _enemyHealthbar.enabled = true;
     }
 
     public void OnStartButtonClick()
@@ -75,7 +62,5 @@ public class Arena:  MonoBehaviour
             _panelLose.SetActive(true);
 
         _timer.StopTimer();
-        _playerHealthbar.enabled = false;
-        _enemyHealthbar.enabled = false;
     }
 }

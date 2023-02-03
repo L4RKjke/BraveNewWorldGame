@@ -15,7 +15,7 @@ public class SquadHealthbar : Healthbar
 
     private readonly float _healthRate = 0.12f;
 
-    private void OnEnable()
+    private void Start()
     {
         for (int i = 0; i < _units.GetLength(_type); i++)
         {
