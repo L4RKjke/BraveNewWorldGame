@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectsSaver : MonoBehaviour
@@ -8,32 +6,42 @@ public class ObjectsSaver : MonoBehaviour
     [SerializeField] private Transform _parentFolderBarrier;
     [SerializeField] private Transform _parentFolderEnemy;
 
+    private Cell[,] _cells = new Cell[11, 7];
+
+    private readonly int _maxColumn = 11;
+    private readonly int _maxRow = 7;
+
     public Transform ParentFolderBarrier => _parentFolderBarrier;
+
     public Transform ParentFolderEnemy => _parentFolderEnemy;
+
     public GameObject ParentFolderCell => _parentFolderCell;
 
-    public Cell GetRandomCell(int minNumberFolder = 1)
+    public int MaxColumn => _maxColumn;
+
+    public int MaxRow => _maxRow;
+
+    public Cell GetCell(int column, int row)
     {
-        int numberCells1;
-        int numberCells2;
-        Transform numberFolderCell;
-        Transform currentCell;
+        if (column > _maxColumn - 1)
+            column = _maxColumn - 1;
+        if (row > _maxRow - 1)
+            row = _maxRow - 1;
 
-        numberCells1 = Random.Range(minNumberFolder, transform.childCount);
-        numberFolderCell = transform.GetChild(numberCells1);
-        numberCells2 = Random.Range(0, numberFolderCell.childCount);
-        currentCell = numberFolderCell.GetChild(numberCells2);
+        return _cells[column, row];
+    }
 
-        currentCell.TryGetComponent(out Cell cell);
+    public Cell GetRandomCell(int minColumn = 0, int minRow = 0)
+    {
+        var cell = _cells[Random.Range(minColumn, _maxColumn - 1), Random.Range(minRow, _maxRow - 1)];
 
         return cell;
     }
+        
 
-    public Cell GetCell(int x, int y)
+    public void AddCell(Cell cell, int x, int y)
     {
-        transform.GetChild(y).GetChild(x).TryGetComponent<Cell>(out Cell cell);
-
-        return cell;
+        _cells[x, y] = cell;
     }
 
     public bool CheckCellsAround(int x, int y)
@@ -60,7 +68,6 @@ public class ObjectsSaver : MonoBehaviour
 
     private bool CheckBuildingArround(int x, int y)
     {
-
         if (y == 0 || GetCell(x, y - 1).IsBuildingStay == true)
         {
             if (y + 1 == transform.childCount || GetCell(x, y + 1).IsBuildingStay == true)

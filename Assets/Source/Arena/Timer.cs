@@ -13,6 +13,8 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        _seconds = 0;
+        _minutes = 0;
         _coroutineTimer = StartCoroutine(StartTimerCoroutine());
     }
     
@@ -36,7 +38,7 @@ public class Timer : MonoBehaviour
             if (_seconds == 59)
             {
                 _minutes++;
-                _seconds = _seconds - 59;
+                _seconds -= 59;
             }
 
             _seconds++;

@@ -8,6 +8,7 @@ public class UnitPool : MonoBehaviour
     private List<Fighter> _fighters = new List<Fighter> { };
 
     public UnityAction<FighterType> UnitDied;
+    public UnityAction<FighterType> SquadLose;
 
     private void OnDisable()
     {
@@ -79,7 +80,10 @@ public class UnitPool : MonoBehaviour
     {
         for (int i = 0; i < GetLength(); i++)
         {
-            Destroy(GetById(i).RootModel);
+            if (GetById(i).RootModel.transform.parent.TryGetComponent(out DragAndDrop model))
+                Destroy(model.gameObject);
+            else
+                Destroy(GetById(i).RootModel.gameObject);
         }
 
         _fighters.Clear();
@@ -100,5 +104,8 @@ public class UnitPool : MonoBehaviour
         Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
         UnitDied?.Invoke(fighter.Type);
+
+        if (GetLength(fighter.Type) == 0)
+            SquadLose?.Invoke(fighter.Type);
     }
 }

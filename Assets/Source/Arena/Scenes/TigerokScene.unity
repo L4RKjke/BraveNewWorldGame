@@ -3604,7 +3604,8 @@ MonoBehaviour:
   _arenaCells: {fileID: 1499110253}
   _startButton: {fileID: 1141622481}
   _timer: {fileID: 1228363490}
-  _endFrame: {fileID: 413327707}
+  _panelWin: {fileID: 0}
+  _panelLose: {fileID: 0}
 --- !u!1 &1943085676
 GameObject:
   m_ObjectHideFlags: 0
@@ -4178,7 +4179,7 @@ PrefabInstance:
       objectReference: {fileID: 1362917343}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _startPosition.x
-      value: -6.5
+      value: -5.85
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _startPosition.y
@@ -4198,7 +4199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _enemies.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _parentFolderBarrier
@@ -4234,7 +4235,7 @@ PrefabInstance:
       objectReference: {fileID: 8927706449902697089, guid: cf489732eb25b9849be29815908eb4b6, type: 3}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _playerCharacters.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2395814375073941555, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
       propertyPath: _playerCharacters.Array.data[0]

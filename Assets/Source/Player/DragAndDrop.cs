@@ -4,6 +4,7 @@ using UnityEngine;
 public class DragAndDrop : MonoBehaviour
 {
     [SerializeField] private ObjectsSaver _objectsSaver;
+    [SerializeField] private Camera _camara;
 
     private List<Collider2D> _cells = new List<Collider2D>();
     private Cell _lastCell;
@@ -24,14 +25,14 @@ public class DragAndDrop : MonoBehaviour
 
     private void OnMouseDown()
     {
-        _pointScreen = Camera.main.WorldToScreenPoint(transform.position);
+        _pointScreen = _camara.WorldToScreenPoint(transform.position);
         _offSet = transform.position;
     }
 
     private void OnMouseDrag()
     {
         Vector3 currentScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, _pointScreen.z);
-        Vector3 currentPosition = Camera.main.ScreenToWorldPoint(currentScreenPoint);
+        Vector3 currentPosition = _camara.ScreenToWorldPoint(currentScreenPoint);
         transform.position = currentPosition;
     }
 
@@ -76,7 +77,7 @@ public class DragAndDrop : MonoBehaviour
 
         if(cell.IsFull == false || _lastCell == cell)
         {
-            canStay = _objectsSaver.CheckCellsAround(cell.TransformX,cell.TransformY);
+            canStay = _objectsSaver.CheckCellsAround(cell.Row,cell.Column);
 
             if (canStay == true)
                 PutCharacter(cell);

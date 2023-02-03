@@ -1,8 +1,8 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
-public class Arena : MonoBehaviour
+public class Arena:  MonoBehaviour
 {
     [SerializeField] private UnitPool _pool;
     [SerializeField] private ArenaCells _arenaCells;
@@ -11,58 +11,56 @@ public class Arena : MonoBehaviour
     [SerializeField] private GameObject _panelWin;
     [SerializeField] private GameObject _panelLose;
 
-    private string _finalText = "";
+    private UnityAction<FighterType> _battleEnded;
 
     private void OnEnable()
     {
-        _pool.UnitDied += VerifyUnits;
+        _pool.SquadLose += PickWinner;
+        _battleEnded += EndBattle;
     }
 
     private void OnDisable()
     {
-        _pool.UnitDied += VerifyUnits;
+        _pool.SquadLose -= PickWinner;
+        _battleEnded -= EndBattle;
     }
 
     public void OnStartButtonClick()
     {
         for (int i = 0; i < _pool.GetLength(); i++)
         {
-            _pool.GetById(i).transform.parent.gameObject.GetComponent<NavMeshAgent>().enabled = true;
-            _pool.GetById(i).transform.gameObject.SetActive(true);
+        _pool.GetById(i).transform.parent.gameObject.GetComponent<NavMeshAgent>().enabled = true;
+        _pool.GetById(i).transform.gameObject.SetActive(true);
 
-             var parent = _pool.GetById(i).transform.parent.gameObject;
-             parent.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + 0.1f);
-
-        }
-
-        _arenaCells.PlayStartBattle();
-        _startButton.SetActive(false);
-
-        _timer.StartTimer();
+        var parent = _pool.GetById(i).transform.parent.gameObject;
+            parent.transform.position = new Vector3(parent.transform.position.x, parent.transform.position.y, parent.transform.position.z + 0.1f);
     }
 
-    private void VerifyUnits(FighterType type) 
-    {
-        if (_pool.GetLength(type) == 0)
+    _arenaCells.PlayStartBattle();
+    _startButton.SetActive(false);
+
+    _timer.StartTimer();
+        }
+
+    private void PickWinner(FighterType type)
         {
-            if (type == FighterType.Recruit)
-            {
-                _finalText = "Lose!";
-                _panelLose.SetActive(true);
-            }
-            else
-            {
-                _finalText = "Win!";
-                _panelWin.SetActive(true);
-            }
+        FighterType result;
 
-            EndBattle();
+        if (type == FighterType.Recruit)
+            result = FighterType.Enemy;
+        else
+            result = FighterType.Recruit;
+
+        _battleEnded?.Invoke(result);
         }
 
-    }
-
-    private void EndBattle()
+    private void EndBattle(FighterType type)
     {
+        if (type == FighterType.Recruit)
+            _panelWin.SetActive(true);
+        else
+            _panelLose.SetActive(true);
+
         _timer.StopTimer();
     }
 }
