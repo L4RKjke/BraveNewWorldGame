@@ -71,6 +71,7 @@ public class InventoryUI : RenderUI
     {
         _currentId = -1;
         _objectMoverUI.MoveSetActive(false);
+        _currentItem = null;
     }
 
     public void SelectObject(int buttonID)
@@ -96,9 +97,7 @@ public class InventoryUI : RenderUI
 
             AddInventoryItem(buttonID, _currentItem);
 
-            _currentId = -1;
-
-            _objectMoverUI.MoveSetActive(false);
+            ResetMovingObject();
         }
     }
 

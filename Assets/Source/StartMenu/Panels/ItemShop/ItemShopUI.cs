@@ -31,15 +31,15 @@ public class ItemShopUI : RenderUI
 
     protected override void AddGraphics()
     {
-        Item item = _itemStorage.GetHead(Random.Range(0,_itemStorage.HeadCount));
+        Item item = Instantiate(_itemStorage.GetHead(Random.Range(0,_itemStorage.HeadCount)));
         AddButton(item);
-        item = _itemStorage.GetBody(Random.Range(0,_itemStorage.BodyCount));
+        item = Instantiate(_itemStorage.GetBody(Random.Range(0,_itemStorage.BodyCount)));
         AddButton(item);
-        item = _itemStorage.GetLeg(Random.Range(0, _itemStorage.LegCount));
+        item = Instantiate(_itemStorage.GetLeg(Random.Range(0, _itemStorage.LegCount)));
         AddButton(item);
-        item = _itemStorage.GetHand(Random.Range(0, _itemStorage.HandCount));
+        item = Instantiate(_itemStorage.GetHand(Random.Range(0, _itemStorage.HandCount)));
         AddButton(item);
-        item = _itemStorage.GetWeapon(Random.Range(0, _itemStorage.WeaponCount));
+        item = Instantiate(_itemStorage.GetWeapon(Random.Range(0, _itemStorage.WeaponCount)));
         AddButton(item);
     }
 
@@ -52,6 +52,7 @@ public class ItemShopUI : RenderUI
         newItemButton.GetComponentInChildren<Image>().sprite = item.Image;
         statsUI.UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
         item.SetPrice();
+        item.transform.SetParent(newItemButton.transform);
 
         Button temp = newItemButton.GetComponentInChildren<Button>();
         temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
@@ -60,19 +61,22 @@ public class ItemShopUI : RenderUI
 
     private void SellItem(Item item, GameObject button)
     {
-        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1)
+        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1 - _playerItemStorage.NullSlots)
         {
             if (_wallet.Gold >= item.Price)
             {
                 _wallet.ChangeGold(-item.Price);
 
-                int id = _playerItemStorage.CountItems;
+                int id = _playerItemStorage.GetFreeId();
                 item.SetId(id);
 
                 if (id == _playerItemStorage.CountItems)
                     _playerItemStorage.AddItem(item);
                 else
+                {
                     _playerItemStorage.ChangeItem(item, id);
+                    _playerItemStorage.ReturnItem(item);
+                }
 
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;

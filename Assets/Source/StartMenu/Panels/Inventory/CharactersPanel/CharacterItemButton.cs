@@ -16,7 +16,7 @@ public class CharacterItemButton : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (_charactersItemUI.GetId(this.gameObject) != 0)
+        if (_charactersItemUI.GetId(this.gameObject) != 0 && _inventoryUI.CurrentItem != null)
             _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
     }
 

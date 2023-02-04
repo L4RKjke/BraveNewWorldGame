@@ -12,6 +12,7 @@ public class Item : MonoBehaviour
     [SerializeField] private int _magic;
     [SerializeField] ItemType ItemType;
 
+    private int _level = 1;
     private int _id = 0;
     private int _price;
 
@@ -19,11 +20,17 @@ public class Item : MonoBehaviour
     public Sprite Image => _image;
     public string Name => _name;
     public ItemType Type => ItemType;
-    public int Defense => _defense;
-    public int Attack => _attack;
-    public int Health => _health;
-    public int Magic => _magic;
+    public int Defense => _defense * _level;
+    public int Attack => _attack * _level;
+    public int Health => _health * _level;
+    public int Magic => _magic * _level;
     public int Price => _price;
+    public int Level => _level;
+
+    public void SetLevel(int level)
+    {
+        _level = level;
+    }
 
     public void SetId(int id)
     {

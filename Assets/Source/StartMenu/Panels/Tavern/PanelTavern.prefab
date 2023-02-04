@@ -727,9 +727,9 @@ MonoBehaviour:
   Container: {fileID: 8437663370332208517}
   Content: {fileID: 879661627469288933, guid: 5d46e96d266a8874a89129224d11b65d, type: 3}
   _characters:
-  - {fileID: 9095389991581320105, guid: f4c507579b991fe418653d9a347ee2c0, type: 3}
-  - {fileID: 2390632718027333168, guid: 307a1ac9ddbe9a741883a6f718cb0b08, type: 3}
-  - {fileID: 2279928410411204104, guid: 06d77edbde1f1c345abe7ef0812db213, type: 3}
+  - {fileID: 3879505713152868838, guid: 42ea25e95ab576c46983d466f01c1551, type: 3}
+  - {fileID: 3879505713152868838, guid: 6e65ced8f2c81ce4db5291a1a102e8b8, type: 3}
+  - {fileID: 3879505713152868838, guid: b6f0036a63d4db4429536afc1082beef, type: 3}
   _heroNamesCreater:
   - {fileID: 11400000, guid: 0dc3aa024e731504684c7831649f1ec8, type: 2}
   - {fileID: 11400000, guid: 41c9171a925f17c43b565aa57258e5fd, type: 2}

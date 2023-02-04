@@ -7,15 +7,24 @@ using UnityEngine.UI;
 public class PlayerItemStorage : MonoBehaviour
 {
     [SerializeField] private List<Item> _items = new List<Item>();
+    [SerializeField] private Transform _itemsFolder;
 
     private InventoryUI _inventoryUI;
+    private int _nullSlots = 0;
 
     public int CountItems => _items.Count;
     public int MaxSizeInventory => _inventoryUI.MaxCount;
+    public int NullSlots => _nullSlots;
 
     private void Awake()
     {
         _inventoryUI = GetComponent<InventoryUI>();
+    }
+
+    public void DeleteItem(int id)
+    {
+        Destroy(_items[id].gameObject);
+        _nullSlots++;
     }
 
     public Item GetItem(int id)
@@ -25,6 +34,7 @@ public class PlayerItemStorage : MonoBehaviour
 
     public void AddItem(Item item)
     {
+        item.transform.parent = _itemsFolder;
         _items.Add(item);
         ReturnItem(item);
     }
@@ -36,6 +46,7 @@ public class PlayerItemStorage : MonoBehaviour
 
     public void ChangeItem(Item item, int id)
     {
+        item.transform.parent = _itemsFolder;
         _items[id] = item;
     }
 
@@ -43,12 +54,12 @@ public class PlayerItemStorage : MonoBehaviour
     {
         for(int i = 1; i < _items.Count; i++)
         {
-            if (_items[i].Id == 0)
+            if (_items[i] == null)
             {
+                _nullSlots--;
                 return i;
             }
         }
-
         return _items.Count;
     }
 }

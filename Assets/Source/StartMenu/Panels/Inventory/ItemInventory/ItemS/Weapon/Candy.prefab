@@ -48,7 +48,7 @@ MonoBehaviour:
   _image: {fileID: 21300000, guid: aeaf40567ebb9074b841d0229768fbe0, type: 3}
   _defense: 0
   _attack: 5
-  _health: 25
+  _health: 250
   _magic: 0
   ItemType: 0
   _weaponSprite: {fileID: 21300000, guid: 918421a69a44398459947a41c95e7753, type: 3}
