@@ -24,6 +24,11 @@ public class CharactersStorage : MonoBehaviour
         }
     }
 
+    public int GetLenght()
+    {
+        return _characters.Count;
+    }
+
     public GameObject GetCharacter(int id)
     {
         return _characters[id];

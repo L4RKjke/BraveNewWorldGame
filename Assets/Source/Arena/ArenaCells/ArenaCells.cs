@@ -45,6 +45,44 @@ public class ArenaCells : MonoBehaviour
         _playerCharacters.Add(_charactersStorage.GetCharacter(characterID));
     }
 
+    public void RemoveCharacter(int id)
+    {
+        _playerCharacters.RemoveAt(id);
+    }
+
+    public void CreateCharecter(int i)
+    {
+        _playerCharacters.Add(_charactersStorage.GetCharacter(i));
+        Cell cell = _objectsSaver.GetCell(0, i);
+        GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
+        GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
+        playerCharacter.transform.localScale = Vector3.one;
+        playerCharacter.transform.SetParent(dragAndDrop.transform);
+        cell.ChangeFull();
+        cell.ChangeStayCharacter();
+        dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
+
+        playerCharacter.GetComponent<CharacterInit>().enabled = true;
+        playerCharacter.transform.localScale = Vector3.one;
+        playerCharacter.SetActive(true);
+        CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
+        var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
+
+        newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
+
+        _fighters.AddNewFighter(newUnit);
+    }
+
+    public Vector3 GetCellPosition()
+    {
+        return _objectsSaver.GetCell(0, 0).transform.position;
+    }
+
+    public Cell GetCell()
+    {
+        return _objectsSaver.GetCell(0, 0);
+    }
+
     public void PlayStartBattle()
     {
         HideCells();

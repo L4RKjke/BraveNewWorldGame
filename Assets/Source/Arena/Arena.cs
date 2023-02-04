@@ -11,6 +11,7 @@ public class Arena:  MonoBehaviour
     [SerializeField] private GameObject _panelWin;
     [SerializeField] private GameObject _panelLose;
     [SerializeField] private GameObject _canvasBar;
+    [SerializeField] private GameObject _scroll;
 
     private UnityAction<FighterType> _battleEnded;
 
@@ -31,7 +32,10 @@ public class Arena:  MonoBehaviour
 
     public void OnStart()
     {
+        _scroll.SetActive(false);
         _canvasBar.SetActive(true);
+        _arenaCells.CreateCharacters();
+        OnStartButtonClick();
     }
 
     public void OnStartButtonClick()

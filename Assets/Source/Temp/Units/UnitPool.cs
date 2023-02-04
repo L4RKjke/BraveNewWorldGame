@@ -101,6 +101,7 @@ public class UnitPool : MonoBehaviour
 
     private void OnUnitDied(Fighter fighter)
     {
+        ///проверить мб сначало удалить, потом дестроить
         Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
         UnitDied?.Invoke(fighter.Type);
