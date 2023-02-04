@@ -31,7 +31,7 @@ public class Arena:  MonoBehaviour
 
     public void OnStart()
     {
-        _canvasBar.SetActive(true);
+       /* _canvasBar.SetActive(true);*/
     }
 
     public void OnStartButtonClick()
@@ -70,7 +70,7 @@ public class Arena:  MonoBehaviour
         else
             _panelLose.SetActive(true);
 
-        _canvasBar.SetActive(false);
+        /*_canvasBar.SetActive(false);*/
         _timer.StopTimer();
     }
 }

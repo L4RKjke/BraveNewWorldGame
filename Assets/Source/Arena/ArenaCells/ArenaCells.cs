@@ -15,6 +15,8 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private UnitPool _fighters;
     [SerializeField] private CharactersStorage _charactersStorage;
+    [SerializeField] private GameObject _charactersChoise;
+    [SerializeField] private GameObject _button;
 
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
@@ -22,22 +24,34 @@ public class ArenaCells : MonoBehaviour
     private int _height = 7;
     private int _width = 11;
 
+    public void Test()
+    {
+        _navMesh.BuildNavMesh();
+    }
+
 
     private void Awake()
     {
         _objectsSaver = GetComponent<ObjectsSaver>();
+    }
+
+    private void OnEnable()
+    {
+        _fighters.CleanPool();
         PrepareArena();
     }
 
     public void PrepareArena()
     {
+        Debug.Log(21);
         _playerCharacters.Clear();
         DeleteArena();
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
         CreateCharacters();
-        _navMesh.BuildNavMesh();
+        _charactersChoise.SetActive(true);
+        _button.SetActive(true);
     }
 
     public void AddCharacter(int characterID)
