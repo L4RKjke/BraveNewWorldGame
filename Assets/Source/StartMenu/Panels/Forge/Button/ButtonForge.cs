@@ -10,6 +10,7 @@ public class ButtonForge : InventoryButton
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _standartSprite;
     [SerializeField] private InventoryUI _inventoryUI;
+    [SerializeField] private FillBarForge _fillBar;
 
     private string _requireName = null;
     private int _requireLevel = 1;
@@ -18,6 +19,15 @@ public class ButtonForge : InventoryButton
     public string RequireName => _requireName;
     public int RequireLevel => _requireLevel;
     public int ItemID => _itemID;
+
+    private void OnEnable()
+    {
+        if(_fillBar.Fill.fillAmount < 1 && _itemID != -1)
+        {
+            _fillBar.SetFillComplete();
+        }
+        
+    }
 
     private void OnMouseEnter()
     {
@@ -30,6 +40,12 @@ public class ButtonForge : InventoryButton
     {
         if (_itemID != -1 && _inventoryUI.CurrentItemInventory != null)
             _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
+    }
+
+    public void StartFill(Color color)
+    {
+        float timeFill = 1.5f;
+        _fillBar.StartFill(color, timeFill);
     }
 
     public void SetRequre(string name, int level)
@@ -54,5 +70,6 @@ public class ButtonForge : InventoryButton
         SetRequre(null,1);
         SetSprite(_standartSprite, Color.white);
         SetItemID(-1);
+        _fillBar.OffFill();
     }
 }

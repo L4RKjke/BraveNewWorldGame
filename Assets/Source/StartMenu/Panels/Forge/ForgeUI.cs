@@ -11,6 +11,10 @@ public class ForgeUI : MonoBehaviour
     [SerializeField] private Button _buttonNewItem;
     [SerializeField] private StatsUI _statsUI;
     [SerializeField] private GameObject _statsContainer;
+    [SerializeField] private FillBarForge _fillBarNewItem;
+
+    private int _itemId1;
+    private int _itemId2;
 
     private void Start()
     {
@@ -18,6 +22,26 @@ public class ForgeUI : MonoBehaviour
         {
             GameObject button = _buttonsForge[i];
             _buttonsForge[i].GetComponent<Button>().onClick.AddListener(delegate { AddItem(button); });
+        }
+    }
+
+    private void OnEnable()
+    {
+        if (_fillBarNewItem.Fill.fillAmount < 1 && _itemId1 != 0)
+            StartForge(_itemId1, _itemId2);
+    }
+
+    private void OnDisable()
+    {
+        CheckForgingNewItem();
+    }
+
+    private void CheckForgingNewItem()
+    {
+        if (_fillBarNewItem.Fill.fillAmount > 0 && _fillBarNewItem.Fill.fillAmount < 1)
+        {
+            _fillBarNewItem.OffFill();
+            _fillBarNewItem.FillEnd -= ForgeComplete;
         }
     }
 
@@ -31,12 +55,16 @@ public class ForgeUI : MonoBehaviour
 
             if (buttonForge.RequireName == null)
             {
+                Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
+                buttonForge.StartFill(color);
                 ButtonForge buttonForge2 = GetSecondButton(buttonObject);
                 AddInfoSecondButton(buttonForge2, item);
                 AddListenerReturn(item, buttonObject);
             }
             else if (buttonForge.RequireName == item.Name && buttonForge.RequireLevel == item.Level)
             {
+                Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
+                buttonForge.StartFill(color);
                 ButtonForge buttonForge2 = GetSecondButton(buttonObject);
                 AddListenerReturn(item, buttonObject);
                 _buttonStartForge.onClick.AddListener(delegate { StartForge(item.Id, buttonForge2.ItemID); });
@@ -63,24 +91,38 @@ public class ForgeUI : MonoBehaviour
 
     private void StartForge(int itemId1, int itemId2)
     {
+        _itemId1 = itemId1;
+        _itemId2 = itemId2;
+
         Image newItemImage = _buttonNewItem.transform.GetChild(0).GetComponent<Image>();
 
         if (newItemImage.sprite == null)
         {
             Item item = _inventoryUI.PlayerItemStorage.GetItem(itemId1);
-            _buttonStartForge.transform.GetChild(1).gameObject.SetActive(true);
+            Color color = _inventoryUI.ItemRarity.GetColor(item.Level);
+            _fillBarNewItem.StartFill(color);
             _buttonStartForge.onClick.RemoveAllListeners();
-            Item newItem = Instantiate(item);
-            newItem.SetLevel(item.Level + 1);
-            _statsContainer.SetActive(true);
-            _statsUI.UpdateAllStats(item.Attack / item.Level, item.Defense / item.Level, item.Health / item.Level, item.Magic / item.Level, true);
-            _inventoryUI.PlayerItemStorage.DeleteItem(itemId1);
-            _inventoryUI.PlayerItemStorage.DeleteItem(itemId2);
-            _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
-            newItemImage.sprite = newItem.Image;
-            newItemImage.color = Color.white;
-            ResetButtonsForge();
+            _fillBarNewItem.FillEnd += ForgeComplete;
         }
+    }
+
+    private void ForgeComplete()
+    {
+        Image newItemImage = _buttonNewItem.transform.GetChild(0).GetComponent<Image>();
+        Item item = _inventoryUI.PlayerItemStorage.GetItem(_itemId1);
+        _buttonStartForge.transform.GetChild(1).gameObject.SetActive(true);
+        Item newItem = Instantiate(item);
+        newItem.SetLevel(item.Level + 1);
+        _statsContainer.SetActive(true);
+        _statsUI.UpdateAllStats(item.Attack / item.Level, item.Defense / item.Level, item.Health / item.Level, item.Magic / item.Level, true);
+        _inventoryUI.PlayerItemStorage.DeleteItem(_itemId1);
+        _inventoryUI.PlayerItemStorage.DeleteItem(_itemId2);
+        _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
+        newItemImage.sprite = newItem.Image;
+        newItemImage.color = Color.white;
+        ResetButtonsForge();
+        _itemId1 = 0;
+        _fillBarNewItem.FillEnd -= ForgeComplete;
     }
 
     private void ReturnItem(Item item, GameObject buttonObject)
@@ -104,6 +146,7 @@ public class ForgeUI : MonoBehaviour
             _buttonStartForge.onClick.RemoveAllListeners();
             AddInfoSecondButton(buttonForge, item);
             buttonForge.SetItemID();
+            CheckForgingNewItem();
         }
     }
 
@@ -155,6 +198,7 @@ public class ForgeUI : MonoBehaviour
             _buttonNewItem.onClick.RemoveAllListeners();
             _buttonNewItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
             _buttonNewItem.transform.GetChild(0).GetComponent<Image>().color = Color.clear;
+            _fillBarNewItem.OffFill();
         }
     }
 }
