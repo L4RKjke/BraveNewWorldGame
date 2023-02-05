@@ -9,8 +9,11 @@ public class ItemDescriptionUI : StatsUI
 
     public void UpdateDescription(Item item)
     {
-        UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
-        UpdateName(item.Name, item.Type.ToString(), item.Level);
+        if (item.Name != "")
+        {
+            UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
+            UpdateName(item.Name, item.Type.ToString(), item.Level);
+        }
     }
 
     private void UpdateName(string name, string type, int level)

@@ -54,7 +54,7 @@ public class ForgeUI : MonoBehaviour
     {
         _inventoryUI.ResetMovingObject();
         ButtonForge buttonForge = buttonObject.GetComponent<ButtonForge>();
-        buttonForge.SetSprite(item.Image, new Color(255, 255, 255, 255));
+        buttonForge.SetSprite(item.Image, Color.white);
         buttonForge.SetItemID(item.Id);
         Button button = buttonObject.GetComponent<Button>();
         button.onClick.RemoveAllListeners();
@@ -78,7 +78,7 @@ public class ForgeUI : MonoBehaviour
             _inventoryUI.PlayerItemStorage.DeleteItem(itemId2);
             _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
             newItemImage.sprite = newItem.Image;
-            newItemImage.color = new Color(255, 255, 255, 255);
+            newItemImage.color = Color.white;
             ResetButtonsForge();
         }
     }
@@ -110,7 +110,7 @@ public class ForgeUI : MonoBehaviour
     private void AddInfoSecondButton(ButtonForge buttonForge ,Item item)
     {
         buttonForge.SetRequre(item.Name, item.Level);
-        buttonForge.SetSprite(item.Image, new Color(255, 0, 0, 225));
+        buttonForge.SetSprite(item.Image, Color.red);
     }
 
     private ButtonForge GetSecondButton (GameObject button1)
@@ -147,22 +147,14 @@ public class ForgeUI : MonoBehaviour
 
     private void ReturnNewItem(Item item)
     {
-        int id = _inventoryUI.PlayerItemStorage.GetFreeId();
-        item.SetId(id);
+        bool isAddSuccec = _inventoryUI.PlayerItemStorage.TryAddItem(item);
 
-        if (id == _inventoryUI.PlayerItemStorage.CountItems)
+        if (isAddSuccec)
         {
-            _inventoryUI.PlayerItemStorage.AddItem(item);
+            _statsContainer.SetActive(false);
+            _buttonNewItem.onClick.RemoveAllListeners();
+            _buttonNewItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
+            _buttonNewItem.transform.GetChild(0).GetComponent<Image>().color = Color.clear;
         }
-        else
-        {
-            _inventoryUI.PlayerItemStorage.ChangeItem(item, id);
-            _inventoryUI.ReturnItem(item);
-        }
-
-        _statsContainer.SetActive(false);
-        _buttonNewItem.onClick.RemoveAllListeners();
-        _buttonNewItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
-        _buttonNewItem.transform.GetChild(0).GetComponent<Image>().color = new Color(255, 255, 255, 0);
     }
 }

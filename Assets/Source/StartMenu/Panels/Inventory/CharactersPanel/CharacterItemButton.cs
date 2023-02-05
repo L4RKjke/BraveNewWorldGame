@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterItemButton : MonoBehaviour
+public class CharacterItemButton : InventoryButton
 {
     private InventoryUI _inventoryUI;
     private CharactersItemUI _charactersItemUI;

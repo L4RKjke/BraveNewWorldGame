@@ -46,16 +46,21 @@ public class StarteBattleUI : RenderUI
         _disclaimer.SetActive(true);
     }
 
-    public void AddCharactersInArena()
+    public void TryToStartPhase2()
     {
-        for(int i = 0; i < _charactersId.Count; i++)
+        if (_charactersId.Count > 0)
         {
-            _arenaCells.AddCharacter(_charactersId[i]);
-        }
+            for (int i = 0; i < _charactersId.Count; i++)
+            {
+                _arenaCells.AddCharacter(_charactersId[i]);
+            }
 
-        ReturnAllCharacters();
-        _arenaCells.CreateCharacters();
-        this.gameObject.SetActive(false);
+            ReturnAllCharacters();
+            _arenaCells.CreateCharacters();
+            this.gameObject.SetActive(false);
+
+            _arenaCells.Test();
+        }
     }
 
     protected override void AddGraphics()

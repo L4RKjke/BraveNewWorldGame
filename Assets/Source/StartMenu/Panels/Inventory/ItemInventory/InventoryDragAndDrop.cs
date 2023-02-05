@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class InventoryDragAndDrop : MonoBehaviour
+public class InventoryDragAndDrop : InventoryButton
 {
     private CharactersItemUI _charactersItemUI;
     private InventoryUI _inventoryUI;
@@ -37,49 +37,65 @@ public class InventoryDragAndDrop : MonoBehaviour
 
         if (cell != null)
         {
-            if (cell.GetComponent<InventoryDragAndDrop>() != null)
+            cell.TryGetComponent<InventoryButton>(out InventoryButton inventoryButton);
+
+            if(inventoryButton != null)
             {
-                _inventoryUI.SelectObject(int.Parse(cell.gameObject.name));
-            }
-            else if(cell.GetComponent<ButtonForge>() != null)
-            {
-                Button button = cell.GetComponentInChildren<Button>();
-                ButtonForge buttonForge = cell.GetComponent<ButtonForge>();
-
-                if (buttonForge.ItemID == -1)
+                switch(inventoryButton.Type)
                 {
-                    button.onClick.Invoke();
-                }
-                else
-                {
-                    _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
-                    button.onClick.Invoke();
-                    button.onClick.Invoke();
-                }
-            }
-            else
-            {
-                int id = _charactersItemUI.GetId(cell.gameObject);
+                    case ButtonType.Inventory:
+                        {
+                            _inventoryUI.SelectObject(int.Parse(cell.gameObject.name));
+                        }
+                        break;
+                    case ButtonType.CharacterItem:
+                        {
+                            int id = _charactersItemUI.GetId(cell.gameObject);
 
-                Button button = cell.GetComponentInChildren<Button>();
+                            Button button = cell.GetComponentInChildren<Button>();
 
-                if (id == 0)
-                {
-                    button.onClick.Invoke();
-                }
-                else 
-                {
-                    ItemType itemType = _inventoryUI.CurrentItem.Type;
-                    ItemType slotType = _charactersItemUI.GetType(cell.gameObject);
+                            if (id == 0)
+                            {
+                                button.onClick.Invoke();
+                            }
+                            else
+                            {
+                                ItemType itemType = _inventoryUI.CurrentItem.Type;
+                                ItemType slotType = _charactersItemUI.GetType(cell.gameObject);
 
-                    if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))
-                    {
-                        _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
-                        button.onClick.Invoke();
-                        button.onClick.Invoke();
-                    }
+                                if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))
+                                {
+                                    _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+                                    button.onClick.Invoke();
+                                    button.onClick.Invoke();
+                                }
+                            }
+                        }
+                        break;
+                    case ButtonType.Forge:
+                        {
+                            Button button = cell.GetComponentInChildren<Button>();
+                            ButtonForge buttonForge = cell.GetComponent<ButtonForge>();
+
+                            if (buttonForge.ItemID == -1)
+                            {
+                                button.onClick.Invoke();
+                            }
+                            else
+                            {
+                                _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+                                button.onClick.Invoke();
+                                button.onClick.Invoke();
+                            }
+                        }
+                        break;
+                    case ButtonType.Delete:
+                        {
+
+                        }
+                        break;
                 }
-            }
+            }          
         }
 
         if (_inventoryUI.CurrentId != -1)

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Button))]
-public class ButtonForge : MonoBehaviour
+public class ButtonForge : InventoryButton
 {
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _standartSprite;
@@ -52,7 +52,7 @@ public class ButtonForge : MonoBehaviour
     public void ResetInfo()
     {
         SetRequre(null,1);
-        SetSprite(_standartSprite, new Color(255, 255, 255, 255));
+        SetSprite(_standartSprite, Color.white);
         SetItemID(-1);
     }
 }

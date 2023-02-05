@@ -61,22 +61,13 @@ public class ItemShopUI : RenderUI
 
     private void SellItem(Item item, GameObject button)
     {
-        if (_playerItemStorage.MaxSizeInventory > _playerItemStorage.CountItems - 1 - _playerItemStorage.NullSlots)
+        if (_wallet.Gold >= item.Price)
         {
-            if (_wallet.Gold >= item.Price)
+            bool isAddSucces = _playerItemStorage.TryAddItem(item);
+
+            if (isAddSucces)
             {
                 _wallet.ChangeGold(-item.Price);
-
-                int id = _playerItemStorage.GetFreeId();
-                item.SetId(id);
-
-                if (id == _playerItemStorage.CountItems)
-                    _playerItemStorage.AddItem(item);
-                else
-                {
-                    _playerItemStorage.ChangeItem(item, id);
-                    _playerItemStorage.ReturnItem(item);
-                }
 
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;
@@ -85,16 +76,16 @@ public class ItemShopUI : RenderUI
             }
             else
             {
-                string notMoney = "Not enough money";
+                string full = "Inventory FULL";
 
-                DisclaimerOn(button, notMoney);
+                DisclaimerOn(button, full);
             }
         }
         else
         {
-            string full = "Inventory FULL";
+            string notMoney = "Not enough money";
 
-            DisclaimerOn(button, full);
+            DisclaimerOn(button, notMoney);
         }
     }
 
