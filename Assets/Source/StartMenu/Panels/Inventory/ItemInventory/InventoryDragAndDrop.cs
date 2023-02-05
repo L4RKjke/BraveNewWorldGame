@@ -33,7 +33,7 @@ public class InventoryDragAndDrop : InventoryButton
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         Collider2D cell = Physics2D.OverlapPoint(mousePosition);
-        Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id);
+        Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
 
         if (cell != null)
         {
@@ -60,7 +60,7 @@ public class InventoryDragAndDrop : InventoryButton
                             }
                             else
                             {
-                                ItemType itemType = _inventoryUI.CurrentItem.Item.Type;
+                                ItemType itemType = _inventoryUI.CurrentItemInventory.Item.Type;
                                 ItemType slotType = _charactersItemUI.GetType(cell.gameObject);
 
                                 if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))

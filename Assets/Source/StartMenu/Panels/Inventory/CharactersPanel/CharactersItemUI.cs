@@ -9,11 +9,6 @@ public class CharactersItemUI : RenderUI
     [SerializeField] private InventoryUI _inventoryUI;
     [SerializeField] private CharacterPlayerUI _characterPlayerUI;
 
-    private InventoryStorage _inventoryStorage => _inventoryUI.InventoryStorage;
-    private PlayerItemStorage _itemStorage => _inventoryUI.PlayerItemStorage;
-    private int _currentId => _inventoryUI.CurrentId;
-    private ItemInventory _currentItem => _inventoryUI.CurrentItem;
-
     private void Awake()
     {
         AddGraphics();
@@ -85,7 +80,7 @@ public class CharactersItemUI : RenderUI
         tempButton.onClick.RemoveAllListeners();
         SetIdSlot(button, item.Id);
 
-        tempButton.onClick.AddListener(delegate { UnequipItem(button, _itemStorage.GetItem(GetId(button))); });
+        tempButton.onClick.AddListener(delegate { UnequipItem(button, _inventoryUI.PlayerItemStorage.GetItem(GetId(button))); });
     }
 
     private void UpdateButtonGraphicsUnequip(GameObject button)
@@ -110,15 +105,15 @@ public class CharactersItemUI : RenderUI
     private void EquipItem(ItemType type, GameObject button, bool isHand = false)
     {
 
-        if (_currentId != -1 && _currentItem.Item.Type == type)
+        if (_inventoryUI.CurrentId != -1 && _inventoryUI.CurrentItemInventory.Item.Type == type)
         {
-            Item item = _itemStorage.GetItem(_currentItem.Id);
+            Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
 
             UpdateButtonGraphicsEquip(button, item);
 
-            if (_inventoryStorage.GetItem(_currentId).Id == 0)
+            if (_inventoryUI.InventoryStorage.GetItem(_inventoryUI.CurrentId).Id == 0)
             {
-                _inventoryStorage.TrySortingInventory(_currentId, _itemStorage);
+                _inventoryUI.InventoryStorage.TrySortingInventory(_inventoryUI.CurrentId, _inventoryUI.PlayerItemStorage);
             }
 
             _characterPlayerUI.EquipItem(type, true, item, isHand);

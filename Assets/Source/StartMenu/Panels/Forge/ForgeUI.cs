@@ -25,7 +25,7 @@ public class ForgeUI : MonoBehaviour
     {
         if (_inventoryUI.CurrentId != -1)
         {
-            Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id);
+            Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
 
             ButtonForge buttonForge = buttonObject.GetComponent<ButtonForge>();
 

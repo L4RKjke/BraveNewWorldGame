@@ -28,8 +28,8 @@ public class ButtonForge : InventoryButton
 
     private void OnMouseExit()
     {
-        if (_itemID != -1 && _inventoryUI.CurrentItem != null)
-            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+        if (_itemID != -1 && _inventoryUI.CurrentItemInventory != null)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
     }
 
     public void SetRequre(string name, int level)

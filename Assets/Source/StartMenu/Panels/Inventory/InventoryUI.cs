@@ -22,7 +22,7 @@ public class InventoryUI : RenderUI
     public ItemDescriptionUI ItemDescriptionUI => _itemDescriptionUI;
     public InventoryStorage InventoryStorage => _inventoryStorage;
     public PlayerItemStorage PlayerItemStorage => _playerItemStorage;
-    public ItemInventory CurrentItem => _currentItem;
+    public ItemInventory CurrentItemInventory => _currentItem;
     public int CurrentId => _currentId;
     public int MaxCount => _inventoryStorage.BagSize;
 

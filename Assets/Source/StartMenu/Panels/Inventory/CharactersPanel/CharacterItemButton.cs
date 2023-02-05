@@ -23,8 +23,8 @@ public class CharacterItemButton : InventoryButton
 
     private void OnMouseExit()
     {
-        if (_charactersItemUI.GetId(this.gameObject) != 0 && _inventoryUI.CurrentItem != null)
-            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItem.Id));
+        if (_charactersItemUI.GetId(this.gameObject) != 0 && _inventoryUI.CurrentItemInventory != null)
+            _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
     }
 
     public void SetInformation(Sprite sprite, string text)
