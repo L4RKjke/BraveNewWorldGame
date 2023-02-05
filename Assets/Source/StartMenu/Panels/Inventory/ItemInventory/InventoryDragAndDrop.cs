@@ -60,7 +60,7 @@ public class InventoryDragAndDrop : InventoryButton
                             }
                             else
                             {
-                                ItemType itemType = _inventoryUI.CurrentItem.Type;
+                                ItemType itemType = _inventoryUI.CurrentItem.Item.Type;
                                 ItemType slotType = _charactersItemUI.GetType(cell.gameObject);
 
                                 if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))

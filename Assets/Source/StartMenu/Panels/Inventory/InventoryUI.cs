@@ -10,6 +10,7 @@ public class InventoryUI : RenderUI
     [SerializeField] private Camera _camera;
     [SerializeField] private CharactersItemUI _charactersItemUI;
     [SerializeField] private ItemDescriptionUI _itemDescriptionUI;
+    [SerializeField] private ItemRarity _itemRarity;
 
     private PlayerItemStorage _playerItemStorage;
     private InventoryStorage _inventoryStorage;
@@ -17,6 +18,7 @@ public class InventoryUI : RenderUI
     private int _currentId = -1;
     private ItemInventory _currentItem;
 
+    public ItemRarity ItemRarity => _itemRarity;
     public ItemDescriptionUI ItemDescriptionUI => _itemDescriptionUI;
     public InventoryStorage InventoryStorage => _inventoryStorage;
     public PlayerItemStorage PlayerItemStorage => _playerItemStorage;
@@ -110,18 +112,18 @@ public class InventoryUI : RenderUI
     {
         for (int i = _inventoryStorage.InventorySize; i < _inventoryStorage.BagSize; i++)
         {
-            GameObject newItem = Instantiate(Content, Container.transform) as GameObject;
+            GameObject newItemButton = Instantiate(Content, Container.transform) as GameObject;
 
-            newItem.GetComponent<InventoryDragAndDrop>().Init(this, _camera, _charactersItemUI);
-            newItem.name = i.ToString();
+            newItemButton.GetComponent<InventoryDragAndDrop>().Init(this, _camera, _charactersItemUI);
+            newItemButton.name = i.ToString();
 
             ItemInventory itemInventory = new();
-            itemInventory.AssignGameObject(newItem);
+            itemInventory.AssignGameObject(newItemButton);
 
-            RectTransform rectTransform = newItem.GetComponent<RectTransform>();
+            RectTransform rectTransform = newItemButton.GetComponent<RectTransform>();
             rectTransform.localPosition = Vector3.zero;
             rectTransform.localScale = Vector3.one;
-            newItem.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
+            newItemButton.GetComponentInChildren<RectTransform>().localPosition = Vector3.one;
 
             _inventoryStorage.AddSlot(itemInventory);
         }
@@ -130,7 +132,8 @@ public class InventoryUI : RenderUI
     private void AddInventoryItem(int id, ItemInventory inventoryItem)
     {
         Item temp = _playerItemStorage.GetItem(inventoryItem.Id);
-        _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp.Image,temp.Type);
+        Color rarityColor = _itemRarity.GetColor(temp.Level - 1);
+        _inventoryStorage.GetItem(id).UpdateInformation(inventoryItem.Id, temp, rarityColor);
     }
 
     private void StartUpdateInventory()
@@ -138,7 +141,8 @@ public class InventoryUI : RenderUI
         for(int i = 0; i < _inventoryStorage.InventorySize; i++)
         {
             Item temp = _playerItemStorage.GetItem(_inventoryStorage.GetItem(i).Id);
-            _inventoryStorage.GetItem(i).AssignÑharacteristics(temp.Image, temp.Type);
+            Color rarityColor = _itemRarity.GetColor(temp.Level - 1);
+            _inventoryStorage.GetItem(i).AssignÑharacteristics(temp, rarityColor);
         }
     }
 
@@ -148,7 +152,8 @@ public class InventoryUI : RenderUI
 
         newItem.AssignId(oldItem.Id);
         newItem.AssignGameObject(oldItem.ItemObject);
-        newItem.AssignÑharacteristics(oldItem.Image, oldItem.Type);
+        Color rarityColor = _itemRarity.GetColor(oldItem.Item.Level - 1);
+        newItem.AssignÑharacteristics(oldItem.Item, rarityColor);
 
         return newItem;
     }

@@ -5487,6 +5487,10 @@ PrefabInstance:
       propertyPath: _camera
       value: 
       objectReference: {fileID: 866708842}
+    - target: {fileID: 4538180742377947116, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
+      propertyPath: _itemRarity
+      value: 
+      objectReference: {fileID: 11400000, guid: baa70b13b55fb5e4dacbaedbaef28b8f, type: 2}
     - target: {fileID: 4538180742377947117, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
       propertyPath: _wallet
       value: 

@@ -12,7 +12,6 @@ public class InventoryStorage : MonoBehaviour
 
     private InventoryUI _inventoryUI;
     private TMP_Text _price;
-    private TMP_Text _count;
     private int _bagSize = 21;
     private int _priceBagUp = 200;
     private readonly int _bagUpCount = 7;
@@ -52,7 +51,8 @@ public class InventoryStorage : MonoBehaviour
 
     public void AddItem(int id, Item item)
     {
-        _cells[id].UpdateInformation(item.Id, item.Image, item.Type);
+        Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
+        _cells[id].UpdateInformation(item.Id, item, color);
     }
 
     public void AddSlot(ItemInventory slot)

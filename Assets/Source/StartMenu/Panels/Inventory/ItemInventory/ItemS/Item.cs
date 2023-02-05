@@ -58,5 +58,6 @@ public enum ItemType
     Hand,
     Head,
     Leg,
-    Body
+    Body,
+    Null
 }

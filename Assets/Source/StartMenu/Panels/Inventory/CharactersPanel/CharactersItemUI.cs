@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -75,9 +74,12 @@ public class CharactersItemUI : RenderUI
 
     private void UpdateButtonGraphicsEquip(GameObject button, Item item)
     {
+        CharacterItemButton characterItemButton = button.GetComponent<CharacterItemButton>();
+        characterItemButton.SetInformation(item.Image, item.Name);
 
-        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = item.Image;
-        button.GetComponentInChildren<TMP_Text>().text = item.Name;
+        characterItemButton.ItemRarityShow.gameObject.SetActive(true);
+        Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
+        characterItemButton.ItemRarityShow.SetRarity(color);
 
         Button tempButton = button.GetComponentInChildren<Button>();
         tempButton.onClick.RemoveAllListeners();
@@ -89,8 +91,10 @@ public class CharactersItemUI : RenderUI
     private void UpdateButtonGraphicsUnequip(GameObject button)
     {
         int id = int.Parse(button.name);
-        button.transform.GetChild(0).GetComponentInChildren<Image>().sprite = _equipmentSlot[id].ItemImage;
-        button.GetComponentInChildren<TMP_Text>().text = _equipmentSlot[id].ItemType.ToString();
+        CharacterItemButton characterItemButton = button.GetComponent<CharacterItemButton>();
+        characterItemButton.SetInformation(_equipmentSlot[id].ItemImage, _equipmentSlot[id].ItemType.ToString());
+
+        characterItemButton.ItemRarityShow.gameObject.SetActive(false);
         _equipmentSlot[id].SetId();
 
         Button temp = button.GetComponentInChildren<Button>();
@@ -106,7 +110,7 @@ public class CharactersItemUI : RenderUI
     private void EquipItem(ItemType type, GameObject button, bool isHand = false)
     {
 
-        if (_currentId != -1 && _currentItem.Type == type)
+        if (_currentId != -1 && _currentItem.Item.Type == type)
         {
             Item item = _itemStorage.GetItem(_currentItem.Id);
 
