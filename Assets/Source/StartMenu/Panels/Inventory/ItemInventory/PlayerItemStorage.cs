@@ -27,7 +27,7 @@ public class PlayerItemStorage : MonoBehaviour
     public void DeleteItem(int id)
     {
         Destroy(_items[id].gameObject);
-        _itemsSaveLoad.DeleteItemData(id);
+        _itemsSaveLoad.DeleteItemData(id - 1);
         _nullSlots++;
         ItemCountChange?.Invoke();
     }
@@ -45,6 +45,7 @@ public class PlayerItemStorage : MonoBehaviour
         {
             int id = GetFreeId();
             item.SetId(id);
+            Debug.Log(id);
 
             if (id == CountItems)
             {
@@ -54,7 +55,7 @@ public class PlayerItemStorage : MonoBehaviour
             else
             {
                 ChangeItem(item, id);
-                _itemsSaveLoad.ChangeItemData(id, itemData);
+                _itemsSaveLoad.ChangeItemData(id - 1, itemData);
             }
 
             ItemCountChange?.Invoke();

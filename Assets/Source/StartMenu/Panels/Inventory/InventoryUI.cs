@@ -80,8 +80,6 @@ public class InventoryUI : RenderUI
     {
         if (_currentId == -1)
         {
-            Debug.Log("!");
-
             if (_inventoryStorage.GetItem(buttonID).Id == 0)
                 return;
 

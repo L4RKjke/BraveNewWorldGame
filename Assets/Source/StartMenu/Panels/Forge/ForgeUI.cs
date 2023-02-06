@@ -117,6 +117,7 @@ public class ForgeUI : MonoBehaviour
         _statsUI.UpdateAllStats(item.Attack / item.Level, item.Defense / item.Level, item.Health / item.Level, item.Magic / item.Level, true);
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId1);
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId2);
+        newItem.SetSearchID(item.SearchID);
         ItemData itemData = new ItemData(newItem);
         _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem, itemData); });
         newItemImage.sprite = newItem.Image;

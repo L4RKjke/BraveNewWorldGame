@@ -57,16 +57,14 @@ public class InventoryDragAndDrop : InventoryButton
                             {
                                 button.onClick.Invoke();
                             }
-                            else
+                            else if(_inventoryUI.CurrentItemInventory != null)
                             {
                                 ItemType itemType = _inventoryUI.CurrentItemInventory.Item.Type;
                                 ItemType slotType = _charactersItemUI.GetType(cell.gameObject);
 
                                 if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))
                                 {
-                                    _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
-                                    button.onClick.Invoke();
-                                    button.onClick.Invoke();
+                                    DoubleButtonClick(button);
                                 }
                             }
                         }
@@ -80,11 +78,9 @@ public class InventoryDragAndDrop : InventoryButton
                             {
                                 button.onClick.Invoke();
                             }
-                            else
+                            else if (_inventoryUI.CurrentItemInventory != null)
                             {
-                                _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
-                                button.onClick.Invoke();
-                                button.onClick.Invoke();
+                                DoubleButtonClick(button);
                             }
                         }
                         break;
@@ -95,12 +91,21 @@ public class InventoryDragAndDrop : InventoryButton
                         break;
                 }
             }
+        }
 
-            if (_inventoryUI.CurrentId != -1)
+        if (_inventoryUI.CurrentId != -1)
+        {
+            if (cell != null)
             {
-                _inventoryUI.PlayerItemStorage.ReturnItem(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
-                _inventoryUI.ResetMovingObject();
+                Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
+                _inventoryUI.PlayerItemStorage.ReturnItem(item);
             }
+            else
+            {
+                _inventoryUI.SelectObject(int.Parse(_button.name));
+            }
+
+            _inventoryUI.ResetMovingObject();
         }
     }
 
@@ -109,5 +114,13 @@ public class InventoryDragAndDrop : InventoryButton
         _inventoryUI = inventory;
         _camera = camera;
         _charactersItemUI = charactersItemUI;
+    }
+
+    private void DoubleButtonClick(Button button)
+    {
+        Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
+        _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+        button.onClick.Invoke();
+        button.onClick.Invoke();
     }
 }
