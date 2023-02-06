@@ -33,16 +33,14 @@ public class InventoryDragAndDrop : InventoryButton
     {
         Vector2 mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
         Collider2D cell = Physics2D.OverlapPoint(mousePosition);
-        Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
-
 
         if (cell != null)
         {
             cell.TryGetComponent<InventoryButton>(out InventoryButton inventoryButton);
 
-            if(inventoryButton != null)
+            if (inventoryButton != null)
             {
-                switch(inventoryButton.Type)
+                switch (inventoryButton.Type)
                 {
                     case ButtonType.Inventory:
                         {
@@ -66,7 +64,7 @@ public class InventoryDragAndDrop : InventoryButton
 
                                 if (itemType == slotType || (itemType == ItemType.Weapon && slotType == ItemType.Hand))
                                 {
-                                    _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+                                    _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
                                     button.onClick.Invoke();
                                     button.onClick.Invoke();
                                 }
@@ -84,7 +82,7 @@ public class InventoryDragAndDrop : InventoryButton
                             }
                             else
                             {
-                                _inventoryUI.ItemDescriptionUI.UpdateDescription(item);
+                                _inventoryUI.ItemDescriptionUI.UpdateDescription(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
                                 button.onClick.Invoke();
                                 button.onClick.Invoke();
                             }
@@ -96,13 +94,13 @@ public class InventoryDragAndDrop : InventoryButton
                         }
                         break;
                 }
-            }          
-        }
+            }
 
-        if (_inventoryUI.CurrentId != -1)
-        {
-            _inventoryUI.PlayerItemStorage.ReturnItem(item);
-            _inventoryUI.ResetMovingObject();
+            if (_inventoryUI.CurrentId != -1)
+            {
+                _inventoryUI.PlayerItemStorage.ReturnItem(_inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id));
+                _inventoryUI.ResetMovingObject();
+            }
         }
     }
 
