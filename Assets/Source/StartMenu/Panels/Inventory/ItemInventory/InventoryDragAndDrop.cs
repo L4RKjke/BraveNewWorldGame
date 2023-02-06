@@ -35,6 +35,7 @@ public class InventoryDragAndDrop : InventoryButton
         Collider2D cell = Physics2D.OverlapPoint(mousePosition);
         Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
 
+
         if (cell != null)
         {
             cell.TryGetComponent<InventoryButton>(out InventoryButton inventoryButton);

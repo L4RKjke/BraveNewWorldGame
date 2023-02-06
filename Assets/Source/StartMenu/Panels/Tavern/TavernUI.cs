@@ -38,18 +38,24 @@ public class TavernUI : RenderUI
     {
         GameObject newSaler = Instantiate(Content, Container.transform) as GameObject;
         newSaler.name = (Container.transform.childCount - 1).ToString();
-        CharacterStats characterStats = newSaler.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id], _heroAppearanceCreater[id]);
+        GameObject newCharacter = newSaler.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id]);
+        CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
         _heroStatsCreater[id].CreateStats(characterStats);
         _heroNamesCreater[id].SetName(characterStats);
         StatsUI statsUI = newSaler.GetComponentInChildren<StatsUI>();
         statsUI.UpdateName(characterStats.Name);
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
 
+        CharacterData characterData = new CharacterData();
+        _heroAppearanceCreater[id].CreateAppereance(newCharacter.GetComponent<Appearance>(), characterData);
+        characterData.SetStats(characterStats.Name, characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
+        characterData.SetClass(id);
+
         Button temp = newSaler.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { TrySellCharacter(newSaler); });
+        temp.onClick.AddListener(delegate { TrySellCharacter(newSaler, characterData); });
     }
 
-    private void TrySellCharacter(GameObject button)
+    private void TrySellCharacter(GameObject button, CharacterData characterData)
     {
         GameObject character = button.GetComponentInChildren<TavernCharactersUI>().GetCharacter();
 
@@ -62,6 +68,7 @@ public class TavernUI : RenderUI
                 _wallet.ChangeGold(-heroPrice);
 
                 _charactersStorage.AddNewCharacter(character);
+                _charactersStorage.CharactersSaveLoad.AddData(characterData);
 
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;

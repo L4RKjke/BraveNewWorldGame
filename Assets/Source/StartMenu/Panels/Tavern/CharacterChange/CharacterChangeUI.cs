@@ -34,6 +34,7 @@ public class CharacterChangeUI : AllCharactersPanel
         character.GetComponent<CharacterItems>().ReturnItems(_playerItemStorage);
 
         CharactersStorage.DeleteCharacter(id);
+        CharactersStorage.CharactersSaveLoad.DeleteData(id);
         ChangeCharacter();
         ClosePanel();
     }

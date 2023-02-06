@@ -16,6 +16,7 @@ public class Item : MonoBehaviour
     private int _id = 0;
     private int _price;
 
+    public int SearchID { get; private set; }
     public int Id => _id;
     public Sprite Image => _image;
     public string Name => _name;
@@ -26,6 +27,11 @@ public class Item : MonoBehaviour
     public int Magic => _magic * _level;
     public int Price => _price;
     public int Level => _level;
+
+    public void SetSearchID(int id)
+    {
+        SearchID = id;
+    }
 
     public void SetLevel(int level)
     {

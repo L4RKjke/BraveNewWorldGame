@@ -31,15 +31,25 @@ public class ItemShopUI : RenderUI
 
     protected override void AddGraphics()
     {
-        Item item = Instantiate(_itemStorage.GetHead(Random.Range(0,_itemStorage.HeadCount)));
+        int searchID = Random.Range(0, _itemStorage.HeadCount);
+        Item item = Instantiate(_itemStorage.GetHead(searchID));
+        item.SetSearchID(searchID);
         AddButton(item);
-        item = Instantiate(_itemStorage.GetBody(Random.Range(0,_itemStorage.BodyCount)));
+        searchID = Random.Range(0, _itemStorage.BodyCount);
+        item = Instantiate(_itemStorage.GetBody(searchID));
+        item.SetSearchID(searchID);
         AddButton(item);
-        item = Instantiate(_itemStorage.GetLeg(Random.Range(0, _itemStorage.LegCount)));
+        searchID = Random.Range(0, _itemStorage.LegCount);
+        item = Instantiate(_itemStorage.GetLeg(searchID));
+        item.SetSearchID(searchID);
         AddButton(item);
-        item = Instantiate(_itemStorage.GetHand(Random.Range(0, _itemStorage.HandCount)));
+        searchID = Random.Range(0, _itemStorage.HandCount);
+        item = Instantiate(_itemStorage.GetHand(searchID));
+        item.SetSearchID(searchID);
         AddButton(item);
-        item = Instantiate(_itemStorage.GetWeapon(Random.Range(0, _itemStorage.WeaponCount)));
+        searchID = Random.Range(0, _itemStorage.WeaponCount);
+        item = Instantiate(_itemStorage.GetWeapon(searchID));
+        item.SetSearchID(searchID);
         AddButton(item);
     }
 
@@ -54,16 +64,18 @@ public class ItemShopUI : RenderUI
         item.SetPrice();
         item.transform.SetParent(newItemButton.transform);
 
+        ItemData itemData = new ItemData(item);
+
         Button temp = newItemButton.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
+        temp.onClick.AddListener(delegate { SellItem(item, newItemButton, itemData); });
         temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = item.Price.ToString();
     }
 
-    private void SellItem(Item item, GameObject button)
+    private void SellItem(Item item, GameObject button, ItemData itemData)
     {
         if (_wallet.Gold >= item.Price)
         {
-            bool isAddSucces = _playerItemStorage.TryAddItem(item);
+            bool isAddSucces = _playerItemStorage.TryAddItem(item, itemData);
 
             if (isAddSucces)
             {

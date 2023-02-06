@@ -6,11 +6,13 @@ public class CharactersStorage : MonoBehaviour
 {
     [SerializeField] private List<GameObject> _temp; //test
     [SerializeField] private Transform _parentCharactersUI;
+    [SerializeField] private CharactersSaveLoad _charactersSaveLoad;
 
     private List<GameObject> _characters = new List<GameObject>();
 
     private int _maxSizeCharacters = 8;
 
+    public CharactersSaveLoad CharactersSaveLoad => _charactersSaveLoad;
     public bool IsFree => _maxSizeCharacters > _characters.Count;
     public int AllCharacters => _characters.Count;
 

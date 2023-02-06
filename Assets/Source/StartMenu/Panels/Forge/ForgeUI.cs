@@ -117,7 +117,8 @@ public class ForgeUI : MonoBehaviour
         _statsUI.UpdateAllStats(item.Attack / item.Level, item.Defense / item.Level, item.Health / item.Level, item.Magic / item.Level, true);
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId1);
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId2);
-        _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
+        ItemData itemData = new ItemData(newItem);
+        _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem, itemData); });
         newItemImage.sprite = newItem.Image;
         newItemImage.color = Color.white;
         ResetButtonsForge();
@@ -188,9 +189,9 @@ public class ForgeUI : MonoBehaviour
         }
     }
 
-    private void ReturnNewItem(Item item)
+    private void ReturnNewItem(Item item, ItemData itemData)
     {
-        bool isAddSuccec = _inventoryUI.PlayerItemStorage.TryAddItem(item);
+        bool isAddSuccec = _inventoryUI.PlayerItemStorage.TryAddItem(item, itemData);
 
         if (isAddSuccec)
         {

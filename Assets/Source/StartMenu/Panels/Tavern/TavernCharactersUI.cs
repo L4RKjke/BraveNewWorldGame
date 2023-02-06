@@ -16,15 +16,14 @@ public class TavernCharactersUI : MonoBehaviour
         return _currentCharacter;
     }
 
-    public CharacterStats ShowCharacter(GameObject character, HeroAppearanceCreater appereance)
+    public GameObject ShowCharacter(GameObject character)
     {
         GameObject newCharacter = Instantiate(character, _pointToCreate);
         newCharacter.transform.position = _pointToCreate.position;
-        appereance.CreateAppereance(newCharacter.GetComponent<Appearance>());
         newCharacter.transform.localScale = new Vector3(70f, 70f, 1);
 
         _currentCharacter = newCharacter;
 
-        return newCharacter.GetComponent<CharacterStats>();
+        return newCharacter;
     }
 }
