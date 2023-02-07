@@ -25,15 +25,18 @@ public class ForgeUI : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        if (_fillBarNewItem.Fill.fillAmount < 1 && _itemId1 != 0)
-            StartForge(_itemId1, _itemId2);
-    }
-
     private void OnDisable()
     {
         CheckForgingNewItem();
+
+        for (int i = 0; i < _buttonsForge.Count; i++)
+        {
+            if (_buttonsForge[i].GetComponent<ButtonForge>().ItemID != -1)
+                _buttonsForge[i].GetComponent<Button>().onClick.Invoke();
+        }
+
+        if (_buttonNewItem.transform.GetChild(0).GetComponent<Image>() != null)
+            _buttonNewItem.onClick.Invoke();
     }
 
     private void CheckForgingNewItem()

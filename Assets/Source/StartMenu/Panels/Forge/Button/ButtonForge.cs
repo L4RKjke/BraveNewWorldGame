@@ -20,15 +20,6 @@ public class ButtonForge : InventoryButton
     public int RequireLevel => _requireLevel;
     public int ItemID => _itemID;
 
-    private void OnEnable()
-    {
-        if(_fillBar.Fill.fillAmount < 1 && _itemID != -1)
-        {
-            _fillBar.SetFillComplete();
-        }
-        
-    }
-
     private void OnMouseEnter()
     {
         if (_itemID != -1)
