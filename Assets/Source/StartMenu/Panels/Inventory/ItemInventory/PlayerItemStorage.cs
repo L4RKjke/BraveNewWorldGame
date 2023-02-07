@@ -43,7 +43,6 @@ public class PlayerItemStorage : MonoBehaviour
         {
             int id = GetFreeId();
             item.SetId(id);
-            Debug.Log(id);
 
             if (id == CountItems)
             {

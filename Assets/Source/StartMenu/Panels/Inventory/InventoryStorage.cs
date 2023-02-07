@@ -7,6 +7,7 @@ public class InventoryStorage : MonoBehaviour
 {
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private GameObject _button;
+    [SerializeField] private InventorySizeUI _inventorySizeUI;
 
     private List<ItemInventory> _cells = new List<ItemInventory>();
 
@@ -42,6 +43,7 @@ public class InventoryStorage : MonoBehaviour
             UpgradeBag();
             _inventoryUI.UpdateInventoryUI();
             UpdateText();
+            _inventorySizeUI.UpdateSizeUI();
         }
         else
         {
@@ -54,12 +56,6 @@ public class InventoryStorage : MonoBehaviour
     {
         Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
         _cells[id].UpdateInformation(item.Id, item, color);
-
-        if(item.Id != 0)
-        {
-            Debug.Log(_cells[id]);
-            Debug.Log(id);
-        }
     }
 
     public void AddSlot(ItemInventory slot)
