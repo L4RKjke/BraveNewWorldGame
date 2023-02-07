@@ -8,55 +8,40 @@ public class ItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
     [SerializeField] private ItemStorage _itemStorage;
     [SerializeField] private PlayerItemStorage _playerItemStorage;
 
-    private List<ItemData> _itemsData = new List<ItemData>();
-
-    public void AddItem(ItemData item)
-    {
-        _itemsData.Add(item);
-    }
-
-    public void DeleteItemData(int id)
-    {
-        _itemsData[id] = null;
-    }
-
-    public void ChangeItemData(int id, ItemData item)
-    {
-        _itemsData[id] = item;
-    }
-
     public void Load()
     {
-        List<ItemData> items = BinarySavingSystem.LoadItems();
+        ItemData items = BinarySavingSystem.LoadItems();
         Item newItem = null;
 
-        for (int i = 0; i < items.Count; i++)
+        for (int i = 0; i < items.SearchID.Length; i++)
         {
-            if (items[i] != null)
+            if (items.SearchID[i] != -1)
             {
 
-                Enum.TryParse(items[i].Type, out ItemType result);
+                Enum.TryParse(items.Type[i], out ItemType result);
 
                 switch (result)
                 {
                     case ItemType.Weapon:
-                        newItem = Instantiate(_itemStorage.GetWeapon(items[i].SearchID));
+                        newItem = Instantiate(_itemStorage.GetWeapon(items.SearchID[i]));
                         break;
                     case ItemType.Hand:
-                        newItem = Instantiate(_itemStorage.GetHand(items[i].SearchID));
+                        newItem = Instantiate(_itemStorage.GetHand(items.SearchID[i]));
                         break;
                     case ItemType.Head:
-                        newItem = Instantiate(_itemStorage.GetHead(items[i].SearchID));
+                        newItem = Instantiate(_itemStorage.GetHead(items.SearchID[i]));
                         break;
                     case ItemType.Body:
-                        newItem = Instantiate(_itemStorage.GetBody(items[i].SearchID));
+                        newItem = Instantiate(_itemStorage.GetBody(items.SearchID[i]));
                         break;
                     case ItemType.Leg:
-                        newItem = Instantiate(_itemStorage.GetLeg(items[i].SearchID));
+                        newItem = Instantiate(_itemStorage.GetLeg(items.SearchID[i]));
                         break;
                 }
 
-                newItem.SetLevel(items[i].Level);
+                newItem.SetLevel(items.Level[i]);
+                newItem.SetSearchID(items.SearchID[i]);
+                newItem.SetId(i + 1);
             }
             else
             {
@@ -69,9 +54,6 @@ public class ItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
 
     public void Save()
     {
-        for (int i = 0; i < _itemsData.Count; i++)
-        {
-            BinarySavingSystem.SaveItem(_itemsData[i], i);
-        }
+        BinarySavingSystem.SaveItem(_playerItemStorage);
     }
 }

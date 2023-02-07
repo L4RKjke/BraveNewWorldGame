@@ -121,8 +121,7 @@ public class ForgeUI : MonoBehaviour
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId1);
         _inventoryUI.PlayerItemStorage.DeleteItem(_itemId2);
         newItem.SetSearchID(item.SearchID);
-        ItemData itemData = new ItemData(newItem);
-        _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem, itemData); });
+        _buttonNewItem.onClick.AddListener(delegate { ReturnNewItem(newItem); });
         newItemImage.sprite = newItem.Image;
         newItemImage.color = Color.white;
         ResetButtonsForge();
@@ -193,9 +192,9 @@ public class ForgeUI : MonoBehaviour
         }
     }
 
-    private void ReturnNewItem(Item item, ItemData itemData)
+    private void ReturnNewItem(Item item)
     {
-        bool isAddSuccec = _inventoryUI.PlayerItemStorage.TryAddItem(item, itemData);
+        bool isAddSuccec = _inventoryUI.PlayerItemStorage.TryAddItem(item);
 
         if (isAddSuccec)
         {

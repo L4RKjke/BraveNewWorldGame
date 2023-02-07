@@ -17,6 +17,7 @@ public class InventoryStorage : MonoBehaviour
     private readonly int _bagUpCount = 7;
     private readonly int _priceIncrease = 200;
 
+    public int PriceBagUp => _priceBagUp;
     public int InventorySize => _cells.Count;
     public int BagSize => _bagSize;
 
@@ -53,6 +54,12 @@ public class InventoryStorage : MonoBehaviour
     {
         Color color = _inventoryUI.ItemRarity.GetColor(item.Level - 1);
         _cells[id].UpdateInformation(item.Id, item, color);
+
+        if(item.Id != 0)
+        {
+            Debug.Log(_cells[id]);
+            Debug.Log(id);
+        }
     }
 
     public void AddSlot(ItemInventory slot)
@@ -85,6 +92,14 @@ public class InventoryStorage : MonoBehaviour
 
         if (needSorting)
             SortingInventory(startId, itemStorage);
+    }
+
+    public void UpgradeLoad(int bagSize, int price)
+    {
+        _bagSize = bagSize;
+        _priceBagUp = price;
+        _inventoryUI.UpdateInventoryUI();
+        UpdateText();
     }
 
     private void SortingInventory(int startId, PlayerItemStorage itemStorage)

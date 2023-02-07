@@ -28,45 +28,6 @@ public class CharacterData
     public int Health { get; private set; }
     public int Magic { get; private set; }
 
-    public CharacterData GetCharacterData()
-    {
-        return this;
-    }
-
-/*    public void SetCharacterData(CharacterData newData)
-    {
-        SkeenColor = new float[4];
-        HairColor = new float[4];
-        Class = newData.Class;
-        SkeenColor[0] = newData.SkeenColor[0];
-        SkeenColor[1] = newData.SkeenColor[1];
-        SkeenColor[2] = newData.SkeenColor[2];
-        SkeenColor[3] = newData.SkeenColor[3];
-        HairColor[0] = newData.HairColor[0];
-        HairColor[1] = newData.HairColor[1];
-        HairColor[2] = newData.HairColor[2];
-        HairColor[3] = newData.HairColor[3];
-        EarID = newData.EarID;
-        HairID = newData.HairID;
-        HeadID = newData.HeadID;
-        EyesID = newData.EyesID;
-        EyesBrowsID = newData.EyesBrowsID;
-        MouthID = newData.MouthID;
-        BodyID = newData.BodyID;
-        ArmLID = newData.ArmLID;
-        HandLID = newData.HandLID;
-        FingersID = newData.FingersID;
-        ArmRID = newData.ArmRID;
-        HandRID = newData.HandRID;
-        LegLID = newData.LegLID;
-        LegRID = newData.LegRID;
-        Name = newData.Name;
-        Attack = newData.Attack;
-        Defense = newData.Defense;
-        Health = newData.Health;
-        Magic = newData.Magic;
-    }*/
-
     public void SetClass(int number)
     {
         Class = number;

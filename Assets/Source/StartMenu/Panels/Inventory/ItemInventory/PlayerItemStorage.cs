@@ -9,7 +9,6 @@ public class PlayerItemStorage : MonoBehaviour
 {
     [SerializeField] private List<Item> _items = new List<Item>();
     [SerializeField] private Transform _itemsFolder;
-    [SerializeField] private ItemsSaveLoad _itemsSaveLoad;
 
     private InventoryUI _inventoryUI;
     private int _nullSlots = 0;
@@ -27,7 +26,6 @@ public class PlayerItemStorage : MonoBehaviour
     public void DeleteItem(int id)
     {
         Destroy(_items[id].gameObject);
-        _itemsSaveLoad.DeleteItemData(id - 1);
         _nullSlots++;
         ItemCountChange?.Invoke();
     }
@@ -37,7 +35,7 @@ public class PlayerItemStorage : MonoBehaviour
         return _items[id];
     }
 
-    public bool TryAddItem(Item item, ItemData itemData)
+    public bool TryAddItem(Item item)
     {
         bool isSucces = false;
 
@@ -50,12 +48,10 @@ public class PlayerItemStorage : MonoBehaviour
             if (id == CountItems)
             {
                 AddItem(item);
-                _itemsSaveLoad.AddItem(itemData);
             }
             else
             {
                 ChangeItem(item, id);
-                _itemsSaveLoad.ChangeItemData(id - 1, itemData);
             }
 
             ItemCountChange?.Invoke();
@@ -83,6 +79,7 @@ public class PlayerItemStorage : MonoBehaviour
     {
         item.transform.parent = _itemsFolder;
         _items[id] = item;
+        ItemCountChange?.Invoke();
     }
 
     private int GetFreeId()

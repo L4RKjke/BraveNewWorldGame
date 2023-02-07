@@ -9,16 +9,16 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
     [SerializeField] private Transform _pointToCreate;
 
-    private List<CharacterData> _characterDatas = new List<CharacterData>();
+    private List<CharacterData> _charactersData = new List<CharacterData>();
 
     public void AddData(CharacterData characterData)
     {
-        _characterDatas.Add(characterData);
+        _charactersData.Add(characterData);
     }
 
     public void DeleteData(int id)
     {
-        _characterDatas.RemoveAt(id);
+        _charactersData.RemoveAt(id);
     }
 
     public void Load()
@@ -42,9 +42,6 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
 
     public void Save()
     {
-        for (int i = 0; i < _characterDatas.Count; i++)
-        {
-            BinarySavingSystem.SaveCharacter(_characterDatas[i], i);
-        }
+        BinarySavingSystem.SaveCharacters(_charactersData);
     }
 }

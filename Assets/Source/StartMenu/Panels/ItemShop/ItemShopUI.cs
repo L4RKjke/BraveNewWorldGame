@@ -64,18 +64,16 @@ public class ItemShopUI : RenderUI
         item.SetPrice();
         item.transform.SetParent(newItemButton.transform);
 
-        ItemData itemData = new ItemData(item);
-
         Button temp = newItemButton.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { SellItem(item, newItemButton, itemData); });
+        temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
         temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = item.Price.ToString();
     }
 
-    private void SellItem(Item item, GameObject button, ItemData itemData)
+    private void SellItem(Item item, GameObject button)
     {
         if (_wallet.Gold >= item.Price)
         {
-            bool isAddSucces = _playerItemStorage.TryAddItem(item, itemData);
+            bool isAddSucces = _playerItemStorage.TryAddItem(item);
 
             if (isAddSucces)
             {

@@ -15,14 +15,15 @@ public static class BinarySavingSystem
             FileStream fileStream = new FileStream(pathSave, FileMode.Create);
             fileStream.Close();
 
-            string charactersPath = Application.persistentDataPath + "/characters";
-            DirectoryInfo directiryInfo = new DirectoryInfo(charactersPath);
-            directiryInfo.Create();
-
-            string itemsPath = Application.persistentDataPath + "/items";
-            directiryInfo = new DirectoryInfo(itemsPath);
-            directiryInfo.Create();
+            string path = Application.persistentDataPath + "/characters";
+            CreateDirectory(path);
         }
+    }
+
+    private static void CreateDirectory(string path)
+    {
+        DirectoryInfo directiryInfo = new DirectoryInfo(path);
+        directiryInfo.Create();
     }
 
     public static void SaveWallet(PlayerWallet wallet)
@@ -55,14 +56,29 @@ public static class BinarySavingSystem
         return null;
     }
 
-    public static void SaveCharacter(CharacterData characterData, int number)
+    public static void SaveCharacters(List<CharacterData> charactersData)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/characters/character" + number + ".b";
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+        int characterNumber = -1;
 
-        formatter.Serialize(fileStream, characterData);
-        fileStream.Close();
+        for (int i = 0; i < charactersData.Count; i++)
+        {
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/characters/character" + i + ".b";
+            FileStream fileStream = new FileStream(path, FileMode.Create);
+
+            formatter.Serialize(fileStream, charactersData[i]);
+            fileStream.Close();
+            characterNumber = i;
+        }
+
+        characterNumber++;
+
+        while (File.Exists(Application.persistentDataPath + "/characters/character" + characterNumber + ".b"))
+        {
+            File.Delete(Application.persistentDataPath + "/characters/character" + characterNumber + ".b");
+            characterNumber++;
+        }
     }
 
     public static List<CharacterData> LoadCharacter()
@@ -94,42 +110,93 @@ public static class BinarySavingSystem
         return characters;
     }
 
-    public static void SaveItem(ItemData item, int number)
+    public static void SaveItem(PlayerItemStorage playerItemStorage)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/items/item" + number + ".b";
+        string path = Application.persistentDataPath + "/items.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        formatter.Serialize(fileStream, item);
+        ItemData data = new ItemData(playerItemStorage);
+
+        formatter.Serialize(fileStream, data);
         fileStream.Close();
     }
 
-    public static List<ItemData> LoadItems()
+    public static ItemData LoadItems()
     {
-        List<ItemData> itemDatas = new List<ItemData>();
-        bool isItemExist = true;
-        int itemNumber = 0;
-        string path;
+        string path = Application.persistentDataPath + "/items.b";
 
-        while (isItemExist)
+        if (File.Exists(path))
         {
-            path = Application.persistentDataPath + "/items/item" + itemNumber + ".b";
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
 
-            if(File.Exists(path))
-            {
-                BinaryFormatter formatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(path, FileMode.Open);
+            ItemData data = formatter.Deserialize(fileStream) as ItemData;
+            fileStream.Close();
 
-                itemDatas.Add(formatter.Deserialize(fileStream) as ItemData);
-                fileStream.Close();
-                itemNumber++;
-            }
-            else
-            {
-                isItemExist = false;
-            }
+            return data;
         }
 
-        return itemDatas;
+        return null;
+    }
+
+    public static void SaveItemInventory(InventoryStorage inventoryStorage)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/itemsInventory.b";
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        ItemInventoryData data = new ItemInventoryData(inventoryStorage);
+
+        formatter.Serialize(fileStream, data);
+        fileStream.Close();
+    }
+
+    public static ItemInventoryData LoadItemInventory()
+    {
+        string path = Application.persistentDataPath + "/itemsInventory.b";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+
+            ItemInventoryData data = formatter.Deserialize(fileStream) as ItemInventoryData;
+            fileStream.Close();
+
+            return data;
+        }
+
+        return null;
+    }
+
+    public static void SaveEquippedItems(CharactersStorage characterStorage)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/equippedItems.b";
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        EquippedItemsData data = new EquippedItemsData(characterStorage);
+
+        formatter.Serialize(fileStream, data);
+        fileStream.Close();
+    }
+
+    public static EquippedItemsData LoadEquippedItems()
+    {
+        string path = Application.persistentDataPath + "/equippedItems.b";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+
+            EquippedItemsData data = formatter.Deserialize(fileStream) as EquippedItemsData;
+            fileStream.Close();
+
+            return data;
+        }
+
+        return null;
     }
 }
