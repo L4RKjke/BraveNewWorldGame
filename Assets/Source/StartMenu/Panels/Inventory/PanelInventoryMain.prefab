@@ -401,7 +401,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1763,7 +1763,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4085,7 +4085,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -0.049987793, y: 2.4}
+  m_AnchoredPosition: {x: -0.050048828, y: 2.4}
   m_SizeDelta: {x: -78.41, y: 30.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3530602685874298278
@@ -4259,7 +4259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d760729d47fb1cb4ca73db5cd7230c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelName: Inventory
+  _panelName: Storage
   _panelText: {fileID: 3682488057855169285}
 --- !u!1 &7830513944083912371
 GameObject:
@@ -4353,7 +4353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wallet: {fileID: 0}
   _button: {fileID: 4181236694152981152}
-  _inventorySizeUI: {fileID: 0}
+  _inventorySizeUI: {fileID: 1128370223474176194}
 --- !u!114 &3387142267701758049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5194,8 +5194,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 107.48, y: 2.5}
-  m_SizeDelta: {x: -302.36, y: 44.179993}
+  m_AnchoredPosition: {x: 104.02997, y: 2.5}
+  m_SizeDelta: {x: -323.02, y: 44.18}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5356026715225055165
 CanvasRenderer:
