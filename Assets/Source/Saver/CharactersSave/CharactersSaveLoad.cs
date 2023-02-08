@@ -23,19 +23,18 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
 
     public void Load()
     {
-        List<CharacterData> characters = BinarySavingSystem.LoadCharacter();
+        _charactersData = BinarySavingSystem.LoadCharacter();
 
-        for(int i = 0; i < characters.Count; i++)
+        for(int i = 0; i < _charactersData.Count; i++)
         {
-            GameObject newCharacter = Instantiate(_characters[characters[i].Class], _pointToCreate);
-            AddData(characters[i]);
+            GameObject newCharacter = Instantiate(_characters[_charactersData[i].Class], _pointToCreate);
             newCharacter.transform.position = _pointToCreate.position;
-            HeroAppearanceCreater heroAppearanceCreater = _heroAppearanceCreater[characters[i].Class];
-            heroAppearanceCreater.CreateAppereance(newCharacter.GetComponent<Appearance>(), characters[i], false);
+            HeroAppearanceCreater heroAppearanceCreater = _heroAppearanceCreater[_charactersData[i].Class];
+            heroAppearanceCreater.CreateAppereance(newCharacter.GetComponent<Appearance>(), _charactersData[i], false);
             newCharacter.transform.localScale = new Vector3(70f, 70f, 1);
             CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
-            characterStats.SetName(characters[i].Name);
-            characterStats.AssignStat(characters[i].Attack, characters[i].Defense, characters[i].Health, characters[i].Magic);
+            characterStats.SetName(_charactersData[i].Name);
+            characterStats.SetBaseStats(_charactersData[i].Attack, _charactersData[i].Defense, _charactersData[i].Health, _charactersData[i].Magic);
             _charactersStorage.AddNewCharacter(newCharacter);
         }
     }

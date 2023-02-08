@@ -9,7 +9,7 @@ public class StatsUI : RenderUI
     [SerializeField] private List<SlotStat> _stats = new List<SlotStat>();
     [SerializeField] private TMP_Text _name;
 
-    private void Awake()
+    public void Init()
     {
         AddGraphics();
     }

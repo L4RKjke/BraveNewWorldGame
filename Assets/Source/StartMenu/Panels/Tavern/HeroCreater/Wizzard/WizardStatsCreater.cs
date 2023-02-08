@@ -8,8 +8,8 @@ public class WizardStatsCreater : HeroStatsCreater
     protected override void DistributeLeftStats(int leftStats, CharacterStats characterStats)
     {
         if(leftStats >= 0)
-            characterStats.AssignStat(0, 0, 0, leftStats);
+            characterStats.SetBaseStats(0, 0, 0, leftStats, true);
         else
-            characterStats.AssignStat(leftStats / 2, leftStats / 2 / PointToDefense, 0 , 0);
+            characterStats.SetBaseStats(leftStats / 2, leftStats / 2 / PointToDefense, 0 , 0, true);
     }
 }

@@ -7,6 +7,11 @@ public class ItemDescriptionUI : StatsUI
 {
     [SerializeField] private TMP_Text _itemDescription;
 
+    private void Awake()
+    {
+        Init();
+    }
+
     public void UpdateDescription(Item item)
     {
         if (item.Name != "")

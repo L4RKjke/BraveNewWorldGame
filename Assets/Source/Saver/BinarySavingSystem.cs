@@ -199,4 +199,77 @@ public static class BinarySavingSystem
 
         return null;
     }
+
+    public static void SaveShop(ItemShopUI itemShop)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/shop.b";
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        ShopData data = new ShopData(itemShop);
+
+        formatter.Serialize(fileStream, data);
+        fileStream.Close();
+    }
+
+    public static ShopData LoadShop()
+    {
+        string path = Application.persistentDataPath + "/shop.b";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+
+            ShopData data = formatter.Deserialize(fileStream) as ShopData;
+            fileStream.Close();
+
+            return data;
+        }
+
+        return null;
+    }
+
+    public static void SaveTavern(List<CharacterData> charactersData)
+    {
+        for (int i = 0; i < charactersData.Count; i++)
+        {
+
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/characters/characterTavern" + i + ".b";
+            FileStream fileStream = new FileStream(path, FileMode.Create);
+
+            formatter.Serialize(fileStream, charactersData[i]);
+            fileStream.Close();
+        }
+    }
+
+    public static List<CharacterData> LoadTavern()
+    {
+        List<CharacterData> characters = new List<CharacterData>();
+        bool isCharacterExist = true;
+        int characterNumber = 0;
+        string path;
+
+        while (isCharacterExist)
+        {
+            path = Application.persistentDataPath + "/characters/characterTavern" + characterNumber + ".b";
+
+            if (File.Exists(path))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(path, FileMode.Open);
+
+                characters.Add(formatter.Deserialize(fileStream) as CharacterData);
+                fileStream.Close();
+                characterNumber++;
+            }
+            else
+            {
+                isCharacterExist = false;
+            }
+        }
+
+        return characters;
+    }
 }

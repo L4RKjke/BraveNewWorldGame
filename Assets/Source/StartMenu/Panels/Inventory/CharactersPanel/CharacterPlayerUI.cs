@@ -25,6 +25,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void Start()
     {
         _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
+        _statsUI.Init();
         ShowStats();
         _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
     }

@@ -10,23 +10,45 @@ public class ItemShopUI : RenderUI
     [SerializeField] private PlayerItemStorage _playerItemStorage;
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private GameObject _disclaimer;
+    [SerializeField] private ButtonUpdate _buttonUpdate;
 
     private ItemStorage _itemStorage;
+    private int _priceUpdate = 50;
+
+    public GameObject ShopContainer => Container;
 
     private void Awake()
     {
         _itemStorage = GetComponent<ItemStorage>();
-    }
+        _buttonUpdate.Button.onClick.AddListener(delegate { UpdateShop(); });
+        _buttonUpdate.Init(_priceUpdate, _wallet);
 
-    private void OnEnable()
-    {
-        _disclaimer.SetActive(false);
-        AddGraphics();
+        if (Container.transform.childCount == 0)
+            AddGraphics();
     }
 
     private void OnDisable()
     {
-        DeleteAllButtons();
+        _disclaimer.SetActive(false);
+    }
+
+    public GameObject AddButton(Item item)
+    {
+        GameObject newItemButton = Instantiate(Content, Container.transform) as GameObject;
+        newItemButton.name = (Container.transform.childCount - 1).ToString();
+        StatsUI statsUI = newItemButton.GetComponent<StatsUI>();
+        newItemButton.GetComponentInChildren<TMP_Text>().text = item.Name;
+        newItemButton.GetComponentInChildren<Image>().sprite = item.Image;
+        statsUI.Init();
+        statsUI.UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
+        item.SetPrice();
+
+        Button temp = newItemButton.GetComponentInChildren<Button>();
+        temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
+        temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = item.Price.ToString();
+        item.transform.SetParent(newItemButton.transform);
+
+        return newItemButton;
     }
 
     protected override void AddGraphics()
@@ -53,20 +75,16 @@ public class ItemShopUI : RenderUI
         AddButton(item);
     }
 
-    private void AddButton(Item item)
+    private void UpdateShop()
     {
-        GameObject newItemButton = Instantiate(Content, Container.transform) as GameObject;
-        newItemButton.name = (Container.transform.childCount - 1).ToString();
-        StatsUI statsUI = newItemButton.GetComponent<StatsUI>();
-        newItemButton.GetComponentInChildren<TMP_Text>().text = item.Name;
-        newItemButton.GetComponentInChildren<Image>().sprite = item.Image;
-        statsUI.UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
-        item.SetPrice();
-        item.transform.SetParent(newItemButton.transform);
+        bool canUpdate = _buttonUpdate.CheckCanUpdate();
 
-        Button temp = newItemButton.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { SellItem(item, newItemButton); });
-        temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = item.Price.ToString();
+        if (canUpdate)
+        {
+            _wallet.ChangeGold(-_priceUpdate);
+            DeleteAllButtons();
+            AddGraphics();
+        }
     }
 
     private void SellItem(Item item, GameObject button)

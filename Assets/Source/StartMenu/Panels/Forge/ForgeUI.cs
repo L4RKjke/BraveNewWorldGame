@@ -23,6 +23,8 @@ public class ForgeUI : MonoBehaviour
             GameObject button = _buttonsForge[i];
             _buttonsForge[i].GetComponent<Button>().onClick.AddListener(delegate { AddItem(button); });
         }
+
+        _statsUI.Init();
     }
 
     private void OnDisable()
