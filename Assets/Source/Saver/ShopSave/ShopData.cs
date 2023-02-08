@@ -18,7 +18,7 @@ public class ShopData
 
         for (int i = 0; i < container.childCount; i++)
         {
-            if (container.GetChild(i).GetComponentInChildren<Item>() != null)
+            if (container.GetChild(i).GetComponentInChildren<Item>() != null && container.GetChild(i).GetComponentInChildren<Item>().Name != "")
             {
                 ItemSearchID[i] = container.GetChild(i).GetComponentInChildren<Item>().SearchID;
                 Type[i] = container.GetChild(i).GetComponentInChildren<Item>().Type.ToString();

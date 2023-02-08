@@ -52,6 +52,8 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
                 characterStats.SetBaseStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);
             }
         }
+
+        _charactersData = charactersData;
     }
 
     public void Save()
