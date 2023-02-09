@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CharacterPlayerUI : MonoBehaviour
@@ -9,6 +10,7 @@ public class CharacterPlayerUI : MonoBehaviour
     [SerializeField] private StatsUI _statsUI;
     [SerializeField] private CharacterChoiceUI _characterChoice;
     [SerializeField] private CharactersStorage _characterStorage;
+    [SerializeField] private TMP_Text _level;
 
     private GameObject _currentCharacter;
     private int _currentId = 0;
@@ -99,6 +101,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void ShowStats()
     {
         CharacterStats characterStats = _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>();
+        _level.text = characterStats.Level.ToString();
         _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
     }
 

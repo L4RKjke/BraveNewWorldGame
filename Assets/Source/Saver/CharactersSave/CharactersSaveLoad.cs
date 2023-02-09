@@ -35,12 +35,18 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
             CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
             characterStats.SetName(_charactersData[i].Name);
             characterStats.SetBaseStats(_charactersData[i].Attack, _charactersData[i].Defense, _charactersData[i].Health, _charactersData[i].Magic);
+            characterStats.GetExpirience(_charactersData[i].Exp, 1);
             _charactersStorage.AddNewCharacter(newCharacter);
         }
     }
 
     public void Save()
     {
+        for (int i = 0; i < _charactersStorage.AllCharacters; i++)
+        {
+            _charactersData[i].SetExp(_charactersStorage.GetCharacter(i).GetComponent<CharacterStats>().Exp);
+        }
+
         BinarySavingSystem.SaveCharacters(_charactersData);
     }
 }

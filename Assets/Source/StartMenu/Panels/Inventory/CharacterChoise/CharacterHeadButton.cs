@@ -12,6 +12,7 @@ public class CharacterHeadButton : MonoBehaviour
     [SerializeField] private Image _ribbon;
     [SerializeField] private TMP_Text _name;
     [SerializeField] private Image _circle;
+    [SerializeField] private TMP_Text _level;
 
     public Image Circle => _circle;
 
@@ -30,9 +31,10 @@ public class CharacterHeadButton : MonoBehaviour
         UpdateCharactersIcon(_headAnchor, head);
     }
 
-    public void SetName(string name)
+    public void SetNameAndLevel(string name, int level)
     { 
         _name.text = name;
+        _level.text = level.ToString();
     }
 
     private void UpdateCharactersIcon(GameObject buttonHead, GameObject head, int id = 0)

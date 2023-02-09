@@ -13,7 +13,10 @@ public class CharacterStats : MonoBehaviour
     private int _baseDefense;
     private int _baseHealth;
     private int _baseMagic;
+    private int _expiriance = 0;
 
+    public int Exp => _expiriance;
+    public int Level => _expiriance / 1000 + 1;
     public string Name => _name;
     public int Attack => _itemAttack + _baseAttack;
     public int Defense => _itemDefense + _baseDefense;
@@ -49,5 +52,25 @@ public class CharacterStats : MonoBehaviour
     public void SetName(string name)
     {
         _name = name;
+    }
+
+    public void GetExpirience(int expirience, int levelMonsters)
+    {
+        float levelDifference = levelMonsters - Level;
+        float percentLevelDifference = 0;
+
+        if (levelDifference > 0)
+        {
+            percentLevelDifference = levelDifference / 10;
+        }
+        else if (levelDifference < 0)
+        {
+            percentLevelDifference = levelDifference / 30;
+            Mathf.Clamp(levelDifference, -1,0);
+        }
+
+        float tempExp = expirience * (1 + percentLevelDifference);
+        expirience = (int)tempExp;
+        _expiriance += expirience;
     }
 }

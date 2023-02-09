@@ -27,6 +27,7 @@ public class CharacterData
     public int Defense { get; private set; }
     public int Health { get; private set; }
     public int Magic { get; private set; }
+    public int Exp {  get; private set; } 
 
     public void SetClass(int number)
     {
@@ -78,5 +79,10 @@ public class CharacterData
         Defense = defense;
         Health = health;
         Magic = magic;
+    }
+
+    public void SetExp(int exp)
+    {
+        Exp = exp;
     }
 }

@@ -23,7 +23,7 @@ public abstract class AllCharactersPanel : RenderUI
         CharacterHeadButton temp = button.GetComponent<CharacterHeadButton>();
 
         temp.SetHead(character.GetComponent<ItemRender>().Head);
-        temp.SetName(character.GetComponent<CharacterStats>().Name);
+        temp.SetNameAndLevel(character.GetComponent<CharacterStats>().Name, character.GetComponent<CharacterStats>().Level);
         AddListenerButton(button, id);
     }
 
