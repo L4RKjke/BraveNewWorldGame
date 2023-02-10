@@ -1,24 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(MonsterStorage))]
 public class PanelHunt : RenderUI
 {
     [SerializeField] private List<LevelInfo> _levels;
+    [SerializeField] private PlayerProgress _progress;
+    [SerializeField] private TMP_Text _levelView;
 
     private MonsterStorage _monsterStorage;
     private int _currentLevel = 1;
 
     private void Awake()
     {
+        SetLastLevel();
         _monsterStorage = GetComponent<MonsterStorage>();
         AddGraphics();
+    }
+
+    private void OnEnable()
+    {
+        _progress.NewLevelOpened += SetLastLevel;
+    }
+
+    private void OnDisable()
+    {
+        _progress.NewLevelOpened -= SetLastLevel;
+    }
+
+    public int GetCurrentLevel()
+    {
+        return _currentLevel;
     }
 
     public void ChangeLevel(int id)
     {
         _currentLevel += id;
+        _currentLevel = Mathf.Clamp(_currentLevel, 1, _progress.OpenedLevel);
+        LevelChangeText();
 
         DeleteAllButtons();
         AddGraphics();
@@ -28,13 +49,34 @@ public class PanelHunt : RenderUI
     {
         LevelMonsterInfo levelMonsterInfo;
 
-        for(int i = 0; i < _levels[_currentLevel - 1].GetCountTypes(); i++)
+        int id = CheckLevelInfo(_currentLevel - 1);
+
+        for (int i = 0; i < _levels[id].GetCountTypes(); i++)
         {
-            levelMonsterInfo = _levels[_currentLevel - 1].GetMonsterInfo(i);
+            levelMonsterInfo = _levels[id].GetMonsterInfo(i);
             GameObject newMonsterView = Instantiate(Content, Container.transform) as GameObject;
             MonsterInfo monsterInfo = _monsterStorage.GetMonsterInfo(levelMonsterInfo.MonsterId);
             newMonsterView.GetComponent<MonsterPanelView>().Init(monsterInfo.Sprite, levelMonsterInfo.Count);
         }
+    }
+
+    private int CheckLevelInfo(int id)
+    {
+        while (id >= _levels.Count)
+            id -= _levels.Count;
+
+        return id;
+    }
+
+    private void SetLastLevel()
+    {
+        _currentLevel = _progress.OpenedLevel;
+        LevelChangeText();
+    }
+
+    private void LevelChangeText()
+    {
+        _levelView.text = _currentLevel.ToString();
     }
 }
 

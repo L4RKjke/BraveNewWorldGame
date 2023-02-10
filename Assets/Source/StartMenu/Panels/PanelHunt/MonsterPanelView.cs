@@ -12,6 +12,6 @@ public class MonsterPanelView : MonoBehaviour
     public void Init(Sprite monster, int count)
     {
         _monster.sprite = monster;
-        _count.text = count.ToString();
+        _count.text = " X " + count.ToString();
     }
 }

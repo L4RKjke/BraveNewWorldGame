@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 7123960193636354954}
   - component: {fileID: 3750152364320633151}
   - component: {fileID: 4690737757334712593}
+  - component: {fileID: 6975105554660580449}
   m_Layer: 5
   m_Name: ContentHunt
   m_TagString: Untagged
@@ -154,6 +155,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6975105554660580449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3771742715952726913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f19228210b197941a61268b1ec5cc9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _monster: {fileID: 6303696765003851206}
+  _count: {fileID: 7397144334405072131}
 --- !u!1 &5677378146545781740
 GameObject:
   m_ObjectHideFlags: 0
