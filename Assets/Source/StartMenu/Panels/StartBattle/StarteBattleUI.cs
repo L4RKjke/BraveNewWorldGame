@@ -59,7 +59,7 @@ public class StarteBattleUI : RenderUI
             _arenaCells.CreateCharacters();
             this.gameObject.SetActive(false);
 
-            _arenaCells.Test();
+            _arenaCells.BuildBanMesh();
         }
     }
 

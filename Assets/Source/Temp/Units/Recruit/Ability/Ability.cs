@@ -1,16 +1,13 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
+[RequireComponent (typeof(Fighter))]
+
 public abstract class Ability : MonoBehaviour
 {
-    private Fighter _unit;
+    protected Fighter Fighter => GetComponent<Fighter>();
 
-    public Fighter Fighter => _unit;
-
-    private void Awake()
-    {
-        if (TryGetComponent(out Fighter fighter))
-            _unit = fighter;
-    }
+    protected Health Health => GetComponent<Health>();    
 
     protected abstract void ActivateAbility();
 }

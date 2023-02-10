@@ -225,7 +225,6 @@ MonoBehaviour:
   _walkDistance: 3
   _atackDelay: 2
   _speed: 1.1
-  _view: {fileID: 714364924544873596}
   _fireball: {fileID: -398907195106601213, guid: 5615804ffbccbca4e8ed3a9e69e6ce93, type: 3}
   _firePoint: {fileID: 6144207867878172590}
 --- !u!114 &963163797568080017
@@ -302,6 +301,7 @@ MonoBehaviour:
   - {fileID: 1015239990429004895}
   - {fileID: 1485810557866026854}
   - {fileID: 8925359221573485718}
+  _animationController: {fileID: 1958286969823689352}
 --- !u!114 &6984914157924902175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitions:
   - {fileID: 8925359221573485718}
+  _animationController: {fileID: 1958286969823689352}
 --- !u!114 &8925359221573485718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1163,7 +1164,7 @@ MonoBehaviour:
   _deathTemplate: {fileID: 2937686693704505299, guid: 056140598aee2864480a60c1a0152996, type: 3}
   _TMPro: {fileID: 7699909001514636949}
   _characterView: {fileID: 4787516303284067222}
-  _hitEffect: {fileID: 1779153016047530085, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
+  _hitEffect: {fileID: 438691274745699577, guid: 42da0d1a116a6ee43a617f17a2547576, type: 3}
 --- !u!1 &4956871293948620481
 GameObject:
   m_ObjectHideFlags: 0

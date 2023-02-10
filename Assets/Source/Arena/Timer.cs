@@ -11,6 +11,30 @@ public class Timer : MonoBehaviour
     private int _seconds;
     private int _minutes;
 
+    private void OnEnable()
+    {
+        ResetTimer();
+
+        if (_coroutineTimer is not null)
+            StopCoroutine(_coroutineTimer);
+    }
+
+    private void OnDisable()
+    {
+        if (_coroutineTimer is not null)
+            StopCoroutine(_coroutineTimer);
+    }
+
+    public void ResetTimer()
+    {
+        if (_coroutineTimer is not null)
+            StopCoroutine(_coroutineTimer);
+
+        _seconds = 0;
+        _minutes = 0;
+        _currentTimeTXT.text = "00:00";
+    }
+
     public void StartTimer()
     {
         _seconds = 0;
@@ -21,12 +45,6 @@ public class Timer : MonoBehaviour
     public void StopTimer()
     {
         StopCoroutine(_coroutineTimer);
-    }
-
-    private void OnDisable()
-    {
-        if (_coroutineTimer is not null)
-            StopCoroutine(_coroutineTimer);
     }
 
     private IEnumerator StartTimerCoroutine()
@@ -43,7 +61,7 @@ public class Timer : MonoBehaviour
 
             _seconds++;
             _currentTime = _minutes.ToString("D2") + ":" + _seconds.ToString("D2");
-            _currentTimeTXT.text = _currentTime; 
+            _currentTimeTXT.text = _currentTime;
         }
     }
 }

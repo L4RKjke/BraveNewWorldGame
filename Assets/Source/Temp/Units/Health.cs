@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     private int _value;
+    private int _armor = 0;
     private Fighter _unit;
 
     public UnityAction<int> HealthChanged;
@@ -24,8 +25,9 @@ public class Health : MonoBehaviour
         _maxHealth = _value;
     }
 
-    public void Init(int health)
+    public void Init(int health, int defence = 0)
     {
+        _armor = defence;
         _value = health;
     }
 
@@ -44,6 +46,8 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        damage -= _armor;
+
         if (damage < 0)
             damage = 0;
 
@@ -56,6 +60,7 @@ public class Health : MonoBehaviour
             DamageTaken?.Invoke();
         }
 
+        /*_value = Mathf.Clamp(damage, _minHealth, _value);*/
 
         if (_value < 0)
             _value = _minHealth;

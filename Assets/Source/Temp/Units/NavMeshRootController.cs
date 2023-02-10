@@ -30,13 +30,14 @@ public class NavMeshRootController : MonoBehaviour
 
     public void StopAgent()
     {
-        if (_navMesh != null)
+        if (_navMesh.enabled)
             _navMesh.isStopped = true;
     }
 
     public void MakeMoveble()
     {
-        _navMesh.isStopped = false;
+        if (_navMesh.enabled)
+            _navMesh.isStopped = false;
     }
 
     private void InitAgent()

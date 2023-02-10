@@ -17,21 +17,7 @@ public class SquadHealthbar : Healthbar
 
     private void OnEnable()
     {
-        _maxHealth = 0;
-
-        for (int i = 0; i < _units.GetLength(_type); i++)
-        {
-            var unit = _units.GetById(i, _type);
-
-            if (unit != null && unit.Health.HealthChanged != null)
-            {
-                _maxHealth += unit.Health.MaxHealth;
-                unit.Health.HealthChanged += OnHealthChanged;
-            }
-        }
-
-        Slider.value = 1;
-        _healthText.text = _maxHealth.ToString() + "/" + _maxHealth.ToString();
+        UpdateHealthbar();
     }
 
     private void OnDisable()
@@ -48,6 +34,26 @@ public class SquadHealthbar : Healthbar
             if (unit != null)
                 _units.GetById(i, _type).Health.HealthChanged -= OnHealthChanged;
         }
+    }
+
+    public void UpdateHealthbar()
+    {
+        _maxHealth = 0;
+
+        for (int i = 0; i < _units.GetLength(_type); i++)
+        {
+            var unit = _units.GetById(i, _type);
+
+            if (unit != null && unit.Health.HealthChanged != null)
+            {
+                _maxHealth += unit.Health.MaxHealth;
+                unit.Health.HealthChanged += OnHealthChanged;
+            }
+        }
+
+        _redHealthbar.fillAmount = 1;
+        Slider.value = 1;
+        _healthText.text = _maxHealth.ToString() + "/" + _maxHealth.ToString();
     }
 
     private void OnHealthChanged(int health)

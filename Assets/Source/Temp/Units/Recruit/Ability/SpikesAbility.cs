@@ -1,20 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class SpikesAbility : Ability
 {
     // каждый удар хилит на половину от значения нанесенного урона
     private readonly int _damageValue = 4;
 
-    private void Start()
+    private void OnEnable()
     {
-        Fighter.CurrentTarget.Health.HealthChanged += OnHealthChanged;
+        Fighter.Health.DamageTaken += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        Fighter.CurrentTarget.Health.HealthChanged -= OnHealthChanged;
+        Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
     protected override void ActivateAbility()
@@ -22,7 +18,7 @@ public class SpikesAbility : Ability
         Fighter.Health.Heal(Fighter.Damage / _damageValue);       
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged()
     {
         ActivateAbility();
     }

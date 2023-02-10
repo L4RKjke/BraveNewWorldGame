@@ -11,6 +11,7 @@ public abstract class AtackState : State
     public float FirstDelaySpread => Random.Range(0.1f, 0.25f);
 
     public UnityAction AtackStarted;
+    public UnityAction AtackCompleted;
     public UnityAction StateActivated;
 
     protected int Damage => CurrentFighter.Damage;

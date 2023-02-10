@@ -8,16 +8,13 @@ public class Arena:  MonoBehaviour
     [SerializeField] private ArenaCells _arenaCells;
     [SerializeField] private GameObject _startButton;
     [SerializeField] private Timer _timer;
-    [SerializeField] private GameObject _panelWin;
-    [SerializeField] private GameObject _panelLose;
-    [SerializeField] private GameObject _canvasBar;
+    [SerializeField] private SquadHealthbar _playerHealthbar;
+    [SerializeField] private SquadHealthbar _enemyHealthbar;
 
     private UnityAction<FighterType> _battleEnded;
 
     private void OnEnable()
     {
-        _panelWin.SetActive(false);
-        _panelLose.SetActive(false);
         _startButton.SetActive(true);
         _pool.SquadLose += PickWinner;
         _battleEnded += EndBattle;
@@ -31,11 +28,15 @@ public class Arena:  MonoBehaviour
 
     public void OnStart()
     {
-       /* _canvasBar.SetActive(true);*/
+       /*_canvasBar.SetActive(true);*/
     }
 
     public void OnStartButtonClick()
     {
+        _arenaCells.BuildBanMesh();
+        _playerHealthbar.UpdateHealthbar();
+        _enemyHealthbar.UpdateHealthbar();
+
         for (int i = 0; i < _pool.GetLength(); i++)
         {
         _pool.GetById(i).transform.parent.gameObject.GetComponent<NavMeshAgent>().enabled = true;
@@ -47,8 +48,7 @@ public class Arena:  MonoBehaviour
 
         _arenaCells.PlayStartBattle();
         _startButton.SetActive(false);
-
-    _timer.StartTimer();
+        _timer.StartTimer();
     }
 
     private void PickWinner(FighterType type)
@@ -66,11 +66,12 @@ public class Arena:  MonoBehaviour
     private void EndBattle(FighterType type)
     {
         if (type == FighterType.Recruit)
-            _panelWin.SetActive(true);
+            Debug.Log("win");
         else
-            _panelLose.SetActive(true);
+            Debug.Log("lose");
 
         /*_canvasBar.SetActive(false);*/
+
         _timer.StopTimer();
     }
 }

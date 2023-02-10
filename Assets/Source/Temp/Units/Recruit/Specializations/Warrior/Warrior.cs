@@ -15,5 +15,5 @@ public class Warrior : Recruit
         base.Atack(GetAdvancedDamage());
     }
 
-    private int GetAdvancedDamage() => (Damage * MagicPower);
+    private int GetAdvancedDamage() => (Damage + MagicPower);
 }

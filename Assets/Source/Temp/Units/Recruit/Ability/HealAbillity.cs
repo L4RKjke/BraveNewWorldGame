@@ -3,20 +3,23 @@ using UnityEngine;
 
 public class HealAbillity : Ability
 {
+    ///Хилит полсе того как юниту нанесли урон
     private readonly float _healDelay = 0.5f;
     private readonly int _healValue = 20;
 
     private Coroutine _healCoroutine;
 
-    private void Start()
+    private void OnEnable()
     {
-       Fighter.Health.HealthChanged += OnHealthChanged;
+       Fighter.Health.DamageTaken += OnHealthChanged;
     }
 
     private void OnDisable()
     {
         if (_healCoroutine != null)
             StopCoroutine(_healCoroutine);
+
+        Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
     protected override void ActivateAbility()
@@ -24,10 +27,10 @@ public class HealAbillity : Ability
         _healCoroutine = StartCoroutine(Heal());
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged()
     {
+        StopCoroutine(_healCoroutine);
         ActivateAbility();
-        Fighter.Health.HealthChanged -= OnHealthChanged;
     }
 
     private IEnumerator Heal()

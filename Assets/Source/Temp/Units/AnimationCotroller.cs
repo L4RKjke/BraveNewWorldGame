@@ -38,7 +38,7 @@ public class AnimationCotroller : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         _unit.Health.Died += OnUnitDied;
-        _unit.Health.DamageTaken += ShowDamageEffect;
+        AtackCompleted += ShowDamageEffect;
 
         if (CurrentUnit != null)
         {
@@ -72,10 +72,11 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
+        AtackCompleted -= ShowDamageEffect;
+
         if (_unit.Health != null)
         {
             _unit.Health.Died -= OnUnitDied;
-            _unit.Health.DamageTaken -= ShowDamageEffect;
         }
 
         if (_waitAtackAnimationCoroutine is not null)
@@ -144,6 +145,7 @@ public class AnimationCotroller : MonoBehaviour
 
     private void ShowDamageEffect()
     {
+        Debug.Log("1");
         if (this != null && _unit != null)
             Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }

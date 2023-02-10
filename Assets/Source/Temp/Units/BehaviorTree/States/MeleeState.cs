@@ -30,5 +30,6 @@ public class MeleeState : AtackState
     protected override void CompleteAtack()
     {
         _meleeAtacker.Atack(Damage);
+        AtackCompleted?.Invoke();
     }
 }

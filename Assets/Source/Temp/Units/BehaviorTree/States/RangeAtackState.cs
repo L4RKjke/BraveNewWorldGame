@@ -31,5 +31,6 @@ public class RangeAtackState : AtackState
     protected override void CompleteAtack()
     {
         _rangeAtacker.Shoot(Damage);
+        AtackCompleted?.Invoke();
     }
 }

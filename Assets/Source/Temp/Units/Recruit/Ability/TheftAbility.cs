@@ -1,21 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TheftAbility : Ability
 {
     private int _targetDamage;
 
     private readonly int _damageValue = 2;
 
-    private void Start()
+    private void OnEnable()
     {
-        Fighter.Health.HealthChanged += OnHealthChanged;
+        Fighter.Health.DamageTaken += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        Fighter.Health.HealthChanged -= OnHealthChanged;
+        Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
     protected override void ActivateAbility()
@@ -24,7 +20,7 @@ public class TheftAbility : Ability
             Fighter.CurrentTarget.Health.TakeDamage(_targetDamage / _damageValue);
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged()
     {
         if (Fighter.CurrentTarget != null)
         {

@@ -5,6 +5,7 @@ public class ObjectsSaver : MonoBehaviour
     [SerializeField] private GameObject _parentFolderCell;
     [SerializeField] private Transform _parentFolderBarrier;
     [SerializeField] private Transform _parentFolderEnemy;
+    [SerializeField] private Transform _charactersFolder;
 
     private Cell[,] _cells = new Cell[11, 7];
 
@@ -14,6 +15,8 @@ public class ObjectsSaver : MonoBehaviour
     public Transform ParentFolderBarrier => _parentFolderBarrier;
 
     public Transform ParentFolderEnemy => _parentFolderEnemy;
+
+    public Transform ParentFolderCharacters => _charactersFolder;
 
     public GameObject ParentFolderCell => _parentFolderCell;
 

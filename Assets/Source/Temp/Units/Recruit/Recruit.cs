@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 public abstract class Recruit : Fighter
 {
-    private int _magicPower = 50; //поменять на 0
+    private int _magicPower = 0; //поменять на 0
 
     private readonly int _minMagicPower = 0;
     private readonly int _maxMagicPower = 100;
@@ -16,7 +16,7 @@ public abstract class Recruit : Fighter
     public void Init(FighterType type, FighterType enemyType, UnitPool units, int damage, int health, int magicPower = 0, int defense = 0)
     {
         base.Init(type, enemyType, units, damage, health);
-
+        Health.Init(health, defense);
         _magicPower = magicPower;
     }
 

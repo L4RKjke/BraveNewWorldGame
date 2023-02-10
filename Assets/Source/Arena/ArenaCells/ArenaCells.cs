@@ -24,34 +24,32 @@ public class ArenaCells : MonoBehaviour
     private int _height = 7;
     private int _width = 11;
 
-    public void Test()
-    {
-        _navMesh.BuildNavMesh();
-    }
-
-
     private void Awake()
     {
         _objectsSaver = GetComponent<ObjectsSaver>();
+        PrepareArena();
     }
 
     private void OnEnable()
     {
-        _fighters.CleanPool();
-        PrepareArena();
+        _navMesh.BuildNavMesh();
+    }
+
+    public void BuildBanMesh()
+    {
+        _navMesh.BuildNavMesh();
     }
 
     public void PrepareArena()
     {
-        Debug.Log(21);
-        _playerCharacters.Clear();
+        //_playerCharacters.Clear();
         DeleteArena();
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
         CreateCharacters();
-        _charactersChoise.SetActive(true);
-        _button.SetActive(true);
+/*        _charactersChoise.SetActive(true);
+        _button.SetActive(true);*/
     }
 
     public void AddCharacter(int characterID)
@@ -76,30 +74,32 @@ public class ArenaCells : MonoBehaviour
             Destroy(_objectsSaver.ParentFolderBarrier.transform.GetChild(i).gameObject);
         }
 
+        for (int i = 0; i < _objectsSaver.ParentFolderCharacters.transform.childCount; i++)
+        {
+            Destroy(_objectsSaver.ParentFolderCharacters.transform.GetChild(i).gameObject);
+        }
+
         _parentCellsY.Clear();
     }
 
     public void CreateCharacters()
     {
-
         for (int i = 0; i < _playerCharacters.Count; i++)
         {
             Cell cell = _objectsSaver.GetCell(0, i);
             GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
             GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
             playerCharacter.transform.SetParent(dragAndDrop.transform);
+            dragAndDrop.transform.SetParent(_objectsSaver.ParentFolderCharacters);
             cell.ChangeFull();
             cell.ChangeStayCharacter();
             dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
-
             playerCharacter.GetComponent<CharacterInit>().enabled = true;
             playerCharacter.transform.localScale = Vector3.one;
             playerCharacter.SetActive(true);
             CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
-
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
-
+            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 0, 0);
             _fighters.AddNewFighter(newUnit);
         }
     }
