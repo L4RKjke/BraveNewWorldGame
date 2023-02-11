@@ -10,6 +10,7 @@ public class Arena:  MonoBehaviour
     [SerializeField] private Timer _timer;
     [SerializeField] private SquadHealthbar _playerHealthbar;
     [SerializeField] private SquadHealthbar _enemyHealthbar;
+    [SerializeField] private FinalPanels _finalPanels;
 
     private UnityAction<FighterType> _battleEnded;
 

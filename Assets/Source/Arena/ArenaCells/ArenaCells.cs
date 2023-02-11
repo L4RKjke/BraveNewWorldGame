@@ -14,11 +14,11 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private PanelHunt _panelHunt;
+    [SerializeField] private FinalPanels _finalPanels;
 
     private List<GameObject> _playerCharacters = new List<GameObject>();
     private List<int> _lastCharactersID = new List<int>();
     private UnitPool _fighters;
-
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
     private int _maxBarrier = 5;
@@ -236,7 +236,6 @@ public class ArenaCells : MonoBehaviour
         Cell cell;
         _enemies.Clear();
         _enemies = _panelHunt.GetAllEnemies();
-        Debug.Log(_enemies.Count);
 
         for (int i = 0; i < _enemies.Count; i++)
         {
@@ -266,6 +265,7 @@ public class ArenaCells : MonoBehaviour
             var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
             MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
             newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
+            _finalPanels.AddRewards(monsterInfo.Gold, monsterInfo.Exp);
             _fighters.AddNewFighter(newEnemy);
 
             cell.ChangeFull();
