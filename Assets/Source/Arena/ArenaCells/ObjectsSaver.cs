@@ -24,6 +24,14 @@ public class ObjectsSaver : MonoBehaviour
 
     public int MaxRow => _maxRow;
 
+    public void ClearCharacters()
+    {
+        for(int i = 0; i < _charactersFolder.transform.childCount; i++)
+        {
+            Destroy(_charactersFolder.transform.GetChild(i).gameObject);
+        }
+    }
+
     public Cell GetCell(int column, int row)
     {
         if (column > _maxColumn - 1)

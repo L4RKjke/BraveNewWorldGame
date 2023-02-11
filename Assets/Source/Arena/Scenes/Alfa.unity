@@ -3405,7 +3405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715adb6790ede1d4c932828d3688a95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 0}
+  _pool: {fileID: 1369904565}
   _arenaCells: {fileID: 1369904561}
   _timer: {fileID: 112929677}
   _startButton: {fileID: 41332563}

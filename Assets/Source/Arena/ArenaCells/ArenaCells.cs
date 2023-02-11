@@ -13,6 +13,7 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private NavMeshSurface2d _navMesh;
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private CharactersStorage _charactersStorage;
+    [SerializeField] private GameObject _parentCharacters;
 
     private List<GameObject> _playerCharacters = new List<GameObject>();
     private List<int> _lastCharactersID = new List<int>();
@@ -43,19 +44,11 @@ public class ArenaCells : MonoBehaviour
         _navMesh.BuildNavMesh();
     }
 
-    public void ClearCharacters()
+    public void ResetLastParty()
     {
-        for (int i = 0; i < _playerCharacters.Count; i++)
-        {
-            Vector2 heroPosition = _playerCharacters[i].transform.position;
-            _playerCharacters[i].SetActive(false);
-            Collider2D collider = Physics2D.OverlapPoint(heroPosition);
-            Cell cell = collider.GetComponent<Cell>();
-            cell.ChangeFull();
-            cell.ChangeStayCharacter();
-            Destroy(_playerCharacters[i]);
-        }
-
+        ResetCellsCollider();
+        _objectsSaver.ClearCharacters();
+        _lastCharactersID.Clear();
         _playerCharacters.Clear();
     }
 
@@ -77,11 +70,6 @@ public class ArenaCells : MonoBehaviour
         }
 
         CreateCharacters();
-    }
-
-    public void ClearLastCharacterID()
-    {
-        _lastCharactersID.Clear();
     }
 
     public void AddLastCharacterID(int characterID)
@@ -255,6 +243,24 @@ public class ArenaCells : MonoBehaviour
 
             cell.ChangeFull();
             cell.ChangeStayCharacter();
+        }
+    }
+
+    private void ResetCellsCollider()
+    {
+        Cell cell;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < _height; j++)
+            {
+                cell =  _objectsSaver.GetCell(i, j);
+
+                if(cell.IsFull == true && cell.IsBuildingStay == false)
+                {
+                    cell.ChangeFull();
+                    cell.ChangeStayCharacter();
+                }
+            }
         }
     }
 }

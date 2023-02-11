@@ -24,7 +24,7 @@ public class StarteBattleUI : RenderUI
 
     private void OnEnable()
     {
-        _arenaCells.ClearCharacters();
+        _arenaCells.ResetLastParty();
     }
 
     private void OnDisable()
@@ -57,8 +57,6 @@ public class StarteBattleUI : RenderUI
 
         if (_charactersId.Count > 0)
         {
-            _arenaCells.ClearLastCharacterID();
-
             for (int i = 0; i < _charactersId.Count; i++)
             {
                 _arenaCells.AddLastCharacterID(_charactersId[i]);

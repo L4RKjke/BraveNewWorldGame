@@ -4,7 +4,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshModifier))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
-
 public class Cell : MonoBehaviour
 {
     private bool _isFull = false;
