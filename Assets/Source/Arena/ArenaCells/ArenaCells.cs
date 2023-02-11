@@ -47,6 +47,12 @@ public class ArenaCells : MonoBehaviour
     public void ResetLastParty()
     {
         ResetCellsCollider();
+
+        for(int i = 0; i < _playerCharacters.Count; i++)
+        {
+            _fighters.RemoveLast();
+        }
+
         _objectsSaver.ClearCharacters();
         _lastCharactersID.Clear();
         _playerCharacters.Clear();

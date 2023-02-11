@@ -53,8 +53,6 @@ public class StarteBattleUI : RenderUI
 
     public void TryToStartPhase2()
     {
-
-
         if (_charactersId.Count > 0)
         {
             for (int i = 0; i < _charactersId.Count; i++)

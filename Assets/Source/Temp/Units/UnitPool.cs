@@ -33,6 +33,11 @@ public class UnitPool : MonoBehaviour
         _fighters.Remove(fighter);
     }
 
+    public void RemoveLast()
+    {
+        _fighters.RemoveAt(_fighters.Count - 1);
+    }
+
     public void AddNewFighter(Fighter fighter)
     {
         _fighters.Add(fighter);
