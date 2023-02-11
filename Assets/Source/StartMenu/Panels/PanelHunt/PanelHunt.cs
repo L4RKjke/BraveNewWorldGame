@@ -30,6 +30,26 @@ public class PanelHunt : RenderUI
         _progress.NewLevelOpened -= SetLastLevel;
     }
 
+    public List<GameObject> GetAllEnemies()
+    {
+        List<GameObject> enemies = new List<GameObject>();
+        LevelMonsterInfo levelMonsterInfo;
+        int id = CheckLevelInfo(_currentLevel - 1);
+
+        for (int i = 0; i < _levels[id].GetCountTypes(); i++)
+        {
+            levelMonsterInfo = _levels[id].GetMonsterInfo(i);
+
+            for (int j = 0; j < levelMonsterInfo.Count; j++)
+            {
+                enemies.Add(_monsterStorage.GetMonster(levelMonsterInfo.MonsterId));
+            }
+        }
+
+        Debug.Log("Finish");
+        return enemies;
+    }    
+
     public int GetCurrentLevel()
     {
         return _currentLevel;

@@ -1645,9 +1645,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f795e9e6cc43e4e8b72eeb8e279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attack: 0
-  _health: 0
-  _gold: 0
-  _exp: 0
-  _head: {fileID: 0}
+  _attack: 50
+  _health: 75
+  _gold: 85
+  _exp: 250
+  _head: {fileID: 21300000, guid: 64ef654c9d07e05439079578ba99e30f, type: 3}
   _name: 

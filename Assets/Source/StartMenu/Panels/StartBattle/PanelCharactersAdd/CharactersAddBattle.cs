@@ -10,6 +10,7 @@ public class CharactersAddBattle : AllCharactersPanel
     private void OnEnable()
     {
         AddGraphics();
+        CheckCharactersAdded();
     }
 
     private void OnDisable()
@@ -36,5 +37,16 @@ public class CharactersAddBattle : AllCharactersPanel
         Button button = content.GetComponent<Button>();
         button.onClick.RemoveAllListeners();
         button.onClick.AddListener(delegate { _starteBattleUI.TryAddCharacter(CharactersStorage.GetCharacter(id), button, id); });
+    }
+
+    private void CheckCharactersAdded()
+    {
+        for (int i = 0; i < Container.transform.childCount; i++)
+        {
+            if (_starteBattleUI.ArenaCells.CheckId(i))
+            {
+                Container.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
+            }
+        }
     }
 }

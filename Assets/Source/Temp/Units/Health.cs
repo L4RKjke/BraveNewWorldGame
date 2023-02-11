@@ -11,7 +11,7 @@ public class Health : MonoBehaviour
     public UnityAction DamageTaken;
     public UnityAction<Fighter> Died;
 
-    private int _maxHealth = 150;
+    private int _maxHealth = 0;
 
     private readonly int _minHealth = 0;
 
@@ -22,13 +22,14 @@ public class Health : MonoBehaviour
     private void OnEnable()
     {
         _unit = GetComponent<Fighter>();
-        _maxHealth = _value;
+        //_maxHealth = _value;
     }
 
     public void Init(int health, int defence = 0)
     {
         _armor = defence;
         _value = health;
+        _maxHealth = _value;
     }
 
     public void Heal(int healPoints)

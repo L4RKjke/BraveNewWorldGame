@@ -13,7 +13,7 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private NavMeshSurface2d _navMesh;
     [SerializeField] private GameObject _dragAndDrop;
     [SerializeField] private CharactersStorage _charactersStorage;
-    [SerializeField] private GameObject _parentCharacters;
+    [SerializeField] private PanelHunt _panelHunt;
 
     private List<GameObject> _playerCharacters = new List<GameObject>();
     private List<int> _lastCharactersID = new List<int>();
@@ -42,6 +42,22 @@ public class ArenaCells : MonoBehaviour
     public void BuildBanMesh()
     {
         _navMesh.BuildNavMesh();
+    }
+
+    public bool CheckId(int id)
+    {
+        bool isAdded = false;
+
+        for(int i = 0; i < _lastCharactersID.Count; i++)
+        {
+            if(id == _lastCharactersID[i])
+            {
+                isAdded = true;
+                return isAdded;
+            }
+        }
+
+        return isAdded;
     }
 
     public void ResetLastParty()
@@ -125,7 +141,7 @@ public class ArenaCells : MonoBehaviour
             playerCharacter.SetActive(true);
             CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, 20, 150, 0, 0);
+            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
             _fighters.AddNewFighter(newUnit);
         }
     }
@@ -212,11 +228,15 @@ public class ArenaCells : MonoBehaviour
 
     private void CreateEnemies()
     {
+        int level = _panelHunt.GetCurrentLevel();
         int currentWidth = 0;
         int meleeEnemyWidth = 4;
         int RangeEnemeWidth = 7;
         bool canStay;
         Cell cell;
+        _enemies.Clear();
+        _enemies = _panelHunt.GetAllEnemies();
+        Debug.Log(_enemies.Count);
 
         for (int i = 0; i < _enemies.Count; i++)
         {
@@ -244,7 +264,8 @@ public class ArenaCells : MonoBehaviour
             enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
 
             var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
-            newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, 20, 150);
+            MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
+            newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
             _fighters.AddNewFighter(newEnemy);
 
             cell.ChangeFull();

@@ -15,11 +15,13 @@ public class StarteBattleUI : RenderUI
     private int _maxSizeParty = 5;
     private Vector3 _offSet = new(0, -2f, 0);
 
+    public ArenaCells ArenaCells => _arenaCells; 
+
     private void Awake()
     {
         _charactersAddBattle.Init(_charactersStorage, this);
-        _charactersAddBattle.enabled = true;
         AddGraphics();
+        _charactersAddBattle.enabled = true;
     }
 
     private void OnEnable()
@@ -51,10 +53,12 @@ public class StarteBattleUI : RenderUI
         _disclaimer.SetActive(true);
     }
 
-    public void TryToStartPhase2()
+    public void TryToStartPhase2(CameraChanger cameraChanger)
     {
         if (_charactersId.Count > 0)
         {
+            cameraChanger.ReturnToPrevios();
+
             for (int i = 0; i < _charactersId.Count; i++)
             {
                 _arenaCells.AddLastCharacterID(_charactersId[i]);
@@ -64,7 +68,7 @@ public class StarteBattleUI : RenderUI
             _arenaCells.AddCharacters();
             this.gameObject.SetActive(false);
 
-            _arenaCells.BuildBanMesh(); //??
+            //_arenaCells.BuildBanMesh(); //??
         }
     }
 
@@ -101,10 +105,8 @@ public class StarteBattleUI : RenderUI
     {
         for (int i = 0; i < Container.transform.childCount; i++)
         {
-            if (Container.transform.GetChild(i).childCount == 0)
-                return;
-
-            Container.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
+            if (Container.transform.GetChild(i).childCount != 0)
+                Container.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
         }
     }
 }

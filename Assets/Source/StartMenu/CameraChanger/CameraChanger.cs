@@ -5,17 +5,29 @@ using UnityEngine;
 public class CameraChanger : MonoBehaviour
 {
     [SerializeField] private Camera _cameraMenu;
-    [SerializeField] private Camera _cameraBattle;
 
-    public void StartBattle()
+    private Camera _previos;
+    private Camera _current;
+
+    private void Awake()
     {
-        _cameraBattle.enabled = true;
-        _cameraMenu.enabled = false;
+        _current = _cameraMenu;
     }
 
-    public void ReturnToMenu()
+    public void GoToNext(Camera camera)
     {
-        _cameraMenu.enabled = true;
-        _cameraBattle.enabled = false;
+        camera.enabled = true;
+        _current.enabled = false;
+        _previos = _current;
+        _current = camera;
+    }
+
+    public void ReturnToPrevios()
+    {
+        _previos.enabled = true;
+        _current.enabled = false;
+        Camera temp = _previos;
+        _previos = _current;
+        _current = temp;
     }
 }

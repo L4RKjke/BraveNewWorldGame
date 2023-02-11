@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterStats : MonoBehaviour
+public class CharacterStats : Stats
 {
     private string _name = "AnimeTester";
     private int _itemAttack = 0;
@@ -18,10 +18,10 @@ public class CharacterStats : MonoBehaviour
     public int Exp => _expiriance;
     public int Level => _expiriance / 1000 + 1;
     public string Name => _name;
-    public int Attack => _itemAttack + _baseAttack;
-    public int Defense => _itemDefense + _baseDefense;
-    public int Health => _itemHealth + _baseHealth;
-    public int Magic => _itemMagic + _baseMagic;
+    public int Attack => _itemAttack + GetBaseStat(_baseAttack, Level);
+    public int Defense => _itemDefense + GetBaseStat(_baseDefense, Level);
+    public int Health => _itemHealth + GetBaseStat(_baseHealth, Level);
+    public int Magic => _itemMagic + GetBaseStat(_baseMagic, Level);
 
     public void SetBaseStats(int attack, int defense, int health, int magic, bool isDistribute = false)
     {

@@ -1652,11 +1652,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f795e9e6cc43e4e8b72eeb8e279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attack: 0
-  _health: 0
-  _gold: 0
-  _exp: 0
-  _head: {fileID: 0}
+  _attack: 10
+  _health: 150
+  _gold: 50
+  _exp: 150
+  _head: {fileID: 21300000, guid: e2f50f0544647484e945415ecb3f8349, type: 3}
   _name: 
 --- !u!1 &9052786896808171745
 GameObject:
