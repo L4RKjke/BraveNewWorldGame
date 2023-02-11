@@ -26,6 +26,44 @@ public class CharactersStorage : MonoBehaviour
         }
     }
 
+    public List<int> GetTopCharactersID()
+    {
+        List<int> charactersIDtemp = new List<int>();
+        List<int> charactersLevels = new List<int>();
+        List<int> top5Characters = new List<int>();
+        charactersIDtemp.Add(0);
+        charactersLevels.Add(_characters[0].GetComponent<CharacterStats>().Level);
+
+        for (int i = 1; i < _characters.Count; i++)
+        { 
+            for (int j = charactersLevels.Count - 1; j >= 0; j--)
+            {
+                if(charactersLevels[j] > _characters[i].GetComponent<CharacterStats>().Level)
+                {
+                    AddValue(charactersIDtemp, j + 1, i);
+                    AddValue(charactersLevels, j + 1, _characters[i].GetComponent<CharacterStats>().Level);
+                    break;
+                }
+                else if(j == 0)
+                {
+                    AddValue(charactersIDtemp, 0 , i);
+                    AddValue(charactersLevels, 0, _characters[i].GetComponent<CharacterStats>().Level);
+                    break;
+                }
+            }
+        }
+
+        for(int i = 0; i < 5; i++)
+        {
+            top5Characters.Add(charactersIDtemp[i]);
+
+            if (charactersIDtemp.Count - 1 == i)
+                break;
+        }
+
+        return top5Characters;
+    }
+
     public GameObject GetCharacter(int id)
     {
         return _characters[id];
@@ -49,5 +87,28 @@ public class CharactersStorage : MonoBehaviour
         _characters[id].transform.SetParent(_parentCharactersUI);
         _characters[id].transform.localScale = new Vector3(100f, 100f, 1);
         _characters[id].transform.position = _parentCharactersUI.position;
+    }
+
+    private void AddValue(List<int> list, int startValue, int addValue)
+    {
+        int temp = 0;
+        int temp2 = 0;
+
+        if (list.Count == startValue)
+        {
+            list.Add(addValue);
+            return;
+        }
+
+        temp = addValue;
+
+        for (int i = startValue; i < list.Count; i++)
+        {
+            temp2 = list[i];
+            list[i] = temp;
+            temp = temp2;
+        }
+
+        list.Add(temp);
     }
 }

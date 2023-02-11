@@ -1580,6 +1580,7 @@ GameObject:
   - component: {fileID: 8927706449902697151}
   - component: {fileID: 2097286180531260693}
   - component: {fileID: 1261894970219592810}
+  - component: {fileID: -6011673576929253771}
   m_Layer: 0
   m_Name: DefaultBoar
   m_TagString: Untagged
@@ -1639,6 +1640,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _navMesh: {fileID: 2097286180531260693}
+--- !u!114 &-6011673576929253771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8927706449902697089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f795e9e6cc43e4e8b72eeb8e279549, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attack: 0
+  _health: 0
+  _gold: 0
+  _exp: 0
+  _head: {fileID: 0}
+  _name: 
 --- !u!1 &9052786896808171745
 GameObject:
   m_ObjectHideFlags: 0

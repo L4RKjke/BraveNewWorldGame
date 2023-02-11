@@ -18,6 +18,11 @@ public class CharacterPlayerUI : MonoBehaviour
 
     public int CurrentId => _currentId;
 
+    public void GetLevelTEST()
+    {
+        _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().GetExpirience(1000, _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Level);
+    }
+
     private void Awake()
     {
         _characterChoice.Init(_characterStorage);

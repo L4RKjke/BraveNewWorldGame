@@ -13,13 +13,18 @@ public class StarteBattleUI : RenderUI
 
     private List<int> _charactersId = new List<int>();
     private int _maxSizeParty = 5;
-    private Vector3 _offSet = new(0, -0.6f, 0);
+    private Vector3 _offSet = new(0, -2f, 0);
 
     private void Awake()
     {
         _charactersAddBattle.Init(_charactersStorage, this);
         _charactersAddBattle.enabled = true;
         AddGraphics();
+    }
+
+    private void OnEnable()
+    {
+        _arenaCells.ClearCharacters();
     }
 
     private void OnDisable()
@@ -48,18 +53,22 @@ public class StarteBattleUI : RenderUI
 
     public void TryToStartPhase2()
     {
+
+
         if (_charactersId.Count > 0)
         {
+            _arenaCells.ClearLastCharacterID();
+
             for (int i = 0; i < _charactersId.Count; i++)
             {
-                _arenaCells.AddCharacter(_charactersId[i]);
+                _arenaCells.AddLastCharacterID(_charactersId[i]);
             }
 
             ReturnAllCharacters();
-            _arenaCells.CreateCharacters();
+            _arenaCells.AddCharacters();
             this.gameObject.SetActive(false);
 
-            _arenaCells.BuildBanMesh();
+            _arenaCells.BuildBanMesh(); //??
         }
     }
 
@@ -78,7 +87,7 @@ public class StarteBattleUI : RenderUI
         GameObject content = Container.transform.GetChild(buttonID).gameObject;
         character.SetActive(true);
         character.transform.SetParent(content.transform);
-        character.transform.localScale = new Vector3(60f, 60f, 1);
+        character.transform.localScale = new Vector3(120f, 120f, 1);
         character.transform.position = content.transform.position + _offSet;
         Button button = content.GetComponent<Button>();
         button.onClick.AddListener(delegate { ReturnCharacter(buttonID, characterID); });

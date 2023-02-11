@@ -3,20 +3,20 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(ObjectsSaver))]
-
+[RequireComponent(typeof(UnitPool))]
 public class ArenaCells : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _playerCharacters;
     [SerializeField] private List<Cell> _cell;
     [SerializeField] private List<Barrier> _barriers;
     [SerializeField] private List<GameObject> _enemies;
     [SerializeField] private Vector3 _startPosition;
     [SerializeField] private NavMeshSurface2d _navMesh;
     [SerializeField] private GameObject _dragAndDrop;
-    [SerializeField] private UnitPool _fighters;
     [SerializeField] private CharactersStorage _charactersStorage;
-    [SerializeField] private GameObject _charactersChoise;
-    [SerializeField] private GameObject _button;
+
+    private List<GameObject> _playerCharacters = new List<GameObject>();
+    private List<int> _lastCharactersID = new List<int>();
+    private UnitPool _fighters;
 
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
@@ -26,7 +26,10 @@ public class ArenaCells : MonoBehaviour
 
     private void Awake()
     {
+        _fighters = GetComponent<UnitPool>();
         _objectsSaver = GetComponent<ObjectsSaver>();
+        _lastCharactersID = _charactersStorage.GetTopCharactersID();
+
         PrepareArena();
     }
 
@@ -40,21 +43,50 @@ public class ArenaCells : MonoBehaviour
         _navMesh.BuildNavMesh();
     }
 
+    public void ClearCharacters()
+    {
+        for (int i = 0; i < _playerCharacters.Count; i++)
+        {
+            Vector2 heroPosition = _playerCharacters[i].transform.position;
+            _playerCharacters[i].SetActive(false);
+            Collider2D collider = Physics2D.OverlapPoint(heroPosition);
+            Cell cell = collider.GetComponent<Cell>();
+            cell.ChangeFull();
+            cell.ChangeStayCharacter();
+            Destroy(_playerCharacters[i]);
+        }
+
+        _playerCharacters.Clear();
+    }
+
     public void PrepareArena()
     {
-        //_playerCharacters.Clear();
+        _playerCharacters.Clear();
         DeleteArena();
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
-        CreateCharacters();
-/*        _charactersChoise.SetActive(true);
-        _button.SetActive(true);*/
+        AddCharacters();
     }
 
-    public void AddCharacter(int characterID)
+    public void AddCharacters()
     {
-        _playerCharacters.Add(_charactersStorage.GetCharacter(characterID));
+        for (int i = 0; i < _lastCharactersID.Count; i++)
+        {
+            _playerCharacters.Add(_charactersStorage.GetCharacter(_lastCharactersID[i]));
+        }
+
+        CreateCharacters();
+    }
+
+    public void ClearLastCharacterID()
+    {
+        _lastCharactersID.Clear();
+    }
+
+    public void AddLastCharacterID(int characterID)
+    {
+        _lastCharactersID.Add(characterID);
     }
 
     public void PlayStartBattle()
