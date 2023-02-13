@@ -22,7 +22,7 @@ public class ArenaCells : MonoBehaviour
     private UnitPool _fighters;
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
-    private int _maxBarrier = 5;
+    private int _maxBarrier = 2;
     private int _height = 7;
     private int _width = 11;
 
@@ -32,12 +32,6 @@ public class ArenaCells : MonoBehaviour
         _objectsSaver = GetComponent<ObjectsSaver>();
         _charactersArena = GetComponent<CharactersArena>();
         _charactersArena.Init(_charactersStorage, this);
-        PrepareArena();
-    }
-
-    private void OnEnable()
-    {
-        _navMesh.BuildNavMesh();
     }
 
     public void BuildBanMesh()
@@ -47,9 +41,9 @@ public class ArenaCells : MonoBehaviour
 
     public void ResetLastParty()
     {
-        ResetCellsCollider();
+        _objectsSaver.ResetCellsCollider();
 
-        for(int i = 0; i < _playerCharacters.Count; i++)
+        for (int i = 0; i < _playerCharacters.Count; i++)
         {
             _fighters.RemoveLast();
         }
@@ -76,7 +70,7 @@ public class ArenaCells : MonoBehaviour
 
     public void PlayStartBattle()
     {
-        HideCells();
+        _objectsSaver.HideCells();
 
         List<int> lastCharactersID = _charactersArena.GetIDs();
 
@@ -125,18 +119,6 @@ public class ArenaCells : MonoBehaviour
             var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
             newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
             _fighters.AddNewFighter(newUnit);
-        }
-    }
-
-    private void HideCells(int startFolder = 0)
-    {
-        for (int i = startFolder; i < _objectsSaver.transform.childCount; i++)
-        {
-            for (int j = 0; j < _objectsSaver.transform.GetChild(i).childCount; j++)
-            {
-                _objectsSaver.transform.GetChild(i).GetChild(j).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite);
-                sprite.enabled = false;
-            }
         }
     }
 
@@ -252,24 +234,6 @@ public class ArenaCells : MonoBehaviour
 
             cell.ChangeFull();
             cell.ChangeStayCharacter();
-        }
-    }
-
-    private void ResetCellsCollider()
-    {
-        Cell cell;
-        for (int i = 0; i < 4; i++)
-        {
-            for (int j = 0; j < _height; j++)
-            {
-                cell =  _objectsSaver.GetCell(i, j);
-
-                if(cell.IsFull == true && cell.IsBuildingStay == false)
-                {
-                    cell.ChangeFull();
-                    cell.ChangeStayCharacter();
-                }
-            }
         }
     }
 }

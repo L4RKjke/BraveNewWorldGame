@@ -145,7 +145,6 @@ public class AnimationCotroller : MonoBehaviour
 
     private void ShowDamageEffect()
     {
-        Debug.Log("1");
         if (this != null && _unit != null)
             Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }

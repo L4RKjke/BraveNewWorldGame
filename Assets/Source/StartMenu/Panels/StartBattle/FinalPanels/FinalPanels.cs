@@ -9,6 +9,7 @@ public class FinalPanels : MonoBehaviour
     [SerializeField] private PlayerWallet _playerWallet;
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private PanelHunt _panelHunt;
+    [SerializeField] private PlayerProgress _progress;
 
     private List<int> _charactersID = new List<int>();
     private int _totalEXP = 0;
@@ -27,17 +28,20 @@ public class FinalPanels : MonoBehaviour
 
     public void End(bool isWin)
     {
+
         if(isWin)
         {
             _panelWin.gameObject.SetActive(true);
             _panelWin.SetExpirience(_totalEXP);
-            _panelWin.SetGoldAndCrystals(_totalGold);
+            _panelWin.SetGoldAndCrystals(_totalGold,_panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            _progress.LevelComplete();
         }
         else
         {
+            int losePercent = 3;
+            _totalEXP /= losePercent;
             _panelLose.gameObject.SetActive(true);
-            _panelLose.SetRewards(_totalGold, _totalEXP);
-            _totalEXP /= 4;
+            _panelLose.SetRewards(_totalGold / losePercent, _totalEXP, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
         }
 
         for(int i = 0; i < _charactersID.Count; i++)
@@ -45,8 +49,6 @@ public class FinalPanels : MonoBehaviour
             GameObject character = _charactersStorage.GetCharacter(_charactersID[i]);
             character.GetComponent<CharacterStats>().GetExpirience(_totalEXP / _charactersID.Count, _panelHunt.GetCurrentLevel());
         }
-
-        ResetRewards();
     }
 
     public void AddRewards(int gold, int exp)
@@ -55,7 +57,7 @@ public class FinalPanels : MonoBehaviour
         _totalGold += gold;
     }
 
-    private void ResetRewards()
+    public void ResetRewards()
     {
         _totalEXP = 0;
         _totalGold = 0;

@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class PlayerProgress : MonoBehaviour
 {
-    public int OpenedLevel { get; private set; } = 10;
+    public int OpenedLevel { get; private set; } = 1;
 
     public UnityAction NewLevelOpened;
 

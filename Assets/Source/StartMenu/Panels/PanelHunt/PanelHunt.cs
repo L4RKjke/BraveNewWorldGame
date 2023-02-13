@@ -15,9 +15,8 @@ public class PanelHunt : RenderUI
 
     private void Awake()
     {
-        SetLastLevel();
         _monsterStorage = GetComponent<MonsterStorage>();
-        AddGraphics();
+        SetLastLevel();
     }
 
     private void OnEnable()
@@ -46,7 +45,6 @@ public class PanelHunt : RenderUI
             }
         }
 
-        Debug.Log("Finish");
         return enemies;
     }    
 
@@ -60,9 +58,6 @@ public class PanelHunt : RenderUI
         _currentLevel += id;
         _currentLevel = Mathf.Clamp(_currentLevel, 1, _progress.OpenedLevel);
         LevelChangeText();
-
-        DeleteAllButtons();
-        AddGraphics();
     }
 
     protected override void AddGraphics()
@@ -92,6 +87,8 @@ public class PanelHunt : RenderUI
     {
         _currentLevel = _progress.OpenedLevel;
         LevelChangeText();
+        DeleteAllButtons();
+        AddGraphics();
     }
 
     private void LevelChangeText()

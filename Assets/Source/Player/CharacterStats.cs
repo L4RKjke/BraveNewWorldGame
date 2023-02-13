@@ -61,12 +61,12 @@ public class CharacterStats : Stats
 
         if (levelDifference > 0)
         {
-            percentLevelDifference = levelDifference / 10;
+            percentLevelDifference = levelDifference / 100;
         }
         else if (levelDifference < 0)
         {
             percentLevelDifference = levelDifference / 30;
-            Mathf.Clamp(levelDifference, -1,0);
+            percentLevelDifference = Mathf.Clamp(percentLevelDifference, -1,0);
         }
 
         float tempExp = expirience * (1 + percentLevelDifference);

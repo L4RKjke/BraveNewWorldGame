@@ -77,6 +77,36 @@ public class ObjectsSaver : MonoBehaviour
         return canStay;
     }
 
+    public void HideCells(int startFolder = 0)
+    {
+        for (int i = startFolder; i < transform.childCount; i++)
+        {
+            for (int j = 0; j < transform.GetChild(i).childCount; j++)
+            {
+                transform.GetChild(i).GetChild(j).TryGetComponent<SpriteRenderer>(out SpriteRenderer sprite);
+                sprite.enabled = false;
+            }
+        }
+    }
+
+    public void ResetCellsCollider()
+    {
+        Cell cell;
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < _parentFolderCell.transform.GetChild(0).transform.childCount; j++)
+            {
+                cell = GetCell(i, j);
+
+                if (cell.IsFull == true && cell.IsBuildingStay == false)
+                {
+                    cell.ChangeFull();
+                    cell.ChangeStayCharacter();
+                }
+            }
+        }
+    }
+
     private bool CheckBuildingArround(int x, int y)
     {
         if (y == 0 || GetCell(x, y - 1).IsBuildingStay == true)
