@@ -16,11 +16,8 @@ public class CharactersItemUI : RenderUI
 
     public void SetCurrentItem()
     {
-        Debug.Log(_inventoryUI.CurrentItemInventory.Id);
-
-        if (_inventoryUI.CurrentItemInventory.Id != 0)
+        if (_inventoryUI.CurrentItemInventory != null)
         {
-
             Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
 
             for (int i = Container.transform.childCount - 1; i >= 0; i--)

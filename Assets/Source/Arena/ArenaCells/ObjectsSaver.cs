@@ -92,9 +92,10 @@ public class ObjectsSaver : MonoBehaviour
     public void ResetCellsCollider()
     {
         Cell cell;
+
         for (int i = 0; i < 4; i++)
         {
-            for (int j = 0; j < _parentFolderCell.transform.GetChild(0).transform.childCount; j++)
+            for (int j = 0; j < this.transform.GetChild(0).transform.childCount; j++)
             {
                 cell = GetCell(i, j);
 

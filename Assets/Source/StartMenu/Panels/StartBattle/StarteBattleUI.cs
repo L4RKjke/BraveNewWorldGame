@@ -57,7 +57,7 @@ public class StarteBattleUI : RenderUI
     {
         if (_charactersId.Count > 0)
         {
-            cameraChanger.ReturnToPrevios();
+/*            cameraChanger.ReturnToPrevios();*/
 
             for (int i = 0; i < _charactersId.Count; i++)
             {
