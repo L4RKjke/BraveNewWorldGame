@@ -4,6 +4,7 @@ using UnityEngine.AI;
 
 [RequireComponent(typeof(ObjectsSaver))]
 [RequireComponent(typeof(UnitPool))]
+[RequireComponent(typeof(CharactersArena))]
 public class ArenaCells : MonoBehaviour
 {
     [SerializeField] private List<Cell> _cell;
@@ -17,7 +18,7 @@ public class ArenaCells : MonoBehaviour
     [SerializeField] private FinalPanels _finalPanels;
 
     private List<GameObject> _playerCharacters = new List<GameObject>();
-    private List<int> _lastCharactersID = new List<int>();
+    private CharactersArena _charactersArena;
     private UnitPool _fighters;
     private ObjectsSaver _objectsSaver;
     private List<Transform> _parentCellsY = new List<Transform>();
@@ -29,8 +30,8 @@ public class ArenaCells : MonoBehaviour
     {
         _fighters = GetComponent<UnitPool>();
         _objectsSaver = GetComponent<ObjectsSaver>();
-        _lastCharactersID = _charactersStorage.GetTopCharactersID();
-
+        _charactersArena = GetComponent<CharactersArena>();
+        _charactersArena.Init(_charactersStorage, this);
         PrepareArena();
     }
 
@@ -44,22 +45,6 @@ public class ArenaCells : MonoBehaviour
         _navMesh.BuildNavMesh();
     }
 
-    public bool CheckId(int id)
-    {
-        bool isAdded = false;
-
-        for(int i = 0; i < _lastCharactersID.Count; i++)
-        {
-            if(id == _lastCharactersID[i])
-            {
-                isAdded = true;
-                return isAdded;
-            }
-        }
-
-        return isAdded;
-    }
-
     public void ResetLastParty()
     {
         ResetCellsCollider();
@@ -70,7 +55,7 @@ public class ArenaCells : MonoBehaviour
         }
 
         _objectsSaver.ClearCharacters();
-        _lastCharactersID.Clear();
+        _charactersArena.ClearIDs();
         _playerCharacters.Clear();
     }
 
@@ -81,27 +66,24 @@ public class ArenaCells : MonoBehaviour
         CreateArenaCells();
         CreateBarriers();
         CreateEnemies();
-        AddCharacters();
+        _charactersArena.AddCharacters();
     }
 
-    public void AddCharacters()
+    public void AddCharacter(int id)
     {
-        for (int i = 0; i < _lastCharactersID.Count; i++)
-        {
-            _playerCharacters.Add(_charactersStorage.GetCharacter(_lastCharactersID[i]));
-        }
-
-        CreateCharacters();
-    }
-
-    public void AddLastCharacterID(int characterID)
-    {
-        _lastCharactersID.Add(characterID);
+        _playerCharacters.Add(_charactersStorage.GetCharacter(id));
     }
 
     public void PlayStartBattle()
     {
         HideCells();
+
+        List<int> lastCharactersID = _charactersArena.GetIDs();
+
+        for (int i = 0; i < lastCharactersID.Count; i++)
+        {
+            _finalPanels.AddCharacterId(lastCharactersID[i]);
+        }
     }
 
     public void DeleteArena()

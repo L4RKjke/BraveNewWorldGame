@@ -43,7 +43,7 @@ public class CharactersAddBattle : AllCharactersPanel
     {
         for (int i = 0; i < Container.transform.childCount; i++)
         {
-            if (_starteBattleUI.ArenaCells.CheckId(i))
+            if (_starteBattleUI.CharactersArena.CheckId(i))
             {
                 Container.transform.GetChild(i).GetComponent<Button>().onClick.Invoke();
             }

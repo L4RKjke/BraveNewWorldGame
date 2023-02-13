@@ -17,6 +17,7 @@ public class PanelWin : PanelRewards
 
         _gold.text = gold.ToString(); ;
         _crystals.text = crystals.ToString();
+        AddRewards(gold,crystals);
     }
 
     public void SetExpirience(int exp)

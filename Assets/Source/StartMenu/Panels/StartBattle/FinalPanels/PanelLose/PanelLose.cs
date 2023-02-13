@@ -10,5 +10,6 @@ public class PanelLose : PanelRewards
     public void SetRewards(int gold, int exp)
     {
         _reward.text = gold + " gold and " + exp + " total exp";
+        AddRewards(gold);
     }
 }

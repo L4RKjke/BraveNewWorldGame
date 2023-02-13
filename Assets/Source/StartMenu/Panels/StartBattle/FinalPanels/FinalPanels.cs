@@ -7,7 +7,10 @@ public class FinalPanels : MonoBehaviour
     [SerializeField] private PanelWin _panelWin;
     [SerializeField] private PanelLose _panelLose;
     [SerializeField] private PlayerWallet _playerWallet;
+    [SerializeField] private CharactersStorage _charactersStorage;
+    [SerializeField] private PanelHunt _panelHunt;
 
+    private List<int> _charactersID = new List<int>();
     private int _totalEXP = 0;
     private int _totalGold = 0;
 
@@ -15,6 +18,11 @@ public class FinalPanels : MonoBehaviour
     {
         _panelWin.Init(_playerWallet);
         _panelLose.Init(_playerWallet);
+    }
+
+    public void AddCharacterId(int id)
+    {
+        _charactersID.Add(id);
     }
 
     public void End(bool isWin)
@@ -29,7 +37,16 @@ public class FinalPanels : MonoBehaviour
         {
             _panelLose.gameObject.SetActive(true);
             _panelLose.SetRewards(_totalGold, _totalEXP);
+            _totalEXP /= 4;
         }
+
+        for(int i = 0; i < _charactersID.Count; i++)
+        {
+            GameObject character = _charactersStorage.GetCharacter(_charactersID[i]);
+            character.GetComponent<CharacterStats>().GetExpirience(_totalEXP / _charactersID.Count, _panelHunt.GetCurrentLevel());
+        }
+
+        ResetRewards();
     }
 
     public void AddRewards(int gold, int exp)

@@ -67,9 +67,9 @@ public class Arena:  MonoBehaviour
     private void EndBattle(FighterType type)
     {
         if (type == FighterType.Recruit)
-            Debug.Log("win");
+            _finalPanels.End(true);
         else
-            Debug.Log("lose");
+            _finalPanels.End(false);
 
         /*_canvasBar.SetActive(false);*/
 

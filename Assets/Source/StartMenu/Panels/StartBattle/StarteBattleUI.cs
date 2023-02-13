@@ -9,13 +9,13 @@ public class StarteBattleUI : RenderUI
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private CharactersAddBattle _charactersAddBattle;
     [SerializeField] private Sprite[] _characterOffOn;
-    [SerializeField] private ArenaCells _arenaCells;
+    [SerializeField] private CharactersArena _charactersArena;
 
     private List<int> _charactersId = new List<int>();
     private int _maxSizeParty = 5;
     private Vector3 _offSet = new(0, -2f, 0);
 
-    public ArenaCells ArenaCells => _arenaCells; 
+    public CharactersArena CharactersArena => _charactersArena; 
 
     private void Awake()
     {
@@ -26,7 +26,7 @@ public class StarteBattleUI : RenderUI
 
     private void OnEnable()
     {
-        _arenaCells.ResetLastParty();
+        _charactersArena.ArenaCells.ResetLastParty();
     }
 
     private void OnDisable()
@@ -61,11 +61,11 @@ public class StarteBattleUI : RenderUI
 
             for (int i = 0; i < _charactersId.Count; i++)
             {
-                _arenaCells.AddLastCharacterID(_charactersId[i]);
+                _charactersArena.AddLastCharacterID(_charactersId[i]);
             }
 
             ReturnAllCharacters();
-            _arenaCells.AddCharacters();
+            _charactersArena.AddCharacters();
             this.gameObject.SetActive(false);
 
             //_arenaCells.BuildBanMesh(); //??
