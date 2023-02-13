@@ -13,6 +13,7 @@ public abstract class InventoryButton : MonoBehaviour
         Inventory,
         CharacterItem,
         Forge,
+        AllCharactersItems,
         Delete
     }
 }

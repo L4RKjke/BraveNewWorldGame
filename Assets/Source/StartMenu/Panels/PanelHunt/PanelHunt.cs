@@ -58,6 +58,8 @@ public class PanelHunt : RenderUI
         _currentLevel += id;
         _currentLevel = Mathf.Clamp(_currentLevel, 1, _progress.OpenedLevel);
         LevelChangeText();
+        DeleteAllButtons();
+        AddGraphics();
     }
 
     protected override void AddGraphics()

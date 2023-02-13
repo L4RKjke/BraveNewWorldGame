@@ -14,6 +14,30 @@ public class CharactersItemUI : RenderUI
         AddGraphics();
     }
 
+    public void SetCurrentItem()
+    {
+        Debug.Log(_inventoryUI.CurrentItemInventory.Id);
+
+        if (_inventoryUI.CurrentItemInventory.Id != 0)
+        {
+
+            Item item = _inventoryUI.PlayerItemStorage.GetItem(_inventoryUI.CurrentItemInventory.Id);
+
+            for (int i = Container.transform.childCount - 1; i >= 0; i--)
+            {
+                if (_equipmentSlot[i].ItemType == item.Type || (item.Type == ItemType.Weapon && _equipmentSlot[i].ItemType == ItemType.Hand))
+                {
+                    if(_equipmentSlot[i].ItemId == 0)
+                    {
+                        Button button = Container.transform.GetChild(i).GetComponentInChildren<Button>();
+                        button.onClick.Invoke();
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
     public void SetIdSlot(GameObject button, int itemId)
     {
         int id = int.Parse(button.name);

@@ -89,6 +89,13 @@ public class InventoryDragAndDrop : InventoryButton
 
                         }
                         break;
+                    case ButtonType.AllCharactersItems:
+                        {
+                            AllCharactersItems button = cell.GetComponentInChildren<AllCharactersItems>();
+
+                            button.SetCurrentItem();
+                        }
+                        break;
                 }
             }
         }
