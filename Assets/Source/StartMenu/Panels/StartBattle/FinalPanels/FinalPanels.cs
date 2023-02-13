@@ -28,7 +28,6 @@ public class FinalPanels : MonoBehaviour
 
     public void End(bool isWin)
     {
-
         if(isWin)
         {
             _panelWin.gameObject.SetActive(true);
