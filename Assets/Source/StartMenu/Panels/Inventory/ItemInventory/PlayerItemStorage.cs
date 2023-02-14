@@ -23,6 +23,11 @@ public class PlayerItemStorage : MonoBehaviour
         _inventoryUI = GetComponent<InventoryUI>();
     }
 
+    public int GetLenght()
+    {
+        return _items.Count;
+    }
+
     public void DeleteItem(int id)
     {
         Destroy(_items[id].gameObject);

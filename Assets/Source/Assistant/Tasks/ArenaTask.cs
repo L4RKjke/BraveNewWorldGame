@@ -1,16 +1,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BuyWeaponTask : AssistantTask
+public class ArenaTask : AssistantTask
 {
-    [SerializeField] private Button _buttonUpdate;
-    [SerializeField] private GameObject _shop;
+    [SerializeField] private Button _arena;
+    [SerializeField] private GameObject _inventory;
 
     private bool _needUpdate = true;
 
     private void OnEnable()
     {
-        _buttonUpdate.interactable = false;
+        _arena.interactable = true;
+        HintController.ActivateHint(_arena);
     }
 
     private void Update()
@@ -18,7 +19,7 @@ public class BuyWeaponTask : AssistantTask
         if (_needUpdate == false)
             return;
 
-        else if (_shop.activeSelf == true)
+        else if (_inventory.activeSelf == false)
         {
             ShowMessage(this);
             _needUpdate = false;

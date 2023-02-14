@@ -1303,17 +1303,28 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 291984754}
+  - component: {fileID: 291984775}
   - component: {fileID: 291984763}
   - component: {fileID: 291984756}
   - component: {fileID: 291984770}
+  - component: {fileID: 291984774}
   - component: {fileID: 291984769}
+  - component: {fileID: 291984773}
   - component: {fileID: 291984768}
-  - component: {fileID: 291984767}
-  - component: {fileID: 291984766}
-  - component: {fileID: 291984765}
-  - component: {fileID: 291984764}
   - component: {fileID: 291984772}
   - component: {fileID: 291984771}
+  - component: {fileID: 291984779}
+  - component: {fileID: 291984778}
+  - component: {fileID: 291984777}
+  - component: {fileID: 291984776}
+  - component: {fileID: 291984781}
+  - component: {fileID: 291984780}
+  - component: {fileID: 291984785}
+  - component: {fileID: 291984784}
+  - component: {fileID: 291984783}
+  - component: {fileID: 291984782}
+  - component: {fileID: 291984787}
+  - component: {fileID: 291984786}
   m_Layer: 0
   m_Name: TaskManager
   m_TagString: Untagged
@@ -1363,69 +1374,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _TMPro: {fileID: 8148474900611204145}
-  _manager: {fileID: 291984756}
   _assistant: {fileID: 4617150761273658560}
   _tapToContinue: {fileID: 660544590}
---- !u!114 &291984764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291984753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 007f6bfed27620145bd0b54c035938ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _destription: go shop
-  _transitions:
-  - {fileID: 291984772}
-  _shop: {fileID: 1672049196}
-  _controller: {fileID: 2050204519}
---- !u!114 &291984765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291984753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdaf477c376d04244b11d09767a79175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTask: {fileID: 291984764}
-  _charactersStorage: {fileID: 1610164231}
-  _button: {fileID: 1579778601}
---- !u!114 &291984766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291984753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTask: {fileID: 291984768}
-  _button: {fileID: 901196052}
---- !u!114 &291984767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291984753}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetTask: {fileID: 291984769}
-  _button: {fileID: 660544590}
 --- !u!114 &291984768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1438,10 +1388,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38098f910ffa04741a2b900befe7b3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: Buy warrior
+  _destription: 'In the tavern you can recruit new units. There are 3 types: warrior,
+    mage, priest. First hire a warrior.'
   _transitions:
-  - {fileID: 291984765}
-  _button: {fileID: 1884771637}
+  - {fileID: 291984772}
+  _updateButton: {fileID: 1884771637}
+  _tavern: {fileID: 1141267826}
 --- !u!114 &291984769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1454,11 +1406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a3eb06f67f36d94db4f4755c4082eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: tavern task
+  _destription: Visit the tavern to hire your first fighter
   _transitions:
-  - {fileID: 291984766}
+  - {fileID: 291984773}
   _tavern: {fileID: 901196052}
-  _controller: {fileID: 2050204519}
 --- !u!114 &291984770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1471,9 +1422,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5eef8c8c7f4a424eb6fdf19a97903a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: startTask
+  _destription: Welcome to the Brave New Word! My name is Arkady, a am your persanal
+    assistent.
   _transitions:
-  - {fileID: 291984767}
+  - {fileID: 291984774}
   _tavern: {fileID: 901196052}
   _inventory: {fileID: 1464628269}
   _shop: {fileID: 1672049196}
@@ -1488,13 +1440,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 291984753}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d90eafe4b409fa14299d6ed273e5a069, type: 3}
+  m_Script: {fileID: 11500000, guid: 007f6bfed27620145bd0b54c035938ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: Here you can buy weapon
-  _transitions: []
-  _buttonUpdate: {fileID: 1766309969}
+  _destription: Check out the store
+  _transitions:
+  - {fileID: 291984779}
+  _shop: {fileID: 1672049196}
+  _tavern: {fileID: 1286109039012699876}
 --- !u!114 &291984772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdaf477c376d04244b11d09767a79175, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984771}
+  _charactersStorage: {fileID: 1610164231}
+--- !u!114 &291984773
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1506,8 +1474,225 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTask: {fileID: 291984771}
+  _targetTask: {fileID: 291984768}
+  _button: {fileID: 901196052}
+--- !u!114 &291984774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984769}
+  _button: {fileID: 660544590}
+--- !u!114 &291984775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c9ccdafb16668844ad23477b2207ba7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttons:
+  - {fileID: 901196052}
+  - {fileID: 1464628269}
+  - {fileID: 1672049196}
+  - {fileID: 1971524533}
+  - {fileID: 1199344816}
+  _hint: {fileID: 974289958197732838, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
+--- !u!114 &291984776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae4d916940e623e43b4d4ce3bdd16157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Now go to the workshop.
+  _transitions:
+  - {fileID: 291984781}
+  _forgeButton: {fileID: 1199344816}
+  _shop: {fileID: 839844562}
+--- !u!114 &291984777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 508dcbad6379eb5459c9ad9635e09342, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984776}
+  _itemStorage: {fileID: 8337689882351069932}
+--- !u!114 &291984778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d90eafe4b409fa14299d6ed273e5a069, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Buy all suggested items!
+  _transitions:
+  - {fileID: 291984777}
+  _buttonUpdate: {fileID: 1497814231}
+  _shop: {fileID: 839844562}
+--- !u!114 &291984779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984778}
   _button: {fileID: 1672049196}
+--- !u!114 &291984780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6cdb96249964e4b97a1d0c99c8a634, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: If you have two copies of the same item, you can combine them to
+    get an improved version.
+  _transitions:
+  - {fileID: 291984785}
+  _enchance: {fileID: 3913673643164313812}
+--- !u!114 &291984781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984780}
+  _button: {fileID: 1199344816}
+--- !u!114 &291984782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2252f77f3796a042b6b8ffd573703ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Here you can dress your character.
+  _transitions:
+  - {fileID: 291984787}
+  _inventory: {fileID: 1584036849}
+--- !u!114 &291984783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984782}
+  _button: {fileID: 1464628269}
+--- !u!114 &291984784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12544aef35a3249853fa8ab3661388, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Check your inventory.
+  _transitions:
+  - {fileID: 291984783}
+  _inventory: {fileID: 1464628269}
+  _enchance: {fileID: 3913673643164313812}
+--- !u!114 &291984785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984784}
+  _button: {fileID: 1858983304}
+--- !u!114 &291984786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7eeae85acae2c64dbc5a7a25476a26f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Try your hand at the first battle. Good Luck!
+  _transitions: []
+  _arena: {fileID: 1971524533}
+  _inventory: {fileID: 8421145399057538230}
+--- !u!114 &291984787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291984753}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 291984786}
+  _button: {fileID: 1858983304}
 --- !u!1 &298799694
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,7 +2439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99a80ad1c3cc3374da27e87ad419aa6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 1369904565}
+  _pool: {fileID: 0}
   _arenaCells: {fileID: 1369904561}
   _startButton: {fileID: 41332563}
   _timer: {fileID: 112929677}
@@ -2434,7 +2619,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 715adb6790ede1d4c932828d3688a95b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pool: {fileID: 1369904565}
+  _pool: {fileID: 0}
   _arenaCells: {fileID: 1369904561}
   _timer: {fileID: 112929677}
   _startButton: {fileID: 41332563}
@@ -3365,6 +3550,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801357427}
   m_CullTransparentMesh: 1
+--- !u!1 &839844562 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2553223762286896888, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
+  m_PrefabInstance: {fileID: 1206485118}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &866708840
 GameObject:
   m_ObjectHideFlags: 0
@@ -5036,7 +5226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1295338058}
-  _units: {fileID: 1369904565}
+  _units: {fileID: 0}
   _type: 1
   _healthText: {fileID: 1966589513}
   _redHealthbar: {fileID: 523267278}
@@ -5457,33 +5647,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42f7184ffc6fdc4bba7913a6176b49e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1369904562 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4295777523692713961, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
-  m_PrefabInstance: {fileID: 1369904560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6784c2f4dc291e64b92c422a22e5df27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1369904563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2395814375073941554, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
   m_PrefabInstance: {fileID: 1369904560}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1369904565 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 502916655794976217, guid: 2c27e9f216cff9a429e648851c9c82b8, type: 3}
-  m_PrefabInstance: {fileID: 1369904560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee08b8eecae379942898a7659e76307e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1397510180
 GameObject:
   m_ObjectHideFlags: 0
@@ -5573,7 +5741,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2553223762286896894, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
   m_PrefabInstance: {fileID: 1013703236}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1584036849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -5702,10 +5870,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdbca7c1ac970c64cb6625ac11a0c4b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1579778601 stripped
+--- !u!114 &1497814231 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6721611965821701035, guid: 7a118ba589ba4924e808bdd7a9adca89, type: 3}
-  m_PrefabInstance: {fileID: 8366910418633278919}
+  m_CorrespondingSourceObject: {fileID: 4158941716438586506, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
+  m_PrefabInstance: {fileID: 8403736989291973260}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -5713,6 +5881,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1584036849 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2553223762286896888, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
+  m_PrefabInstance: {fileID: 1013703236}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1590470308
 GameObject:
   m_ObjectHideFlags: 0
@@ -6193,7 +6366,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2553223762286896894, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
   m_PrefabInstance: {fileID: 1206485118}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 839844562}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -6841,7 +7014,7 @@ PrefabInstance:
     - target: {fileID: 1091608519407894686, guid: dce495b3e43cf8749aef4e495b54769a, type: 3}
       propertyPath: _objectsSaver
       value: 
-      objectReference: {fileID: 1369904562}
+      objectReference: {fileID: 0}
     - target: {fileID: 1091608519407894691, guid: dce495b3e43cf8749aef4e495b54769a, type: 3}
       propertyPath: m_Name
       value: DragAndDrop
@@ -6858,17 +7031,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1091608519407894680, guid: dce495b3e43cf8749aef4e495b54769a, type: 3}
   m_PrefabInstance: {fileID: 1753363085}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1766309969 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4158941716438586506, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
-  m_PrefabInstance: {fileID: 8403736989291973260}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1779722321
 GameObject:
   m_ObjectHideFlags: 0
@@ -7176,6 +7338,17 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 190
   m_TargetDisplay: 0
+--- !u!114 &1858983304 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4968876289810469479, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
+  m_PrefabInstance: {fileID: 6002433216543923925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1860642979
 GameObject:
   m_ObjectHideFlags: 0
@@ -8418,65 +8591,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2033323232}
-  _units: {fileID: 1369904565}
+  _units: {fileID: 0}
   _type: 0
   _healthText: {fileID: 1725757913}
   _redHealthbar: {fileID: 962879976}
---- !u!1 &2050204518
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2050204520}
-  - component: {fileID: 2050204519}
-  m_Layer: 0
-  m_Name: HintController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2050204519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050204518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c9ccdafb16668844ad23477b2207ba7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttons:
-  - {fileID: 901196052}
-  - {fileID: 1464628269}
-  - {fileID: 1672049196}
-  - {fileID: 1971524533}
-  _hint: {fileID: 974289958197732838, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
---- !u!224 &2050204520
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2050204518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1297711}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.56474, y: -1.4610741}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2070987822
 GameObject:
   m_ObjectHideFlags: 0
@@ -10406,6 +10524,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2697759535737553845, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2976553096075023501, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538180742377947116, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
