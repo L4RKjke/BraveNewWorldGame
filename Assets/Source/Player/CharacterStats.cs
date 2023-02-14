@@ -15,8 +15,9 @@ public class CharacterStats : Stats
     private int _baseMagic;
     private int _expiriance = 0;
 
+    public int ExpPerLevel { get; private set; } = 1000;
     public int Exp => _expiriance;
-    public int Level => _expiriance / 1000 + 1;
+    public int Level => _expiriance / ExpPerLevel + 1;
     public string Name => _name;
     public int Attack => _itemAttack + GetBaseStat(_baseAttack, Level);
     public int Defense => _itemDefense + GetBaseStat(_baseDefense, Level);

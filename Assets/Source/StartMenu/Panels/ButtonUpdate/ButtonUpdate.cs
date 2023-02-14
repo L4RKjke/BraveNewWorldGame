@@ -7,6 +7,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class ButtonUpdate : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _text;
+
     private int _priceUpdate;
     private PlayerWallet _wallet;
 
@@ -14,16 +16,14 @@ public class ButtonUpdate : MonoBehaviour
 
     private void Start()
     {
-        TMP_Text text = this.GetComponentInChildren<TMP_Text>();
-        text.text = _priceUpdate.ToString();
+        _text.text = _priceUpdate.ToString();
     }
 
     private void OnEnable()
     {
         if (_wallet.Gold >= _priceUpdate)
         {
-            TMP_Text text = this.GetComponentInChildren<TMP_Text>();
-            text.color = Color.white;
+            _text.color = Color.white;
         }
     }
 
@@ -37,17 +37,15 @@ public class ButtonUpdate : MonoBehaviour
     public bool CheckCanUpdate()
     {
         bool canUpdate = false;
-        TMP_Text text = this.GetComponentInChildren<TMP_Text>();
 
         if (_wallet.Gold >= _priceUpdate)
         {
-            text.color = Color.white;
+            _text.color = Color.white;
             canUpdate = true;
         }
         else
         {
             string noMoney = "NoMoney";
-            text.color = Color.red;
             this.GetComponent<Animator>().SetTrigger(noMoney);
         }
 
