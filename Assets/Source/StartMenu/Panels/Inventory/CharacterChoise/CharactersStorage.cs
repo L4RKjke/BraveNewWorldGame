@@ -26,6 +26,11 @@ public class CharactersStorage : MonoBehaviour
         }
     }
 
+    public int GetLenght()
+    {
+        return _characters.Count;
+    }
+
     public List<int> GetTopCharactersID()
     {
         List<int> charactersIDtemp = new List<int>();

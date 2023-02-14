@@ -126,7 +126,11 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnAnimationOver() 
     {
-        AtackAnimationCompleted?.Invoke();
+        if (_unit.TryGetComponent(out AtackState state))
+            if (state.enabled)
+            {
+                AtackAnimationCompleted?.Invoke();
+            }
     }
 
     private void OnAtackOver()
@@ -145,7 +149,6 @@ public class AnimationCotroller : MonoBehaviour
 
     private void ShowDamageEffect()
     {
-        Debug.Log("1");
         if (this != null && _unit != null)
             Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }

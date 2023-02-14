@@ -129,20 +129,7 @@ public class ArenaCells : MonoBehaviour
         for (int i = 0; i < _playerCharacters.Count; i++)
         {
             Cell cell = _objectsSaver.GetCell(0, i);
-            GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
-            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
-            playerCharacter.transform.SetParent(dragAndDrop.transform);
-            dragAndDrop.transform.SetParent(_objectsSaver.ParentFolderCharacters);
-            cell.ChangeFull();
-            cell.ChangeStayCharacter();
-            dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
-            playerCharacter.GetComponent<CharacterInit>().enabled = true;
-            playerCharacter.transform.localScale = Vector3.one;
-            playerCharacter.SetActive(true);
-            CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
-            var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
-            _fighters.AddNewFighter(newUnit);
+            InitCharacter(i, cell);
         }
     }
 
@@ -220,20 +207,19 @@ public class ArenaCells : MonoBehaviour
 
                 Barrier barrier = Instantiate(_barriers[i], cell.transform.position, Quaternion.identity);
                 barrier.transform.SetParent(_objectsSaver.ParentFolderBarrier);
-                cell.ChangeFull();
-                cell.MakeUnwalkable();
+                InitCell(cell);
             }
         }
     }
 
     private void CreateEnemies()
     {
-        int level = _panelHunt.GetCurrentLevel();
         int currentWidth = 0;
-        int meleeEnemyWidth = 4;
+        int meleeEnemyWidth = 5;
         int RangeEnemeWidth = 7;
         bool canStay;
         Cell cell;
+
         _enemies.Clear();
         _enemies = _panelHunt.GetAllEnemies();
 
@@ -242,13 +228,9 @@ public class ArenaCells : MonoBehaviour
             var newUnit = _enemies[i].transform.GetChild(1).GetComponent<Fighter>();
 
             if (newUnit.TryGetComponent<IRangeAtacker>(out _))
-            {
                 currentWidth = RangeEnemeWidth;
-            }
             else
-            {
                 currentWidth = meleeEnemyWidth;
-            }
 
             cell = _objectsSaver.GetRandomCell(currentWidth);
             canStay = _objectsSaver.CheckCellsAround(cell.Row, cell.Column);
@@ -259,17 +241,8 @@ public class ArenaCells : MonoBehaviour
                 canStay = _objectsSaver.CheckCellsAround(cell.Row, cell.Column);
             }
 
-            GameObject enemy = Instantiate(_enemies[i], cell.transform.position, Quaternion.identity);
-            enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
-
-            var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
-            MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
-            newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
-            _finalPanels.AddRewards(monsterInfo.Gold, monsterInfo.Exp);
-            _fighters.AddNewFighter(newEnemy);
-
-            cell.ChangeFull();
-            cell.ChangeStayCharacter();
+            InitEnemy(i, cell);
+            InitCell(cell);
         }
     }
 
@@ -284,10 +257,44 @@ public class ArenaCells : MonoBehaviour
 
                 if(cell.IsFull == true && cell.IsBuildingStay == false)
                 {
-                    cell.ChangeFull();
-                    cell.ChangeStayCharacter();
+                    InitCell(cell);
                 }
             }
         }
+    }
+
+    private void InitCell(Cell cell)
+    {
+        cell.ChangeFull();
+        cell.ChangeStayCharacter();
+    }
+
+    private void InitEnemy(int i, Cell cell)
+    {
+        int level = _panelHunt.GetCurrentLevel();
+        GameObject enemy = Instantiate(_enemies[i], cell.transform.position, Quaternion.identity);
+        enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
+        var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
+        MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
+        newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
+        _finalPanels.AddRewards(monsterInfo.Gold, monsterInfo.Exp);
+        _fighters.AddNewFighter(newEnemy);
+    }
+
+    private void InitCharacter(int i, Cell cell)
+    {
+        GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
+        GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
+        playerCharacter.transform.SetParent(dragAndDrop.transform);
+        dragAndDrop.transform.SetParent(_objectsSaver.ParentFolderCharacters);
+        InitCell(cell);
+        dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
+        playerCharacter.GetComponent<CharacterInit>().enabled = true;
+        playerCharacter.transform.localScale = Vector3.one;
+        playerCharacter.SetActive(true);
+        CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
+        var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
+        newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
+        _fighters.AddNewFighter(newUnit);
     }
 }
