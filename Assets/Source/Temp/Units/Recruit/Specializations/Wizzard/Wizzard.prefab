@@ -502,6 +502,7 @@ MonoBehaviour:
   _walkDistance: 5
   _atackDelay: 2.4
   _speed: 0.95
+  _class: 2
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}
   _firePoint: {fileID: 3700395033072069307}
 --- !u!114 &7604797453349662639

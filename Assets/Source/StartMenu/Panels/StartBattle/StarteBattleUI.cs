@@ -53,12 +53,10 @@ public class StarteBattleUI : RenderUI
         _disclaimer.SetActive(true);
     }
 
-    public void TryToStartPhase2(CameraChanger cameraChanger)
+    public void TryToStartPhase2()
     {
         if (_charactersId.Count > 0)
         {
-/*            cameraChanger.ReturnToPrevios();*/
-
             for (int i = 0; i < _charactersId.Count; i++)
             {
                 _charactersArena.AddLastCharacterID(_charactersId[i]);
@@ -67,8 +65,6 @@ public class StarteBattleUI : RenderUI
             ReturnAllCharacters();
             _charactersArena.AddCharacters();
             this.gameObject.SetActive(false);
-
-            //_arenaCells.BuildBanMesh(); //??
         }
     }
 

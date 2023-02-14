@@ -3,14 +3,16 @@ using UnityEngine.Events;
 
 public abstract class Recruit : Fighter
 {
-    private int _magicPower = 0; //поменять на 0
+    [SerializeField] private ClassType _class;
 
+    private int _magicPower = 0; //поменять на 0
     private readonly int _minMagicPower = 0;
     private readonly int _maxMagicPower = 100;
     private readonly int _maxPercent = 100;
     private readonly int _minPercent = 0;
     private readonly int _abilityChance = 60;
 
+    public ClassType Class => _class;
     public int MagicPower => _magicPower;
 
     public void Init(FighterType type, FighterType enemyType, UnitPool units, int damage, int health, int magicPower = 0, int defense = 0)

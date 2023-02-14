@@ -5,6 +5,7 @@ using UnityEngine;
 public class WalletSaveLoad : MonoBehaviour , BinarrySaveLoad
 {
     [SerializeField] private PlayerWallet _wallet;
+    [SerializeField] private PlayerProgress _progress;
 
     public void Load()
     {
@@ -14,11 +15,12 @@ public class WalletSaveLoad : MonoBehaviour , BinarrySaveLoad
         {
             _wallet.ChangeCrystals(walletData.Crystals - _wallet.Crystals);
             _wallet.ChangeGold(walletData.Gold - _wallet.Gold);
+            _progress.SetLevel(walletData.OpenedLevels);
         }
     }
 
     public void Save()
     {
-        BinarySavingSystem.SaveWallet(_wallet);
+        BinarySavingSystem.SaveWallet(_wallet, _progress);
     }
 }

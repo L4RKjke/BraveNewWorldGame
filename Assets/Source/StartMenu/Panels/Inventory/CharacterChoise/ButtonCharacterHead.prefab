@@ -221,6 +221,10 @@ MonoBehaviour:
   _name: {fileID: 3929749928528669887}
   _circle: {fileID: 1832637240678925562}
   _level: {fileID: 2872178010634211105}
+  _ribbons:
+  - {fileID: 21300000, guid: 5ff046dbd9833f04995c6affa6f2fcbc, type: 3}
+  - {fileID: 7215417044586324935, guid: 0505785965206bc4d89d5bddf086dba5, type: 3}
+  - {fileID: 21300000, guid: 44cf603ec4510144c9ba72eb86f620ae, type: 3}
 --- !u!1 &1676424892690414472
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,8 +540,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7215417044586324935, guid: bf57e448623ed4a3a9d59a29a1fdd039, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5ff046dbd9833f04995c6affa6f2fcbc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

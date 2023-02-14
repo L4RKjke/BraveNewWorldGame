@@ -26,13 +26,13 @@ public static class BinarySavingSystem
         directiryInfo.Create();
     }
 
-    public static void SaveWallet(PlayerWallet wallet)
+    public static void SaveWallet(PlayerWallet wallet, PlayerProgress progress)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/wallet.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
-        WalletData data = new WalletData(wallet);
+        WalletData data = new WalletData(wallet, progress);
 
         formatter.Serialize(fileStream, data);
         fileStream.Close();

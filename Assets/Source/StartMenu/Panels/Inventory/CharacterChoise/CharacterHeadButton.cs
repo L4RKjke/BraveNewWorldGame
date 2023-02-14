@@ -13,8 +13,26 @@ public class CharacterHeadButton : MonoBehaviour
     [SerializeField] private TMP_Text _name;
     [SerializeField] private Image _circle;
     [SerializeField] private TMP_Text _level;
+    [SerializeField] private List<Sprite> _ribbons;
 
     public Image Circle => _circle;
+
+    public void SetClass(ClassType classType)
+    {
+        switch(classType)
+        {
+            case ClassType.Priest:
+                _ribbon.sprite = _ribbons[0];
+                break;
+            case ClassType.Warrior:
+                _ribbon.sprite = _ribbons[1];
+                break;
+            case ClassType.Wizzard:
+                _ribbon.sprite = _ribbons[2];
+                break;
+        }
+    }
+
 
     public void SetCircle(Sprite circle)
     {

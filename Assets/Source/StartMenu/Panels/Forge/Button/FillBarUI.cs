@@ -43,7 +43,7 @@ public abstract class FillBarUI : MonoBehaviour
     {
         _currentTimeFill += Time.deltaTime;
         _fill.fillAmount = _currentTimeFill / timeToFill;
-        Mathf.Clamp(_fill.fillAmount, 0, 1);
+        _fill.fillAmount = Mathf.Clamp(_fill.fillAmount, 0, 1);
 
         if (_currentTimeFill >= timeToFill)
         {
