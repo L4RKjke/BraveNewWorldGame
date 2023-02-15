@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd56e45436f82479f7197735ef50e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: PiratePants
+  _name: Item/Leg/PiratePants
   _image: {fileID: 21300000, guid: b5ca245e4558b3d4db1c4b0f06514963, type: 3}
   _defense: 1
   _attack: 8

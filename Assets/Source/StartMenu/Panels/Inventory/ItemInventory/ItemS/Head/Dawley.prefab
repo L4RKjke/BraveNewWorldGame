@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Dawley
+  _name: Item/Head/Dawley
   _image: {fileID: 21300000, guid: 379088297ecc7b743aa1c1fa941c0ad1, type: 3}
   _defense: 0
   _attack: 7

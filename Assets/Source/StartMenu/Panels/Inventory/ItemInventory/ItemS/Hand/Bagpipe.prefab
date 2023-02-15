@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Bagpipe
+  _name: Item/Hand/Bagpipe
   _image: {fileID: 21300000, guid: 904649fe8048a1042a55746258ca2bef, type: 3}
   _defense: 3
   _attack: 10
@@ -53,3 +53,4 @@ MonoBehaviour:
   ItemType: 1
   _rightHand: {fileID: 21300002, guid: b4e6f138693d1164e966a851cfd950f8, type: 3}
   _leftHand: {fileID: 21300000, guid: b4e6f138693d1164e966a851cfd950f8, type: 3}
+  _isWeapon: 0

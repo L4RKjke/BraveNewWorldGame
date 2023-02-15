@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: SkullHat
+  _name: Item/Head/SkullHat
   _image: {fileID: 21300000, guid: 4834696266d0a334e9b0389122b24870, type: 3}
   _defense: 2
   _attack: 10

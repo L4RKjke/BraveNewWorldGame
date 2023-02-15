@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd56e45436f82479f7197735ef50e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clergins
+  _name: Item/Leg/Clergins
   _image: {fileID: 21300000, guid: 4a56ab5a7f47d284899330f2e9eae0fd, type: 3}
   _defense: 0
   _attack: 0

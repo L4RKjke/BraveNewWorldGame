@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd56e45436f82479f7197735ef50e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: DragonBoots
+  _name: Item/Leg/DragonBoots
   _image: {fileID: 21300000, guid: 95d3f1944d6d4d64a91779f23845fe9d, type: 3}
   _defense: 2
   _attack: 4

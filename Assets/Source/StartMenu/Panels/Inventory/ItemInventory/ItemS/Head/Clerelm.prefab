@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clerelm
+  _name: Item/Head/Clerelm
   _image: {fileID: 21300000, guid: 3f2a55e6ba86a3a4c9d17165c9c4b72e, type: 3}
   _defense: 0
   _attack: 0

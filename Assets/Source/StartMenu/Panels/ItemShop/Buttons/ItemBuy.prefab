@@ -307,6 +307,7 @@ GameObject:
   - component: {fileID: 7667765318861575087}
   - component: {fileID: 5630900611833056302}
   - component: {fileID: 7881418460508293885}
+  - component: {fileID: 7024819021983379967}
   m_Layer: 5
   m_Name: ItemName
   m_TagString: Untagged
@@ -362,10 +363,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BloodMoon
+  m_text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
-  m_sharedMaterial: {fileID: 5416806443266638455, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9604b85e53550384d98f186851280ccd, type: 2}
+  m_sharedMaterial: {fileID: -5710767109015712502, guid: 9604b85e53550384d98f186851280ccd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -389,7 +390,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.4
+  m_fontSize: 22.1
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -431,6 +432,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7024819021983379967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525113891939833457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: FontMini
+  FallbackFont: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
 --- !u!1 &6503317605055764019
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +457,7 @@ GameObject:
   - component: {fileID: 5674274300563861137}
   - component: {fileID: 8269392066772835616}
   - component: {fileID: 4501341363370034023}
+  - component: {fileID: 1995136524146246108}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -499,8 +515,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 500
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
-  m_sharedMaterial: {fileID: -4171563015097924827, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
+  m_sharedMaterial: {fileID: -4549579385975343360, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -524,7 +540,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.65
+  m_fontSize: 22.7
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -566,6 +582,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1995136524146246108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6503317605055764019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Font
+  FallbackFont: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
 --- !u!1 &7634930430144508416
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2765fe1a5e85e1a4785bdfd194bb6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Clerobe
+  _name: Item/Body/Clerobe
   _image: {fileID: 21300000, guid: 22bb3e1b0563b8b46bbd0a6e78e59cf6, type: 3}
   _defense: 0
   _attack: 0

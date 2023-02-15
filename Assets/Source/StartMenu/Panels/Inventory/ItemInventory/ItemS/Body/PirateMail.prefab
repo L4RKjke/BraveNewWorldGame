@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2765fe1a5e85e1a4785bdfd194bb6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: PirateMail
+  _name: Item/Body/PirateMail
   _image: {fileID: 21300000, guid: 21a356e9ffc04134386a0ef18767caa3, type: 3}
   _defense: 3
   _attack: 15

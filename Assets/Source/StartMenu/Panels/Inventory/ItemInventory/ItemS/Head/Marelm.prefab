@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Marelm
+  _name: Item/Head/Marelm
   _image: {fileID: 21300000, guid: ce4859a177cf9dc4f9ec9cc48685c6cd, type: 3}
   _defense: 2
   _attack: 10

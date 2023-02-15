@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: HardHelm
+  _name: Item/Head/HardHelm
   _image: {fileID: 21300000, guid: f8831a08ba585f641b09bce1c8423b2b, type: 3}
   _defense: 7
   _attack: 0

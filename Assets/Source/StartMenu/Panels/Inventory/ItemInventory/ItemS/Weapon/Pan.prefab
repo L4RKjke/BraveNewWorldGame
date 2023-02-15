@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea9c2e7c6df40d4b9c60c62fe4b096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Pan
+  _name: Item/Weapon/Pan
   _image: {fileID: 21300000, guid: 48190e388e0d62541a1ecf73d693184b, type: 3}
   _defense: 5
   _attack: 10

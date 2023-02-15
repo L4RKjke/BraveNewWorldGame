@@ -17,7 +17,7 @@ public class ItemDescriptionUI : StatsUI
         if (item.Name != "")
         {
             UpdateAllStats(item.Attack, item.Defense, item.Health, item.Magic);
-            UpdateName(item.Name, item.Type.ToString(), item.Level);
+            UpdateName(item.Name, Lean.Localization.LeanLocalization.GetTranslationText("Item/Type/" + item.Type.ToString()), item.Level);
         }
     }
 

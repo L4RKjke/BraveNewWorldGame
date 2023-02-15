@@ -108,7 +108,7 @@ public class CharactersItemUI : RenderUI
     {
         int id = int.Parse(button.name);
         CharacterItemButton characterItemButton = button.GetComponent<CharacterItemButton>();
-        characterItemButton.SetInformation(_equipmentSlot[id].ItemImage, _equipmentSlot[id].ItemType.ToString());
+        characterItemButton.SetInformation(_equipmentSlot[id].ItemImage, Lean.Localization.LeanLocalization.GetTranslationText("Item/Type/" + _equipmentSlot[id].ItemType.ToString()));
 
         characterItemButton.ItemRarityShow.gameObject.SetActive(false);
         _equipmentSlot[id].SetId();

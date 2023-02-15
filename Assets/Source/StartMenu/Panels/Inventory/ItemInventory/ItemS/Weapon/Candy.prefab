@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ea9c2e7c6df40d4b9c60c62fe4b096c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Candy
+  _name: Item/Weapon/Candy
   _image: {fileID: 21300000, guid: aeaf40567ebb9074b841d0229768fbe0, type: 3}
   _defense: 0
   _attack: 5

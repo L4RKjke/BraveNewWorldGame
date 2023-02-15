@@ -33,7 +33,7 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
             heroAppearanceCreater.CreateAppereance(newCharacter.GetComponent<Appearance>(), _charactersData[i], false);
             newCharacter.transform.localScale = new Vector3(70f, 70f, 1);
             CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
-            characterStats.SetName(_charactersData[i].Name);
+            characterStats.SetName(Lean.Localization.LeanLocalization.GetTranslationText(_charactersData[i].Name));
             characterStats.SetBaseStats(_charactersData[i].Attack, _charactersData[i].Defense, _charactersData[i].Health, _charactersData[i].Magic);
             characterStats.GetExpirience(_charactersData[i].Exp, 1);
             _charactersStorage.AddNewCharacter(newCharacter);

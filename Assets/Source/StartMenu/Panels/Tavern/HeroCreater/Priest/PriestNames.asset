@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: PriestNames
   m_EditorClassIdentifier: 
   _heroNames:
-  - Elenaril
-  - Farryn
-  - Phelorna
-  - Ithronel
-  - Artin
-  - Tisha
-  - Mylaela
-  - Darshee
-  - Ryllae
-  - Ilsevel
-  - Darshee
-  - Nithroel
-  - Mhoryga
-  - Zaleria
-  - Ciradyl
-  - Alina
+  - Name/Priest/Elenaril
+  - Name/Priest/Farryn
+  - Name/Priest/Phelorna
+  - Name/Priest/Ithronel
+  - Name/Priest/Artin
+  - Name/Priest/Tisha
+  - Name/Priest/Mylaela
+  - Name/Priest/Darshee
+  - Name/Priest/Ryllae
+  - Name/Priest/Ilsevel
+  - Name/Priest/Silena
+  - Name/Priest/Nithroel
+  - Name/Priest/Mhoryga
+  - Name/Priest/Zaleria
+  - Name/Priest/Ciradyl
+  - Name/Priest/Alina

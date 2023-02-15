@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2dd56e45436f82479f7197735ef50e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: MagicShoes
+  _name: Item/Leg/MagicShoes
   _image: {fileID: 21300000, guid: d018a0adcfcbf27409b32a8fff0e313c, type: 3}
   _defense: 1
   _attack: 2

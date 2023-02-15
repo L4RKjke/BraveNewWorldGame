@@ -51,8 +51,8 @@ public class ShopSaveLoad : MonoBehaviour, BinarrySaveLoad
                 GameObject button = _itemShop.AddButton(item);
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;
-                button.GetComponentInChildren<TMP_Text>().text = "Sold";
-                temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = "Sold";
+                button.GetComponentInChildren<TMP_Text>().text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Sold");
+                temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Sold");
                 button.transform.GetChild(button.transform.childCount - 2).gameObject.SetActive(true);
             }
         }

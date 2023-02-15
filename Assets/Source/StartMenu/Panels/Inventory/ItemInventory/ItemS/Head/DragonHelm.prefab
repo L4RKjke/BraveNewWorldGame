@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d66cb9f112da0546a803928b2c1eaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: DragonHelm
+  _name: Item/Head/DragonHelm
   _image: {fileID: 21300000, guid: 44faf445416244141883f93027ddf508, type: 3}
   _defense: 3
   _attack: 5

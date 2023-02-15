@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: WarriorNames
   m_EditorClassIdentifier: 
   _heroNames:
-  - Zabghat
-  - Yamarz
-  - Snakha
-  - Zaghig
-  - Ulam
-  - Carthurg
-  - Nomgulg
-  - Saghig
-  - Ogrumbu
-  - Nargulg
-  - Hrolkug
-  - Wumkbanok
-  - Mash
-  - Pargu
-  - Shat
-  - Nikita
+  - Name/Warrior/Zabghat
+  - Name/Warrior/Yamarz
+  - Name/Warrior/Snakha
+  - Name/Warrior/Zaghig
+  - Name/Warrior/Ulam
+  - Name/Warrior/Carthurg
+  - Name/Warrior/Nomgulg
+  - Name/Warrior/Saghig
+  - Name/Warrior/Ogrumbu
+  - Name/Warrior/Nargulg
+  - Name/Warrior/Hrolkug
+  - Name/Warrior/Wumkbanok
+  - Name/Warrior/Mash
+  - Name/Warrior/Pargu
+  - Name/Warrior/Shat
+  - Name/Warrior/Nikita

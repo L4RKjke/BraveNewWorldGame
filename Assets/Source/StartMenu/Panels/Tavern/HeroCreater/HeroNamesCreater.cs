@@ -8,7 +8,7 @@ public abstract class HeroNamesCreater : ScriptableObject
 
     public void SetName(CharacterStats characterStats)
     {
-        string name = _heroNames[Random.Range(0, _heroNames.Count)];
+        string name = Lean.Localization.LeanLocalization.GetTranslationText(_heroNames[Random.Range(0, _heroNames.Count)]);
         characterStats.SetName(name);
     }
 }

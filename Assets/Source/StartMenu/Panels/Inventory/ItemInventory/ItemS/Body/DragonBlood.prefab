@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2765fe1a5e85e1a4785bdfd194bb6861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: DragonBlood
+  _name: Item/Body/DragonBlood
   _image: {fileID: 21300000, guid: b7aebf88c961d4b49997f0417934f6cd, type: 3}
   _defense: 5
   _attack: 10

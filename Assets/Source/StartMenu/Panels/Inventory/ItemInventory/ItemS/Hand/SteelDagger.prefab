@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: SteelDagger
+  _name: Item/Hand/SteelDagger
   _image: {fileID: 21300000, guid: 53bbff0539960bd4a9635fa9b6621e40, type: 3}
   _defense: 0
   _attack: 20

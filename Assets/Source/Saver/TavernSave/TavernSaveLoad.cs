@@ -40,7 +40,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
                 Destroy(character);
                 Button temp = buttonObject.GetComponentInChildren<Button>();
                 temp.interactable = false;
-                temp.GetComponentInChildren<TMP_Text>().text = "Sold";
+                temp.GetComponentInChildren<TMP_Text>().text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Sold");
                 buttonObject.transform.GetChild(buttonObject.transform.childCount - 1).gameObject.SetActive(true);
             }
             else

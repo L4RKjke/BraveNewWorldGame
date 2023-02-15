@@ -99,7 +99,7 @@ public class ItemShopUI : RenderUI
 
                 Button temp = button.GetComponentInChildren<Button>();
                 temp.interactable = false;
-                temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = "Sold";
+                temp.gameObject.transform.GetComponentInChildren<TMP_Text>().text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Sold");
                 button.transform.GetChild(button.transform.childCount - 1).gameObject.SetActive(true);
             }
             else

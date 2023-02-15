@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: WizardNames
   m_EditorClassIdentifier: 
   _heroNames:
-  - Shinorim
-  - Uridarin
-  - Inaxx
-  - Aqirax
-  - Egorim
-  - Aniviar
-  - Adosior
-  - Qeneth
-  - Udrubarin
-  - Dhitior
-  - Iguxon
-  - Udel
-  - Aqihr
-  - Adarius
-  - Daforn
-  - Yra
+  - Name/Wizard/Shinorim
+  - Name/Wizard/Uridarin
+  - Name/Wizard/Inaxx
+  - Name/Wizard/Aqirax
+  - Name/Wizard/Egorim
+  - Name/Wizard/Aniviar
+  - Name/Wizard/Adosior
+  - Name/Wizard/Qeneth
+  - Name/Wizard/Udrubarin
+  - Name/Wizard/Dhitior
+  - Name/Wizard/Iguxon
+  - Name/Wizard/Udel
+  - Name/Wizard/Aqihr
+  - Name/Wizard/Adarius
+  - Name/Wizard/Daforn
+  - Name/Wizard/Yra

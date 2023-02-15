@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Raven
+  _name: Item/Hand/Raven
   _image: {fileID: 21300000, guid: c6a15128e094462419c206de44f3edb1, type: 3}
   _defense: 0
   _attack: 8

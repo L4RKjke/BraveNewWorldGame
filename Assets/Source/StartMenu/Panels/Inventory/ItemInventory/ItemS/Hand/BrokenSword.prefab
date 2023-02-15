@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: BrokenSword
+  _name: Item/Hand/BrokenSword
   _image: {fileID: 21300000, guid: 60a87bdc10825304981406cd405bc875, type: 3}
   _defense: 1
   _attack: 1

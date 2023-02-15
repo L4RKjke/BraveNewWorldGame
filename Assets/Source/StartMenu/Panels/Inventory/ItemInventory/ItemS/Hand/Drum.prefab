@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0215dca6998cb2a4baf3ed0abd3e9ea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _name: Drum
+  _name: Item/Hand/Drum
   _image: {fileID: 21300000, guid: 2f76a7c0852ef664eb5887ba83168f1f, type: 3}
   _defense: 5
   _attack: 5
@@ -53,3 +53,4 @@ MonoBehaviour:
   ItemType: 1
   _rightHand: {fileID: 21300002, guid: c73daf3ae5bd86443a7a6bcdbcbd8d73, type: 3}
   _leftHand: {fileID: 21300000, guid: c73daf3ae5bd86443a7a6bcdbcbd8d73, type: 3}
+  _isWeapon: 0
