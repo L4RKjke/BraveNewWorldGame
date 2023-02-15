@@ -290,7 +290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5144499084065928277
 RectTransform:
   m_ObjectHideFlags: 0
@@ -325,8 +325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c318db21bb83241873ba5a6a653f13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _panelName: Hunt
-  _panelText: {fileID: 579034640811058622}
 --- !u!114 &6320913545987367233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,27 +341,48 @@ MonoBehaviour:
   Content: {fileID: 3771742715952726913, guid: 35966c092b9ec124e9b41cd7d09b410e, type: 3}
   _levels:
   - _monstersInfo:
-    - _monsterID: 0
-      _count: 1
     - _monsterID: 1
+      _count: 1
+    - _monsterID: 4
+      _count: 2
+    - _monsterID: 3
+      _count: 6
+  - _monstersInfo:
+    - _monsterID: 2
+      _count: 3
+    - _monsterID: 5
+      _count: 3
+    - _monsterID: 3
+      _count: 3
+  - _monstersInfo:
+    - _monsterID: 0
       _count: 2
     - _monsterID: 2
+      _count: 2
+    - _monsterID: 5
+      _count: 3
+    - _monsterID: 6
+      _count: 1
+  - _monstersInfo:
+    - _monsterID: 1
+      _count: 3
+    - _monsterID: 4
       _count: 3
   - _monstersInfo:
     - _monsterID: 0
       _count: 1
-  - _monstersInfo:
     - _monsterID: 1
+      _count: 1
+    - _monsterID: 2
       _count: 2
-  - _monstersInfo:
-    - _monsterID: 2
-      _count: 3
-  - _monstersInfo:
-    - _monsterID: 1
-      _count: 5
-    - _monsterID: 2
-      _count: 7
+    - _monsterID: 3
+      _count: 2
+    - _monsterID: 4
+      _count: 1
+    - _monsterID: 5
+      _count: 2
   _progress: {fileID: 0}
+  _levelView: {fileID: 7570733664308692123}
 --- !u!114 &6320913545987367238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,9 +396,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _monsters:
-  - {fileID: 3229483948788727476, guid: 48033c1376a25494b9f919f9d618fde2, type: 3}
-  - {fileID: 5557777245626209403, guid: 605d3a675936a21448fc5a35403931e7, type: 3}
-  - {fileID: 4952621006568964303, guid: a1a092cd8923dc840ab1362ad4f88273, type: 3}
+  - {fileID: 8927706449902697089, guid: 11ff8ba940e4afb4aa829822f830ff9f, type: 3}
+  - {fileID: 8927706449902697089, guid: 7361692eda71cb3408c5643b9eb05160, type: 3}
+  - {fileID: 8927706449902697089, guid: 8629e36937711d24c8fa62fb6852db0e, type: 3}
+  - {fileID: 8927706449902697089, guid: 41c7739b73ee5904ea0860586220dcf8, type: 3}
+  - {fileID: 8927706449902697089, guid: 1af1c3108c36ce54591fde908ba7729f, type: 3}
+  - {fileID: 8927706449902697089, guid: cf489732eb25b9849be29815908eb4b6, type: 3}
+  - {fileID: 8927706449902697089, guid: 48314f1d501afec44ab2a4852c45f4de, type: 3}
 --- !u!95 &6320913545527098622
 Animator:
   serializedVersion: 4
@@ -835,6 +858,8 @@ GameObject:
   - component: {fileID: 3593775249800416251}
   - component: {fileID: 1375540634862074471}
   - component: {fileID: 579034640811058622}
+  - component: {fileID: 6462559768377604967}
+  - component: {fileID: 2987189240456079148}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -959,6 +984,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6462559768377604967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291272784660047244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Common/Hunt
+  FallbackText: Hunt
+--- !u!114 &2987189240456079148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5291272784660047244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Font
+  FallbackFont: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
 --- !u!1 &6320913544740305382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1505,6 +1558,7 @@ GameObject:
   - component: {fileID: 6320913545277994565}
   - component: {fileID: 6320913545277994564}
   - component: {fileID: 6320913545277994567}
+  - component: {fileID: 7570733663913221103}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -1629,7 +1683,19 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: CameraChanger, Assembly-CSharp
-        m_MethodName: StartBattle
+        m_MethodName: GoToNext
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Camera, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: RestartArena, Assembly-CSharp
+        m_MethodName: OnRestart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1639,6 +1705,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7570733663913221103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6320913545277994561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f864e55f941d35f4c8417070e66cad21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6320913545565827722
 GameObject:
   m_ObjectHideFlags: 0

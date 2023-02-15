@@ -245,7 +245,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3.920044, y: 2.7900124}
+  m_AnchoredPosition: {x: 3.920044, y: 2.7899818}
   m_SizeDelta: {x: 108.38, y: 129.03}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2519555402117655217
@@ -360,6 +360,8 @@ GameObject:
   - component: {fileID: 624385736521192342}
   - component: {fileID: 3054288146298233354}
   - component: {fileID: 3565937178450804179}
+  - component: {fileID: 7742405573480879463}
+  - component: {fileID: 8003034997326431819}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -484,6 +486,34 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7742405573480879463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078196146356485601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Common/ItemShop
+  FallbackText: Item shop
+--- !u!114 &8003034997326431819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8078196146356485601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Font
+  FallbackFont: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
 --- !u!1 &8981181826618749795
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +960,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9084053611730250808
 RectTransform:
   m_ObjectHideFlags: 0
@@ -967,7 +997,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _panelName: Item Shop
-  _panelText: {fileID: 3565937178450804179}
 --- !u!95 &7984180003103548563
 Animator:
   serializedVersion: 4
@@ -1319,6 +1348,18 @@ PrefabInstance:
     - target: {fileID: 2207045406225961230, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
       propertyPath: m_Name
       value: ButtonUpdate
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011886546784440097, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -15.299999
+      objectReference: {fileID: 0}
+    - target: {fileID: 6011886546784440097, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.88199997
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834194721708722542, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb3bd65d5632784eaff6d7f6e98f41b, type: 3}
