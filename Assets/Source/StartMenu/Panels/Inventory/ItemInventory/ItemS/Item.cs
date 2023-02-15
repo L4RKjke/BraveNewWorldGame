@@ -19,7 +19,7 @@ public class Item : MonoBehaviour
     public int SearchID { get; private set; }
     public int Id => _id;
     public Sprite Image => _image;
-    public string Name => _name;
+    public string Name => Lean.Localization.LeanLocalization.GetTranslationText(_name);
     public ItemType Type => ItemType;
     public int Defense => _defense * _level;
     public int Attack => _attack * _level;
