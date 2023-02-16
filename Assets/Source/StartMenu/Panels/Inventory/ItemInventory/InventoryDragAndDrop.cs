@@ -86,13 +86,13 @@ public class InventoryDragAndDrop : InventoryButton
                         break;
                     case ButtonType.Delete:
                         {
-
+                            cell.GetComponent<DeleteButton>().DeleteItem(_inventoryUI.CurrentItemInventory.Item.Id);
+                            _inventoryUI.ResetMovingObject();
                         }
                         break;
                     case ButtonType.AllCharactersItems:
                         {
                             AllCharactersItems button = cell.GetComponentInChildren<AllCharactersItems>();
-
                             button.SetCurrentItem();
                         }
                         break;
