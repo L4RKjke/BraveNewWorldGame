@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ForgeUI : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class ForgeUI : MonoBehaviour
     [SerializeField] private GameObject _statsContainer;
     [SerializeField] private FillBarForge _fillBarNewItem;
 
+    public UnityAction NewItemReturned;
     private int _itemId1;
     private int _itemId2;
 
@@ -200,6 +202,7 @@ public class ForgeUI : MonoBehaviour
 
         if (isAddSuccec)
         {
+            NewItemReturned?.Invoke();
             _statsContainer.SetActive(false);
             _buttonNewItem.onClick.RemoveAllListeners();
             _buttonNewItem.transform.GetChild(0).GetComponent<Image>().sprite = null;
