@@ -7,20 +7,9 @@ public class RangeAtackState : AtackState
 {
     private IRangeAtacker _rangeAtacker;
 
-    private Coroutine _atackCourutine;
-
-    private void OnEnable()
+    private void Start()
     {
         _rangeAtacker = GetComponent<IRangeAtacker>();
-        AnimationController.AtackCompleted += CompleteAtack;
-        _atackCourutine = StartCoroutine(LaunchAtack(CurrentFighter.AtackDelay));
-        StateActivated?.Invoke();
-    }
-
-    private void OnDisable()
-    {
-        StopCoroutine(_atackCourutine);
-        AnimationController.AtackCompleted -= CompleteAtack;
     }
 
     protected override void StartAtack()
