@@ -6,15 +6,43 @@ public abstract class AtackState : State
 {
     [SerializeField] private AnimationCotroller _animationController;
 
+    private Coroutine _atackCourutine;
+    private float _meleeDelay = 1.1f;
+    private float CurrentDelay;
+
     protected AnimationCotroller AnimationController => _animationController;
 
-    public float FirstDelaySpread => Random.Range(0.1f, 0.25f);
+    protected int Damage => CurrentFighter.Damage;
+
+    public float FirstDelaySpread => Random.Range(0.01f, 0.11f);
 
     public UnityAction AtackStarted;
     public UnityAction AtackCompleted;
     public UnityAction StateActivated;
 
-    protected int Damage => CurrentFighter.Damage;
+    private void OnEnable()
+    {
+        ///временно
+        if (TryGetComponent(out MeleeState meleeState))
+            if (meleeState.enabled)
+                CurrentDelay = _meleeDelay;
+        else
+            {
+                CurrentDelay = CurrentFighter.AtackDelay + FirstDelaySpread;
+            }
+
+        AnimationController.AtackCompleted += CompleteAtack;
+        AnimationController.AtackAnimationCompleted += StartRoutine;
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));
+        StateActivated?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        AnimationController.AtackCompleted -= CompleteAtack;
+        AnimationController.AtackAnimationCompleted -= StartRoutine;
+        StopCoroutine(_atackCourutine);
+    }
 
     protected abstract void StartAtack();
 
@@ -22,10 +50,16 @@ public abstract class AtackState : State
 
     protected IEnumerator LaunchAtack(float atackDelay)
     {
-        while (true)
-        {
             yield return new WaitForSeconds(atackDelay);
+
             StartAtack();
-        }
+    }
+
+    private void StartRoutine()
+    {
+        if (_atackCourutine != null)
+            StopCoroutine(_atackCourutine);
+
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));
     }
 }

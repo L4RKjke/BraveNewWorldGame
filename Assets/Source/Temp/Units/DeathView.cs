@@ -2,15 +2,10 @@ using UnityEngine;
 
 public class DeathView : MonoBehaviour
 {
-    private float _dieTime;
+    private readonly float _dieTime = 2;
 
-    private void Start()
+    private void OnEnable()
     {
         Destroy(gameObject, _dieTime);
-    }
-
-    private void OnDisable()
-    {
-        if (!this.gameObject.scene.isLoaded) return;
     }
 }
