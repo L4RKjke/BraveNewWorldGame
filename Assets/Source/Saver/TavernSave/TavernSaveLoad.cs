@@ -31,7 +31,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
         {
             buttonObject = _tavernUI.AddButton(i);
             StatsUI statsUI = buttonObject.GetComponentInChildren<StatsUI>();
-            statsUI.UpdateName(charactersData[i].Name);
+            statsUI.UpdateName(Lean.Localization.LeanLocalization.GetTranslationText(_charactersData[i].Name));
             statsUI.UpdateAllStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);
             character = buttonObject.GetComponentInChildren<TavernCharactersUI>().PointToCreate.transform.GetChild(0).gameObject;
 

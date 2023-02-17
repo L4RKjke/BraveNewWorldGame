@@ -45,20 +45,22 @@ public class TavernUI : RenderUI
 
     public GameObject AddButton(int id)
     {
+        CharacterData characterData = new CharacterData();
+
         GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
         newButton.name = (Container.transform.childCount - 1).ToString();
         GameObject newCharacter = newButton.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id]);
         CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
         _heroStatsCreater[id].CreateStats(characterStats);
-        _heroNamesCreater[id].SetName(characterStats);
+        _heroNamesCreater[id].SetName(characterStats, characterData);
+
         StatsUI statsUI = newButton.GetComponentInChildren<StatsUI>();
         statsUI.Init();
         statsUI.UpdateName(characterStats.Name);
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
 
-        CharacterData characterData = new CharacterData();
         _heroAppearanceCreater[id].CreateAppereance(newCharacter.GetComponent<Appearance>(), characterData);
-        characterData.SetStats(characterStats.Name, characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
+        characterData.SetStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
         characterData.SetClass(id);
         _tavernSaveLoad.AddData(characterData);
 

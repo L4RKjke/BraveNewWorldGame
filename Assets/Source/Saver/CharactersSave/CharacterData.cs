@@ -72,13 +72,17 @@ public class CharacterData
         LegRID = legRID;
     }
 
-    public void SetStats(string name, int attack, int defense, int health, int magic)
+    public void SetStats(int attack, int defense, int health, int magic)
     {
-        Name = name;
         Attack = attack;
         Defense = defense;
         Health = health;
         Magic = magic;
+    }
+
+    public void SetName(string name)
+    {
+        Name = name;
     }
 
     public void SetExp(int exp)
