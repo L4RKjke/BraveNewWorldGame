@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class DivineHealingAbility: Ability
 {
     /*если здоровье опустилось ниже 20 процентов, хилит до 100*/
@@ -14,6 +16,11 @@ public class DivineHealingAbility: Ability
     private void OnDisable()
     {
         Fighter.Health.HealthChanged -= OnHealthChanged;
+    }
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<DivineHealingAbility>();
     }
 
     protected override void ActivateAbility()

@@ -6,6 +6,7 @@ using UnityEngine;
 public class CharacterData
 {
     public int Class { get; private set; } 
+    public int[] SkillsID { get; private set; } = new int[2];
     public float[] SkeenColor { get; private set; }
     public float[] HairColor { get; private set; }
     public int EarID { get; private set; }
@@ -32,6 +33,11 @@ public class CharacterData
     public void SetClass(int number)
     {
         Class = number;
+    }
+
+    public void AddSkillId(int idSkill, int numberSkill)
+    {
+        SkillsID[numberSkill] = idSkill;
     }
 
     public void SetColor(Color skeen,Color Hair)

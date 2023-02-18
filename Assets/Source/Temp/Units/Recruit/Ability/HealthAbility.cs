@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HealthAbility : Ability
 {
+    //Увеличивает здоровье на 20%.
     private bool _isActivated = false;
 
     private void Start()
@@ -14,6 +15,11 @@ public class HealthAbility : Ability
     private void OnDisable()
     {
         Fighter.Health.HealthChanged -= OnHealthChanged;
+    }
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<HealthAbility>();
     }
 
     protected override void ActivateAbility()

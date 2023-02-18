@@ -1,6 +1,8 @@
+using UnityEngine;
+
 public class SpikesAbility : Ability
 {
-    // каждый удар хилит на половину от значения нанесенного урона
+    // каждый удар хилит на 25% от значения нанесенного урона
     private readonly int _damageValue = 4;
 
     private void OnEnable()
@@ -11,6 +13,11 @@ public class SpikesAbility : Ability
     private void OnDisable()
     {
         Fighter.Health.DamageTaken -= OnHealthChanged;
+    }
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<SpikesAbility>();
     }
 
     protected override void ActivateAbility()

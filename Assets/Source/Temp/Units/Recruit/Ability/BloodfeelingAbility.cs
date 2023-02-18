@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class BloodfeelingAbility : Ability
 {
-    ///+25% к урону за каждого умершого противника
+    ///+10% к урону за каждого умершого противника
     private AtackState _atackState;
     private float _damage = 1f;
 
-    private readonly float _damageBonus = 0.25f;
+    private readonly float _damageBonus = 0.1f;
 
     private void OnEnable()
     {
@@ -19,6 +19,12 @@ public class BloodfeelingAbility : Ability
     {
         _atackState.AtackCompleted -= ActivateAbility;
         Fighter.Units.UnitDied -= IncreaseDamage;
+    }
+
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<BloodfeelingAbility>();
     }
 
     protected override void ActivateAbility()

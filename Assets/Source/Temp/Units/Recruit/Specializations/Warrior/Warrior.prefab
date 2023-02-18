@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 993470713354870326}
   - component: {fileID: 4488452677723674077}
   - component: {fileID: 3885374938697441876}
+  - component: {fileID: 3015062800581947175}
   m_Layer: 7
   m_Name: WarriorModel
   m_TagString: Untagged
@@ -365,6 +366,7 @@ MonoBehaviour:
   _walkDistance: 1
   _atackDelay: 1
   _speed: 1.2
+  _class: 0
 --- !u!114 &7604797453349662639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,6 +554,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3015062800581947175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993470713354870330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfaa9cf857667d14081e0c832d3497e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1026070719563457150
 GameObject:
   m_ObjectHideFlags: 0

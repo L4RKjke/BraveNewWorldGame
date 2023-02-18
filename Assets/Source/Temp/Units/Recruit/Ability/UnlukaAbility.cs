@@ -14,6 +14,11 @@ public class UnlukaAbility : Ability
         Fighter.Health.DamageTaken -= ActivateAbility;
     }
 
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<UnlukaAbility>();
+    }
+
     protected override void ActivateAbility()
     {
         var damage = Fighter.Health.MaxHealth * 0.1f;

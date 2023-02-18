@@ -22,6 +22,12 @@ public class HealAbillity : Ability
         Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<HealAbillity>();
+    }
+
     protected override void ActivateAbility()
     {
         _healCoroutine = StartCoroutine(Heal());

@@ -1,14 +1,12 @@
 using UnityEngine;
 
-[RequireComponent (typeof(AtackState))]
-
 public class FuryAbility : Ability
 {
-    ///+20% когда юнит получает урон
+    ///+2.5% когда юнит получает урон
     private AtackState _atackState;
     private float _damage = 1f;
     
-    private readonly float _damageBonus = 0.2f;
+    private readonly float _damageBonus = 0.025f;
 
     private void OnEnable()
     {
@@ -21,6 +19,11 @@ public class FuryAbility : Ability
     {
         _atackState.AtackCompleted -= ActivateAbility;
         Fighter.Health.DamageTaken -= IncreaseDamage;
+    }
+
+    public override void SetAbility(Recruit recruit)
+    {
+        recruit.gameObject.AddComponent<FuryAbility>();
     }
 
     protected override void ActivateAbility()

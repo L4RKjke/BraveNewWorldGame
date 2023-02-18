@@ -8,6 +8,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
 {
     [SerializeField] private TavernUI _tavernUI;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
+    [SerializeField] private List<HeroPassiveSkills> _heroPassiveSkills;
 
     private List<CharacterData> _charactersData = new List<CharacterData>();
 
@@ -47,6 +48,15 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
             {
                 HeroAppearanceCreater heroAppearanceCreater = _heroAppearanceCreater[charactersData[i].Class];
                 heroAppearanceCreater.CreateAppereance(character.GetComponent<Appearance>(), charactersData[i], false);
+                HeroPassiveSkills heroPassiveSkills = _heroPassiveSkills[_charactersData[i].Class];
+
+/*                for (int j = 0; j < _charactersData[i].SkillsID.Length; j++)
+                {
+                    Debug.Log(_charactersData[i].SkillsID[j]);
+                    Ability ability = heroPassiveSkills.GetSkill(_charactersData[i].SkillsID[j]);
+                    ability.SetAbility(character.transform.GetChild(1).GetComponent<Recruit>());
+                }*/
+
                 CharacterStats characterStats = character.GetComponent<CharacterStats>();
                 characterStats.SetName(charactersData[i].Name);
                 characterStats.SetBaseStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);

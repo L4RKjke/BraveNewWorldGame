@@ -10,6 +10,7 @@ public class TavernUI : RenderUI
     [SerializeField] private List<HeroNamesCreater> _heroNamesCreater;
     [SerializeField] private List<HeroStatsCreater> _heroStatsCreater;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
+    [SerializeField] private List<HeroPassiveSkills> _heroPassiveSkills;
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private GameObject _disclaimer;
@@ -51,15 +52,17 @@ public class TavernUI : RenderUI
         newButton.name = (Container.transform.childCount - 1).ToString();
         GameObject newCharacter = newButton.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id]);
         CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
+
         _heroStatsCreater[id].CreateStats(characterStats);
         _heroNamesCreater[id].SetName(characterStats, characterData);
+        _heroAppearanceCreater[id].CreateAppereance(newCharacter.GetComponent<Appearance>(), characterData);
+        _heroPassiveSkills[id].SetSkills(newCharacter.transform.GetChild(1).gameObject.GetComponent<Recruit>(), characterData);
 
         StatsUI statsUI = newButton.GetComponentInChildren<StatsUI>();
         statsUI.Init();
         statsUI.UpdateName(characterStats.Name);
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
 
-        _heroAppearanceCreater[id].CreateAppereance(newCharacter.GetComponent<Appearance>(), characterData);
         characterData.SetStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
         characterData.SetClass(id);
         _tavernSaveLoad.AddData(characterData);
