@@ -5,6 +5,7 @@ public class BloodfeelingAbility : Ability
     ///+10% к урону за каждого умершого противника
     private AtackState _atackState;
     private float _damage = 1f;
+    private int _active = 0;
 
     private readonly float _damageBonus = 0.1f;
 
@@ -29,6 +30,8 @@ public class BloodfeelingAbility : Ability
 
     protected override void ActivateAbility()
     {
+        _active++;
+        Debug.Log(_active + "blood");
         Fighter.CurrentTarget.Health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damage) - Fighter.Damage);
     }
 

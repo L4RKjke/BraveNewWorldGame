@@ -111,7 +111,6 @@ public class CharacterPlayerUI : MonoBehaviour
         _level.text = characterStats.Level.ToString();
         float expTemp = characterStats.Exp;
         float fill = (expTemp - ((characterStats.Level - 1) * characterStats.ExpPerLevel)) / characterStats.ExpPerLevel;
-        Debug.Log(fill);
         _levelBar.fillAmount = fill;
         _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
     }

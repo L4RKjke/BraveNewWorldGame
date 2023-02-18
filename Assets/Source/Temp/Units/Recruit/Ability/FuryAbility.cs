@@ -5,6 +5,7 @@ public class FuryAbility : Ability
     ///+2.5% когда юнит получает урон
     private AtackState _atackState;
     private float _damage = 1f;
+    private int _active = 0;
     
     private readonly float _damageBonus = 0.025f;
 
@@ -28,6 +29,8 @@ public class FuryAbility : Ability
 
     protected override void ActivateAbility()
     {
+        _active++;
+        Debug.Log(_active + "fury");
         Fighter.CurrentTarget.Health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damage) - Fighter.Damage);
     }
 

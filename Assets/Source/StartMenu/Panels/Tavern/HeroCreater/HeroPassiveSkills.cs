@@ -11,7 +11,6 @@ public abstract class HeroPassiveSkills : ScriptableObject
         int count = 2;
         int addedAbility = -1;
         int random = -1;
-        CharacterAbilities abilities = recruit.transform.gameObject.GetComponent<CharacterAbilities>();
 
         for (int i = 0; i < count; i++)
         {
@@ -23,7 +22,6 @@ public abstract class HeroPassiveSkills : ScriptableObject
             _abilities[random].SetAbility(recruit);
             characterData.AddSkillId(random, i);
             addedAbility = random;
-            //abilities.AddAbility(_abilities[random]);
         }
     }
 
