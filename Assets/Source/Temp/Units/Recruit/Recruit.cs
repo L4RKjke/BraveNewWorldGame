@@ -5,9 +5,7 @@ public abstract class Recruit : Fighter
 {
     [SerializeField] private ClassType _class;
 
-    private int _magicPower = 0; //поменять на 0
-    private readonly int _minMagicPower = 0;
-    private readonly int _maxMagicPower = 100;
+    private int _magicPower = 0;
     private readonly int _maxPercent = 100;
     private readonly int _minPercent = 0;
     private readonly int _abilityChance = 60;

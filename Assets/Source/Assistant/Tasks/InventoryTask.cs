@@ -11,7 +11,6 @@ public class InventoryTask : AssistantTask
     private void OnEnable()
     {
         _inventory.interactable = true;
-        HintController.ActivateHint(_inventory);
     }
 
     private void Update()

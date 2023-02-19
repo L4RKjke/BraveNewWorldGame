@@ -11,7 +11,6 @@ public class ShopTask : AssistantTask
     private void OnEnable()
     {
         _shop.interactable = true;
-        HintController.ActivateHint(_shop);
     }
 
     private void Update()

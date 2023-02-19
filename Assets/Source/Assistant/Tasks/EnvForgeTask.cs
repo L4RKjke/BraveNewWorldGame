@@ -11,7 +11,6 @@ public class EnvForgeTask : AssistantTask
     private void OnEnable()
     {
         _forgeButton.interactable = true;
-        HintController.ActivateHint(_forgeButton);
     }
 
     private void Update()

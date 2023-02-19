@@ -11,7 +11,6 @@ public class ArenaTask : AssistantTask
     private void OnEnable()
     {
         _arena.interactable = true;
-        HintController.ActivateHint(_arena);
     }
 
     private void Update()

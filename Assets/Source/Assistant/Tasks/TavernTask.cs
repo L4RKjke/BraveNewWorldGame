@@ -4,11 +4,17 @@ using UnityEngine.UI;
 public class TavernTask : AssistantTask
 {
     [SerializeField] private Button _tavern;
+    [SerializeField] private Hint _hint;
 
     private void OnEnable()
     {
+        _hint.gameObject.SetActive(true);
         _tavern.interactable = true;
-        HintController.ActivateHint(_tavern);
         ShowMessage(this);
+    }
+
+    private void OnDisable()
+    {
+        _hint.gameObject.SetActive(false);
     }
 }
