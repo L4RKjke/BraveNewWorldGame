@@ -18,10 +18,8 @@ public class CloseButtonTask : AssistantTask
 
     private void OnDisable()
     {
-        if (_arrow.gameObject != null)
-            _arrow.gameObject.SetActive(false);
-
-        _blockPanel.SetActive(false);
+        if (_blockPanel != null)
+            _blockPanel.SetActive(false);
 
         if (_currentPanelButton != null)
             _currentPanelButton.interactable = false;

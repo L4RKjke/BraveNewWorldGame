@@ -15,6 +15,7 @@ public class TavernTask : AssistantTask
 
     private void OnDisable()
     {
-        _hint.gameObject.SetActive(false);
+        if (_hint != null)
+            _hint.gameObject.SetActive(false);
     }
 }

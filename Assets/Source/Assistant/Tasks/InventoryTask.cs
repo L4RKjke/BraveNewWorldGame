@@ -5,12 +5,20 @@ public class InventoryTask : AssistantTask
 {
     [SerializeField] private Button _inventory;
     [SerializeField] private GameObject _enchance;
+    [SerializeField] private Hint _hint;
 
     private bool _needUpdate = true;
 
     private void OnEnable()
     {
         _inventory.interactable = true;
+        _hint.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        if (_hint != null)
+            _hint.gameObject.SetActive(false);
     }
 
     private void Update()

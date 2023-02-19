@@ -17,7 +17,8 @@ public class BuyWarriorTask : AssistantTask
 
     private void OnDisable()
     {
-        _arrow.gameObject.SetActive(false);
+        if (_arrow != null)
+            _arrow.gameObject.SetActive(false);
     }
 
     private void Update()

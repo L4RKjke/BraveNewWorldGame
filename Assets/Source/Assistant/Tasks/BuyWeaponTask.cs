@@ -10,7 +10,8 @@ public class BuyWeaponTask : AssistantTask
 
     private void OnEnable()
     {
-        _buttonUpdate.interactable = false;
+        if (_buttonUpdate != null)
+            _buttonUpdate.interactable = false;
     }
 
     private void Update()
