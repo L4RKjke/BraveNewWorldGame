@@ -14,9 +14,10 @@ public class UnlukaAbility : Ability
         Fighter.Health.DamageTaken -= ActivateAbility;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        recruit.gameObject.AddComponent<UnlukaAbility>();
+        UnlukaAbility ability = recruit.gameObject.AddComponent<UnlukaAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()

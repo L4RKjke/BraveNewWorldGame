@@ -18,9 +18,10 @@ public class DivineHealingAbility: Ability
         Fighter.Health.HealthChanged -= OnHealthChanged;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        recruit.gameObject.AddComponent<DivineHealingAbility>();
+        DivineHealingAbility ability = recruit.gameObject.AddComponent<DivineHealingAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()

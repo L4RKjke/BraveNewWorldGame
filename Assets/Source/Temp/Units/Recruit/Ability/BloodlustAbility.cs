@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpikesAbility : Ability
+public class BloodlustAbility : Ability
 {
     // каждый удар хилит на 25% от значения нанесенного урона
     private readonly int _damageValue = 4;
@@ -15,9 +15,10 @@ public class SpikesAbility : Ability
         Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        recruit.gameObject.AddComponent<SpikesAbility>();
+        BloodlustAbility ability = recruit.gameObject.AddComponent<BloodlustAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()

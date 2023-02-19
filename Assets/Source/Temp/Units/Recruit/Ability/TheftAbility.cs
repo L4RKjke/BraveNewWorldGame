@@ -16,7 +16,7 @@ public class TheftAbility : Ability
         Fighter.Health.DamageTaken -= OnHealthChanged;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
         throw new System.NotImplementedException();
     }

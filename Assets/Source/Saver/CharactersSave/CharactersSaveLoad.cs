@@ -38,7 +38,7 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
             for (int j = 0; j < _charactersData[i].SkillsID.Length; j++)
             {
                 Ability ability = heroPassiveSkills.GetSkill(_charactersData[i].SkillsID[j]);
-                ability.SetAbility(newCharacter.transform.GetChild(1).GetComponent<Recruit>());
+                ability.SetAbility(newCharacter.transform.GetChild(1).GetComponent<Recruit>(), ability.NamePath, ability.DescriptionPath);
             }
 
             CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();

@@ -74,3 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81945851712dfb8418b6e9956aea4ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _namePath: Ability/Heal/Name
+  _descriptionPath: Ability/Heal/Description

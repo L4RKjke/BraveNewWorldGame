@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthAbility : Ability
 {
-    //Увеличивает здоровье на 20%.
+    //Увеличивает здоровье на 40%.
     private bool _isActivated = false;
 
     private void Start()
@@ -17,9 +17,10 @@ public class HealthAbility : Ability
         Fighter.Health.HealthChanged -= OnHealthChanged;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        recruit.gameObject.AddComponent<HealthAbility>();
+        HealthAbility ability = recruit.gameObject.AddComponent<HealthAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()
@@ -29,7 +30,7 @@ public class HealthAbility : Ability
 
     private void OnHealthChanged(int health)
     {
-        if (health < Fighter.Health.MaxHealth*0.2f && _isActivated == false)
+        if (health < Fighter.Health.MaxHealth*0.4f && _isActivated == false)
         {
             ActivateAbility();
             _isActivated = true;

@@ -17,7 +17,7 @@ public class DamageAbility : Ability
     }
 
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
         throw new System.NotImplementedException();
     }

@@ -5,7 +5,6 @@ public class FuryAbility : Ability
     ///+2.5% когда юнит получает урон
     private AtackState _atackState;
     private float _damage = 1f;
-    private int _active = 0;
     
     private readonly float _damageBonus = 0.025f;
 
@@ -22,15 +21,14 @@ public class FuryAbility : Ability
         Fighter.Health.DamageTaken -= IncreaseDamage;
     }
 
-    public override void SetAbility(Recruit recruit)
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        recruit.gameObject.AddComponent<FuryAbility>();
+        FuryAbility ability = recruit.gameObject.AddComponent<FuryAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()
     {
-        _active++;
-        Debug.Log(_active + "fury");
         Fighter.CurrentTarget.Health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damage) - Fighter.Damage);
     }
 

@@ -30,9 +30,9 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
 
         for (int i = 0; i < charactersData.Count; i++)
         {
-            buttonObject = _tavernUI.AddButton(i);
+            buttonObject = _tavernUI.AddButton(i, true);
             StatsUI statsUI = buttonObject.GetComponentInChildren<StatsUI>();
-            statsUI.UpdateName(Lean.Localization.LeanLocalization.GetTranslationText(_charactersData[i].Name));
+            statsUI.UpdateName(Lean.Localization.LeanLocalization.GetTranslationText(charactersData[i].Name));
             statsUI.UpdateAllStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);
             character = buttonObject.GetComponentInChildren<TavernCharactersUI>().PointToCreate.transform.GetChild(0).gameObject;
 
@@ -48,23 +48,28 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
             {
                 HeroAppearanceCreater heroAppearanceCreater = _heroAppearanceCreater[charactersData[i].Class];
                 heroAppearanceCreater.CreateAppereance(character.GetComponent<Appearance>(), charactersData[i], false);
-                HeroPassiveSkills heroPassiveSkills = _heroPassiveSkills[_charactersData[i].Class];
-                Ability[] abilities = character.transform.GetChild(1).GetComponents<Ability>();
+                HeroPassiveSkills heroPassiveSkills = _heroPassiveSkills[charactersData[i].Class];
+                AbilitiesUI abilitiesUI = buttonObject.GetComponentInChildren<AbilitiesUI>();
+
+                for (int j = 0; j < charactersData[i].SkillsID.Length; j++)
+                {
+                    Ability ability = heroPassiveSkills.GetSkill(charactersData[i].SkillsID[j]);
+                    ability.SetAbility(character.transform.GetChild(1).GetComponent<Recruit>(), ability.NamePath, ability.DescriptionPath);
+                }
+
+                Ability[] abilities = character.transform.GetChild(1).gameObject.GetComponents<Ability>();
+                abilitiesUI.Init(abilities.Length);
 
                 for (int j = 0; j < abilities.Length; j++)
                 {
-                    Destroy (abilities[j]);
-                }
-
-                for (int j = 0; j < _charactersData[i].SkillsID.Length; j++)
-                {
-                    Ability ability = heroPassiveSkills.GetSkill(charactersData[i].SkillsID[j]);
-                    ability.SetAbility(character.transform.GetChild(1).GetComponent<Recruit>());
+                    abilitiesUI.UpdateAbility(j, abilities[j]);
                 }
 
                 CharacterStats characterStats = character.GetComponent<CharacterStats>();
-                characterStats.SetName(charactersData[i].Name);
+                characterStats.SetName(Lean.Localization.LeanLocalization.GetTranslationText(charactersData[i].Name));
                 characterStats.SetBaseStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);
+
+                _tavernUI.AddListenerBuy(buttonObject, charactersData[i]);
             }
         }
 

@@ -62,7 +62,7 @@ public class CharacterStats : Stats
 
         if (levelDifference > 0)
         {
-            percentLevelDifference = levelDifference / 100 + Level;
+            percentLevelDifference = levelDifference / (9 + Level);
         }
         else if (levelDifference < 0)
         {

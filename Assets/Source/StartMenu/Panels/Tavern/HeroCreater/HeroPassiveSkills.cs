@@ -19,7 +19,7 @@ public abstract class HeroPassiveSkills : ScriptableObject
                 random = Random.Range(0, _abilities.Count);
             }
 
-            _abilities[random].SetAbility(recruit);
+            _abilities[random].SetAbility(recruit, _abilities[random].NamePath, _abilities[random].DescriptionPath);
             characterData.AddSkillId(random, i);
             addedAbility = random;
         }

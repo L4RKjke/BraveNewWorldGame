@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7924421757141280001, guid: 8caeb6970ebe814408ed031de7e31cd5, type: 3}
       propertyPath: m_Name
-      value: DevineHeal
+      value: DevineHeal Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8caeb6970ebe814408ed031de7e31cd5, type: 3}
@@ -74,3 +74,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c18d160c0f3ea643badbeaceb48c4ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _namePath: Ability/DevineHeal/Name
+  _descriptionPath: Ability/DevineHeal/Description
