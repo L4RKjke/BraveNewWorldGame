@@ -365,6 +365,7 @@ MonoBehaviour:
   _walkDistance: 1
   _atackDelay: 1
   _speed: 1.2
+  _class: 0
 --- !u!114 &7604797453349662639
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private List<GameObject> _characters;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
+    [SerializeField] private List<HeroPassiveSkills> _heroPassiveSkills;
     [SerializeField] private Transform _pointToCreate;
 
     private List<CharacterData> _charactersData = new List<CharacterData>();
@@ -32,6 +33,14 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
             HeroAppearanceCreater heroAppearanceCreater = _heroAppearanceCreater[_charactersData[i].Class];
             heroAppearanceCreater.CreateAppereance(newCharacter.GetComponent<Appearance>(), _charactersData[i], false);
             newCharacter.transform.localScale = new Vector3(70f, 70f, 1);
+            HeroPassiveSkills heroPassiveSkills = _heroPassiveSkills[_charactersData[i].Class];
+
+            for (int j = 0; j < _charactersData[i].SkillsID.Length; j++)
+            {
+                Ability ability = heroPassiveSkills.GetSkill(_charactersData[i].SkillsID[j]);
+                ability.SetAbility(newCharacter.transform.GetChild(1).GetComponent<Recruit>(), ability.NamePath, ability.DescriptionPath);
+            }
+
             CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
             characterStats.SetName(Lean.Localization.LeanLocalization.GetTranslationText(_charactersData[i].Name));
             characterStats.SetBaseStats(_charactersData[i].Attack, _charactersData[i].Defense, _charactersData[i].Health, _charactersData[i].Magic);

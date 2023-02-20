@@ -28,8 +28,6 @@ public class FinalPanels : MonoBehaviour
 
     public void End(bool isWin)
     {
-        Debug.Log(_totalGold + " " + _totalEXP);
-
         if(isWin)
         {
             _panelWin.gameObject.SetActive(true);

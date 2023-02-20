@@ -18,6 +18,12 @@ public class DamageBoosterAbility : Ability
         _damageBonus = 1.1f;
     }
 
+
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void ActivateAbility()
     {
         _health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damageBonus) - Fighter.Damage);

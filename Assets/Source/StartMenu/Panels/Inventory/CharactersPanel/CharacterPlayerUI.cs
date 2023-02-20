@@ -13,6 +13,7 @@ public class CharacterPlayerUI : MonoBehaviour
     [SerializeField] private CharactersStorage _characterStorage;
     [SerializeField] private TMP_Text _level;
     [SerializeField] private Image _levelBar;
+    [SerializeField] private DescriptionCharacterUI _descriptionCharacterUI;
 
     private GameObject _currentCharacter;
     private int _currentId = 0;
@@ -29,6 +30,9 @@ public class CharacterPlayerUI : MonoBehaviour
     {
         _characterChoice.Init(_characterStorage);
         _currentCharacter = _characterStorage.GetCharacter(0);
+        _descriptionCharacterUI.Init(_currentCharacter.transform.GetChild(1).GetComponents<Ability>().Length);
+        SetAbilitiesDescription(_currentCharacter);
+        _descriptionCharacterUI.SetDescriptionClass(_currentCharacter);
     }
 
     private void Start()
@@ -96,9 +100,13 @@ public class CharacterPlayerUI : MonoBehaviour
 
     private void SetCharacter()
     {
-        _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
+        GameObject character = _characterStorage.GetCharacter(_currentId);
+        _charactersItemUI.UpdateAllButtons(character);
         ShowStats();
-        _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+        _statsUI.UpdateName(character.GetComponent<CharacterStats>().Name);
+
+        SetAbilitiesDescription(character);
+        _descriptionCharacterUI.SetDescriptionClass(character);
 
         _foldingScreen.SetActive(false);
         StopCoroutine(_coroutine);
@@ -131,5 +139,15 @@ public class CharacterPlayerUI : MonoBehaviour
         yield return new WaitForSeconds(delayScreen);
 
         ShowCharacter();
+    }
+
+    private void SetAbilitiesDescription(GameObject character)
+    {
+        Ability[] abilities = character.transform.GetChild(1).GetComponents<Ability>();
+
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            _descriptionCharacterUI.UpdateAbility(i, abilities[i]);
+        }
     }
 }

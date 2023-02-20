@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class TheftAbility : Ability
 {
     private int _targetDamage;
@@ -12,6 +14,11 @@ public class TheftAbility : Ability
     private void OnDisable()
     {
         Fighter.Health.DamageTaken -= OnHealthChanged;
+    }
+
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
+    {
+        throw new System.NotImplementedException();
     }
 
     protected override void ActivateAbility()

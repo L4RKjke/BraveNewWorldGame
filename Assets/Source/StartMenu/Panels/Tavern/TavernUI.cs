@@ -10,6 +10,7 @@ public class TavernUI : RenderUI
     [SerializeField] private List<HeroNamesCreater> _heroNamesCreater;
     [SerializeField] private List<HeroStatsCreater> _heroStatsCreater;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
+    [SerializeField] private List<HeroPassiveSkills> _heroPassiveSkills;
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private GameObject _disclaimer;
@@ -43,30 +44,57 @@ public class TavernUI : RenderUI
         }
     }
 
-    public GameObject AddButton(int id)
+    public GameObject AddButton(int id, bool isLoad = false)
     {
         GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
-        newButton.name = (Container.transform.childCount - 1).ToString();
         GameObject newCharacter = newButton.GetComponentInChildren<TavernCharactersUI>().ShowCharacter(_characters[id]);
-        CharacterStats characterStats = newCharacter.GetComponent<CharacterStats>();
-        _heroStatsCreater[id].CreateStats(characterStats);
-        _heroNamesCreater[id].SetName(characterStats);
+        newButton.name = (Container.transform.childCount - 1).ToString();
         StatsUI statsUI = newButton.GetComponentInChildren<StatsUI>();
         statsUI.Init();
+
+        if (isLoad == false)
+        CharacterCreate(newCharacter, newButton, id);
+
+        return newButton;
+    }
+
+    public void AddListenerBuy(GameObject button, CharacterData characterData)
+    {
+        Button temp = button.GetComponentInChildren<Button>();
+        temp.onClick.AddListener(delegate { TrySellCharacter(button, characterData); });
+        temp.transform.GetChild(temp.transform.childCount - 1).gameObject.SetActive(true);
+    }
+
+    private void CharacterCreate(GameObject character, GameObject button, int id)
+    {
+
+        CharacterData characterData = new CharacterData();
+        CharacterStats characterStats = character.GetComponent<CharacterStats>();
+
+        _heroStatsCreater[id].CreateStats(characterStats);
+        _heroNamesCreater[id].SetName(characterStats, characterData);
+        _heroAppearanceCreater[id].CreateAppereance(character.GetComponent<Appearance>(), characterData);
+        _heroPassiveSkills[id].SetSkills(character.transform.GetChild(1).gameObject.GetComponent<Recruit>(), characterData);
+
+        StatsUI statsUI = button.GetComponentInChildren<StatsUI>();
         statsUI.UpdateName(characterStats.Name);
         statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
 
-        CharacterData characterData = new CharacterData();
-        _heroAppearanceCreater[id].CreateAppereance(newCharacter.GetComponent<Appearance>(), characterData);
-        characterData.SetStats(characterStats.Name, characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
+        AbilitiesUI abilitiesUI = button.GetComponentInChildren<AbilitiesUI>();
+        Ability[] abilities = character.transform.GetChild(1).gameObject.GetComponents<Ability>();
+        abilitiesUI.Init(abilities.Length);
+
+        for (int i = 0; i < abilities.Length; i++)
+        {
+            abilitiesUI.UpdateAbility(i, abilities[i]);
+        }
+
+
+        characterData.SetStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
         characterData.SetClass(id);
         _tavernSaveLoad.AddData(characterData);
 
-        Button temp = newButton.GetComponentInChildren<Button>();
-        temp.onClick.AddListener(delegate { TrySellCharacter(newButton, characterData); });
-        temp.transform.GetChild(temp.transform.childCount - 1).gameObject.SetActive(true);
-
-        return newButton;
+        AddListenerBuy(button,characterData);
     }
 
     private void UpdateTavern()

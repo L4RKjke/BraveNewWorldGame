@@ -16,6 +16,12 @@ public class DamageAbility : Ability
         _health = GetComponent<Health>();
     }
 
+
+    public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
+    {
+        throw new System.NotImplementedException();
+    }
+
     protected override void ActivateAbility()
     {
         _health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damageBonus) - Fighter.Damage);

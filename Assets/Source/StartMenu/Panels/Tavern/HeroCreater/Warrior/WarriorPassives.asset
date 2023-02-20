@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23731636b1f389c41ba050b589a7f169, type: 3}
+  m_Name: WarriorPassives
+  m_EditorClassIdentifier: 
+  _abilities:
+  - {fileID: 8825403221439442781, guid: 3f0f9840c9222284d87044095556931d, type: 3}
+  - {fileID: 506684392141690540, guid: 211410d9f8c63b745bb4e5761f498b30, type: 3}
+  - {fileID: 8985209778533168385, guid: 02a7e5d979adb3948900738f2512f440, type: 3}
+  - {fileID: -8434855976954859634, guid: 90a94e5d5b39e3640855d27deff2696e, type: 3}
+  - {fileID: 2129816545004731165, guid: 541939f9c3b1d954f8ad4bbad58958dd, type: 3}
+  - {fileID: 5073755227287373445, guid: 22d3e081024db114b82d0432910f4e77, type: 3}
+  - {fileID: 2575911360184635137, guid: 85fd5f0d62e116f419ec6d92c3a7a497, type: 3}

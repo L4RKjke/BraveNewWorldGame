@@ -50,7 +50,7 @@ public class CharacterHeadButton : MonoBehaviour
     }
 
     public void SetNameAndLevel(string name, int level)
-    { 
+    {
         _name.text = name;
         _level.text = level.ToString();
     }
