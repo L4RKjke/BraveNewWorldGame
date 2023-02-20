@@ -9,7 +9,7 @@ public abstract class Task : MonoBehaviour
 
     public UnityAction<Task> TaskActivated;
 
-    public string Destription => _destription;
+    public string Destription => Lean.Localization.LeanLocalization.GetTranslationText(_destription);
 
     protected Vector2 TargetPosition;
 

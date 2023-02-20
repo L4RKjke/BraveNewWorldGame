@@ -725,7 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 7002425103878821289}
-  _fighter: {fileID: 0}
+  _fighter: {fileID: 6405755644937952821}
 --- !u!1 &2810666397117451731
 GameObject:
   m_ObjectHideFlags: 0
