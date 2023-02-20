@@ -123,6 +123,60 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &29815365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 29815366}
+  - component: {fileID: 29815367}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &29815366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29815365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 160
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &29815367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29815365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Enter the arena for your first fight.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u043D\u0430 \u0430\u0440\u0435\u043D\u0443,
+      \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438
+      \u0441\u0432\u043E\u0439 \u043F\u0435\u0440\u0432\u044B\u0439 \u0431\u043E\u0439."
+    Object: {fileID: 0}
 --- !u!1 &41332563
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,6 +997,8 @@ GameObject:
   - component: {fileID: 181919881}
   - component: {fileID: 181919883}
   - component: {fileID: 181919882}
+  - component: {fileID: 181919884}
+  - component: {fileID: 181919885}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -990,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tap to continue...
+  m_text: Tap to continue ---
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
   m_sharedMaterial: {fileID: 5416806443266638455, guid: d70f485aa27dc43f79a8fd168f58435c, type: 2}
@@ -1067,6 +1123,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181919880}
   m_CullTransparentMesh: 1
+--- !u!114 &181919884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181919880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Font
+  FallbackFont: {fileID: 0}
+--- !u!114 &181919885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 181919880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Assistant/TapToContinue
+  FallbackText: 
 --- !u!1 &205087358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1457,6 +1541,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0.059753418, y: -29.399994}
   m_SizeDelta: {x: 859.8805, y: 335.2}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &217985915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 217985916}
+  - component: {fileID: 217985917}
+  m_Layer: 0
+  m_Name: Assistant/TapToContinue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &217985916
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217985915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 164
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &217985917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217985915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B
+      \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Tap to continue...
+    Object: {fileID: 0}
 --- !u!1 &254285575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1954,6 +2091,59 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+--- !u!1 &324041378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324041379}
+  - component: {fileID: 324041380}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &324041379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324041378}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 152
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &324041380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324041378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Update the items in the store.
+    Object: {fileID: 0}
 --- !u!1 &335905182
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,6 +2279,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 335905182}
   m_CullTransparentMesh: 1
+--- !u!1 &350005960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 350005961}
+  - component: {fileID: 350005962}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &350005961
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350005960}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 157
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &350005962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350005960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Now you can improve your other items.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0422\u0435\u043F\u0435\u0440\u044C \u043C\u043E\u0436\u0435\u0442\u0435
+      \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0434\u0440\u0443\u0433\u0438\u0435
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+    Object: {fileID: 0}
 --- !u!1 &365053055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8216304480146865944, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
@@ -2348,7 +2592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495d3beb116caf0479827ce236119ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u0442\u0430\u0432\u0435\u0440\u043D\u0443."
+  _destription: Assistant/Task/Task5
   _transitions:
   - {fileID: 413791443}
   _sloseButton: {fileID: 1871179301}
@@ -2381,8 +2625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7d385aac15d0f4da15fc1f21d6d888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u0431\u043E\u0439\u0446\u043E\u0432
-    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+  _destription: Assistant/Task/Task4
   _transitions:
   - {fileID: 413791423}
   _updateButton: {fileID: 509311456}
@@ -2414,7 +2657,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38098f910ffa04741a2b900befe7b3a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u043E\u0438\u043D\u0430."
+  _destription: Assistant/Task/Task3
   _transitions:
   - {fileID: 413791425}
   _updateButton: {fileID: 509311456}
@@ -2542,7 +2785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495d3beb116caf0479827ce236119ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u043C\u0430\u0433\u0430\u0437\u0438\u043D."
+  _destription: Assistant/Task/Task10
   _transitions:
   - {fileID: 413791449}
   _sloseButton: {fileID: 310148264}
@@ -2576,8 +2819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90eafe4b409fa14299d6ed273e5a069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
-    \u0435\u0449\u0435 \u0440\u0430\u0437."
+  _destription: Assistant/Task/Task9
   _transitions:
   - {fileID: 413791435}
   _buttonUpdate: {fileID: 296912572}
@@ -2608,8 +2850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba7d385aac15d0f4da15fc1f21d6d888, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
-    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+  _destription: Assistant/Task/Task8
   _transitions:
   - {fileID: 413791437}
   _updateButton: {fileID: 296912572}
@@ -2642,8 +2883,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d90eafe4b409fa14299d6ed273e5a069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
-    \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+  _destription: Assistant/Task/Task7
   _transitions:
   - {fileID: 413791439}
   _buttonUpdate: {fileID: 296912572}
@@ -2674,7 +2914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 007f6bfed27620145bd0b54c035938ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D"
+  _destription: Assistant/Task/Task6
   _transitions:
   - {fileID: 413791441}
   _shop: {fileID: 1138233391}
@@ -2706,9 +2946,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 495d3beb116caf0479827ce236119ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0422\u0435\u043F\u0435\u0440\u044C \u043C\u043E\u0436\u0435\u0442\u0435
-    \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0434\u0440\u0443\u0433\u0438\u0435
-    \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+  _destription: Assistant/Task/Task13
   _transitions:
   - {fileID: 413791455}
   _sloseButton: {fileID: 1510547675}
@@ -2741,10 +2979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6cdb96249964e4b97a1d0c99c8a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
-    \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B: \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435
-    2 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430
-    \u0432 \u043B\u0435\u0432\u043E\u0435 \u043E\u043A\u043D\u043E."
+  _destription: Assistant/Task/Task12
   _transitions:
   - {fileID: 413791445}
   _enchance: {fileID: 6119958061995875405}
@@ -2775,9 +3010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4d916940e623e43b4d4ce3bdd16157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0417\u0430\u0433\u043B\u044F\u043D\u0438\u0442\u0435 \u0432 \u043C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0443\u044E,
-    \u0447\u0442\u043E\u0431\u044B \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
-    \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+  _destription: Assistant/Task/Task11
   _transitions:
   - {fileID: 413791447}
   _forgeButton: {fileID: 758870685}
@@ -2809,9 +3042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7eeae85acae2c64dbc5a7a25476a26f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u043D\u0430 \u0430\u0440\u0435\u043D\u0443,
-    \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438
-    \u0441\u0432\u043E\u0439 \u043F\u0435\u0440\u0432\u044B\u0439 \u0431\u043E\u0439."
+  _destription: Assistant/Task/Task16
   _transitions:
   - {fileID: 413791457}
   _arena: {fileID: 1971524533}
@@ -2843,12 +3074,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2252f77f3796a042b6b8ffd573703ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0412 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u0435 \u0432\u044B
-    \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043D\u0430\u0440\u044F\u0436\u0430\u0442\u044C
-    \u0432\u0430\u0448\u0438\u0445 \u0440\u0435\u043A\u0440\u0443\u0442\u043E\u0432.
-    \u0414\u043B\u044F \u044D\u0442\u043E\u0433\u043E \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435
-    \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043D\u0430\u0440\u044F\u0436\u0435\u043D\u0438\u044F
-    \u043D\u0430 \u0431\u043E\u0439\u0446\u0430."
+  _destription: Assistant/Task/Task15
   _transitions:
   - {fileID: 413791451}
   _inventory: {fileID: 3889776194468193893}
@@ -2878,7 +3104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12544aef35a3249853fa8ab3661388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041F\u0435\u0440\u0435\u0439\u0434\u0438\u0442\u0435 \u0432 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C."
+  _destription: Assistant/Task/Task14
   _transitions:
   - {fileID: 413791453}
   _inventory: {fileID: 1582364191}
@@ -2910,9 +3136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1bd18ffd62c78346b2411ac4e5f903b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0435\u0440\u0435\u0442\u0430\u0441\u043A\u0438\u0432\u0430\u0442\u044C
-    \u0441\u0432\u043E\u0438\u0445 \u0431\u043E\u0439\u0446\u043E\u0432 \u043D\u0430
-    \u0434\u0440\u0443\u0433\u0438\u0435 \u043A\u043B\u0435\u0442\u043A\u0438."
+  _destription: Assistant/Task/Task17
   _transitions:
   - {fileID: 413791459}
   _dragAnimation: {fileID: 937427769}
@@ -2956,9 +3180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea917a2c0d3217c49a52be552477e086, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443
-    \u0441\u0442\u0430\u0440\u0442\u0430, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C
-    \u0431\u043E\u0439."
+  _destription: Assistant/Task/Task19
   _transitions: []
   _animator: {fileID: 41332569}
 --- !u!114 &413791461
@@ -2987,9 +3209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde307911d6be1541858a6d6c84b6e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: "\u0411\u0435\u0440\u0435\u0434 \u0431\u043E\u0435\u043C \u043C\u043E\u0436\u043D\u043E
-    \u043C\u0435\u043D\u044F\u0442\u044C \u0441\u043E\u0441\u0442\u0430\u0432 \u0432\u0430\u0448\u0435\u0433\u043E
-    \u043E\u0442\u0440\u044F\u0434\u0430."
+  _destription: Assistant/Task/Task18
   _transitions:
   - {fileID: 413791461}
   _arrow: {fileID: 302179419}
@@ -3359,6 +3579,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &513174083
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 513174084}
+  - component: {fileID: 513174085}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &513174084
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513174083}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 154
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &513174085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513174083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u043C\u0430\u0433\u0430\u0437\u0438\u043D."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Close up store.
+    Object: {fileID: 0}
 --- !u!1 &523267277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,6 +3794,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bc62875e647d7e4d9a9464984a1f5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &582891212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582891213}
+  - component: {fileID: 582891214}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582891213
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582891212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 156
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582891214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582891212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B:
+      \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 2 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445
+      \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u0435\u0432\u043E\u0435
+      \u043E\u043A\u043D\u043E."
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Try to improve your items: drag two identical items to the left window.'
+    Object: {fileID: 0}
+--- !u!1 &602078560
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 602078561}
+  - component: {fileID: 602078562}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task19
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &602078561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602078560}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 163
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &602078562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602078560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043A\u043D\u043E\u043F\u043A\u0443
+      \u0441\u0442\u0430\u0440\u0442\u0430, \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C
+      \u0431\u043E\u0439."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Press the start button to start the battle.
+    Object: {fileID: 0}
 --- !u!1 &639974333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6889840699053167165, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
@@ -4872,6 +5254,64 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
+--- !u!1 &897255136
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 897255137}
+  - component: {fileID: 897255138}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &897255137
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897255136}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 159
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &897255138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 897255136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u0435 \u0432\u044B
+      \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043D\u0430\u0440\u044F\u0436\u0430\u0442\u044C
+      \u0432\u0430\u0448\u0438\u0445 \u0440\u0435\u043A\u0440\u0443\u0442\u043E\u0432.
+      \u0414\u043B\u044F \u044D\u0442\u043E\u0433\u043E \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435
+      \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043D\u0430\u0440\u044F\u0436\u0435\u043D\u0438\u044F
+      \u043D\u0430 \u0431\u043E\u0439\u0446\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: In the inventory you can equip your recruits. To do this, drag an item
+      of equipment onto the fighter.
+    Object: {fileID: 0}
 --- !u!1 &937427769
 GameObject:
   m_ObjectHideFlags: 0
@@ -5398,6 +5838,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982452698}
   m_CullTransparentMesh: 1
+--- !u!1 &1013232159
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1013232160}
+  - component: {fileID: 1013232161}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1013232160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013232159}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 151
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1013232161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013232159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Buy all the items in the store.
+    Object: {fileID: 0}
 --- !u!1001 &1013703236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5798,6 +6291,60 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!1 &1113610129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113610130}
+  - component: {fileID: 1113610131}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1113610130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113610129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 161
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1113610131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113610129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0435\u0440\u0435\u0442\u0430\u0441\u043A\u0438\u0432\u0430\u0442\u044C
+      \u0441\u0432\u043E\u0438\u0445 \u0431\u043E\u0439\u0446\u043E\u0432 \u043D\u0430
+      \u0434\u0440\u0443\u0433\u0438\u0435 \u043A\u043B\u0435\u0442\u043A\u0438."
+    Object: {fileID: 0}
+  - Language: English
+    Text: You can drag your fighters to other squares.
+    Object: {fileID: 0}
 --- !u!1 &1124828936
 GameObject:
   m_ObjectHideFlags: 0
@@ -6657,6 +7204,60 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295338055}
   m_CullTransparentMesh: 1
+--- !u!1 &1335847037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1335847038}
+  - component: {fileID: 1335847039}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1335847038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335847037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 155
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1335847039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335847037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u0433\u043B\u044F\u043D\u0438\u0442\u0435 \u0432 \u043C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0443\u044E,
+      \u0447\u0442\u043E\u0431\u044B \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Stop by the workshop to improve your items.
+    Object: {fileID: 0}
 --- !u!1 &1348003713
 GameObject:
   m_ObjectHideFlags: 0
@@ -7068,6 +7669,58 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1413526286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1413526287}
+  - component: {fileID: 1413526288}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1413526287
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413526286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 158
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413526288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413526286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Go to your inventory.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0435\u0440\u0435\u0439\u0434\u0438\u0442\u0435 \u0432 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C."
+    Object: {fileID: 0}
 --- !u!1 &1417815044
 GameObject:
   m_ObjectHideFlags: 0
@@ -7251,6 +7904,60 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1486305720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1486305721}
+  - component: {fileID: 1486305722}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task18
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1486305721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486305720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 162
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1486305722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1486305720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041F\u0435\u0440\u0435\u0434 \u0431\u043E\u0435\u043C \u043C\u043E\u0436\u043D\u043E
+      \u043C\u0435\u043D\u044F\u0442\u044C \u0441\u043E\u0441\u0442\u0430\u0432 \u0432\u0430\u0448\u0435\u0433\u043E
+      \u043E\u0442\u0440\u044F\u0434\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: You can change the composition of your squad before battle.
+    Object: {fileID: 0}
 --- !u!224 &1510547674 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2311841711634642670, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
@@ -8090,6 +8797,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1709472892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1709472893}
+  - component: {fileID: 1709472894}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1709472893
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709472892}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 149
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1709472894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1709472892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u0442\u0430\u0432\u0435\u0440\u043D\u0443."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Close the tavern.
+    Object: {fileID: 0}
 --- !u!224 &1712917671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
@@ -8598,7 +9357,7 @@ GameObject:
   - component: {fileID: 1787506975}
   - component: {fileID: 1787506974}
   m_Layer: 5
-  m_Name: Backfround
+  m_Name: Backgraund
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8663,6 +9422,58 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787506972}
   m_CullTransparentMesh: 1
+--- !u!1 &1793452327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1793452328}
+  - component: {fileID: 1793452329}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1793452328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793452327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 150
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1793452329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793452327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Go to the store.
+    Object: {fileID: 0}
 --- !u!1 &1799273001
 GameObject:
   m_ObjectHideFlags: 0
@@ -8729,6 +9540,58 @@ Transform:
   m_Father: {fileID: 548583043}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1813786611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1813786612}
+  - component: {fileID: 1813786613}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1813786612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813786611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 147
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1813786613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813786611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Buy a warrior
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u043E\u0438\u043D\u0430."
+    Object: {fileID: 0}
 --- !u!1 &1858177174
 GameObject:
   m_ObjectHideFlags: 0
@@ -9678,6 +10541,59 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1970376456
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970376457}
+  - component: {fileID: 1970376458}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970376457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970376456}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 148
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1970376458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970376456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Upgrade the fighters in the store.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u0431\u043E\u0439\u0446\u043E\u0432
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
 --- !u!224 &1971524531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2553223762286896889, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
@@ -10215,6 +11131,59 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &2071895569
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2071895570}
+  - component: {fileID: 2071895571}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2071895570
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071895569}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2528865018763576171}
+  m_RootOrder: 153
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2071895571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071895569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0435\u0449\u0435 \u0440\u0430\u0437."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Buy all the items again.
+    Object: {fileID: 0}
 --- !u!114 &2083955334 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3332687803140477363, guid: 20d44fb991b7a604aa00bbaac7b1d18d, type: 3}
@@ -11578,6 +12547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5300a382e64c17478453e9e7999fb3c, type: 3}
+--- !u!4 &2528865018763576171 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7324509041722939373, guid: e5300a382e64c17478453e9e7999fb3c, type: 3}
+  m_PrefabInstance: {fileID: 2528865018763576170}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2549584923663810920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14710,7 +15684,7 @@ GameObject:
   - component: {fileID: 1480535745532270801}
   - component: {fileID: 2549584923663810920}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: BackPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
