@@ -10,7 +10,8 @@ public class PanelLose : PanelRewards
     public void SetRewards(int gold, int exp, int currentLevel, int openedLevel)
     {
         gold = GetLevelReward(gold, currentLevel, openedLevel);
-        _reward.text = gold + " gold and " + exp + " total exp";
+        _reward.text = gold + Lean.Localization.LeanLocalization.GetTranslationText("Common/GoldAnd") + exp
+            + Lean.Localization.LeanLocalization.GetTranslationText("Common/TotalExp");
         AddRewards(gold);
     }
 }

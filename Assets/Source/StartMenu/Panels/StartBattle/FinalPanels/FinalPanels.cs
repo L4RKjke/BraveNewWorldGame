@@ -28,19 +28,20 @@ public class FinalPanels : MonoBehaviour
 
     public void End(bool isWin)
     {
-        if(isWin)
+        if (isWin)
         {
             _panelWin.gameObject.SetActive(true);
             _panelWin.SetExpirience(_totalEXP);
             _panelWin.SetGoldAndCrystals(_totalGold,_panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
             _progress.LevelComplete();
+            Debug.Log("Win");
         }
         else
         {
             int losePercent = 3;
-            _totalEXP /= losePercent;
             _panelLose.gameObject.SetActive(true);
-            _panelLose.SetRewards(_totalGold / losePercent, _totalEXP, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            _panelLose.SetRewards(_totalGold / losePercent, _totalEXP / losePercent, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            Debug.Log("Lose");
         }
 
         for(int i = 0; i < _charactersID.Count; i++)

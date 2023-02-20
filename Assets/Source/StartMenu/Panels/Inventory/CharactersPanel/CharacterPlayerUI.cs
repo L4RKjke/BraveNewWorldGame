@@ -11,8 +11,7 @@ public class CharacterPlayerUI : MonoBehaviour
     [SerializeField] private StatsUI _statsUI;
     [SerializeField] private CharacterChoiceUI _characterChoice;
     [SerializeField] private CharactersStorage _characterStorage;
-    [SerializeField] private TMP_Text _level;
-    [SerializeField] private Image _levelBar;
+    [SerializeField] private LevelUI _level;
     [SerializeField] private DescriptionCharacterUI _descriptionCharacterUI;
 
     private GameObject _currentCharacter;
@@ -33,13 +32,12 @@ public class CharacterPlayerUI : MonoBehaviour
         _descriptionCharacterUI.Init(_currentCharacter.transform.GetChild(1).GetComponents<Ability>().Length);
         SetAbilitiesDescription(_currentCharacter);
         _descriptionCharacterUI.SetDescriptionClass(_currentCharacter);
+        _statsUI.Init();
     }
 
     private void Start()
     {
         _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
-        _statsUI.Init();
-        ShowStats();
         _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
     }
 
@@ -54,6 +52,10 @@ public class CharacterPlayerUI : MonoBehaviour
             _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
             ShowStats();
             _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
+        }
+        else if(_currentCharacter != null)
+        {
+            ShowStats();
         }
     }
 
@@ -116,10 +118,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void ShowStats()
     {
         CharacterStats characterStats = _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>();
-        _level.text = characterStats.Level.ToString();
-        float expTemp = characterStats.Exp;
-        float fill = (expTemp - ((characterStats.Level - 1) * characterStats.ExpPerLevel)) / characterStats.ExpPerLevel;
-        _levelBar.fillAmount = fill;
+        _level.SetLevel(characterStats);
         _statsUI.UpdateAllStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);
     }
 
