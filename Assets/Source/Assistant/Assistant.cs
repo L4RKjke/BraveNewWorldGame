@@ -41,7 +41,7 @@ public class Assistant : MonoBehaviour
 
     private IEnumerator ShowText(string text)
     {
-        float delay = 0.022f;
+        float delay = 0.015f;
         int index = 0;
 
         _TMPro.text = "";

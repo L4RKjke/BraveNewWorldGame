@@ -13,7 +13,9 @@ public class CloseButtonTask : AssistantTask
         _sloseButton.interactable = true;
         ShowMessage(this);
         _arrow.gameObject.SetActive(true);
-        _blockPanel.SetActive(true);
+
+        if (_blockPanel != null)
+            _blockPanel.SetActive(true);
     }
 
     private void OnDisable()
