@@ -143,7 +143,7 @@ public class AnimationCotroller : MonoBehaviour
 
     private void ShowDamageEffect(int damage)
     {
-        if (this != null && _unit.CurrentTarget != null)
-            Instantiate(_hitEffect, _unit.CurrentTarget.transform.position, Quaternion.identity);
+        if (this != null && _unit != null)
+            Instantiate(_hitEffect, _unit.transform.position, Quaternion.identity);
     }
 }
