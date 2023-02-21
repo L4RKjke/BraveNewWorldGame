@@ -10,6 +10,9 @@ public class Fire : MonoBehaviour
     private float _playTime = 0;
     private float _damageDelay = 0.1f;
     private float _damageScaler;
+    private float _damageBonus = 5;
+    private Fighter _target;
+    private Transform _firePoint;
 
     private void Start()
     {
@@ -26,12 +29,14 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-        
+        if (_fireParticles.isPlaying && _target != null && _firePoint != null)
+            transform.parent.rotation = Quaternion.Euler(0, 0, GetAngle(_target, _firePoint) - 180);
     }
 
     public void StartFire(int damage, Fighter target, Transform firePoint)
     {
-        transform.parent.rotation = Quaternion.Euler(GetAngle(target, firePoint), 90, 0);
+        _target = target;
+        _firePoint = firePoint;
 
         _fireParticles.Play();
 
@@ -43,7 +48,8 @@ public class Fire : MonoBehaviour
 
     private IEnumerator Burn(int damage, Fighter target)
     {
-        var fireDamage = Mathf.FloorToInt(damage / _damageScaler);
+        var fireDamage = Mathf.FloorToInt(damage*_damageBonus / _damageScaler);
+        var c = 0;
 
         while (_fireParticles.isPlaying)
         {
