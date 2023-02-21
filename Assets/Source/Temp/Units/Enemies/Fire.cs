@@ -11,7 +11,7 @@ public class Fire : MonoBehaviour
     private float _damageDelay = 0.1f;
     private float _damageScaler;
 
-    private void OnEnable()
+    private void Start()
     {
         _fireParticles = GetComponent<ParticleSystem>();
         _playTime = _fireParticles.main.duration;
@@ -24,9 +24,14 @@ public class Fire : MonoBehaviour
             StopCoroutine(_fireRoutine);
     }
 
+    private void Update()
+    {
+        
+    }
+
     public void StartFire(int damage, Fighter target, Transform firePoint)
     {
-        transform.rotation = Quaternion.Euler(GetAngle(target, firePoint), 0, 0);
+        transform.parent.rotation = Quaternion.Euler(GetAngle(target, firePoint), 90, 0);
 
         _fireParticles.Play();
 
@@ -38,13 +43,14 @@ public class Fire : MonoBehaviour
 
     private IEnumerator Burn(int damage, Fighter target)
     {
-        var fireDamage = Mathf.FloorToInt(damage * _damageScaler);
+        var fireDamage = Mathf.FloorToInt(damage / _damageScaler);
 
         while (_fireParticles.isPlaying)
         {
             yield return new WaitForSeconds(_damageDelay);
 
-            target.Health.TakeDamage(fireDamage);
+            if (target != null)
+                target.Health.TakeDamage(fireDamage);
         }    
     }
 

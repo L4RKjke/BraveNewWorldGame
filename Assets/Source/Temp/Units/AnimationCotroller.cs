@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,7 +24,6 @@ public class AnimationCotroller : MonoBehaviour
     private readonly string _atackAnimation = "Atack";
     private readonly string _atackLeftAnimation = "AtackLeft";
 
-
     protected Fighter CurrentUnit => _unit;
 
     protected Animator Animator { get; private set; }
@@ -38,7 +36,7 @@ public class AnimationCotroller : MonoBehaviour
     {
         Animator = GetComponent<Animator>();
         _unit.Health.Died += OnUnitDied;
-        AtackCompleted += ShowDamageEffect;
+        _unit.Health.Damaged += ShowDamageEffect;
 
         if (CurrentUnit != null)
         {
@@ -72,7 +70,7 @@ public class AnimationCotroller : MonoBehaviour
 
     private void OnDisable()
     {
-        AtackCompleted -= ShowDamageEffect;
+        _unit.Health.Damaged -= ShowDamageEffect;
 
         if (_unit.Health != null)
         {
@@ -143,7 +141,7 @@ public class AnimationCotroller : MonoBehaviour
         }
     }
 
-    private void ShowDamageEffect()
+    private void ShowDamageEffect(int damage)
     {
         if (this != null && _unit.CurrentTarget != null)
             Instantiate(_hitEffect, _unit.CurrentTarget.transform.position, Quaternion.identity);

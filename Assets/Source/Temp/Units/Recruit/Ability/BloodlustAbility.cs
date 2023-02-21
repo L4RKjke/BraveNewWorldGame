@@ -1,18 +1,18 @@
 using UnityEngine;
-
-public class BloodlustAbility : Ability
+// каждый удар увеличивает здоровье на <_damageFactor>% от значения нанесенного урона
+public class BloodlustAbility : DamageAbility
 {
-    // каждый удар хилит на 25% от значения нанесенного урона
-    private readonly int _damageValue = 4;
+    private readonly float _damageFactor = 0.25f;
+    private int _damageTaken = 0;
 
-    private void OnEnable()
+    private void Start()
     {
-        Fighter.Health.DamageTaken += OnHealthChanged;
+        Fighter.Health.Damaged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        Fighter.Health.DamageTaken -= OnHealthChanged;
+        Fighter.Health.Damaged -= OnHealthChanged;
     }
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
@@ -23,11 +23,14 @@ public class BloodlustAbility : Ability
 
     protected override void ActivateAbility()
     {
-        Fighter.Health.Heal(Fighter.Damage / _damageValue);       
+        var healValue = Mathf.FloorToInt(_damageTaken * _damageFactor); 
+
+        Fighter.Health.Heal(healValue);       
     }
 
-    private void OnHealthChanged()
+    private void OnHealthChanged(int damage)
     {
+        _damageTaken = damage;
         ActivateAbility();
     }
 }

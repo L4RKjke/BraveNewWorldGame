@@ -1,23 +1,18 @@
 using UnityEngine;
-
-public class DamageBoosterAbility : Ability
+// Дополнительный урон при атаках: <_damageBonus>%
+public class DamageBoosterAbility : DamageAbility
 {
-    private Health _health;
-    private float _damageBonus = 1.1f;
+    private float _damageBonus = 0.1f;
 
-    private void OnEnable()
+    protected void Start()
     {
-/*        if (TryGetComponent(out MeleeState meleeState))
-            meleeState.AtackCompleted += ActivateAbility;*/
-
-        _health = GetComponent<Health>();
+        AttackState.AtackCompleted += ActivateAbility;
     }
 
     private void OnDisable()
     {
-        _damageBonus = 1.1f;
+        AttackState.AtackCompleted -= ActivateAbility;
     }
-
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
@@ -26,7 +21,9 @@ public class DamageBoosterAbility : Ability
 
     protected override void ActivateAbility()
     {
-        _health.TakeDamage(Mathf.FloorToInt(Fighter.Damage * _damageBonus) - Fighter.Damage);
+        int damage = Mathf.FloorToInt(Fighter.Damage * _damageBonus);
+
+        Fighter.CurrentTarget.Health.TakeDamage(damage);
         _damageBonus += 0.1f;
     }
 }

@@ -11,25 +11,20 @@ public class Arena:  MonoBehaviour
     [SerializeField] private SquadHealthbar _playerHealthbar;
     [SerializeField] private SquadHealthbar _enemyHealthbar;
     [SerializeField] private FinalPanels _finalPanels;
-
-    private UnityAction<FighterType> _battleEnded;
+    [SerializeField] private SquadHealthbar _PlayerHealthbar;
+    [SerializeField] private SquadHealthbar _EnemyHealthbar;
 
     private void OnEnable()
     {
         _startButton.SetActive(true);
-        _pool.SquadLose += PickWinner;
-        _battleEnded += EndBattle;
+        _PlayerHealthbar.HealthOver += OnEnemyWin;
+        _EnemyHealthbar.HealthOver += OnPlayerWin;
     }
 
     private void OnDisable()
     {
-        _pool.SquadLose -= PickWinner;
-        _battleEnded -= EndBattle;
-    }
-
-    public void OnStart()
-    {
-       /*_canvasBar.SetActive(true);*/
+        _PlayerHealthbar.HealthOver -= OnEnemyWin;
+        _EnemyHealthbar.HealthOver -= OnPlayerWin;
     }
 
     public void OnStartButtonClick()
@@ -52,27 +47,15 @@ public class Arena:  MonoBehaviour
         _timer.StartTimer();
     }
 
-    private void PickWinner(FighterType type)
-        {
-        FighterType result;
-
-        if (type == FighterType.Recruit)
-            result = FighterType.Enemy;
-        else
-            result = FighterType.Recruit;
-
-        _battleEnded?.Invoke(result);
-        }
-
-    private void EndBattle(FighterType type)
+    private void OnPlayerWin()
     {
-        if (type == FighterType.Recruit)
-            _finalPanels.End(true);
-        else
-            _finalPanels.End(false);
+        _finalPanels.End(true);
+        _timer.StopTimer();
+    }
 
-        /*_canvasBar.SetActive(false);*/
-
+    private void OnEnemyWin()
+    {
+        _finalPanels.End(false);
         _timer.StopTimer();
     }
 }

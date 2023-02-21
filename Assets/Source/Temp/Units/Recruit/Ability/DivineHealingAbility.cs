@@ -1,15 +1,10 @@
-using UnityEngine;
-
+// Восстанавливает здорье, если оно опустилось ниже <_healthPercent>%
 public class DivineHealingAbility: Ability
 {
-    /*если здоровье опустилось ниже 20 процентов, хилит до 100*/
-    private bool _isActivated = false;
+    private readonly float _healthPercent = 0.2f;
 
-    private readonly float _healValue = 0.2f;
-
-    private void OnEnable()
+    private void Start()
     {
-        _isActivated = false;
         Fighter.Health.HealthChanged += OnHealthChanged;
     }
 
@@ -29,12 +24,14 @@ public class DivineHealingAbility: Ability
         Fighter.Health.Heal(Fighter.Health.MaxHealth);
     }
 
-    private void OnHealthChanged(int health)
+    private void OnHealthChanged(int currentHealth)
     {
-        if (health < Fighter.Health.MaxHealth * _healValue && _isActivated == false)
+        var PersentOfMaxHealth = Fighter.Health.MaxHealth * _healthPercent;
+
+        if (currentHealth < PersentOfMaxHealth)
         {
             ActivateAbility();
-            _isActivated = true;
+            Fighter.Health.HealthChanged -= OnHealthChanged;
         }
     }
 }

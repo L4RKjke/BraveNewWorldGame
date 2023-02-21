@@ -1,17 +1,19 @@
 using System;
 using UnityEngine;
 
-public class UnlukaAbility : Ability
+public class UnlukaAbility : DamageAbility
 {
-    //¬ы получаете на 10 процентов больше урона
-    private void OnEnable()
+    // аждый удар дополнительно отнимает <_damageReducer>% жизней врага, также наносите урон себе, равный <_damageReducer>% от максимального уровн€ здоровь€.
+    private float _damageReducer = 0.1f;
+
+    private void Start()
     {
-        Fighter.Health.DamageTaken += ActivateAbility;
+        AttackState.AtackCompleted += ActivateAbility;
     }
 
     private void OnDisable()
     {
-        Fighter.Health.DamageTaken -= ActivateAbility;
+        AttackState.AtackCompleted -= ActivateAbility;
     }
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
@@ -22,7 +24,15 @@ public class UnlukaAbility : Ability
 
     protected override void ActivateAbility()
     {
-        var damage = Fighter.Health.MaxHealth * 0.1f;
-        Fighter.Health.TakeDamage((int)damage);
+        var damage = Mathf.FloorToInt(Fighter.CurrentTarget.Health.MaxHealth * _damageReducer);
+
+        Fighter.CurrentTarget.Health.TakeDamage(damage);
+        HurtYourself();
+    }
+
+    private void HurtYourself()
+    {
+        var damage = Mathf.FloorToInt(Fighter.Health.MaxHealth * _damageReducer);
+        Fighter.Health.TakeDamage(damage);
     }
 }
