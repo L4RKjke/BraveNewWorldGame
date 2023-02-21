@@ -1,4 +1,4 @@
-// Восстанавливает здорье, если оно опустилось ниже <_healthPercent>%
+// Восстанавливает здоровье, если оно опустилось ниже <_healthPercent>%
 public class DivineHealingAbility: Ability
 {
     private readonly float _healthPercent = 0.2f;
