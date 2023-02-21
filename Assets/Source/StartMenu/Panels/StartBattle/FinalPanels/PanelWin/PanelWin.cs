@@ -27,7 +27,7 @@ public class PanelWin : PanelRewards
 
     public void SetExpirience(int exp)
     {
-        _exp.text = Lean.Localization.LeanLocalization.GetTranslationText("Common/EXP") + exp;
+        _exp.text = "EXP " + exp;
     }
 
     private void SetLevelComplete(int currentLevel)

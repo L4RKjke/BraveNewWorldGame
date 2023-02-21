@@ -20,6 +20,17 @@ public static class BinarySavingSystem
         }
     }
 
+    public static bool CheckSaves()
+    {
+        bool isCreated = true;
+        string pathSave = Application.persistentDataPath + "/save.b";
+
+        if (File.Exists(pathSave) == false)
+            isCreated = false;
+
+        return isCreated;
+    }
+
     private static void CreateDirectory(string path)
     {
         DirectoryInfo directiryInfo = new DirectoryInfo(path);

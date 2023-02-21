@@ -42,14 +42,8 @@ public class HealAbillity : Ability
 
     private IEnumerator Heal()
     {
-        bool isHealed = false;
-
-        while (isHealed == false)
-        {
-            Fighter.Health.Heal((int)(Fighter.Health.MaxHealth * _healValue));
-            yield return new WaitForSeconds(_healDelay);
-            isHealed = true;
-        }
+        Fighter.Health.Heal((int)(Fighter.Health.MaxHealth * _healValue));
+        yield return new WaitForSeconds(_healDelay);
 
         _healCoroutine = null;
     }
