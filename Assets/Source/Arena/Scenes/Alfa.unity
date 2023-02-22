@@ -1005,7 +1005,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &254285576
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2561,6 +2561,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32f4ff221b9f9a345a09915f38f55bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _finalPanels: {fileID: 0}
+  _panel: {fileID: 0}
 --- !u!114 &684735713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8379,6 +8381,7 @@ MonoBehaviour:
   _gold: {fileID: 297712913650013357}
   _crystals: {fileID: 297712913650013356}
   _exp: {fileID: 297712913650013355}
+  _textComplete: {fileID: 0}
 --- !u!1 &1115476601704501220
 GameObject:
   m_ObjectHideFlags: 0
