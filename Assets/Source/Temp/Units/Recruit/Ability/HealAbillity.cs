@@ -36,17 +36,15 @@ public class HealAbillity : Ability
 
     private void OnHealthChanged()
     {
-        StopCoroutine(_healCoroutine);
+        if(_healCoroutine == null)
         ActivateAbility();
     }
 
     private IEnumerator Heal()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(_healDelay);
-            Fighter.Health.Heal((int)(Fighter.Health.MaxHealth * _healValue));
-        }
+        Fighter.Health.Heal((int)(Fighter.Health.MaxHealth * _healValue));
+        yield return new WaitForSeconds(_healDelay);
 
+        _healCoroutine = null;
     }
 }

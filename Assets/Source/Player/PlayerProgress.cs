@@ -14,9 +14,12 @@ public class PlayerProgress : MonoBehaviour
         OpenedLevel = level;
     }
 
-    public void LevelComplete()
+    public void LevelComplete(int level)
     {
-        OpenedLevel++;
-        NewLevelOpened?.Invoke();
+        if (level == OpenedLevel)
+        {
+            OpenedLevel++;
+            NewLevelOpened?.Invoke();
+        }
     }
 }

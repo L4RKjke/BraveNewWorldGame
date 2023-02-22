@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingsUI : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private Slider _sliderSound;
     [SerializeField] private AudioSource _backGroundTrack;
     [SerializeField] private TMP_Dropdown _dropdownQuality;
+    [SerializeField] private GameObject _blackScreen;
 
     string _quality = "Quality";
     string _volume = "Volume";
@@ -67,6 +69,11 @@ public class SettingsUI : MonoBehaviour
         StartCoroutine(SoundOff(_backGroundTrack));
     }
 
+    public void ReloadSceneLanguage()
+    {
+        StartCoroutine(RestartScene());
+    }
+
     private IEnumerator CoroutineSoundIncrease(float value)
     {
         float expiredTime = 0f;
@@ -102,5 +109,14 @@ public class SettingsUI : MonoBehaviour
             track.volume = Mathf.MoveTowards(track.volume, 0, 1 * Time.deltaTime);
             yield return null;
         }
+    }
+
+    private IEnumerator RestartScene()
+    {
+        string off = "Off";
+        float waiting = 2f;
+        _blackScreen.GetComponent<Animator>().SetTrigger(off);
+        yield return new WaitForSeconds(waiting); ;
+        SceneManager.LoadScene(1);
     }
 }

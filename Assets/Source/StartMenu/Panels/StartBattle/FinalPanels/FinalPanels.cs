@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FinalPanels : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class FinalPanels : MonoBehaviour
     private int _totalEXP = 0;
     private int _totalGold = 0;
 
+    public UnityAction BattleEnd;
+
     private void Awake()
     {
         _panelWin.Init(_playerWallet);
@@ -28,19 +31,20 @@ public class FinalPanels : MonoBehaviour
 
     public void End(bool isWin)
     {
-        if(isWin)
+        if (isWin)
         {
             _panelWin.gameObject.SetActive(true);
             _panelWin.SetExpirience(_totalEXP);
             _panelWin.SetGoldAndCrystals(_totalGold,_panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
-            _progress.LevelComplete();
+            _progress.LevelComplete(_panelHunt.GetCurrentLevel());
+            Debug.Log("Win");
         }
         else
         {
             int losePercent = 3;
-            _totalEXP /= losePercent;
             _panelLose.gameObject.SetActive(true);
-            _panelLose.SetRewards(_totalGold / losePercent, _totalEXP, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            _panelLose.SetRewards(_totalGold / losePercent, _totalEXP / losePercent, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            Debug.Log("Lose");
         }
 
         for(int i = 0; i < _charactersID.Count; i++)
@@ -48,6 +52,8 @@ public class FinalPanels : MonoBehaviour
             GameObject character = _charactersStorage.GetCharacter(_charactersID[i]);
             character.GetComponent<CharacterStats>().GetExpirience(_totalEXP / _charactersID.Count, _panelHunt.GetCurrentLevel());
         }
+
+        BattleEnd?.Invoke();
     }
 
     public void AddRewards(int gold, int exp)

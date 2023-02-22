@@ -22,10 +22,14 @@ public class InventoryStorage : MonoBehaviour
     public int InventorySize => _cells.Count;
     public int BagSize => _bagSize;
 
+    private void Awake()
+    {
+        _inventoryUI = GetComponent<InventoryUI>();
+        _price = _button.transform.GetChild(0).GetComponentInChildren<TMP_Text>();
+    }
+
     private void Start()
     {
-        _price = _button.transform.GetChild(0).GetComponentInChildren<TMP_Text>();
-        _inventoryUI = GetComponent<InventoryUI>();
         UpdateText();
     }
 

@@ -8,6 +8,7 @@ public class PanelWin : PanelRewards
     [SerializeField] private TMP_Text _gold;
     [SerializeField] private TMP_Text _crystals;
     [SerializeField] private TMP_Text _exp;
+    [SerializeField] private TMP_Text _textComplete;
 
     public void SetGoldAndCrystals(int gold, int currentLevel, int openedLevel)
     {
@@ -20,10 +21,18 @@ public class PanelWin : PanelRewards
         _gold.text = gold.ToString(); ;
         _crystals.text = crystals.ToString();
         AddRewards(gold,crystals);
+
+        SetLevelComplete(currentLevel);
     }
 
     public void SetExpirience(int exp)
     {
-        _exp.text = "Exp " + exp;
+        _exp.text = "EXP " + exp;
+    }
+
+    private void SetLevelComplete(int currentLevel)
+    {
+        _textComplete.text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Level") + " " + currentLevel
+        + Lean.Localization.LeanLocalization.GetTranslationText("Common/Complete");
     }
 }
