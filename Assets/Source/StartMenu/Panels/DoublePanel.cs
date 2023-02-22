@@ -1,10 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoublePanel : Panel
 {
     private GameObject _secondPanel;
+
+    public UnityAction PanelClosed;
+
+    private void OnDisable()
+    {
+        PanelClosed?.Invoke();
+    }
 
     public void OpenSecondPanel(GameObject panel)
     {

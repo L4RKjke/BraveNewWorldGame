@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FinalPanels : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class FinalPanels : MonoBehaviour
     private List<int> _charactersID = new List<int>();
     private int _totalEXP = 0;
     private int _totalGold = 0;
+
+    public UnityAction BattleEnd;
 
     private void Awake()
     {
@@ -49,6 +52,8 @@ public class FinalPanels : MonoBehaviour
             GameObject character = _charactersStorage.GetCharacter(_charactersID[i]);
             character.GetComponent<CharacterStats>().GetExpirience(_totalEXP / _charactersID.Count, _panelHunt.GetCurrentLevel());
         }
+
+        BattleEnd?.Invoke();
     }
 
     public void AddRewards(int gold, int exp)

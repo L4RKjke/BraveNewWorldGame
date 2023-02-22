@@ -11,6 +11,32 @@ using UnityEngine;
 [RequireComponent(typeof(TavernSaveLoad))]
 public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
 {
+    [SerializeField] private FinalPanels _finalPanels;
+    [SerializeField] private DoublePanel _panel;
+
+    private void Start()
+    {
+        Load();
+    }
+
+    private void OnEnable()
+    {
+        if (_finalPanels != null)
+        {
+            _finalPanels.BattleEnd += SaveDelay;
+            _panel.PanelClosed += SaveDelay;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (_finalPanels != null)
+        {
+            _finalPanels.BattleEnd -= SaveDelay;
+            _panel.PanelClosed -= SaveDelay;
+        }
+    }
+
     private WalletSaveLoad _wallet;
     private CharactersSaveLoad _charactersSaveLoad;
     private ItemsSaveLoad _itemsSaveLoad;
@@ -52,5 +78,17 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
+    }
+
+    private void SaveDelay()
+    {
+        StartCoroutine(CoroutineSaveDelay());
+    }
+
+    private IEnumerator CoroutineSaveDelay()
+    {
+        float delay = 1;
+        yield return new WaitForSeconds(delay);
+        Save();
     }
 }
