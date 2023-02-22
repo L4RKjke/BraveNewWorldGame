@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SquadHealthbar : Healthbar
@@ -14,6 +15,8 @@ public class SquadHealthbar : Healthbar
     private Coroutine _corutine;
 
     private readonly float _healthRate = 0.12f;
+
+    public UnityAction HealthOver;
 
     private void OnEnable()
     {
@@ -78,6 +81,9 @@ public class SquadHealthbar : Healthbar
 
         if (enabled == true)
             _corutine = StartCoroutine(SetHealth(damageValue));
+
+        if (squadHealth == 0)
+            HealthOver?.Invoke();
     }
 
     private IEnumerator SetHealth(float target)

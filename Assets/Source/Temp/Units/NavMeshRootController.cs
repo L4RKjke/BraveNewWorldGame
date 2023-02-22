@@ -9,6 +9,7 @@ public class NavMeshRootController : MonoBehaviour
 
     private void OnEnable()
     {
+        _navMesh.enabled = true;
         InitAgent();
     }
 

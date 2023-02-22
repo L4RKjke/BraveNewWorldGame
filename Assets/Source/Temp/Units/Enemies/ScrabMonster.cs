@@ -7,6 +7,6 @@ public class ScrabMonster : Fighter, IRangeAtacker
 
     public void Shoot(int damage)
     {
-        _fire.StartFire(Unit.Damage, CurrentTarget, _shootPoint);
+        _fire.StartFire(Unit.Damage, Unit.CurrentTarget, _shootPoint);
     }
 }

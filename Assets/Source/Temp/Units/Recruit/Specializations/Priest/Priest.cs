@@ -5,7 +5,6 @@ using UnityEngine.Events;
 
 public class Priest : Recruit, IRangeAtacker
 {
-    [SerializeField] private GameObject _healPart;
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 

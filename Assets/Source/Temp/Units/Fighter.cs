@@ -61,11 +61,31 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     public virtual void Atack(int damage)
     {
         if (CurrentTarget != null)
-            CurrentTarget._health.TakeDamage(damage);
+            CurrentTarget._health.TakeDamage(damage, Health.DamageType.Physical);
     }
 
     public void UpdateCurrentTarget()
     {
-        _currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);
+        _currentTarget = GetClosestTarget();
+        /*_currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);*/
+    }
+    private Fighter GetClosestTarget()
+    {
+        Fighter target = null;
+        float minDistance = Mathf.Infinity;
+
+        for (int i = 0; i < Units.GetLength(EnemyType); i++)
+        {
+            var fighter = Units.GetById(i, EnemyType);
+            float distance = Vector2.Distance(Units.GetById(i, EnemyType).transform.position, transform.position);
+
+            if (distance < minDistance)
+            {
+                target = fighter;
+                minDistance = distance;
+            }
+        }
+
+        return target;
     }
 }

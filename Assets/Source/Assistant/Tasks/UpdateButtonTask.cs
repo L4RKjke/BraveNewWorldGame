@@ -22,6 +22,7 @@ public class UpdateButtonTask : AssistantTask
         if (_closeButton != null)
             _closeButton.interactable = false;
 
-        _arrow.gameObject.SetActive(false);
+        if (_arrow != null)
+            _arrow.gameObject.SetActive(false);
     }
 }

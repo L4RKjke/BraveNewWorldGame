@@ -16,6 +16,11 @@ public abstract class Ability : MonoBehaviour
 
     protected abstract void ActivateAbility();
 
+    protected virtual void Test()
+    {
+
+    }
+
     public abstract void SetAbility(Recruit recruit, string namePath, string desriptionPath);
 
     protected void SetAbilitiesDescription(string name, string description)

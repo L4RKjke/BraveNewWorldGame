@@ -42,7 +42,7 @@ public class Fireball : MonoBehaviour
         {
             if (_targetType == target.Type)
             {
-                target.Health.TakeDamage(_damage);
+                target.Health.TakeDamage(_damage, Health.DamageType.Magical);
                 Instantiate(_hitEffect, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }

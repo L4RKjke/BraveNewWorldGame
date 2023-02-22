@@ -8,7 +8,8 @@ public class Health : MonoBehaviour
     private Fighter _unit;
 
     public UnityAction<int> HealthChanged;
-    public UnityAction DamageTaken;
+    public UnityAction<int> Damaged;
+    public UnityAction<int> Restored;
     public UnityAction<Fighter> Died;
 
     private int _maxHealth = 0;
@@ -19,10 +20,9 @@ public class Health : MonoBehaviour
 
     public int Value => _value;
 
-    private void OnEnable()
+    private void Awake()
     {
         _unit = GetComponent<Fighter>();
-        //_maxHealth = _value;
     }
 
     public void Init(int health, int defence = 0)
@@ -42,12 +42,16 @@ public class Health : MonoBehaviour
         if (_value > _maxHealth)
             _value = _maxHealth;
 
+        Restored?.Invoke(healPoints);
         HealthChanged?.Invoke(_value);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, DamageType type)
     {
-        damage -= _armor;
+        ///вынести события в конец, заменить проверки на масклемп. Простестить.
+        
+        if (type == DamageType.Physical)
+            damage -= _armor;
 
         if (damage < 0)
             damage = 0;
@@ -58,7 +62,8 @@ public class Health : MonoBehaviour
         if (_value > _minHealth)
         {
             _value -= damage;
-            DamageTaken?.Invoke();
+            Damaged?.Invoke(damage);
+            HealthChanged?.Invoke(_value);
         }
 
         /*_value = Mathf.Clamp(damage, _minHealth, _value);*/
@@ -70,7 +75,11 @@ public class Health : MonoBehaviour
         {
             Died?.Invoke(_unit);
         }
+    }
 
-        HealthChanged?.Invoke(_value);
+    public enum DamageType
+    {
+        Magical,
+        Physical
     }
 }

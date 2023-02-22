@@ -1,19 +1,18 @@
 using UnityEngine;
 
-public class TheftAbility : Ability
+//ƒовабл€ет <damageFactor>% урона текущего врага к свему.
+public class TheftAbility : DamageAbility
 {
-    private int _targetDamage;
+    private float _damageFactor = 0.5f;
 
-    private readonly int _damageValue = 2;
-
-    private void OnEnable()
+    private void Start()
     {
-        Fighter.Health.DamageTaken += OnHealthChanged;
+        AttackState.AtackCompleted += ActivateAbility;
     }
 
     private void OnDisable()
     {
-        Fighter.Health.DamageTaken -= OnHealthChanged;
+        AttackState.AtackCompleted -= ActivateAbility;
     }
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
@@ -23,16 +22,8 @@ public class TheftAbility : Ability
 
     protected override void ActivateAbility()
     {
-        if (Fighter.CurrentTarget != null)
-            Fighter.CurrentTarget.Health.TakeDamage(_targetDamage / _damageValue);
-    }
+        var damage = Mathf.FloorToInt(Fighter.CurrentTarget.Damage * _damageFactor);
 
-    private void OnHealthChanged()
-    {
-        if (Fighter.CurrentTarget != null)
-        {
-            _targetDamage = Fighter.CurrentTarget.Damage;
-            ActivateAbility();
-        }
+        Fighter.CurrentTarget.Health.TakeDamage(damage, Health.DamageType.Physical);
     }
 }

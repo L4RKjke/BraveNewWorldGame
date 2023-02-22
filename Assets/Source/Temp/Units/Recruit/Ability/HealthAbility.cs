@@ -1,20 +1,21 @@
-using System.Collections;
 using UnityEngine;
 
 public class HealthAbility : Ability
 {
-    //Увеличивает здоровье на 40%.
-    private bool _isActivated = false;
+    //C вероятностью <_healPercent> может полностью восстановить здоровье.
+    private float _healPercent = 0.05f;
+
+    private readonly float _minPercent = 0;
+    private readonly float _maxPercent = 100;
 
     private void Start()
     {
-        _isActivated = false;
-        Fighter.Health.HealthChanged += OnHealthChanged;
+        Fighter.Health.Damaged += OnHealthChanged;
     }
 
     private void OnDisable()
     {
-        Fighter.Health.HealthChanged -= OnHealthChanged;
+        Fighter.Health.Damaged -= OnHealthChanged;
     }
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
@@ -30,10 +31,11 @@ public class HealthAbility : Ability
 
     private void OnHealthChanged(int health)
     {
-        if (health < Fighter.Health.MaxHealth*0.4f && _isActivated == false)
+        var radomValue = Random.Range(_minPercent, _maxPercent);
+
+        if (radomValue < _healPercent)
         {
             ActivateAbility();
-            _isActivated = true;
         }
     }
 }

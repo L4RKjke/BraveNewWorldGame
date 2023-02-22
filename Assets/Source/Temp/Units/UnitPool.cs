@@ -8,7 +8,6 @@ public class UnitPool : MonoBehaviour
     private List<Fighter> _fighters = new List<Fighter> { };
 
     public UnityAction<FighterType> UnitDied;
-    public UnityAction<FighterType> SquadLose;
 
     private void OnDisable()
     {
@@ -20,7 +19,15 @@ public class UnitPool : MonoBehaviour
 
     public int GetLength(FighterType fighterType)
     {
-        return _fighters.Where(fighter => fighter.Type == fighterType).Count();
+        var numberOfUnitsOfType = 0;
+
+        for (int i = 0; i < _fighters.Count; i++)
+        {
+            if (_fighters[i].Type == fighterType)
+                numberOfUnitsOfType++;
+        }
+
+        return numberOfUnitsOfType;
     }
 
     public int GetLength()
@@ -59,7 +66,7 @@ public class UnitPool : MonoBehaviour
             return null;
     }
 
-    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
+/*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
     {
         Fighter target = null;
         float minDistance = Mathf.Infinity;
@@ -79,7 +86,7 @@ public class UnitPool : MonoBehaviour
         }
 
         return target;
-    }
+    }*/
 
     public void CleanPool()
     {
@@ -109,8 +116,5 @@ public class UnitPool : MonoBehaviour
         Destroy(fighter.transform.parent.gameObject);
         RemoveFighter(fighter);
         UnitDied?.Invoke(fighter.Type);
-
-        if (GetLength(fighter.Type) == 0)
-            SquadLose?.Invoke(fighter.Type);
     }
 }
