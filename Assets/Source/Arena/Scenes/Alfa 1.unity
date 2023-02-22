@@ -3743,6 +3743,8 @@ MonoBehaviour:
   _playerHealthbar: {fileID: 2033323234}
   _enemyHealthbar: {fileID: 1295338056}
   _finalPanels: {fileID: 1667370638}
+  _PlayerHealthbar: {fileID: 2033323234}
+  _EnemyHealthbar: {fileID: 1295338056}
 --- !u!4 &548583043
 Transform:
   m_ObjectHideFlags: 0
