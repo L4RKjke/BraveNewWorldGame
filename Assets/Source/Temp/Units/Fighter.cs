@@ -61,7 +61,7 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     public virtual void Atack(int damage)
     {
         if (CurrentTarget != null)
-            CurrentTarget._health.TakeDamage(damage);
+            CurrentTarget._health.TakeDamage(damage, Health.DamageType.Physical);
     }
 
     public void UpdateCurrentTarget()

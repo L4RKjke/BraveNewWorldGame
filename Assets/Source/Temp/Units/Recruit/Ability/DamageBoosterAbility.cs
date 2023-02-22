@@ -23,7 +23,7 @@ public class DamageBoosterAbility : DamageAbility
     {
         int damage = Mathf.FloorToInt(Fighter.Damage * _damageBonus);
 
-        Fighter.CurrentTarget.Health.TakeDamage(damage);
+        Fighter.CurrentTarget.Health.TakeDamage(damage, Health.DamageType.Physical);
         _damageBonus += 0.1f;
     }
 }

@@ -24,6 +24,6 @@ public class TheftAbility : DamageAbility
     {
         var damage = Mathf.FloorToInt(Fighter.CurrentTarget.Damage * _damageFactor);
 
-        Fighter.CurrentTarget.Health.TakeDamage(damage);
+        Fighter.CurrentTarget.Health.TakeDamage(damage, Health.DamageType.Physical);
     }
 }

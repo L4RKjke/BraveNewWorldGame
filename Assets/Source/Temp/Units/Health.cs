@@ -46,10 +46,12 @@ public class Health : MonoBehaviour
         HealthChanged?.Invoke(_value);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, DamageType type)
     {
         ///вынести события в конец, заменить проверки на масклемп. Простестить.
-        damage -= _armor;
+        
+        if (type == DamageType.Physical)
+            damage -= _armor;
 
         if (damage < 0)
             damage = 0;
@@ -73,5 +75,11 @@ public class Health : MonoBehaviour
         {
             Died?.Invoke(_unit);
         }
+    }
+
+    public enum DamageType
+    {
+        Magical,
+        Physical
     }
 }

@@ -26,13 +26,13 @@ public class UnlukaAbility : DamageAbility
     {
         var damage = Mathf.FloorToInt(Fighter.CurrentTarget.Health.MaxHealth * _damageReducer);
 
-        Fighter.CurrentTarget.Health.TakeDamage(damage);
+        Fighter.CurrentTarget.Health.TakeDamage(damage, Health.DamageType.Physical);
         HurtYourself();
     }
 
     private void HurtYourself()
     {
         var damage = Mathf.FloorToInt(Fighter.Health.MaxHealth * _damageReducer);
-        Fighter.Health.TakeDamage(damage);
+        Fighter.Health.TakeDamage(damage, Health.DamageType.Physical);
     }
 }

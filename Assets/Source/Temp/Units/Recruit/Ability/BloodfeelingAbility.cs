@@ -28,7 +28,7 @@ public class BloodfeelingAbility : DamageAbility
     {
         var aditionalDamage = Mathf.FloorToInt(Fighter.Damage * _damage) - Fighter.Damage;
 
-        Fighter.CurrentTarget.Health.TakeDamage(aditionalDamage);
+        Fighter.CurrentTarget.Health.TakeDamage(aditionalDamage, Health.DamageType.Physical);
     }
 
     private void IncreaseDamage(FighterType type)
