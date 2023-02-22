@@ -50,15 +50,16 @@ public class Arena:  MonoBehaviour
     private void OnPlayerWin()
     {
         _finalPanels.End(true);
+        _PlayerHealthbar.HealthOver -= OnEnemyWin;
         _timer.StopTimer();
-        enabled = false;
     }
 
     private void OnEnemyWin()
     {
         _finalPanels.End(false);
+        _EnemyHealthbar.HealthOver -= OnPlayerWin;
         _timer.StopTimer();
+
         //мб временно, есть баг с тем, что могут умереть одновременно и враг и игрок
-        enabled = false;
     }
 }

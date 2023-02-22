@@ -17,8 +17,12 @@ public class Warrior : Recruit
     override protected void OnAdvancedAtack()
     {
         base.Atack(GetAdvancedDamage());
-        _damageParticle.transform.position = CurrentTarget.transform.position;
-        _damageParticle.Play();
+
+        if (CurrentTarget != null)
+        {
+            _damageParticle.transform.position = CurrentTarget.transform.position;
+            _damageParticle.Play();
+        }
     }
 
     private int GetAdvancedDamage() => (Damage + MagicPower);
