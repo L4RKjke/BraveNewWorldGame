@@ -14,11 +14,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
 
-    private void Start()
-    {
-        Load();
-    }
-
     private void OnEnable()
     {
         if (_finalPanels != null)
