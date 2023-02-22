@@ -51,11 +51,14 @@ public class Arena:  MonoBehaviour
     {
         _finalPanels.End(true);
         _timer.StopTimer();
+        enabled = false;
     }
 
     private void OnEnemyWin()
     {
         _finalPanels.End(false);
         _timer.StopTimer();
+        //мб временно, есть баг с тем, что могут умереть одновременно и враг и игрок
+        enabled = false;
     }
 }
