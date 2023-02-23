@@ -8,15 +8,15 @@ public static class BinarySavingSystem
 {
     public static void CreateDirectoryInfo()
     {
-        string pathSave = Application.persistentDataPath + "/save.b";
+        string pathSave = Application.persistentDataPath + "/save/save.b";
 
         if (File.Exists(pathSave) == false)
         {
+            string path = Application.persistentDataPath + "/save/characters";
+            CreateDirectory(path);
+
             FileStream fileStream = new FileStream(pathSave, FileMode.Create);
             fileStream.Close();
-
-            string path = Application.persistentDataPath + "/characters";
-            CreateDirectory(path);
         }
     }
 
@@ -40,7 +40,7 @@ public static class BinarySavingSystem
     public static void SaveWallet(PlayerWallet wallet, PlayerProgress progress)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/wallet.b";
+        string path = Application.persistentDataPath + "/save/wallet.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         WalletData data = new WalletData(wallet, progress);
@@ -51,7 +51,7 @@ public static class BinarySavingSystem
 
     public static WalletData LoadWallet()
     {
-        string path = Application.persistentDataPath + "/wallet.b";
+        string path = Application.persistentDataPath + "/save/wallet.b";
 
         if (File.Exists(path))
         {
@@ -75,7 +75,7 @@ public static class BinarySavingSystem
         {
 
             BinaryFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath + "/characters/character" + i + ".b";
+            string path = Application.persistentDataPath + "/save/characters/character" + i + ".b";
             FileStream fileStream = new FileStream(path, FileMode.Create);
 
             formatter.Serialize(fileStream, charactersData[i]);
@@ -85,9 +85,9 @@ public static class BinarySavingSystem
 
         characterNumber++;
 
-        while (File.Exists(Application.persistentDataPath + "/characters/character" + characterNumber + ".b"))
+        while (File.Exists(Application.persistentDataPath + "/save/characters/character" + characterNumber + ".b"))
         {
-            File.Delete(Application.persistentDataPath + "/characters/character" + characterNumber + ".b");
+            File.Delete(Application.persistentDataPath + "/save/characters/character" + characterNumber + ".b");
             characterNumber++;
         }
     }
@@ -101,7 +101,7 @@ public static class BinarySavingSystem
 
         while (isCharacterExist)
         {
-            path = Application.persistentDataPath + "/characters/character" + characterNumber + ".b";
+            path = Application.persistentDataPath + "/save/characters/character" + characterNumber + ".b";
 
             if (File.Exists(path))
             {
@@ -124,7 +124,7 @@ public static class BinarySavingSystem
     public static void SaveItem(PlayerItemStorage playerItemStorage)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/items.b";
+        string path = Application.persistentDataPath + "/save/items.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         ItemData data = new ItemData(playerItemStorage);
@@ -135,7 +135,7 @@ public static class BinarySavingSystem
 
     public static ItemData LoadItems()
     {
-        string path = Application.persistentDataPath + "/items.b";
+        string path = Application.persistentDataPath + "/save/items.b";
 
         if (File.Exists(path))
         {
@@ -154,7 +154,7 @@ public static class BinarySavingSystem
     public static void SaveItemInventory(InventoryStorage inventoryStorage)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/itemsInventory.b";
+        string path = Application.persistentDataPath + "/save/itemsInventory.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         ItemInventoryData data = new ItemInventoryData(inventoryStorage);
@@ -165,7 +165,7 @@ public static class BinarySavingSystem
 
     public static ItemInventoryData LoadItemInventory()
     {
-        string path = Application.persistentDataPath + "/itemsInventory.b";
+        string path = Application.persistentDataPath + "/save/itemsInventory.b";
 
         if (File.Exists(path))
         {
@@ -184,7 +184,7 @@ public static class BinarySavingSystem
     public static void SaveEquippedItems(CharactersStorage characterStorage)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/equippedItems.b";
+        string path = Application.persistentDataPath + "/save/equippedItems.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         EquippedItemsData data = new EquippedItemsData(characterStorage);
@@ -195,7 +195,7 @@ public static class BinarySavingSystem
 
     public static EquippedItemsData LoadEquippedItems()
     {
-        string path = Application.persistentDataPath + "/equippedItems.b";
+        string path = Application.persistentDataPath + "/save/equippedItems.b";
 
         if (File.Exists(path))
         {
@@ -214,7 +214,7 @@ public static class BinarySavingSystem
     public static void SaveShop(ItemShopUI itemShop)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/shop.b";
+        string path = Application.persistentDataPath + "/save/shop.b";
         FileStream fileStream = new FileStream(path, FileMode.Create);
 
         ShopData data = new ShopData(itemShop);
@@ -225,7 +225,7 @@ public static class BinarySavingSystem
 
     public static ShopData LoadShop()
     {
-        string path = Application.persistentDataPath + "/shop.b";
+        string path = Application.persistentDataPath + "/save/shop.b";
 
         if (File.Exists(path))
         {
@@ -247,7 +247,7 @@ public static class BinarySavingSystem
         {
 
             BinaryFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath + "/characters/characterTavern" + i + ".b";
+            string path = Application.persistentDataPath + "/save/characters/characterTavern" + i + ".b";
             FileStream fileStream = new FileStream(path, FileMode.Create);
 
             formatter.Serialize(fileStream, charactersData[i]);
@@ -264,7 +264,7 @@ public static class BinarySavingSystem
 
         while (isCharacterExist)
         {
-            path = Application.persistentDataPath + "/characters/characterTavern" + characterNumber + ".b";
+            path = Application.persistentDataPath + "/save/characters/characterTavern" + characterNumber + ".b";
 
             if (File.Exists(path))
             {

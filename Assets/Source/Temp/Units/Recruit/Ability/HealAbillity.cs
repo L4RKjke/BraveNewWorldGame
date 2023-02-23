@@ -3,24 +3,20 @@ using UnityEngine;
 
 public class HealAbillity : Ability
 {
-    //¬осстанавливает <_healValue%> очков здоровь€ каждые <_healDelay> секунд.
-    private float _healDelay = 0.25f;
-    private float _healValue = 0.05f;
+    ///’илит на 3% от максимального здоровь€ при получении урона.
+    private readonly float _healDelay = 0.5f;
+    private readonly float _healValue = 0.03f;
 
-    private Coroutine _healCoroutine;
-
-    private void Start()
+    private void OnEnable()
     {
-       Fighter.Health.Damaged += OnHealthChanged;
+        Fighter.Health.Damaged += DamageTaken;
     }
 
     private void OnDisable()
     {
-        if (_healCoroutine != null)
-            StopCoroutine(_healCoroutine);
-
-        Fighter.Health.Damaged -= OnHealthChanged;
+        Fighter.Health.Damaged -= DamageTaken;
     }
+
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
@@ -30,27 +26,19 @@ public class HealAbillity : Ability
 
     protected override void ActivateAbility()
     {
-        _healCoroutine = StartCoroutine(Heal());
+        StartCoroutine(Heal());
     }
 
-    private void OnHealthChanged(int value)
+    private void DamageTaken(int health = 0)
     {
-        if (_healCoroutine != null)
-            StopCoroutine(_healCoroutine);
-
+        Fighter.Health.Damaged -= DamageTaken;
         ActivateAbility();
     }
 
     private IEnumerator Heal()
     {
-        while (Fighter.Health.Value < Fighter.Health.MaxHealth)
-        {
-            yield return new WaitForSeconds(_healDelay);
-
-            var healthPoints = Mathf.FloorToInt(Fighter.Health.MaxHealth * _healValue);
-
-            Fighter.Health.Heal(healthPoints);
-        }
-
+        Fighter.Health.Heal((int)(Fighter.Health.MaxHealth * _healValue));
+        yield return new WaitForSeconds(_healDelay);
+        Fighter.Health.Damaged += DamageTaken;
     }
 }

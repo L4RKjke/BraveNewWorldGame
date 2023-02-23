@@ -1,8 +1,9 @@
 using UnityEngine;
 // Дополнительный урон при атаках: <_damageBonus>%
+
 public class DamageBoosterAbility : DamageAbility
 {
-    private float _damageBonus = 0.1f;
+    private float _damageBonus = 0.33f;
 
     protected void Start()
     {

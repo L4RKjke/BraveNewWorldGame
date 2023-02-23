@@ -27,7 +27,9 @@ public class Health : MonoBehaviour
 
     public void Init(int health, int defence = 0)
     {
-        _armor = defence;
+        if (defence != 0)
+            _armor = defence;
+
         _value = health;
         _maxHealth = _value;
     }
