@@ -46,6 +46,7 @@ public class ItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
             else
             {
                 newItem = null;
+                _playerItemStorage.AddNullSlot();
             }
 
             _playerItemStorage.AddItem(newItem);

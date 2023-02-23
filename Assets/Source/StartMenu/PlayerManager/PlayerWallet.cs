@@ -8,8 +8,8 @@ public class PlayerWallet : MonoBehaviour
     [SerializeField] private TMP_Text _goldText;
     [SerializeField] private TMP_Text _crystalsText;
 
-    private int _gold = 10000;
-    private int _crystals = 500;
+    private int _gold = 5000;
+    private int _crystals = 0;
 
     public int Gold => _gold;
     public int Crystals => _crystals;

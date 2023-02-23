@@ -14,6 +14,25 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
 
+    private WalletSaveLoad _wallet;
+    private CharactersSaveLoad _charactersSaveLoad;
+    private ItemsSaveLoad _itemsSaveLoad;
+    private ItemInventorySaveLoad _itemInventorySaveLoad;
+    private EquippedItemsSaveLoad _equippedItemsSaveLoad;
+    private ShopSaveLoad _shopSaveLoad;
+    private TavernSaveLoad _tavernSaveLoad;
+
+    private void Awake()
+    {
+        _wallet = GetComponent<WalletSaveLoad>();
+        _charactersSaveLoad = GetComponent<CharactersSaveLoad>();
+        _itemsSaveLoad = GetComponent<ItemsSaveLoad>();
+        _itemInventorySaveLoad = GetComponent<ItemInventorySaveLoad>();
+        _equippedItemsSaveLoad = GetComponent<EquippedItemsSaveLoad>();
+        _shopSaveLoad = GetComponent<ShopSaveLoad>();
+        _tavernSaveLoad = GetComponent<TavernSaveLoad>();
+    }
+
     private void OnEnable()
     {
         if (_finalPanels != null)
@@ -32,26 +51,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         }
     }
 
-    private WalletSaveLoad _wallet;
-    private CharactersSaveLoad _charactersSaveLoad;
-    private ItemsSaveLoad _itemsSaveLoad;
-    private ItemInventorySaveLoad _itemInventorySaveLoad;
-    private EquippedItemsSaveLoad _equippedItemsSaveLoad;
-    private ShopSaveLoad _shopSaveLoad;
-    private TavernSaveLoad _tavernSaveLoad;
-
-    private void Awake()
-    {
-        _wallet = GetComponent<WalletSaveLoad>();
-        _charactersSaveLoad = GetComponent<CharactersSaveLoad>();
-        _itemsSaveLoad = GetComponent<ItemsSaveLoad>();
-        _itemInventorySaveLoad = GetComponent<ItemInventorySaveLoad>();
-        _equippedItemsSaveLoad = GetComponent<EquippedItemsSaveLoad>();
-        _shopSaveLoad = GetComponent<ShopSaveLoad>();
-        _tavernSaveLoad = GetComponent<TavernSaveLoad>();
-
-        BinarySavingSystem.CreateDirectoryInfo();
-    }
 
     public void Load()
     {
@@ -75,7 +74,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         _tavernSaveLoad.Save();
     }
 
-    private void SaveDelay()
+    public void SaveDelay()
     {
         StartCoroutine(CoroutineSaveDelay());
     }

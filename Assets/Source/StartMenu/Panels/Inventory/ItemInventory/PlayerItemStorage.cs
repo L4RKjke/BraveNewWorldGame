@@ -31,7 +31,7 @@ public class PlayerItemStorage : MonoBehaviour
     public void DeleteItem(int id)
     {
         Destroy(_items[id].gameObject);
-        _nullSlots++;
+        AddNullSlot();
         ItemCountChange?.Invoke();
     }
 
@@ -77,6 +77,11 @@ public class PlayerItemStorage : MonoBehaviour
         item.transform.parent = _itemsFolder;
 
         _items.Add(item);
+    }
+
+    public void AddNullSlot()
+    {
+        _nullSlots++;
     }
 
     private void ChangeItem(Item item, int id)
