@@ -1973,11 +1973,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f795e9e6cc43e4e8b72eeb8e279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attack: 20
-  _health: 50
-  _gold: 50
-  _exp: 150
-  _head: {fileID: 21300000, guid: a2b704479fcb8884391d98e7480841e8, type: 3}
+  _attack: 50
+  _health: 40
+  _gold: 150
+  _exp: 450
+  _head: {fileID: 21300000, guid: 75d91a09d8b6af24c8a1e37b9bf5b7a2, type: 3}
   _name: 
 --- !u!1001 &2858777533271873152
 PrefabInstance:

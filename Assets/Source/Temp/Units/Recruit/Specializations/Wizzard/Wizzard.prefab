@@ -500,7 +500,7 @@ MonoBehaviour:
   _rootModel: {fileID: 3879505713152868838}
   _meleeDistance: 1.1
   _walkDistance: 5
-  _atackDelay: 2.4
+  _atackDelay: 1.5
   _speed: 0.95
   _class: 2
   _fireball: {fileID: -398907195106601213, guid: 6daee9a3c8ec08f458147fd785c0d6cd, type: 3}

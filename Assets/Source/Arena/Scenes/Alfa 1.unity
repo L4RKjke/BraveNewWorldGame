@@ -123,71 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &39852932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 39852933}
-  - component: {fileID: 39852934}
-  m_Layer: 0
-  m_Name: Assistant/Task/Task21
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &39852933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39852932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 176
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &39852934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39852932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: Congratulations on passing our training! All that you received will remain
-      with you, we also gave you another 1000 crystals and 5000 gold. If you have
-      any questions, point to the questions, they will help. Good luck in the game!
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E \u0441 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435\u043C
-      \u043D\u0430\u0448\u0435\u0439 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438!
-      \u0412\u0441\u0435 \u0447\u0442\u043E \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B,
-      \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u043F\u0440\u0438 \u0442\u0435\u0431\u0435,
-      \u0442\u0430\u043A \u0436\u0435 \u043C\u044B \u043F\u043E\u0434\u0430\u0440\u0438\u043B\u0438
-      \u0442\u0435\u0431\u0435 \u0435\u0449\u0435 1000 \u043A\u0440\u0438\u0441\u0441\u0442\u0430\u043B\u043E\u0432
-      \u0438 5000 \u0437\u043E\u043B\u043E\u0442\u0430. \u0415\u0441\u043B\u0438
-      \u0443 \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442 \u043A\u0430\u043A\u0438\u0435-\u0442\u043E
-      \u0432\u043E\u043F\u0440\u043E\u0441\u044B, \u043D\u0430\u0432\u043E\u0434\u0438
-      \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u0438\u043A\u0438, \u043E\u043D\u0438
-      \u043F\u043E\u043C\u043E\u0433\u0443\u0442. \u0423\u0434\u0430\u0447\u0438
-      \u0432 \u0438\u0433\u0440\u0435!"
-    Object: {fileID: 0}
 --- !u!1 &67814219
 GameObject:
   m_ObjectHideFlags: 0
@@ -967,7 +902,12 @@ GameObject:
   - component: {fileID: 413791460}
   - component: {fileID: 413791466}
   - component: {fileID: 413791465}
+  - component: {fileID: 413791471}
   - component: {fileID: 413791464}
+  - component: {fileID: 413791470}
+  - component: {fileID: 413791469}
+  - component: {fileID: 413791468}
+  - component: {fileID: 413791467}
   - component: {fileID: 413791463}
   m_Layer: 0
   m_Name: Assistant
@@ -1622,7 +1562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c3dd4384b6821d438a8ef9748d1523b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destription: Assistant/Task/Task21
+  _destription: Assistant/Task/Task23
   _transitions: []
   _buttonEnd: {fileID: 2091648498}
   _settingsUI: {fileID: 5660040630691309211}
@@ -1640,7 +1580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetTask: {fileID: 413791463}
+  _targetTask: {fileID: 413791470}
   _button: {fileID: 1930506357}
 --- !u!114 &413791465
 MonoBehaviour:
@@ -1657,6 +1597,7 @@ MonoBehaviour:
   _destription: Assistant/Task/Task20
   _transitions:
   - {fileID: 413791464}
+  - {fileID: 413791471}
 --- !u!114 &413791466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1671,6 +1612,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetTask: {fileID: 413791465}
   _panels: {fileID: 1631451256}
+--- !u!114 &413791467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413791421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 413791463}
+  _button: {fileID: 2091648498}
+--- !u!114 &413791468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413791421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c219ad9f08c97c7419b408932f0c1b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Assistant/Task/Task22
+  _transitions:
+  - {fileID: 413791467}
+--- !u!114 &413791469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413791421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 413791468}
+  _button: {fileID: 2091648498}
+--- !u!114 &413791470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413791421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c219ad9f08c97c7419b408932f0c1b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _destription: Assistant/Task/Task21
+  _transitions:
+  - {fileID: 413791469}
+--- !u!114 &413791471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413791421}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8da3a800ce735146882864b8695a883, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetTask: {fileID: 413791470}
+  _button: {fileID: 1930506359}
 --- !u!224 &419625347 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2553223762286896889, guid: 56031031052e5de40a61d920a2d00c36, type: 3}
@@ -3368,6 +3381,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945054718}
   m_CullTransparentMesh: 1
+--- !u!1 &1004818863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004818864}
+  - component: {fileID: 1004818865}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1004818864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004818863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71563043774845645}
+  m_RootOrder: 178
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004818865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004818863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Everything you get will stay with you! We also gave you another 1000 crystals
+      and 5000 gold.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u0441\u0435 \u0447\u0442\u043E \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B,
+      \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u043F\u0440\u0438 \u0442\u0435\u0431\u0435!
+      \u0422\u0430\u043A \u0436\u0435 \u043C\u044B \u043F\u043E\u0434\u0430\u0440\u0438\u043B\u0438
+      \u0442\u0435\u0431\u0435 \u0435\u0449\u0435 1000 \u043A\u0440\u0438\u0441\u0441\u0442\u0430\u043B\u043E\u0432
+      \u0438 5000 \u0437\u043E\u043B\u043E\u0442\u0430. "
+    Object: {fileID: 0}
 --- !u!1001 &1013703236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4134,7 +4204,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 177
+  m_RootOrder: 176
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1261954600
 MonoBehaviour:
@@ -4361,6 +4431,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1527322876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527322877}
+  - component: {fileID: 1527322878}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1527322877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527322876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71563043774845645}
+  m_RootOrder: 179
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527322878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527322876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: "\rIf you have any questions, point to the questions, they will help. Good
+      luck in the game!\r\n"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0415\u0441\u043B\u0438 \u0443 \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442
+      \u043A\u0430\u043A\u0438\u0435-\u0442\u043E \u0432\u043E\u043F\u0440\u043E\u0441\u044B,
+      \u043D\u0430\u0432\u043E\u0434\u0438 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u0438\u043A\u0438,
+      \u043E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442. \u0423\u0434\u0430\u0447\u0438
+      \u0432 \u0438\u0433\u0440\u0435!"
+    Object: {fileID: 0}
 --- !u!1 &1560890830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8216304480146865944, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
@@ -4787,6 +4914,59 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1685989562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685989563}
+  - component: {fileID: 1685989564}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1685989563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685989562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 71563043774845645}
+  m_RootOrder: 177
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685989564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685989562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Congratulations on passing our training! '
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E \u0441 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435\u043C
+      \u043D\u0430\u0448\u0435\u0439 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438! "
+    Object: {fileID: 0}
 --- !u!224 &1712917671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
@@ -5625,6 +5805,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8931852451375983088, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: translationName
+      value: Font
+      objectReference: {fileID: 0}
     - target: {fileID: 8931852451518630032, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -5718,6 +5902,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f864e55f941d35f4c8417070e66cad21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1930506359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6009160153674123482, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+  m_PrefabInstance: {fileID: 1930506355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1939714720 stripped
@@ -6058,7 +6253,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2070987822}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: c9b2e1c5e8c7e2049a7d7c6545271dbd, type: 2}
   m_audioClip: {fileID: 8300000, guid: a3f48f7a0b795d541b06dab06a5ff643, type: 3}
@@ -7140,6 +7335,10 @@ PrefabInstance:
     - target: {fileID: 7311598838193753838, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -10.996826
+      objectReference: {fileID: 0}
+    - target: {fileID: 7311598838193753842, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7380849237622534992, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -8474,11 +8673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.data[0]._monstersInfo.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.data[0]._monstersInfo.Array.data[0]._count
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.data[0]._monstersInfo.Array.data[1]._count
@@ -8502,7 +8701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.data[0]._monstersInfo.Array.data[1]._monsterID
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.data[0]._monstersInfo.Array.data[3]._monsterID

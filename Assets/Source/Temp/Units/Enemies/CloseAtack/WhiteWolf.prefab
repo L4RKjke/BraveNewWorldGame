@@ -144,7 +144,7 @@ MonoBehaviour:
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1
   _walkDistance: 1
-  _atackDelay: 1
+  _atackDelay: 1.5
   _speed: 1
 --- !u!114 &963163797568080017
 MonoBehaviour:
@@ -1821,9 +1821,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f795e9e6cc43e4e8b72eeb8e279549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attack: 30
-  _health: 75
-  _gold: 66
-  _exp: 200
+  _attack: 150
+  _health: 450
+  _gold: 200
+  _exp: 600
   _head: {fileID: 21300000, guid: 7b09f95ba84a52044961922e15770128, type: 3}
   _name: 

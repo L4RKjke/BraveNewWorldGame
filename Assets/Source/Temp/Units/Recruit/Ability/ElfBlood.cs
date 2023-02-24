@@ -5,7 +5,7 @@ using UnityEngine;
 public class ElfBlood : Ability
 {
     //C вероятностью <_healPercent> может полностью восстановить здоровье.
-    private float _healPercent = 0.05f;
+    private float _healPercent = 0.02f;
 
     private readonly float _minPercent = 0;
     private readonly float _maxPercent = 100;

@@ -5,8 +5,8 @@ using UnityEngine;
 public class RegenerationAbility : Ability
 {
     //¬осстанавливает <_healValue%> очков здоровь€ каждые <_healDelay> секунд.
-    private float _healDelay = 0.25f;
-    private float _healValue = 0.05f;
+    private float _healDelay = 1f;
+    private float _healValue = 0.025f;
 
     private Coroutine _healCoroutine;
 

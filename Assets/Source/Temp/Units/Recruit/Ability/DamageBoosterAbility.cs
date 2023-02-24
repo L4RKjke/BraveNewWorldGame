@@ -17,7 +17,8 @@ public class DamageBoosterAbility : DamageAbility
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        throw new System.NotImplementedException();
+        DamageBoosterAbility ability = recruit.gameObject.AddComponent<DamageBoosterAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()

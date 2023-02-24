@@ -59,7 +59,7 @@ MonoBehaviour:
   _rootModel: {fileID: 8927706449902697089}
   _meleeDistance: 1
   _walkDistance: 1
-  _atackDelay: 1
+  _atackDelay: 0.8
   _speed: 1.12
 --- !u!114 &963163797568080017
 MonoBehaviour:

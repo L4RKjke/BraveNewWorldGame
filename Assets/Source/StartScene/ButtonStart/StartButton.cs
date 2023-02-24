@@ -8,6 +8,7 @@ public class StartButton : MonoBehaviour
 {
     [SerializeField] private GameObject _blackScreen;
     [SerializeField] private GameObject _teleport;
+    [SerializeField] private GameObject _buttons;
 
     private Coroutine _startScene;
     private Animator _animator;
@@ -39,6 +40,7 @@ public class StartButton : MonoBehaviour
     private IEnumerator StartScene(int scene)
     {
         string off = "Off";
+        _buttons.GetComponent<Animator>().SetTrigger(off);
         _animator.SetTrigger(off);
         float waiting = 3f;
         yield return new WaitForSeconds(waiting);;

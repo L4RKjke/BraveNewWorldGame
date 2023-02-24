@@ -263,10 +263,9 @@ MonoBehaviour:
   _rootModel: {fileID: 3879505713152868838}
   _meleeDistance: 1
   _walkDistance: 5
-  _atackDelay: 3
+  _atackDelay: 1.5
   _speed: 0.9
   _class: 1
-  _healPart: {fileID: 994540495779156103}
   _fireball: {fileID: -398907195106601213, guid: 0e6d2ab818ec386429eb074e48f5cbfe, type: 3}
   _firePoint: {fileID: 3700395033072069307}
 --- !u!114 &7604797453349662639

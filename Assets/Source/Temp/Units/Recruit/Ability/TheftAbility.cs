@@ -3,7 +3,7 @@ using UnityEngine;
 //ƒовабл€ет <damageFactor>% урона текущего врага к свему.
 public class TheftAbility : DamageAbility
 {
-    private float _damageFactor = 0.5f;
+    private float _damageFactor = 0.2f;
 
     private void Start()
     {
@@ -17,7 +17,8 @@ public class TheftAbility : DamageAbility
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-        throw new System.NotImplementedException();
+        TheftAbility ability = recruit.gameObject.AddComponent<TheftAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()

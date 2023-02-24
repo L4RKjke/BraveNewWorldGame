@@ -23,7 +23,7 @@ public static class BinarySavingSystem
     public static bool CheckSaves()
     {
         bool isCreated = true;
-        string pathSave = Application.persistentDataPath + "/save.b";
+        string pathSave = Application.persistentDataPath + "/save/save.b";
 
         if (File.Exists(pathSave) == false)
             isCreated = false;
