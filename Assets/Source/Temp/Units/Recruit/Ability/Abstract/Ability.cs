@@ -10,16 +10,11 @@ public abstract class Ability : MonoBehaviour
     public string Name => Lean.Localization.LeanLocalization.GetTranslationText(_namePath);
     public string Description => Lean.Localization.LeanLocalization.GetTranslationText(_descriptionPath);
 
-    protected Fighter Fighter => GetComponent<Fighter>();
+    protected Recruit Fighter => GetComponent<Recruit>();
 
     protected Health Health => GetComponent<Health>();
 
     protected abstract void ActivateAbility();
-
-    protected virtual void Test()
-    {
-
-    }
 
     public abstract void SetAbility(Recruit recruit, string namePath, string desriptionPath);
 
