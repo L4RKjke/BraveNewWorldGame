@@ -30,7 +30,7 @@ public class ViewDirection : MonoBehaviour
             Rotate(_defoaltScale, _invertedScale);
 
     }
-
+    // подумать как убрать дубляж кода, как минумум можно просто убрать 2 иф, он не нужен
     private void Rotate(Vector2 leftScale, Vector2 rightScale)
     {
         if (_unit.CurrentTarget != null)

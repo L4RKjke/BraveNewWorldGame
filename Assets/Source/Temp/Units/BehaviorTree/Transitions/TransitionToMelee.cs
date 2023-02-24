@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class TransitionToMelee : DistanceTransition
 {
     private void Update()

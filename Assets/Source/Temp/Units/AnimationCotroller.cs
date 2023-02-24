@@ -38,6 +38,8 @@ public class AnimationCotroller : MonoBehaviour
         _unit.Health.Died += OnUnitDied;
         _unit.Health.Damaged += ShowDamageEffect;
 
+        ///Нужно было заменить на сериалайздфилды, но щас слишком муторно
+
         if (CurrentUnit != null)
         {
             if (CurrentUnit.TryGetComponent(out RangeAtackState atackState))

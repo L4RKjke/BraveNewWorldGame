@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class TransitionToRangeAtack : DistanceTransition
 {
     private void Update()

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-
+///Нужно тестить изменения в RorateFire(), если норм, добавить в буллетИнстаншиатор
 public class Fire : MonoBehaviour
 {
     private Coroutine _fireRoutine;
@@ -33,7 +33,8 @@ public class Fire : MonoBehaviour
 
     private void Update()
     {
-        RorateFire();
+        if (_fireParticles.isPlaying)
+            RorateFire();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -85,12 +86,14 @@ public class Fire : MonoBehaviour
 
     private void RorateFire()
     {
+        float correctionAngle = 0;
+
         if (_fireParticles.isPlaying && _target != null && _firePoint != null)
         {
             if (_target.transform.parent.position.x - _firePoint.position.x < 0)
-                transform.parent.rotation = Quaternion.Euler(0, 0, GetAngle(_target, _firePoint) - 180);
-            else
-                transform.parent.rotation = Quaternion.Euler(0, 0, GetAngle(_target, _firePoint));
+                correctionAngle = 180;
+
+            transform.parent.rotation = Quaternion.Euler(0, 0, GetAngle(_target, _firePoint) - correctionAngle);
         }
     }
 
