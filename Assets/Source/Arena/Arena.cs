@@ -14,17 +14,17 @@ public class Arena:  MonoBehaviour
     [SerializeField] private SquadHealthbar _PlayerHealthbar;
     [SerializeField] private SquadHealthbar _EnemyHealthbar;
 
+    public UnityAction<FighterType> SquadEmpty;
+
     private void OnEnable()
     {
         _startButton.SetActive(true);
-        _PlayerHealthbar.HealthOver += OnEnemyWin;
-        _EnemyHealthbar.HealthOver += OnPlayerWin;
+        _pool.UnitDied += PickTheWinner;
     }
 
     private void OnDisable()
     {
-        _PlayerHealthbar.HealthOver -= OnEnemyWin;
-        _EnemyHealthbar.HealthOver -= OnPlayerWin;
+        _pool.UnitDied -= PickTheWinner;
     }
 
     public void OnStartButtonClick()
@@ -50,16 +50,28 @@ public class Arena:  MonoBehaviour
     private void OnPlayerWin()
     {
         _finalPanels.End(true);
-        _PlayerHealthbar.HealthOver -= OnEnemyWin;
         _timer.StopTimer();
     }
 
     private void OnEnemyWin()
     {
         _finalPanels.End(false);
-        _EnemyHealthbar.HealthOver -= OnPlayerWin;
         _timer.StopTimer();
 
         //мб временно, есть баг с тем, что могут умереть одновременно и враг и игрок
+    }
+
+    private void PickTheWinner(FighterType type)
+    {
+        Debug.Log(_pool.GetLength(type));
+
+        if (_pool.GetLength(type) == 0)
+        {
+            if (type == FighterType.Enemy)
+                OnPlayerWin();
+
+            else
+                OnEnemyWin();
+        }
     }
 }
