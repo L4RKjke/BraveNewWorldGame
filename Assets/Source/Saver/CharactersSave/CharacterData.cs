@@ -29,6 +29,12 @@ public class CharacterData
     public int Health { get; private set; }
     public int Magic { get; private set; }
     public int Exp {  get; private set; } 
+    public bool IsSold { get; private set; } = false;
+
+    public void Solded()
+    {
+        IsSold = true;
+    }
 
     public void SetClass(int number)
     {

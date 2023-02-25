@@ -6,7 +6,7 @@ public class HealthAbility : Ability
     private bool _isActivated = false;
     private float _healthIncrease = 0.4f;
 
-    private void Start()
+    private void Awake()
     {
         ActivateAbility();
     }
@@ -19,6 +19,6 @@ public class HealthAbility : Ability
 
     protected override void ActivateAbility()
     {
-        Fighter.Health.Init((int)(Fighter.Health.MaxHealth * _healthIncrease));
+        Fighter.Health.Init((int)(Fighter.Health.MaxHealth * _healthIncrease) + Fighter.Health.MaxHealth);
     }
 }

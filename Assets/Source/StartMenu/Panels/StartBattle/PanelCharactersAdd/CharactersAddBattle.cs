@@ -11,6 +11,7 @@ public class CharactersAddBattle : AllCharactersPanel
     {
         AddGraphics();
         CheckCharactersAdded();
+        _starteBattleUI.CharactersArena.ArenaCells.ResetLastParty();
     }
 
     private void OnDisable()

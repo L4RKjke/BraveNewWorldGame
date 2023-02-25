@@ -4193,6 +4193,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: -344.38
       objectReference: {fileID: 0}
+    - target: {fileID: 6595044424122621757, guid: 992c46d6eb594d04fafd7ddd21573a18, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6595044424312618012, guid: 992c46d6eb594d04fafd7ddd21573a18, type: 3}
       propertyPath: _inventoryUI
       value: 

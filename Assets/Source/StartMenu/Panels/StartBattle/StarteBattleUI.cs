@@ -24,11 +24,6 @@ public class StarteBattleUI : RenderUI
         _charactersAddBattle.enabled = true;
     }
 
-    private void OnEnable()
-    {
-        _charactersArena.ArenaCells.ResetLastParty();
-    }
-
     private void OnDisable()
     {
         ReturnAllCharacters();

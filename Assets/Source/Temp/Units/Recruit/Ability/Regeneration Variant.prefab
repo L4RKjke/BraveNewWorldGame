@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7924421757141280001, guid: 8caeb6970ebe814408ed031de7e31cd5, type: 3}
       propertyPath: m_Name
-      value: Regeneration
+      value: Regeneration Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8caeb6970ebe814408ed031de7e31cd5, type: 3}
@@ -75,4 +75,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _namePath: Ability/Regeneration/Name
-  _descriptionPath: Ability/Regeneration/Name
+  _descriptionPath: Ability/Regeneration/Description

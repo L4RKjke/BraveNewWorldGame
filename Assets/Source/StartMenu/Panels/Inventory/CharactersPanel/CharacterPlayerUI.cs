@@ -28,6 +28,7 @@ public class CharacterPlayerUI : MonoBehaviour
     private void Awake()
     {
         _characterChoice.Init(_characterStorage);
+        _characterChoice.enabled = true;
         _currentCharacter = _characterStorage.GetCharacter(0);
         _descriptionCharacterUI.Init(_currentCharacter.transform.GetChild(1).GetComponents<Ability>().Length);
         SetAbilitiesDescription(_currentCharacter);

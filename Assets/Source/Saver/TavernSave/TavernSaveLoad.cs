@@ -36,7 +36,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
             statsUI.UpdateAllStats(charactersData[i].Attack, charactersData[i].Defense, charactersData[i].Health, charactersData[i].Magic);
             character = buttonObject.GetComponentInChildren<TavernCharactersUI>().PointToCreate.transform.GetChild(0).gameObject;
 
-            if (charactersData[i].Class == -1)
+            if (charactersData[i].IsSold)
             {
                 Destroy(character);
                 Button temp = buttonObject.GetComponentInChildren<Button>();
@@ -82,7 +82,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
         {
             if(_tavernUI.ContainerTransform.GetChild(i).GetComponentInChildren<CharacterStats>() == null)
             {
-                _charactersData[i].SetClass(-1);
+                _charactersData[i].Solded();
             }
         }
 
