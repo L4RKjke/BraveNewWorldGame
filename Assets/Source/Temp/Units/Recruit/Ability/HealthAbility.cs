@@ -3,7 +3,6 @@ using UnityEngine;
 public class HealthAbility : Ability
 {
     //увеличивает здоровье на 40%.
-    private bool _isActivated = false;
     private float _healthIncrease = 0.4f;
 
     private void Awake()

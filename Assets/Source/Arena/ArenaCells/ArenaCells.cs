@@ -34,8 +34,14 @@ public class ArenaCells : MonoBehaviour
         _charactersArena.Init(_charactersStorage, this);
     }
 
+    public void OffNavMesh()
+    {
+        _navMesh.enabled = (false);
+    }
+
     public void BuildBanMesh()
     {
+        _navMesh.enabled = (true);
         _navMesh.BuildNavMesh();
     }
 

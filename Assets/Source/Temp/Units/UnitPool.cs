@@ -55,38 +55,38 @@ public class UnitPool : MonoBehaviour
     {
         var fighters = _fighters.Where(fighter => fighter.Type == type).ToArray();
 
-       return fighters[id];
+        return fighters[id];
     }
 
     public Fighter GetById(int id)
     {
         if (id <= _fighters.Count && id >= 0)
             return _fighters[id];
-        else 
+        else
             return null;
     }
 
-/*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
-    {
-        Fighter target = null;
-        float minDistance = Mathf.Infinity;
-
-        foreach (var fighter in _fighters)
+    /*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
         {
-            if (fighter.Type == fighterType)
-            {
-                float distance = Vector2.Distance(fighter.transform.position, position);
+            Fighter target = null;
+            float minDistance = Mathf.Infinity;
 
-                if (distance < minDistance)
+            foreach (var fighter in _fighters)
+            {
+                if (fighter.Type == fighterType)
                 {
-                    target = fighter;
-                    minDistance = distance;
+                    float distance = Vector2.Distance(fighter.transform.position, position);
+
+                    if (distance < minDistance)
+                    {
+                        target = fighter;
+                        minDistance = distance;
+                    }
                 }
             }
-        }
 
-        return target;
-    }*/
+            return target;
+        }*/
 
     public void CleanPool()
     {

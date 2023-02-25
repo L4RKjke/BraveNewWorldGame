@@ -21,7 +21,8 @@ public class DivineHealingAbility: Ability
 
     protected override void ActivateAbility()
     {
-        Fighter.Health.Heal(Fighter.Health.MaxHealth);
+        if (Fighter.Health.Value > 0)
+            Fighter.Health.Heal(Fighter.Health.MaxHealth);
     }
 
     private void OnHealthChanged(int currentHealth)

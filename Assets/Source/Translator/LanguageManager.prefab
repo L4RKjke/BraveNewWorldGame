@@ -1097,7 +1097,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: "\rHeals for 25% of the damage dealt."
+    Text: Heals for 25% of the damage dealt.
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041B\u0435\u0447\u0438\u0442 \u043D\u0430 25% \u043E\u0442 \u043D\u0430\u043D\u0435\u0441\u0435\u043D\u043D\u043E\u0433\u043E
@@ -1884,7 +1884,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: "\rIncreases maximum health by 40%."
+    Text: Increases maximum health by 40%.
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
@@ -2209,11 +2209,11 @@ MonoBehaviour:
   entries:
   - Language: Russian
     Text: "\u041F\u043E\u043B\u0443\u0447\u0430\u0435\u0442 \u043D\u0430 10% \u0431\u043E\u043B\u044C\u0448\u0435
-      \u0443\u0440\u043E\u043D\u0430.\n\"\u0410 \u043F\u043E\u0442\u043E\u043C \u043C\u043D\u0435
+      \u0443\u0440\u043E\u043D\u0430. \"\u0410 \u043F\u043E\u0442\u043E\u043C \u043C\u043D\u0435
       \u043F\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u0438\u043B\u0438 \u043A\u043E\u043B\u0435\u043D\u043E.\""
     Object: {fileID: 0}
   - Language: English
-    Text: "\rTakes 10% more damage.\n\r\"And then they shot me in the knee.\""
+    Text: Takes 10% more damage. "And then they shot me in the knee."
     Object: {fileID: 0}
 --- !u!1 &5097432098989599065
 GameObject:
@@ -6567,7 +6567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1

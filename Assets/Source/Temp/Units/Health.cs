@@ -32,7 +32,6 @@ public class Health : MonoBehaviour
 
         _value = health;
         _maxHealth = _value;
-        Debug.Log(_maxHealth);
     }
 
     public void Heal(int healPoints)

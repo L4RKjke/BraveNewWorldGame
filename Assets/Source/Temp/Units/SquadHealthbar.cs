@@ -16,8 +16,6 @@ public class SquadHealthbar : Healthbar
 
     private readonly float _healthRate = 0.12f;
 
-    public UnityAction HealthOver;
-
     private void OnEnable()
     {
         UpdateHealthbar();
@@ -81,9 +79,6 @@ public class SquadHealthbar : Healthbar
 
         if (enabled == true)
             _corutine = StartCoroutine(SetHealth(damageValue));
-
-        if (squadHealth == 0)
-            HealthOver?.Invoke();
     }
 
     private IEnumerator SetHealth(float target)
@@ -93,4 +88,5 @@ public class SquadHealthbar : Healthbar
             yield return Slider.value = Mathf.MoveTowards(Slider.value, target, _healthRate * Time.deltaTime);
         }
     }
+
 }

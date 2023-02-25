@@ -5,10 +5,10 @@ using UnityEngine;
 public class ElfBlood : Ability
 {
     //C вероятностью <_healPercent> может полностью восстановить здоровье.
-    private float _healPercent = 0.02f;
+    private int _healPercent = 2;
 
-    private readonly float _minPercent = 0;
-    private readonly float _maxPercent = 100;
+    private readonly int _minPercent = 0;
+    private readonly int _maxPercent = 100;
 
     private void Start()
     {
@@ -33,11 +33,18 @@ public class ElfBlood : Ability
 
     private void OnHealthChanged(int health)
     {
-        var radomValue = Random.Range(_minPercent, _maxPercent);
-
-        if (radomValue < _healPercent)
+        if (Fighter.Health.Value > 0)
         {
-            ActivateAbility();
+            int radomValue = Random.Range(_minPercent, _maxPercent + 1);
+
+            if (radomValue < _healPercent)
+            {
+                ActivateAbility();
+            }
+        }
+        else
+        {
+            Fighter.Health.Damaged -= OnHealthChanged;
         }
     }
 }

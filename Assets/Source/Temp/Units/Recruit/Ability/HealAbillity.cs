@@ -32,7 +32,11 @@ public class HealAbillity : Ability
     private void DamageTaken(int health = 0)
     {
         Fighter.Health.Damaged -= DamageTaken;
-        ActivateAbility();
+
+        if (Fighter.Health.Value > 0)
+        {
+            ActivateAbility();
+        }
     }
 
     private IEnumerator Heal()
