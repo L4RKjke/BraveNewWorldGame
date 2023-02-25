@@ -52,7 +52,6 @@ public class FinalPanels : MonoBehaviour
             character.GetComponent<CharacterStats>().GetExpirience(_totalEXP / _charactersID.Count, _panelHunt.GetCurrentLevel());
         }
 
-        Debug.Log("Конец");
         BattleEnd?.Invoke();
     }
 

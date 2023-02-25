@@ -49,6 +49,7 @@ public class Arena:  MonoBehaviour
 
     private void OnPlayerWin()
     {
+        Debug.Log("Конец");
         _finalPanels.End(true);
         _timer.StopTimer();
     }

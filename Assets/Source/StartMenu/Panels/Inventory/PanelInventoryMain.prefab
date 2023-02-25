@@ -787,10 +787,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Storage
+  m_text: "\u0425\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 18e5ede33e490485d9576cb16d82ad1e, type: 2}
-  m_sharedMaterial: {fileID: -4171563015097924827, guid: 18e5ede33e490485d9576cb16d82ad1e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
+  m_sharedMaterial: {fileID: -4549579385975343360, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -814,7 +814,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 43.95
+  m_fontSize: 31.6
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1259,7 +1259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.2001953, y: -6.5}
+  m_AnchoredPosition: {x: -4.799988, y: -13}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3464181797443811189
@@ -3697,11 +3697,11 @@ PrefabInstance:
     - target: {fileID: 3306760250296189327, guid: 6e49914976590e04c9c59a83d50935ab, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: 27f54c9130c9748c9be53df11fa03382, type: 2}
+      objectReference: {fileID: 11400000, guid: 9604b85e53550384d98f186851280ccd, type: 2}
     - target: {fileID: 3306760250296189327, guid: 6e49914976590e04c9c59a83d50935ab, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: -4171563015097924827, guid: 27f54c9130c9748c9be53df11fa03382, type: 2}
+      objectReference: {fileID: -5710767109015712502, guid: 9604b85e53550384d98f186851280ccd, type: 2}
     - target: {fileID: 8944239402578196843, guid: 6e49914976590e04c9c59a83d50935ab, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

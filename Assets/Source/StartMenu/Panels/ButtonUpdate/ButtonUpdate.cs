@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
@@ -11,6 +12,8 @@ public class ButtonUpdate : MonoBehaviour
 
     private int _priceUpdate;
     private PlayerWallet _wallet;
+
+    public UnityAction Updated;
 
     public Button Button => this.GetComponent<Button>();
 
@@ -42,6 +45,7 @@ public class ButtonUpdate : MonoBehaviour
         {
             _text.color = Color.white;
             canUpdate = true;
+            Updated?.Invoke();
         }
         else
         {

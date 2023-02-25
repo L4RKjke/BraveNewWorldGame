@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(WalletSaveLoad))]
 [RequireComponent(typeof(CharactersSaveLoad))]
@@ -13,6 +14,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
 {
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
+    [SerializeField] private List<ButtonUpdate> _updates;
 
     private WalletSaveLoad _wallet;
     private CharactersSaveLoad _charactersSaveLoad;
@@ -21,6 +23,8 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
     private EquippedItemsSaveLoad _equippedItemsSaveLoad;
     private ShopSaveLoad _shopSaveLoad;
     private TavernSaveLoad _tavernSaveLoad;
+
+    public UnityAction Saved;
 
     private void Awake()
     {
@@ -37,8 +41,13 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
     {
         if (_finalPanels != null)
         {
-            _finalPanels.BattleEnd += SaveDelay;
-            _panel.PanelClosed += SaveDelay;
+            _finalPanels.BattleEnd += Save;
+            _panel.PanelClosed += Save;
+
+            for (int i = 0; i < _updates.Count; i++)
+            {
+                _updates[i].Updated += SaveDelay;
+            }
         }
     }
 
@@ -46,8 +55,13 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
     {
         if (_finalPanels != null)
         {
-            _finalPanels.BattleEnd -= SaveDelay;
-            _panel.PanelClosed -= SaveDelay;
+            _finalPanels.BattleEnd -= Save;
+            _panel.PanelClosed -= Save;
+
+            for (int i = 0; i < _updates.Count; i++)
+            {
+                _updates[i].Updated -= SaveDelay;
+            }
         }
     }
 
@@ -72,6 +86,8 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
+        Saved?.Invoke();
+        Debug.Log("save");
     }
 
     public void SaveDelay()

@@ -12,4 +12,12 @@ public class Loader : MonoBehaviour
         _game = GetComponent<SaveLoadGame>();
         _game.Load();
     }
+
+    private IEnumerator CoroutineLoadDelay()
+    {
+        float delay = 1;
+        yield return new WaitForSeconds(delay);
+        _game = GetComponent<SaveLoadGame>();
+        _game.Load();
+    }
 }
