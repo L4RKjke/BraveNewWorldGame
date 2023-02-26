@@ -17,10 +17,19 @@ public class WalletSaveLoad : MonoBehaviour , BinarrySaveLoad
             _wallet.ChangeGold(walletData.Gold - _wallet.Gold);
             _progress.SetLevel(walletData.OpenedLevels);
         }
+
+        Debug.Log(walletData.Gold);
     }
 
     public void Save()
     {
         BinarySavingSystem.SaveWallet(_wallet, _progress);
+        Temp();
+    }
+
+    public void Temp()
+    {
+        WalletData walletData = BinarySavingSystem.LoadWallet();
+        Debug.Log(walletData.Gold);
     }
 }

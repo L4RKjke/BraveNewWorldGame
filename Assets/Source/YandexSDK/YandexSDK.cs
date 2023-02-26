@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class YandexSDK : MonoBehaviour
 {
-    [SerializeField] private YandexLeaderboard _leaderboard;
+    /*[SerializeField] private YandexLeaderboard _leaderboard;*/
 
     private void Awake()
     {
         YandexGamesSdk.CallbackLogging = true;
+        DontDestroyOnLoad(gameObject);
     }
 
     private IEnumerator Start()
@@ -22,10 +23,10 @@ public class YandexSDK : MonoBehaviour
 
         InterstitialAd.Show();
 
-        if (PlayerAccount.IsAuthorized == true)
+/*        if (PlayerAccount.IsAuthorized == true)
             _leaderboard.FormListOfTopPlayers();
         else
-            _leaderboard.UpdateLeaderBoardOn();
+            _leaderboard.UpdateLeaderBoardOn();*/
     }
 
     public void ShowVideoAD()
@@ -38,5 +39,10 @@ public class YandexSDK : MonoBehaviour
     public void AuthorizePlayer()
     {
         PlayerAccount.Authorize();
+    }
+
+    public void SetData()
+    {
+        /*PlayerAccount.SetPlayerData();*/
     }
 }

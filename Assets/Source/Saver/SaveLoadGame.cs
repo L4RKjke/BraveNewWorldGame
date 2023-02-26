@@ -65,7 +65,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         }
     }
 
-
     public void Load()
     {
         _wallet.Load();
