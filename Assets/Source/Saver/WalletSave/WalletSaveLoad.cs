@@ -2,23 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WalletSaveLoad : MonoBehaviour , BinarrySaveLoad
+public class WalletSaveLoad : MonoBehaviour , BinarrySaves
 {
     [SerializeField] private PlayerWallet _wallet;
     [SerializeField] private PlayerProgress _progress;
 
-    public void Load()
+    public void Load(WalletData walletData)
     {
-        WalletData walletData = BinarySavingSystem.LoadWallet();
-
         if (walletData != null)
         {
             _wallet.ChangeCrystals(walletData.Crystals - _wallet.Crystals);
             _wallet.ChangeGold(walletData.Gold - _wallet.Gold);
             _progress.SetLevel(walletData.OpenedLevels);
         }
-
-        Debug.Log(walletData.Gold);
     }
 
     public void Save()
@@ -31,5 +27,11 @@ public class WalletSaveLoad : MonoBehaviour , BinarrySaveLoad
     {
         WalletData walletData = BinarySavingSystem.LoadWallet();
         Debug.Log(walletData.Gold);
+    }
+
+    public WalletData GetData()
+    {
+        WalletData walletData = new WalletData(_wallet,_progress);
+        return walletData;
     }
 }

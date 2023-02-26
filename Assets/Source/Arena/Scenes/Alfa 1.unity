@@ -2336,6 +2336,7 @@ GameObject:
   - component: {fileID: 684735718}
   - component: {fileID: 684735719}
   - component: {fileID: 684735720}
+  - component: {fileID: 684735721}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -2484,6 +2485,18 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cb0ed9005ae501d4db6f7545e79a3d22, type: 2}
   - {fileID: 11400000, guid: 39a295ded56a5fb4f9bed8dd51e2d59f, type: 2}
   _heroPassiveSkills: []
+--- !u!114 &684735721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684735711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a251e581bb0714985c9d9fb842a4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &685234344
 PrefabInstance:
   m_ObjectHideFlags: 0

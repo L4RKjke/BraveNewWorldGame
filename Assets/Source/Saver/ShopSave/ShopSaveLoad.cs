@@ -5,15 +5,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopSaveLoad : MonoBehaviour, BinarrySaveLoad
+public class ShopSaveLoad : MonoBehaviour, BinarrySaves
 {
     [SerializeField] private ItemShopUI _itemShop;
     [SerializeField] private ItemStorage _itemStorage;
     [SerializeField] private PlayerItemStorage _playerItemStorage;
 
-    public void Load()
+    public void Load(ShopData shopData)
     {
-        ShopData shopData = BinarySavingSystem.LoadShop();
         Item item = null;
 
         for (int i = 0; i < shopData.IsSold.Length; i++)
@@ -61,5 +60,11 @@ public class ShopSaveLoad : MonoBehaviour, BinarrySaveLoad
     public void Save()
     {
         BinarySavingSystem.SaveShop(_itemShop);
+    }
+
+    public ShopData GetData()
+    {
+        ShopData shopData = new ShopData(_itemShop);
+        return shopData;
     }
 }

@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface BinarrySaveLoad
+public interface BinarrySaves
 {
     public void Save();
-    public void Load();
 }

@@ -5,31 +5,31 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterData
 {
-    public int Class { get; private set; } 
-    public int[] SkillsID { get; private set; } = new int[2];
-    public float[] SkeenColor { get; private set; }
-    public float[] HairColor { get; private set; }
-    public int EarID { get; private set; }
-    public int HairID { get; private set; }
-    public int HeadID { get; private set; }
-    public int EyesID { get; private set; }
-    public int EyesBrowsID { get; private set; }
-    public int MouthID { get; private set; }
-    public int BodyID { get; private set; }
-    public int ArmLID { get; private set; }
-    public int HandLID { get; private set; }
-    public int FingersID { get; private set; }
-    public int ArmRID { get; private set; }
-    public int HandRID { get; private set; }
-    public int LegLID { get; private set; }
-    public int LegRID { get; private set; }
-    public string Name { get; private set; }
-    public int Attack { get; private set; }
-    public int Defense { get; private set; }
-    public int Health { get; private set; }
-    public int Magic { get; private set; }
-    public int Exp {  get; private set; } 
-    public bool IsSold { get; private set; } = false;
+    public int Class;
+    public int[] SkillsID = new int[2];
+    public float[] SkeenColor = new float[4];
+    public float[] HairColor = new float[4];
+    public int EarID;
+    public int HairID;
+    public int HeadID;
+    public int EyesID;
+    public int EyesBrowsID;
+    public int MouthID;
+    public int BodyID;
+    public int ArmLID;
+    public int HandLID;
+    public int FingersID;
+    public int ArmRID;
+    public int HandRID;
+    public int LegLID;
+    public int LegRID;
+    public string Name;
+    public int Attack;
+    public int Defense;
+    public int Health;
+    public int Magic;
+    public int Exp;
+    public bool IsSold = false;
 
     public void Solded()
     {
@@ -48,9 +48,6 @@ public class CharacterData
 
     public void SetColor(Color skeen,Color Hair)
     {
-        SkeenColor = new float[4];
-        HairColor = new float[4];
-
         SkeenColor[0] = skeen.r;
         SkeenColor[1] = skeen.g;
         SkeenColor[2] = skeen.b;

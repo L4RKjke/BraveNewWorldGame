@@ -10,7 +10,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(EquippedItemsSaveLoad))]
 [RequireComponent(typeof(ShopSaveLoad))]
 [RequireComponent(typeof(TavernSaveLoad))]
-public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
+public class SaveLoadGame : MonoBehaviour , BinarrySaves
 {
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
@@ -65,19 +65,21 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         }
     }
 
-    public void Load()
+    public void Load(WalletData walletData, List<CharacterData> charactersData, ItemData itemData, ItemInventoryData itemInventoryData,
+        EquippedItemsData equippedItemsData, ShopData shopData, List<CharacterData> tavernData)
     {
-        _wallet.Load();
-        _charactersSaveLoad.Load();
-        _itemsSaveLoad.Load();
-        _itemInventorySaveLoad.Load();
-        _equippedItemsSaveLoad.Load();
-        _shopSaveLoad.Load();
-        _tavernSaveLoad.Load();
+        _wallet.Load(walletData);
+        _charactersSaveLoad.Load(charactersData);
+        _itemsSaveLoad.Load(itemData);
+        _itemInventorySaveLoad.Load(itemInventoryData);
+        _equippedItemsSaveLoad.Load(equippedItemsData);
+        _shopSaveLoad.Load(shopData);
+        _tavernSaveLoad.Load(tavernData);
     }
 
     public void Save()
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
         _wallet.Save();
         _charactersSaveLoad.Save();
         _itemsSaveLoad.Save();
@@ -85,12 +87,56 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
+#endif
+
         Saved?.Invoke();
     }
 
     public void SaveDelay()
     {
         StartCoroutine(CoroutineSaveDelay());
+    }
+
+    public string GetJson()
+    {
+        WalletData walletData = _wallet.GetData();
+        EquippedItemsData equippedItemsData = _equippedItemsSaveLoad.GetData();
+        List<CharacterData> charactersData = _charactersSaveLoad.GetData();
+        List<CharacterData> tavernData = _tavernSaveLoad.GetData();
+        ShopData shopData = _shopSaveLoad.GetData();
+        ItemInventoryData itemInventory = _itemInventorySaveLoad.GetData();
+        ItemData itemData = _itemsSaveLoad.GetData();
+
+        JsonDataSaves jsonDataSaves = new JsonDataSaves(walletData, equippedItemsData, charactersData, tavernData, shopData, itemInventory, itemData);
+        string saves = JsonUtility.ToJson(jsonDataSaves);
+
+        return saves;
+    }
+
+    public void Test()
+    {
+        GetJson();
+    }
+
+    public void JsonLoad(string value)
+    {
+        JsonDataSaves jsonDataSaves = JsonUtility.FromJson<JsonDataSaves>(value);
+
+        List<CharacterData> charactersData = new List<CharacterData>();
+        List<CharacterData> tavernData = new List<CharacterData>();
+
+        for (int i = 0; i < jsonDataSaves.CharactersData.Length; i++)
+        {
+            charactersData.Add(jsonDataSaves.CharactersData[i]);
+        }
+
+        for (int i = 0; i < jsonDataSaves.TavernData.Length; i++)
+        {
+            tavernData.Add(jsonDataSaves.TavernData[i]);
+        }
+
+        Load(jsonDataSaves.WalletData, charactersData, jsonDataSaves.ItemData, jsonDataSaves.ItemInventoryData,
+            jsonDataSaves.EquippedItems, jsonDataSaves.ShopData, tavernData);
     }
 
     private IEnumerator CoroutineSaveDelay()

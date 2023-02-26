@@ -32,17 +32,11 @@ public class YandexSDK : MonoBehaviour
     public void ShowVideoAD()
     {
         Time.timeScale = 0;
-        Debug.Log("Показал");
         VideoAd.Show();
     }
 
     public void AuthorizePlayer()
     {
         PlayerAccount.Authorize();
-    }
-
-    public void SetData()
-    {
-        /*PlayerAccount.SetPlayerData();*/
     }
 }

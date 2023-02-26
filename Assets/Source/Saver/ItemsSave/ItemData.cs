@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class ItemData
 {
-    public int[] Level { get; private set; }
-    public string[] Type { get; private set; }
-    public int[] SearchID { get; private set; }
+    public int[] Level;
+    public string[] Type;
+    public int[] SearchID;
 
     public ItemData(PlayerItemStorage playerItemStorage)
     {

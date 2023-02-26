@@ -3,14 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
+public class ItemsSaveLoad : MonoBehaviour, BinarrySaves
 {
     [SerializeField] private ItemStorage _itemStorage;
     [SerializeField] private PlayerItemStorage _playerItemStorage;
 
-    public void Load()
+    public void Load(ItemData items)
     {
-        ItemData items = BinarySavingSystem.LoadItems();
         Item newItem = null;
 
         for (int i = 0; i < items.SearchID.Length; i++)
@@ -56,5 +55,11 @@ public class ItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
     public void Save()
     {
         BinarySavingSystem.SaveItem(_playerItemStorage);
+    }
+
+    public ItemData GetData()
+    {
+        ItemData itemData = new ItemData(_playerItemStorage);
+        return itemData;
     }
 }

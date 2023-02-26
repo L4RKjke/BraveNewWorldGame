@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EquippedItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
+public class EquippedItemsSaveLoad : MonoBehaviour, BinarrySaves
 {
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private PlayerItemStorage _itemStorage;
 
-    public void Load()
+    public void Load(EquippedItemsData equippedItemsData)
     {
-        EquippedItemsData equippedItemsData = BinarySavingSystem.LoadEquippedItems();
         CharacterItems characterItems;
         Item item;
 
@@ -32,5 +31,11 @@ public class EquippedItemsSaveLoad : MonoBehaviour, BinarrySaveLoad
     public void Save()
     {
         BinarySavingSystem.SaveEquippedItems(_charactersStorage);
+    }
+
+    public EquippedItemsData GetData()
+    {
+        EquippedItemsData equppedItemData = new EquippedItemsData(_charactersStorage);
+        return equppedItemData;
     }
 }
