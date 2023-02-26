@@ -45,7 +45,8 @@ public class ArenaCells : MonoBehaviour
 
         for (int i = 0; i < _playerCharacters.Count; i++)
         {
-            _fighters.RemoveLast();
+            ///ѕротестить и разнести на несколько методов
+            _fighters.RemoveFighter(_fighters.GetById(_fighters.GetLength()-1));
         }
 
         _objectsSaver.ClearCharacters();

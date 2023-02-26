@@ -38,13 +38,10 @@ public class UnitPool : MonoBehaviour
     public void RemoveFighter(Fighter fighter)
     {
         _fighters.Remove(fighter);
+        fighter.Health.Died -= OnUnitDied;
     }
 
-    public void RemoveLast()
-    {
-        _fighters.RemoveAt(_fighters.Count - 1);
-    }
-
+    /// Проверить метод ремул ласт и отписку от
     public void AddNewFighter(Fighter fighter)
     {
         _fighters.Add(fighter);
