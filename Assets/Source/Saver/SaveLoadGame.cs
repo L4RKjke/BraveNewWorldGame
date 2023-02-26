@@ -87,7 +87,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaveLoad
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
         Saved?.Invoke();
-        Debug.Log("save");
     }
 
     public void SaveDelay()
