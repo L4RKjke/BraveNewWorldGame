@@ -37,11 +37,13 @@ public class UnitPool : MonoBehaviour
 
     public void RemoveFighter(Fighter fighter)
     {
+        fighter.Health.Died -= OnUnitDied;
         _fighters.Remove(fighter);
     }
 
     public void RemoveLast()
     {
+        _fighters[(_fighters.Count - 1)].Health.Died -= OnUnitDied;
         _fighters.RemoveAt(_fighters.Count - 1);
     }
 
