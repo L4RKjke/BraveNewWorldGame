@@ -6,6 +6,7 @@ using UnityEngine.Audio;
 public class TelepotrSounds : Sounds
 {
     [SerializeField] private AudioMixer _audioMixer;
+    [SerializeField] private GameObject _character;
 
     string _volume = "Effects";
     private int _valueSound = 0;
@@ -21,22 +22,15 @@ public class TelepotrSounds : Sounds
         AudioSource.PlayOneShot(GetClip(1));
     }
 
+    public void OffCharacter()
+    {
+        _character.SetActive(false);
+    }
+
     private void EffectsIncrease()
     {
         int valueIncrease = 10;
         _audioMixer.SetFloat(_volume, _valueSound);
         _valueSound += valueIncrease;
     }
-
-/*    private IEnumerator CoroutineSoundIncrease()
-    {
-        float expiredTime = 0.3f;
-
-        while (expiredTime < 1)
-        {
-            expiredTime += Time.deltaTime;
-            _audioMixer.SetFloat(_volume, Mathf.Log10(10 * expiredTime) * _valueDecrease);
-            yield return null;
-        }
-    }*/
 }

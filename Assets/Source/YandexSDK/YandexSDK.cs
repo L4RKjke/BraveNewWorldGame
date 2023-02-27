@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class YandexSDK : MonoBehaviour
 {
+    [SerializeField] private GameObject _buttonAutorize;
     /*[SerializeField] private YandexLeaderboard _leaderboard;*/
+
+    private Coroutine _authorize;
 
     private void Awake()
     {
@@ -38,5 +41,20 @@ public class YandexSDK : MonoBehaviour
     public void AuthorizePlayer()
     {
         PlayerAccount.Authorize();
+
+        if (_authorize != null)
+            StopCoroutine(_authorize);
+
+        _authorize = StartCoroutine(CheckAuthorize());
+    }
+
+    private IEnumerator CheckAuthorize()
+    {
+        while(PlayerAccount.IsAuthorized == false)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+
+        _buttonAutorize.SetActive(false);
     }
 }
