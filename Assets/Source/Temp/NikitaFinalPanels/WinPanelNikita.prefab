@@ -21796,9 +21796,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4c6e1f05dbf97440931f99c22eac2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gold: {fileID: 0}
-  _crystals: {fileID: 0}
-  _exp: {fileID: 3686128947349506716}
+  _gold: {fileID: 599663335911296152}
+  _crystals: {fileID: 8417931059785285844}
+  _exp: {fileID: 7683186877184480674}
   _textComplete: {fileID: 8754361664915691764}
 --- !u!95 &1882236771
 Animator:

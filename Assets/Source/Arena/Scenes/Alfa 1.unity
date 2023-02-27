@@ -637,7 +637,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.19012451, y: 0.0013427734}
+  m_AnchoredPosition: {x: 0.19018555, y: 0.0013427734}
   m_SizeDelta: {x: -0.6199951, y: -0.39001465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &296912567 stripped
@@ -5800,6 +5800,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3696789416024580434, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745611227}
+    - target: {fileID: 3696789416024580434, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696789416024580434, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 866708842}
     - target: {fileID: 5114816934063848980, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5840,6 +5852,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7399879880772935848, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 745611227}
+    - target: {fileID: 7399879880772935848, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToNext
+      objectReference: {fileID: 0}
+    - target: {fileID: 7399879880772935848, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 866708842}
     - target: {fileID: 8102666254266261586, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 4

@@ -1,4 +1,3 @@
-using Agava.YandexGames;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,10 +10,11 @@ public class StartButton : MonoBehaviour
     [SerializeField] private GameObject _blackScreen;
     [SerializeField] private GameObject _teleport;
     [SerializeField] private GameObject _buttons;
+    [SerializeField] private SaveComparison _compare;
+    [SerializeField] private GameObject _authorize;
 
     private Coroutine _startScene;
     private Animator _animator;
-    private string _data = "";
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class StartButton : MonoBehaviour
     {
         bool isCreated = BinarySavingSystem.CheckSaves();
 
-        JsonDataSaves jsonDataSaves = TryGetData();
+        JsonDataSaves jsonDataSaves = _compare.TryGetData();
 
         if ((_startScene == null && isCreated == true) || (_startScene == null && jsonDataSaves != null))
         {
@@ -47,26 +47,14 @@ public class StartButton : MonoBehaviour
         string off = "Off";
         _buttons.GetComponent<Animator>().SetTrigger(off);
         _animator.SetTrigger(off);
+
+        if(_authorize.activeSelf == true)
+            _authorize.GetComponent<Animator>().SetTrigger(off);
+
         float waiting = 3f;
         yield return new WaitForSeconds(waiting);;
         _blackScreen.GetComponent<Animator>().SetTrigger(off);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(scene);
-    }
-
-    private JsonDataSaves TryGetData()
-    {
-#if !UNITY_WEBGL || UNITY_EDITOR
-        return null;
-#endif
-        Action<string> getData = new Action<string>(GetData);
-        PlayerAccount.GetPlayerData(getData);
-        JsonDataSaves jsonDataSaves = JsonUtility.FromJson<JsonDataSaves>(_data);
-        return jsonDataSaves;
-    }
-
-    private void GetData(string data)
-    {
-        _data = data;
     }
 }

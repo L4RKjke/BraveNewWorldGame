@@ -15,6 +15,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
     [SerializeField] private List<ButtonUpdate> _updates;
+    [SerializeField] private Roulete _roulete;
 
     private WalletSaveLoad _wallet;
     private CharactersSaveLoad _charactersSaveLoad;
@@ -43,6 +44,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         {
             _finalPanels.BattleEnd += Save;
             _panel.PanelClosed += Save;
+            _roulete.Spined += Save;
 
             for (int i = 0; i < _updates.Count; i++)
             {

@@ -1,3 +1,5 @@
+using Agava.YandexGames;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,13 +12,16 @@ public class Roulete : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private SpinTimer _spinTimer;
     [SerializeField] private GameObject _wheel;
+    [SerializeField] private PlayerWallet _wallet;
 
-    private readonly List<int> _prizes = new List<int> { 100, 200, 300, 400, 500, 600, 700, 800 };
+    private readonly List<int> _prizes = new List<int> { 50, 5000, 300, 100, 2000, 500, 1000, 250 };
     private readonly int _maxAngel = 360;
     private readonly float _updateDelay = 0.01f;
     private readonly float _spinSpeed = 7;
     private readonly int _prizeSections = 8;
     private readonly string _routineName = "Spin";
+
+    public UnityAction Spined;
 
     private void OnEnable()
     {
@@ -31,12 +36,17 @@ public class Roulete : MonoBehaviour
 
     public void OnSpinButtonClick()
     {
+        Action videoShowed = new Action(StartSpin);
+        VideoAd.Show(null, null, videoShowed);
+    }
+
+    private void StartSpin()
+    {
         ResetRoulete();
         StopCoroutine(_routineName);
         StartCoroutine(_routineName);
         _spinButton.interactable = false;
         _spinTimer.StartTimer();
-
     }
 
     private void ActivateButton()
@@ -58,7 +68,7 @@ public class Roulete : MonoBehaviour
     {
         float currentAngel = 0;
         float spitSpeed = _spinSpeed;
-        float speedSpread = Random.Range(0.01f, 0.04f);
+        float speedSpread = UnityEngine.Random.Range(0.01f, 0.04f);
 
         while (spitSpeed > 0)
         {
@@ -84,29 +94,39 @@ public class Roulete : MonoBehaviour
         switch (sectionId)
         {
             case 1:
-                Debug.Log(1);
+                _wallet.ChangeGold(_prizes[0]);
+                Debug.Log(_prizes[0]);
                 break;
             case 2:
-                Debug.Log(2);
+                _wallet.ChangeGold(_prizes[1]);
+                Debug.Log(_prizes[1]);
                 break;
             case 3:
-                Debug.Log(3);
+                _wallet.ChangeGold(_prizes[2]);
+                Debug.Log(_prizes[2]);
                 break;
             case 4:
-                Debug.Log(4);
+                _wallet.ChangeCrystals(_prizes[3]);
+                Debug.Log(_prizes[3]);
                 break;
             case 5:
-                Debug.Log(5);
+                _wallet.ChangeGold(_prizes[4]);
+                Debug.Log(_prizes[4]);
                 break;
             case 6:
-                Debug.Log(6);
+                _wallet.ChangeGold(_prizes[5]);
+                Debug.Log(_prizes[5]);
                 break;
             case 7:
-                Debug.Log(7);
+                _wallet.ChangeGold(_prizes[6]);
+                Debug.Log(_prizes[6]);
                 break;
             case 8:
-                Debug.Log(8);
+                _wallet.ChangeCrystals(_prizes[7]);
+                Debug.Log(_prizes[7]);
                 break;
         }
+
+        Spined?.Invoke();
     }
 }
