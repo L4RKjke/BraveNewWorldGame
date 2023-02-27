@@ -34,8 +34,7 @@ public class FinalPanels : MonoBehaviour
         if (isWin)
         {
             _panelWin.gameObject.SetActive(true);
-            _panelWin.SetExpirience(_totalEXP);
-            _panelWin.SetGoldAndCrystals(_totalGold,_panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
+            _panelWin.SetRewards(_totalGold, _totalEXP, _panelHunt.GetCurrentLevel(), _progress.OpenedLevel);
             _progress.LevelComplete(_panelHunt.GetCurrentLevel());
         }
         else

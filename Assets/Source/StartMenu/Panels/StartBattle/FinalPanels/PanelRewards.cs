@@ -1,9 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class PanelRewards : MonoBehaviour
 {
+    [SerializeField] private TMP_Text _gold;
+    [SerializeField] private TMP_Text _crystals;
+    [SerializeField] private TMP_Text _exp;
+
+
     protected PlayerWallet _playerWallet;
 
     public void Init(PlayerWallet wallet)
@@ -11,10 +17,19 @@ public class PanelRewards : MonoBehaviour
         _playerWallet = wallet;
     }
 
-    protected void AddRewards(int gold,int crystals = 0)
+    public virtual void SetRewards(int gold, int exp, int currentLevel, int openedLevel)
     {
+        AddRewards(gold, 0, currentLevel, openedLevel, exp);
+    }
+
+    protected void AddRewards(int gold,int crystals, int currentLevel, int openedLevel, int exp)
+    {
+        gold = GetLevelReward(gold, currentLevel, openedLevel);
+        crystals = GetLevelReward(crystals, currentLevel, openedLevel);
+
         _playerWallet.ChangeGold(gold);
         _playerWallet.ChangeCrystals(crystals);
+        SetReward(gold, crystals, exp);
     }
 
     protected int GetLevelReward(int reward, int currentLevel, int openedLevel)
@@ -30,5 +45,12 @@ public class PanelRewards : MonoBehaviour
         }
 
         return reward;
+    }
+
+    private void SetReward(int gold, int crystals, int exp)
+    {
+        _gold.text = gold.ToString();
+        _crystals.text = crystals.ToString();
+        _exp.text = exp.ToString();
     }
 }
