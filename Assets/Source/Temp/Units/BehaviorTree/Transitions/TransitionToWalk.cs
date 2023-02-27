@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class TransitionToWalk : DistanceTransition
 {
     private void Update()

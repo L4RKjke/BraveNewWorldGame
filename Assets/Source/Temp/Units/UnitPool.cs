@@ -37,16 +37,11 @@ public class UnitPool : MonoBehaviour
 
     public void RemoveFighter(Fighter fighter)
     {
-        fighter.Health.Died -= OnUnitDied;
         _fighters.Remove(fighter);
+        fighter.Health.Died -= OnUnitDied;
     }
 
-    public void RemoveLast()
-    {
-        _fighters[(_fighters.Count - 1)].Health.Died -= OnUnitDied;
-        _fighters.RemoveAt(_fighters.Count - 1);
-    }
-
+    /// Проверить метод ремул ласт и отписку от
     public void AddNewFighter(Fighter fighter)
     {
         _fighters.Add(fighter);
@@ -57,38 +52,38 @@ public class UnitPool : MonoBehaviour
     {
         var fighters = _fighters.Where(fighter => fighter.Type == type).ToArray();
 
-        return fighters[id];
+       return fighters[id];
     }
 
     public Fighter GetById(int id)
     {
         if (id <= _fighters.Count && id >= 0)
             return _fighters[id];
-        else
+        else 
             return null;
     }
 
-    /*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
+/*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
+    {
+        Fighter target = null;
+        float minDistance = Mathf.Infinity;
+
+        foreach (var fighter in _fighters)
         {
-            Fighter target = null;
-            float minDistance = Mathf.Infinity;
-
-            foreach (var fighter in _fighters)
+            if (fighter.Type == fighterType)
             {
-                if (fighter.Type == fighterType)
-                {
-                    float distance = Vector2.Distance(fighter.transform.position, position);
+                float distance = Vector2.Distance(fighter.transform.position, position);
 
-                    if (distance < minDistance)
-                    {
-                        target = fighter;
-                        minDistance = distance;
-                    }
+                if (distance < minDistance)
+                {
+                    target = fighter;
+                    minDistance = distance;
                 }
             }
+        }
 
-            return target;
-        }*/
+        return target;
+    }*/
 
     public void CleanPool()
     {

@@ -20,6 +20,8 @@ public class Health : MonoBehaviour
 
     public int Value => _value;
 
+    public int Armor => _armor;
+
     private void Awake()
     {
         _unit = GetComponent<Fighter>();
