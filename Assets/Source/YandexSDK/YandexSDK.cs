@@ -6,14 +6,13 @@ using UnityEngine;
 public class YandexSDK : MonoBehaviour
 {
     [SerializeField] private GameObject _buttonAutorize;
+    [SerializeField] private SaveComparison _comparison;
+    [SerializeField] private CheckLanguage _checkLanguage;
     /*[SerializeField] private YandexLeaderboard _leaderboard;*/
-
-    private Coroutine _authorize;
 
     private void Awake()
     {
         YandexGamesSdk.CallbackLogging = true;
-        DontDestroyOnLoad(gameObject);
     }
 
     private IEnumerator Start()
@@ -26,35 +25,28 @@ public class YandexSDK : MonoBehaviour
 
         InterstitialAd.Show();
 
+        if (PlayerAccount.IsAuthorized)
+            OffButton();
+
+        _checkLanguage.Init();
+
 /*        if (PlayerAccount.IsAuthorized == true)
             _leaderboard.FormListOfTopPlayers();
         else
             _leaderboard.UpdateLeaderBoardOn();*/
     }
 
-    public void ShowVideoAD()
-    {
-        Time.timeScale = 0;
-        VideoAd.Show();
-    }
-
     public void AuthorizePlayer()
     {
-        PlayerAccount.Authorize();
-
-        if (_authorize != null)
-            StopCoroutine(_authorize);
-
-        _authorize = StartCoroutine(CheckAuthorize());
+        JsonDataSaves local = _comparison.TryGetData();
+        _comparison.SetLocal(local);
+        Action autorized = new Action(OffButton);
+        PlayerAccount.Authorize(autorized);
     }
 
-    private IEnumerator CheckAuthorize()
+    private void OffButton()
     {
-        while(PlayerAccount.IsAuthorized == false)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-
         _buttonAutorize.SetActive(false);
+        _comparison.Compare();
     }
 }

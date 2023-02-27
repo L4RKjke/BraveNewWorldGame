@@ -10035,7 +10035,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2102403463124673715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10099,9 +10099,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77bae4ba6466d774d94abfec8d89197a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gold: {fileID: 0}
-  _crystals: {fileID: 0}
-  _exp: {fileID: 0}
+  _gold: {fileID: 2102403463382325792}
+  _crystals: {fileID: 7873938996743779951}
+  _exp: {fileID: 5391124884912738718}
 --- !u!1 &2102403463135502245
 GameObject:
   m_ObjectHideFlags: 0
