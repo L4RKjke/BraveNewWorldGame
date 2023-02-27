@@ -4,10 +4,10 @@ using UnityEngine;
 
 [System.Serializable]
 public class ItemInventoryData
-{ 
-    public int[] ItemsID { get; private set; }
-    public int BagSize { get; private set; }
-    public int PriceBagUp { get; private set; }
+{
+    public int[] ItemsID;
+    public int BagSize;
+    public int PriceBagUp;
 
     public ItemInventoryData(InventoryStorage inventoryStorage)
     {

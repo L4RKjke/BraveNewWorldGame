@@ -161,7 +161,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.19012451, y: 76}
+  m_AnchoredPosition: {x: 0.19012451, y: 74}
   m_SizeDelta: {x: -0.6199951, y: -0.39001465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &381689630
@@ -561,6 +561,7 @@ GameObject:
   - component: {fileID: 684735719}
   - component: {fileID: 684735720}
   - component: {fileID: 684735721}
+  - component: {fileID: 684735722}
   m_Layer: 0
   m_Name: SaveSystem
   m_TagString: Untagged
@@ -727,6 +728,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27b3bc7e9a19f3e44849453bb574002c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _yandex: {fileID: 684735722}
+--- !u!114 &684735722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684735711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2a251e581bb0714985c9d9fb842a4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &693077346 stripped

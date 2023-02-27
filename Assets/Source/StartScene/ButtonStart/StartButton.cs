@@ -1,3 +1,5 @@
+using Agava.YandexGames;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +14,7 @@ public class StartButton : MonoBehaviour
 
     private Coroutine _startScene;
     private Animator _animator;
+    private string _data = "";
 
     private void Awake()
     {
@@ -22,7 +25,9 @@ public class StartButton : MonoBehaviour
     {
         bool isCreated = BinarySavingSystem.CheckSaves();
 
-        if (_startScene == null && isCreated == true)
+        JsonDataSaves jsonDataSaves = TryGetData();
+
+        if ((_startScene == null && isCreated == true) || (_startScene == null && jsonDataSaves != null))
         {
             _startScene = StartCoroutine(StartScene(1));
         }
@@ -47,5 +52,21 @@ public class StartButton : MonoBehaviour
         _blackScreen.GetComponent<Animator>().SetTrigger(off);
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(scene);
+    }
+
+    private JsonDataSaves TryGetData()
+    {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        return null;
+#endif
+        Action<string> getData = new Action<string>(GetData);
+        PlayerAccount.GetPlayerData(getData);
+        JsonDataSaves jsonDataSaves = JsonUtility.FromJson<JsonDataSaves>(_data);
+        return jsonDataSaves;
+    }
+
+    private void GetData(string data)
+    {
+        _data = data;
     }
 }

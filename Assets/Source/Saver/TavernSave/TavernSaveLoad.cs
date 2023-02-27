@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
+public class TavernSaveLoad : MonoBehaviour, BinarrySaves
 {
     [SerializeField] private TavernUI _tavernUI;
     [SerializeField] private List<HeroAppearanceCreater> _heroAppearanceCreater;
@@ -22,9 +22,8 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
         _charactersData.Clear();
     }
 
-    public void Load()
+    public void Load(List<CharacterData> charactersData)
     {
-        List<CharacterData> charactersData = BinarySavingSystem.LoadTavern();
         GameObject buttonObject;
         GameObject character;
 
@@ -78,14 +77,26 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaveLoad
 
     public void Save()
     {
+        SetSaves();
+
+        BinarySavingSystem.SaveTavern(_charactersData);
+    }
+
+    public List<CharacterData> GetData()
+    {
+        SetSaves();
+
+        return _charactersData;
+    }
+
+    private void SetSaves()
+    {
         for (int i = 0; i < _tavernUI.ContainerTransform.childCount; i++)
         {
-            if(_tavernUI.ContainerTransform.GetChild(i).GetComponentInChildren<CharacterStats>() == null)
+            if (_tavernUI.ContainerTransform.GetChild(i).GetComponentInChildren<CharacterStats>() == null)
             {
                 _charactersData[i].Solded();
             }
         }
-
-        BinarySavingSystem.SaveTavern(_charactersData);
     }
 }

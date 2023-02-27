@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
+public class CharactersSaveLoad : MonoBehaviour, BinarrySaves
 {
     [SerializeField] private CharactersStorage _charactersStorage;
     [SerializeField] private List<GameObject> _characters;
@@ -22,9 +22,9 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
         _charactersData.RemoveAt(id);
     }
 
-    public void Load()
+    public void Load(List<CharacterData> characterData)
     {
-        _charactersData = BinarySavingSystem.LoadCharacter();
+        _charactersData = characterData;
 
         for(int i = 0; i < _charactersData.Count; i++)
         {
@@ -51,11 +51,23 @@ public class CharactersSaveLoad : MonoBehaviour, BinarrySaveLoad
 
     public void Save()
     {
+        SetSaves();
+
+        BinarySavingSystem.SaveCharacters(_charactersData);
+    }
+
+    public List<CharacterData> GetData()
+    {
+        SetSaves();
+
+        return _charactersData;
+    }
+
+    public void SetSaves()
+    {
         for (int i = 0; i < _charactersStorage.AllCharacters; i++)
         {
             _charactersData[i].SetExp(_charactersStorage.GetCharacter(i).GetComponent<CharacterStats>().Exp);
         }
-
-        BinarySavingSystem.SaveCharacters(_charactersData);
     }
 }

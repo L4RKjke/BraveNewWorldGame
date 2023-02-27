@@ -5,9 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class WalletData
 {
-    public int Gold { get; private set; }
-    public int Crystals { get; private set; }
-    public int OpenedLevels { get; private set; }
+    public int Gold;
+    public int Crystals;
+    public int OpenedLevels;
 
     public WalletData(PlayerWallet wallet, PlayerProgress playerProgress)
     {
