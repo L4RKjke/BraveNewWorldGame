@@ -8,38 +8,34 @@ public class SaveComparison : MonoBehaviour
 {
     [SerializeField] private ChangeSaves _changeSaves;
 
+    private Action<JsonDataSaves> _succes;
+    private Action _unSucces;
+
     private string _data = "";
-    private JsonDataSaves _local;
+    private JsonDataSaves _local = null;
 
     public void Compare()
     {
-        JsonDataSaves cloud = TryGetData();
-
-        if(_local == null)
+        if(_local != null)
         {
-        }
-        else if(cloud == null)
-        {
-            string saves = JsonUtility.ToJson(_local);
-            PlayerAccount.SetPlayerData(saves);
-        }
-        else if(_local != cloud)
-        {
-            _changeSaves.gameObject.SetActive(true);
-            _changeSaves.Init(_local);
+            Debug.Log("Сравниваю");
+            Action<JsonDataSaves> isSucces = new Action<JsonDataSaves>(NeedChange);
+            Action unSucces = new Action(NoNeedChange);
+            TryGetData(isSucces, unSucces);
         }
     }
 
-    public JsonDataSaves TryGetData()
+    public void TryGetData(Action<JsonDataSaves> succes, Action unSucces = null)
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
-        return null;
+        return;
 #endif
+        _succes = succes;
+        _unSucces = unSucces;
         Action<string> getData = new Action<string>(GetData);
-        PlayerAccount.GetPlayerData(getData);
-        Debug.Log(_data);
-        JsonDataSaves jsonDataSaves = JsonUtility.FromJson<JsonDataSaves>(_data);
-        return jsonDataSaves;
+        Action<string> getDataUnSucces = new Action<string>(UnSuccesGetData);
+        Debug.Log("Вызываю плеер аккаунт");
+        PlayerAccount.GetPlayerData(getData, getDataUnSucces);
     }
 
     public void SetLocal(JsonDataSaves local)
@@ -47,8 +43,38 @@ public class SaveComparison : MonoBehaviour
         _local = local;
     }
 
+    private void NoNeedChange()
+    {
+        Debug.Log("Не удачный колбек");
+        string saves = JsonUtility.ToJson(_local);
+        PlayerAccount.SetPlayerData(saves);
+    }
+
+    private void NeedChange(JsonDataSaves data)
+    {
+        Debug.Log("Возможно нужно");
+
+        if (_local != data)
+        {
+            _changeSaves.gameObject.SetActive(true);
+            _changeSaves.Init(_local);
+        }
+        else
+        {
+            Debug.Log("Оказалось что не нужно");
+        }
+    }
+
+    private void UnSuccesGetData(string data)
+    {
+        Debug.Log("Неудача инвок");
+        _unSucces.Invoke();
+    }
+
     private void GetData(string data)
     {
-        _data = data;
+        Debug.Log("Удача инвок");
+        JsonDataSaves jsonDataSaves = JsonUtility.FromJson<JsonDataSaves>(data);
+        _succes.Invoke(jsonDataSaves);
     }
 }

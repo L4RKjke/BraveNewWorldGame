@@ -8,7 +8,9 @@ public class YandexSDK : MonoBehaviour
     [SerializeField] private GameObject _buttonAutorize;
     [SerializeField] private SaveComparison _comparison;
     [SerializeField] private CheckLanguage _checkLanguage;
-    /*[SerializeField] private YandexLeaderboard _leaderboard;*/
+    [SerializeField] private GameObject _leaderboard;
+
+    private Coroutine _authorize;
 
     private void Awake()
     {
@@ -26,27 +28,33 @@ public class YandexSDK : MonoBehaviour
         InterstitialAd.Show();
 
         if (PlayerAccount.IsAuthorized)
-            OffButton();
+            OpenLeaderBoard();
 
         _checkLanguage.Init();
-
-/*        if (PlayerAccount.IsAuthorized == true)
-            _leaderboard.FormListOfTopPlayers();
-        else
-            _leaderboard.UpdateLeaderBoardOn();*/
     }
 
     public void AuthorizePlayer()
     {
-        JsonDataSaves local = _comparison.TryGetData();
-        _comparison.SetLocal(local);
+        Action<JsonDataSaves> isSucces = new Action<JsonDataSaves>(SuccesSaves);
+        _comparison.TryGetData(isSucces);
         Action autorized = new Action(OffButton);
         PlayerAccount.Authorize(autorized);
     }
 
+    private void SuccesSaves(JsonDataSaves jsonDataSaves)
+    {
+        _comparison.SetLocal(jsonDataSaves);
+    }
+
     private void OffButton()
     {
-        _buttonAutorize.SetActive(false);
+        OpenLeaderBoard();
         _comparison.Compare();
+    }
+
+    private void OpenLeaderBoard()
+    {
+        _buttonAutorize.SetActive(false);
+        _leaderboard.SetActive(true);
     }
 }

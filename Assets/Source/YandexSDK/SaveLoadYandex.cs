@@ -1,6 +1,7 @@
 using Agava.YandexGames;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SaveLoadGame))]
@@ -25,13 +26,26 @@ public class SaveLoadYandex : MonoBehaviour
     public void GetData()
     {
         Action<string> getData = new Action<string>(LoadData);
-        PlayerAccount.GetPlayerData(getData);
+        Action<string> failData = new Action<string>(LoadDataFail);
+        PlayerAccount.GetPlayerData(getData, failData);
     }
 
     private void SetData()
     {
         string saves = _game.GetJson();
         PlayerAccount.SetPlayerData(saves);
+    }
+
+    private void LoadDataFail(string data)
+    {
+        WalletData walletData = BinarySavingSystem.LoadWallet();
+        List<CharacterData> charactersData = BinarySavingSystem.LoadCharacter();
+        ItemData items = BinarySavingSystem.LoadItems();
+        ItemInventoryData itemInventoryData = BinarySavingSystem.LoadItemInventory();
+        EquippedItemsData equippedItemsData = BinarySavingSystem.LoadEquippedItems();
+        ShopData shopData = BinarySavingSystem.LoadShop();
+        List<CharacterData> tavernData = BinarySavingSystem.LoadTavern();
+        _game.Load(walletData, charactersData, items, itemInventoryData, equippedItemsData, shopData, tavernData);
     }
 
     private void LoadData(string data)

@@ -81,7 +81,12 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
 
     public void Save()
     {
-#if !UNITY_WEBGL || UNITY_EDITOR
+        SaveBinnary();
+        Saved?.Invoke();
+    }
+
+    public void SaveBinnary()
+    {
         _wallet.Save();
         _charactersSaveLoad.Save();
         _itemsSaveLoad.Save();
@@ -89,9 +94,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
-#endif
-
-        Saved?.Invoke();
     }
 
     public void SaveDelay()
