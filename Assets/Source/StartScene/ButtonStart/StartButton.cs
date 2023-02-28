@@ -52,7 +52,7 @@ public class StartButton : MonoBehaviour
 
     private void SuccesSaves(JsonDataSaves json)
     {
-        if (json != null)
+        if (json.CharactersData.Length > 0)
             _startScene = StartCoroutine(StartScene(1));
         else
             UnSuccesSaves();
