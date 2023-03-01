@@ -5,7 +5,7 @@ public class LevelListener : MonoBehaviour
 {
     [SerializeField] private FinalPanels _finalPanel;
 
-    private int _advertismentDelay = 3;
+    private int _advertismentDelay = 6;
 
     private void OnEnable()
     {
@@ -23,6 +23,8 @@ public class LevelListener : MonoBehaviour
 
         if (_advertismentDelay == 0)
         {
+            _advertismentDelay = 4;
+
             VideoAd.Show(null, null, () => AdShowed(), errorLog => OnError(errorLog));
 
             if (PlayerPrefs.GetInt("Sound") == 0)
@@ -31,7 +33,6 @@ public class LevelListener : MonoBehaviour
             }
 
             Time.timeScale = 0;
-            _advertismentDelay = 5;
         }
     }
 

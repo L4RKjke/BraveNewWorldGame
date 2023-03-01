@@ -51,16 +51,16 @@ public class Arena:  MonoBehaviour
 
     private void OnPlayerWin()
     {
+        PlayerWin?.Invoke();
         _finalPanels.End(true);
         _timer.StopTimer();
-        PlayerWin?.Invoke();
     }
 
     private void OnEnemyWin()
     {
+        PlayerLose?.Invoke();
         _finalPanels.End(false);
         _timer.StopTimer();
-        PlayerLose?.Invoke();
     }
 
     private void PickTheWinner(FighterType type)
