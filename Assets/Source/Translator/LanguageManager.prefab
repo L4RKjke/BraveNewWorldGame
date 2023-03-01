@@ -314,6 +314,110 @@ MonoBehaviour:
       \u0443\u0440\u043E\u043D \u043F\u0440\u0438 \u0430\u0442\u0430\u043A\u0430\u0445:
       33%"
     Object: {fileID: 0}
+--- !u!1 &836270876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 836270877}
+  - component: {fileID: 836270878}
+  m_Layer: 0
+  m_Name: Common/Roulete/Name
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &836270877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836270876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 168
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &836270878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836270876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Roulete
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0420\u0443\u043B\u0435\u0442\u043A\u0430"
+    Object: {fileID: 0}
+--- !u!1 &971241517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 971241518}
+  - component: {fileID: 971241519}
+  m_Layer: 0
+  m_Name: Common/Roulete/SpinX2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &971241518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971241517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 166
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &971241519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971241517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: X2 Reward
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "X2 \u041D\u0430\u0433\u0440\u0430\u0434\u0430"
+    Object: {fileID: 0}
 --- !u!1 &1002409173
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,9 +725,7 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: 'Elven blood
-
-'
+    Text: Elven blood
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u042D\u043B\u044C\u0444\u0438\u0439\u0441\u043A\u0430\u044F \u043A\u0440\u043E\u0432\u044C"
@@ -841,6 +943,58 @@ MonoBehaviour:
     Text: "\u0414\u043E\u0432\u0430\u0431\u043B\u044F\u0435\u0442 20% \u0443\u0440\u043E\u043D\u0430
       \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0432\u0440\u0430\u0433\u0430
       \u043A \u0441\u0432\u043E\u0435\u043C\u0443."
+    Object: {fileID: 0}
+--- !u!1 &1620779426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1620779427}
+  - component: {fileID: 1620779428}
+  m_Layer: 0
+  m_Name: Common/Roulete/Spin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1620779427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620779426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 167
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1620779428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1620779426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Spin
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0440\u0443\u0442\u0438\u0442\u044C"
     Object: {fileID: 0}
 --- !u!1 &1796841473
 GameObject:
@@ -2149,18 +2303,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: "\rOrcs are the strongest warriors. \nTheir thirst for battle, straightforwardness
-      and ability not to ask questions sets them apart from other races. \nAs the
-      orcs say \"Brgkhtar o gfkhar zvakh zvakh\", whatever that means."
+    Text: "\rOrcs are the strongest warriors.\r\nOrcs have a 30% chance to have a
+      critical hit dealing = attack + magic * 3.\nAs the orcs say, \"Brgkhtar o gfkhar
+      zvakh zvakh\", whatever that means."
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041E\u0440\u043A\u0438 - \u0441\u0430\u043C\u044B\u0435 \u0441\u0438\u043B\u044C\u043D\u044B\u0435
-      \u0432\u043E\u0438\u043D\u044B.\n\u0418\u0445 \u0436\u0430\u0436\u0434\u0430
-      \u0431\u0438\u0442\u0432\u044B, \u043F\u0440\u044F\u043C\u043E\u043B\u0438\u043D\u0435\u0439\u043D\u043E\u0441\u0442\u044C
-      \u0438 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u043D\u0435
-      \u0437\u0430\u0434\u0430\u0432\u0430\u0442\u044C \u0432\u043E\u043F\u0440\u043E\u0441\u043E\u0432
-      \u0432\u044B\u0434\u0435\u043B\u044F\u0435\u0442 \u0438\u0445 \u043D\u0430
-      \u0444\u043E\u043D\u0435 \u0434\u0440\u0443\u0433\u0438\u0445 \u0440\u0430\u0441\u0441.\n\u041A\u0430\u043A
+      \u0432\u043E\u0438\u043D\u044B.\r\n\u041E\u0440\u043A\u0438 \u0441 30% \u0448\u0430\u043D\u0441\u043E\u043C
+      \u043C\u043E\u0433\u0443\u0442 \u043D\u0430\u043D\u0435\u0441\u0442\u0438 \u043A\u0440\u0438\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439
+      \u0443\u0434\u0430\u0440 \u043D\u0430\u043D\u043E\u0441\u044F\u0449\u0438\u0439
+      = \u0430\u0442\u0430\u043A\u0430 + \u043C\u0430\u0433\u0438\u044F * 3.\n\u041A\u0430\u043A
       \u0433\u043E\u0432\u043E\u0440\u044F\u0442 \u043E\u0440\u043A\u0438 \"\u0411\u0440\u0433\u0445\u0442\u0430\u0440
       \u043E \u0433\u0444\u0445\u0430\u0440 \u0437\u0432\u0430\u0445 \u0437\u0432\u0430\u0445\",
       \u0447\u0442\u043E \u0431\u044B \u044D\u0442\u043E \u043D\u0435 \u0437\u043D\u0430\u0447\u0438\u043B\u043E."
@@ -3258,22 +3410,20 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: "\rElves - despite their addiction to soda, a very religious people.\r\nTheir
-      religion forbids them to work, fight, clean, and much more than they would
-      not like to do in everyday life."
+    Text: "Elves are usually found in pubs and in any self-respecting game with RPG
+      elements.\nHas a 30 chance to heal an ally for magic * 10 health.\n\rNo, and
+      despite the fact that I'm an elf!"
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u042D\u043B\u044C\u0444\u0438\u0439\u043A\u0438 - \u043D\u0435 \u0441\u043C\u043E\u0442\u0440\u044F
-      \u043D\u0430 \u0438\u0445 \u043F\u0440\u0438\u0441\u0442\u0440\u0430\u0441\u0442\u0438\u0435
-      \u043A \u0433\u0430\u0437\u0438\u0440\u043E\u0432\u043A\u0435, \u0432\u0435\u0441\u044C\u043C\u0430
-      \u0440\u0435\u043B\u0438\u0433\u0438\u043E\u0437\u043D\u044B\u0439 \u043D\u0430\u0440\u043E\u0434.\r\n\u0418\u0445
-      \u0440\u0435\u043B\u0438\u0433\u0438\u044F \u0437\u0430\u043F\u0440\u0435\u0449\u0430\u0435\u0442
-      \u0438\u043C \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C, \u0432\u043E\u0435\u0432\u0430\u0442\u044C,
-      \u0443\u0431\u0438\u0440\u0430\u0442\u044C \u0438 \u043C\u043D\u043E\u0433\u043E
-      \u0447\u0435\u0433\u043E \u0435\u0449\u0435, \u0447\u0435\u043C \u0431\u044B
-      \u0438\u043C \u043D\u0435 \u0445\u043E\u0442\u0435\u043B\u043E\u0441\u044C
-      \u0437\u0430\u043D\u0438\u043C\u0430\u0442\u044C\u0441\u044F \u0432 \u043F\u043E\u0432\u0441\u0435\u0434\u043D\u0435\u0432\u043D\u043E\u0439
-      \u0436\u0438\u0437\u043D\u0438."
+    Text: "\u042D\u043B\u044C\u0444\u0438\u0439\u043A\u0438 \u043E\u0431\u044B\u0447\u043D\u043E
+      \u043E\u0431\u0438\u0442\u0430\u044E\u0449 \u0432 \u043A\u0430\u0431\u0430\u043A\u0430\u0445
+      \u0438 \u0432 \u043B\u044E\u0431\u043E\u0439 \u0443\u0432\u0430\u0436\u0430\u044E\u0449\u0435\u0439
+      \u0441\u0435\u0431\u044F \u0438\u0433\u0440\u0435 \u0441 \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442\u0430\u043C\u0438
+      \u0420\u041F\u0413.\r\n\u0421 30 \u0448\u0430\u043D\u0441\u043E\u043C \u043C\u043E\u0433\u0443\u0442
+      \u0432\u044B\u043B\u0435\u0447\u0438\u0442\u044C \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0430
+      \u043D\u0430 \u043C\u0430\u0433\u0438\u044F * 10 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F.\n\u041D\u0435\u0442,
+      \u0438 \u043D\u0435 \u0441\u043C\u043E\u0442\u0440\u044F \u043D\u0430 \u0442\u043E
+      \u0447\u0442\u043E \u044F \u044D\u043B\u044C\u0444\u0438\u0439\u043A\u0430!"
     Object: {fileID: 0}
 --- !u!1 &5097432099236332955
 GameObject:
@@ -4159,17 +4309,19 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041B\u044E\u0434\u0438 - \u043A\u0430\u043A \u043F\u0440\u0430\u0432\u0438\u043B\u043E
       \u043C\u0430\u0433\u0438. \r\n\u041A\u0430\u043A\u043E\u0439 \u043C\u0430\u0433\u0438\u0435\u0439
-      \u043E\u043D\u0438 \u0432\u043B\u0430\u0434\u0435\u044E\u0442?\r\n\u041C\u0430\u0433\u0438\u0435\u0439...
-      \u041D\u0443 \u0442\u0430\u043C \u043E\u0433\u043E\u043D\u044C, \u0432\u043E\u0434\u0430...\u041C\u0430\u0433\u0438\u0435\u0439
-      \u0443\u0431\u0435\u0436\u0434\u0435\u043D\u0438\u044F...\r\n\u041D\u0443 \u0438\u0433\u0440\u0430
-      \u043D\u0435 \u0438\u0433\u0440\u0430 \u0431\u0435\u0437 \u043B\u044E\u0434\u0435\u0439.
-      \u0417\u0430\u0442\u043E \u043E\u043D\u0438 \u0445\u043E\u0440\u043E\u0448\u043E
-      \u0438\u0433\u0440\u0430\u044E\u0442 \u0432 \u043C\u0430\u0444\u0438\u044E."
+      \u043E\u043D\u0438 \u0432\u043B\u0430\u0434\u0435\u044E\u0442?\r\n\u0421 30%
+      \u0448\u0430\u043D\u0441\u043E\u043C \u043C\u043E\u0433\u0443\u0442 \u0432\u044B\u043F\u0443\u0441\u0442\u0438\u0442\u044C
+      \u043C\u043E\u043B\u043D\u0438\u044E \u043D\u0430\u043D\u043E\u0441\u044F\u0449\u0443\u044E
+      \u0443\u0440\u043E\u043D = \u043C\u0430\u0433\u0438\u044F * 10.\r\n\u041D\u0443
+      \u0438\u0433\u0440\u0430 \u043D\u0435 \u0438\u0433\u0440\u0430 \u0431\u0435\u0437
+      \u043B\u044E\u0434\u0435\u0439. \u0417\u0430\u0442\u043E \u043E\u043D\u0438
+      \u0445\u043E\u0440\u043E\u0448\u043E \u0438\u0433\u0440\u0430\u044E\u0442 \u0432
+      \u043C\u0430\u0444\u0438\u044E."
     Object: {fileID: 0}
   - Language: English
-    Text: "\rHumans are usually wizards.\r\nWhat kind of magic do they have?\r\nMagic...
-      Well, there is fire, water... Magic of persuasion...\r\nWell, the game is not
-      a game without people. But they play mafia well."
+    Text: "\rHumans are usually wizards.\r\nWhat kind of magic do they have?\r\n30%
+      chance to fire a lightning bolt that deals damage = magic * 10.\r\nWell, the
+      game is not a game without people. But they play mafia well."
     Object: {fileID: 0}
 --- !u!1 &5097432099465880131
 GameObject:
@@ -6662,6 +6814,9 @@ Transform:
   - {fileID: 1945398461}
   - {fileID: 1228106405}
   - {fileID: 1341878117}
+  - {fileID: 971241518}
+  - {fileID: 1620779427}
+  - {fileID: 836270877}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6677,7 +6832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: English
+  currentLanguage: Russian
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1

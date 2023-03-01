@@ -42,6 +42,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     {
         if (_finalPanels != null)
         {
+            Debug.Log("Подписались все");
             _finalPanels.BattleEnd += Save;
             _panel.PanelClosed += Save;
             _roulete.Spined += Save;
@@ -59,6 +60,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         {
             _finalPanels.BattleEnd -= Save;
             _panel.PanelClosed -= Save;
+            _roulete.Spined -= Save;
 
             for (int i = 0; i < _updates.Count; i++)
             {
@@ -83,6 +85,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     {
         SaveBinnary();
         Saved?.Invoke();
+        Debug.Log("Типо сохранил.");
     }
 
     public void SaveBinnary()

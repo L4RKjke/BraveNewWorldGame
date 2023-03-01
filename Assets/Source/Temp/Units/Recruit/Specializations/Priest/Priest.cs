@@ -8,6 +8,7 @@ public class Priest : Recruit, IRangeAtacker
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
+    private int _healIncrease = 10;
     private FireBallInstantiator _bulletInstantiator;
     private Fighter _mate;
 
@@ -39,7 +40,7 @@ public class Priest : Recruit, IRangeAtacker
     {
         var mate = GetWounded();
         _mate = mate;
-        mate.Health.Heal(mate.Health.MaxHealth);
+        mate.Health.Heal(MagicPower * _healIncrease);
         HealStarted?.Invoke();
     }
 

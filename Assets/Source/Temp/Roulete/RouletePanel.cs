@@ -3,27 +3,26 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using Agava.YandexGames;
+using System.Collections;
 
 public class RouletePanel : MonoBehaviour
 {
     [SerializeField] private GameObject _rouletePanel;
     [SerializeField] private GameObject _menuTimer;
     [SerializeField] private SpinTimer _spinTimer;
-    [SerializeField] private Button _skipButton;
+    [SerializeField] private Button _spinX2Button;
     [SerializeField] private Roulete _roulete;
     [SerializeField] private Button _spinButton;
     [SerializeField] private Button _closeButton;
     [SerializeField] private TextMeshProUGUI _menuText;
     [SerializeField] private TextMeshProUGUI _RouletPanelTXT;
+    [SerializeField] private int _spinDelay;
 
     private readonly string _sound = "Sound";
 
     private void OnEnable()
     {
-        _spinTimer.ResetTimer();
-        _spinTimer.ResetMinutes();
-        _spinTimer.SetMinutes(5);
-        _spinTimer.StartTimer();
+        ResetRoulete();
 
         _roulete.Spined += OnSpined;
         _spinTimer.TimeUpdated += UpdateTime;
@@ -37,10 +36,12 @@ public class RouletePanel : MonoBehaviour
         _spinTimer.TimeOver -= ActivateSpinButton;
     }
 
-    public void OnSpinButtonClick()
+    public void OnSpinButtonClick(int multi = 1)
     {
-        _roulete.StartSpin();
+        _roulete.StartSpin(multi);
+        _closeButton.interactable = false;
         _spinButton.interactable = false;
+        _spinX2Button.interactable = false;
     }
 
     public void OnRouleteButtonClick()
@@ -55,13 +56,12 @@ public class RouletePanel : MonoBehaviour
         _rouletePanel.SetActive(false);
     }
 
-    public void OnSkipButtonClick()
+    public void OnSpinX2ButtonClick()
     {
         Action videoShowed = new Action(AdShowed);
         VideoAd.Show(null, null, videoShowed, errorLog => OnAdError(errorLog));
-        _skipButton.interactable = false;
 
-        if (PlayerPrefs.GetInt("Sound") == 0)
+        if (PlayerPrefs.GetInt(_sound) == 0)
         {
             AudioListener.pause = true;
         }
@@ -69,35 +69,26 @@ public class RouletePanel : MonoBehaviour
 
     private void AdShowed()
     {
-        SoundOff();
-        SkipTime();
+        int multi = 2;
+        SoundOn();
+        OnSpinButtonClick(multi);
     }
 
     private void OnSpined()
     {
-        _skipButton.interactable = true;
-        _spinTimer.ResetTimer();
-        _spinTimer.ResetMinutes();
-        _spinTimer.SetMinutes(5);
-        _spinTimer.StartTimer();
+        ResetRoulete();
+        _closeButton.interactable = true;
     }
 
     private void ActivateSpinButton()
     {
         _spinButton.interactable = true;
+        _spinX2Button.interactable = true;
     }
 
-    private void SkipTime()
+    private void SoundOn()
     {
-        _spinTimer.ResetTimer();
-        _spinTimer.ResetMinutes();
-        _spinTimer.SetMinutes(2);
-        _spinTimer.StartTimer();
-    }
-
-    private void SoundOff()
-    {
-        if (PlayerPrefs.GetInt("Sound") == 0)
+        if (PlayerPrefs.GetInt(_sound) == 0)
         {
             AudioListener.pause = false;
         }
@@ -111,6 +102,14 @@ public class RouletePanel : MonoBehaviour
 
     private void OnAdError(string error)
     {
-        AdShowed();
+        SoundOn();
+    }
+
+    private void ResetRoulete()
+    {
+        _spinTimer.ResetTimer();
+        _spinTimer.ResetMinutes();
+        _spinTimer.SetMinutes(_spinDelay);
+        _spinTimer.StartTimer();
     }
 }

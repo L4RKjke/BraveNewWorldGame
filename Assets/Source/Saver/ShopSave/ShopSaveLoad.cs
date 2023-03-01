@@ -19,7 +19,6 @@ public class ShopSaveLoad : MonoBehaviour, BinarrySaves
         {
             if(shopData.IsSold[i] == false)
             {
-                
                 Enum.TryParse(shopData.Type[i], out ItemType result);
 
                 switch (result)

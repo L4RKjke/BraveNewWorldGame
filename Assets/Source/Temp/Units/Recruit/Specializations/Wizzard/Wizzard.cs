@@ -8,6 +8,7 @@ public class Wizzard : Recruit, IRangeAtacker
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
+    private int _magicIncrease = 10;
     private FireBallInstantiator _bulletInstantiator;
 
     public Fireball Fireball => _fireball;
@@ -36,7 +37,7 @@ public class Wizzard : Recruit, IRangeAtacker
 
     protected override void OnAdvancedAtack()
     {
-        base.Atack(Damage + MagicPower);
+        base.Atack(MagicPower * _magicIncrease);
         LightningUsed?.Invoke();
     }
 }

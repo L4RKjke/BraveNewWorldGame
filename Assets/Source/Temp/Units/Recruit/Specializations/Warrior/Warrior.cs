@@ -4,6 +4,8 @@ public class Warrior : Recruit
 {
     [SerializeField] private ParticleSystem _damageParticle;
 
+    private int _criteIncrease = 3;
+
     public override void Atack(int damage)
     {
         ChooseAtack(OnDefaultAtack, OnAdvancedAtack);
@@ -25,5 +27,5 @@ public class Warrior : Recruit
         }
     }
 
-    private int GetAdvancedDamage() => (Damage + MagicPower);
+    private int GetAdvancedDamage() => (Damage + MagicPower * _criteIncrease);
 }

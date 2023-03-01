@@ -20,6 +20,7 @@ public class SaveLoadYandex : MonoBehaviour
         yield break;
 #endif
         _game.Saved += SetData;
+        Debug.Log("Подписался");
         yield break;
     }
 
