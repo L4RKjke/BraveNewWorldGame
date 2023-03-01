@@ -8,21 +8,33 @@ public abstract class HeroPassiveSkills : ScriptableObject
 
     public void SetSkills(Recruit recruit, CharacterData characterData)
     {
-        int count = 2;
-        int addedAbility = -1;
+        int count = 3;
+        List<int> addedAbility = new List<int>();
         int random = -1;
+        random = Random.Range(0, _abilities.Count);
 
         for (int i = 0; i < count; i++)
         {
-            while(random == addedAbility)
+            while (HaveSameAbility(addedAbility, random))
             {
                 random = Random.Range(0, _abilities.Count);
             }
 
             _abilities[random].SetAbility(recruit, _abilities[random].NamePath, _abilities[random].DescriptionPath);
             characterData.AddSkillId(random, i);
-            addedAbility = random;
+            addedAbility.Add(random);
         }
+    }
+
+    private bool HaveSameAbility(List<int> added, int newAbility)
+    {
+        for (int i = 0; i < added.Count; i++)
+        {
+            if (added[i] == newAbility)
+                return true;
+        }
+
+        return false;
     }
 
     public Ability GetSkill(int id)

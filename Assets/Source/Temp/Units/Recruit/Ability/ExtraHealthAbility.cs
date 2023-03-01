@@ -17,12 +17,16 @@ public class ExtraHealthAbility : Ability
 
     public override void SetAbility(Recruit recruit, string namePath, string desriptionPath)
     {
-
+        ExtraHealthAbility ability = recruit.gameObject.AddComponent<ExtraHealthAbility>();
+        ability.SetAbilitiesDescription(namePath, desriptionPath);
     }
 
     protected override void ActivateAbility()
     {
-        Fighter.Health.Heal(Mathf.FloorToInt(Fighter.Health.Armor * _armorFactor));
+        if (Fighter.Health.Value > 0)
+            Fighter.Health.Heal(Mathf.FloorToInt(Fighter.Health.Armor * _armorFactor));
+        else
+            Fighter.Health.Damaged -= OnHealthChanged;
     }
 
     private void OnHealthChanged(int damage)

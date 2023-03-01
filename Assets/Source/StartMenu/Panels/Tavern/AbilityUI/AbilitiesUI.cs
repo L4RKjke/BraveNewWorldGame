@@ -13,19 +13,27 @@ public class AbilitiesUI : RenderUI
         AddGraphics();
     }
 
-    public virtual void UpdateAbility(int id, Ability ability)
+    public virtual void UpdateAbility(Ability[] ability)
     {
-        GameObject abilityObject = Container.transform.GetChild(id).gameObject;
-        abilityObject.GetComponent<TMP_Text>().text = ability.Name;
-        abilityObject.GetComponent<AbilityShower>().Init(ability.Description);
+        for (int i = 0; i < ability.Length; i++)
+        {
+            GameObject abilityObject = Container.transform.GetChild(i).gameObject;
+            abilityObject.GetComponent<TMP_Text>().text = ability[i].Name;
+            abilityObject.GetComponent<AbilityShower>().Init(ability[i].Description);
+        }
     }
 
     protected override void AddGraphics()
     {
         for (int i = 0; i < _abilitiesCount; i++)
         {
-            GameObject newAbility = Instantiate(Content, Container.transform) as GameObject;
-            newAbility.name = i.ToString();
+            AddDescription(i);
         }
+    }
+
+    protected void AddDescription(int id)
+    {
+        GameObject newAbility = Instantiate(Content, Container.transform) as GameObject;
+        newAbility.name = id.ToString();
     }
 }

@@ -8,17 +8,15 @@ public class LeaderboardSaver : MonoBehaviour
     private PlayerProgress _progress;
 
     private const string _leaderboardName = "BestOfTheBest";
-
-    private void OnEnable()
+    private IEnumerator Start()
     {
+#if !UNITY_WEBGL || UNITY_EDITOR
+        yield break;
+#endif
         if (PlayerAccount.IsAuthorized == true)
             _progress.NewLevelOpened += AddPlayerToLeaderboard;
-    }
 
-    private void OnDisable()
-    {
-        if (PlayerAccount.IsAuthorized == true)
-            _progress.NewLevelOpened -= AddPlayerToLeaderboard;
+        yield break;
     }
 
     public void AddPlayerToLeaderboard()

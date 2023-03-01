@@ -83,11 +83,7 @@ public class TavernUI : RenderUI
         AbilitiesUI abilitiesUI = button.GetComponentInChildren<AbilitiesUI>();
         Ability[] abilities = character.transform.GetChild(1).gameObject.GetComponents<Ability>();
         abilitiesUI.Init(abilities.Length);
-
-        for (int i = 0; i < abilities.Length; i++)
-        {
-            abilitiesUI.UpdateAbility(i, abilities[i]);
-        }
+        abilitiesUI.UpdateAbility(abilities);
 
 
         characterData.SetStats(characterStats.Attack, characterStats.Defense, characterStats.Health, characterStats.Magic);

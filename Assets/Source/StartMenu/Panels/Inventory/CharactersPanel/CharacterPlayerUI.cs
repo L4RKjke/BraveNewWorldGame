@@ -27,10 +27,11 @@ public class CharacterPlayerUI : MonoBehaviour
 
     private void Awake()
     {
+        int maxAbilitiesCount = 3;
         _characterChoice.Init(_characterStorage);
         _characterChoice.enabled = true;
         _currentCharacter = _characterStorage.GetCharacter(0);
-        _descriptionCharacterUI.Init(_currentCharacter.transform.GetChild(1).GetComponents<Ability>().Length);
+        _descriptionCharacterUI.Init(maxAbilitiesCount);
         SetAbilitiesDescription(_currentCharacter);
         _descriptionCharacterUI.SetDescriptionClass(_currentCharacter);
         _statsUI.Init();
@@ -144,10 +145,6 @@ public class CharacterPlayerUI : MonoBehaviour
     private void SetAbilitiesDescription(GameObject character)
     {
         Ability[] abilities = character.transform.GetChild(1).GetComponents<Ability>();
-
-        for (int i = 0; i < abilities.Length; i++)
-        {
-            _descriptionCharacterUI.UpdateAbility(i, abilities[i]);
-        }
+        _descriptionCharacterUI.UpdateAbility(abilities);
     }
 }

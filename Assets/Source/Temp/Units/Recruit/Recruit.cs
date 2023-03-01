@@ -8,7 +8,7 @@ public abstract class Recruit : Fighter
     private int _magicPower = 0;
     private readonly int _maxPercent = 100;
     private readonly int _minPercent = 0;
-    private readonly int _abilityChance = 60;
+    private readonly int _abilityChance = 30;
 
     public ClassType Class => _class;
     public int MagicPower => _magicPower;

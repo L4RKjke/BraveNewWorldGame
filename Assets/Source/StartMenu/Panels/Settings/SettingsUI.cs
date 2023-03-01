@@ -13,25 +13,17 @@ public class SettingsUI : MonoBehaviour
     [SerializeField] private AudioSource _backGroundTrack;
     [SerializeField] private TMP_Dropdown _dropdownQuality;
     [SerializeField] private GameObject _blackScreen;
+    [SerializeField] private Toggle _toggle;
 
-    string _quality = "Quality";
-    string _volume = "Volume";
-    int _valueDecrease = 20;
-    string _start = "Start";
+    private string _quality = "Quality";
+    private string _sound = "Sound";
+    private string _volume = "Volume";
+    private int _valueDecrease = 20;
+    private string _start = "Start";
 
     private void Awake()
     {
-        if (PlayerPrefs.GetFloat(_volume) == 0)
-        {
-            float startVolume = 0.5f;
-            PlayerPrefs.SetFloat(_volume, startVolume);
-        }
-
-        _sliderSound.value = PlayerPrefs.GetFloat(_volume);
-        _audioMixer.SetFloat(_volume, Mathf.Log10(0.0001f) * _valueDecrease);
-        SoundFading(_start);
-        SetQuality(PlayerPrefs.GetInt(_quality));
-        _dropdownQuality.value = PlayerPrefs.GetInt(_quality);
+        SetPlayerPrefSettings();
     }
 
     public void SoundFading(string choice = "End")
@@ -61,6 +53,11 @@ public class SettingsUI : MonoBehaviour
     public void Sound()
     {
         AudioListener.pause = !AudioListener.pause;
+
+        if (AudioListener.pause == true)
+            PlayerPrefs.SetInt(_sound, 1);
+        else
+            PlayerPrefs.SetInt(_sound, 0);
     }
 
     public void EndSounds(AudioSource track)
@@ -72,6 +69,27 @@ public class SettingsUI : MonoBehaviour
     public void ReloadSceneLanguage()
     {
         StartCoroutine(RestartScene());
+    }
+
+    private void SetPlayerPrefSettings()
+    {
+        if (PlayerPrefs.GetFloat(_volume) == 0)
+        {
+            float startVolume = 0.5f;
+            PlayerPrefs.SetFloat(_volume, startVolume);
+        }
+
+        _sliderSound.value = PlayerPrefs.GetFloat(_volume);
+        _audioMixer.SetFloat(_volume, Mathf.Log10(0.0001f) * _valueDecrease);
+        SoundFading(_start);
+        SetQuality(PlayerPrefs.GetInt(_quality));
+        _dropdownQuality.value = PlayerPrefs.GetInt(_quality);
+
+        if (PlayerPrefs.GetInt(_sound) == 1)
+        {
+            _toggle.isOn = false;
+            AudioListener.pause = true;
+        }
     }
 
     private IEnumerator CoroutineSoundIncrease(float value)

@@ -58,11 +58,7 @@ public class TavernSaveLoad : MonoBehaviour, BinarrySaves
 
                 Ability[] abilities = character.transform.GetChild(1).gameObject.GetComponents<Ability>();
                 abilitiesUI.Init(abilities.Length);
-
-                for (int j = 0; j < abilities.Length; j++)
-                {
-                    abilitiesUI.UpdateAbility(j, abilities[j]);
-                }
+                abilitiesUI.UpdateAbility(abilities);
 
                 CharacterStats characterStats = character.GetComponent<CharacterStats>();
                 characterStats.SetName(Lean.Localization.LeanLocalization.GetTranslationText(charactersData[i].Name));

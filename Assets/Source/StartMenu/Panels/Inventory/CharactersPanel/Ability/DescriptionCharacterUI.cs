@@ -8,10 +8,32 @@ public class DescriptionCharacterUI : AbilitiesUI
     [SerializeField] private TMP_Text _textClass;
     [SerializeField] private List<string> _descriptionPath;
 
-    public override void UpdateAbility(int id, Ability ability)
+    public override void UpdateAbility(Ability[] ability)
     {
-        GameObject abilityObject = Container.transform.GetChild(id).gameObject;
-        abilityObject.GetComponent<TMP_Text>().text = ability.Name + " - " + ability.Description;
+        if (Container.transform.childCount > ability.Length)
+        {
+            int difference = Container.transform.childCount - ability.Length;
+
+            for (int i = 0; i < difference; i++)
+            {
+                Destroy(Container.transform.GetChild(Container.transform.childCount - 1).gameObject);
+            }
+        }
+        else if (Container.transform.childCount < ability.Length)
+        {
+            int difference = ability.Length - Container.transform.childCount;
+
+            for (int i = 0; i < difference; i++)
+            {
+                AddDescription(Container.transform.childCount);
+            }
+        }
+
+        for (int i = 0; i < ability.Length; i++)
+        {
+            GameObject abilityObject = Container.transform.GetChild(i).gameObject;
+            abilityObject.GetComponent<TMP_Text>().text = ability[i].Name + " - " + ability[i].Description;
+        }
     }
 
     public void SetDescriptionClass(GameObject character)

@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterData
 {
     public int Class;
-    public int[] SkillsID = new int[2];
+    public int[] SkillsID = new int[3];
     public float[] SkeenColor = new float[4];
     public float[] HairColor = new float[4];
     public int EarID;

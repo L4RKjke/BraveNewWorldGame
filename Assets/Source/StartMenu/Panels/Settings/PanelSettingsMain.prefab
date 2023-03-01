@@ -34,10 +34,10 @@ RectTransform:
   m_Father: {fileID: 326132001}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 48.6, y: -47.5}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &26616681
 CanvasRenderer:
@@ -133,6 +133,18 @@ MonoBehaviour:
           m_StringArgument: Russian
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6326497311085191437}
+        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+        m_MethodName: ReloadSceneLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &326132000
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +182,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -111, y: 0.9985657}
+  m_AnchoredPosition: {x: -111, y: 0.9986572}
   m_SizeDelta: {x: 182.2, y: 22.459991}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &326132003
@@ -239,10 +251,10 @@ RectTransform:
   m_Father: {fileID: 326132001}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 133.6, y: -47.5}
-  m_SizeDelta: {x: 75, y: 75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1299134531
 CanvasRenderer:
@@ -338,6 +350,18 @@ MonoBehaviour:
           m_StringArgument: English
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6326497311085191437}
+        m_TargetAssemblyTypeName: SettingsUI, Assembly-CSharp
+        m_MethodName: ReloadSceneLanguage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3432856159604462295
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +416,8 @@ MonoBehaviour:
   _sliderSound: {fileID: 2239794779174632151}
   _backGroundTrack: {fileID: 0}
   _dropdownQuality: {fileID: 570018146959275611}
+  _blackScreen: {fileID: 0}
+  _toggle: {fileID: 570018147688528835}
 --- !u!1001 &570018146786491078
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -414,6 +440,18 @@ PrefabInstance:
     - target: {fileID: 263490717, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetQuality
+      objectReference: {fileID: 0}
+    - target: {fileID: 263490718, guid: f29f41191a8fe034e855b95632a85757, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 263490718, guid: f29f41191a8fe034e855b95632a85757, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2969678862317009722, guid: 68b35d2059b8c46e0a98e53628e9b3af, type: 3}
+    - target: {fileID: 263490718, guid: f29f41191a8fe034e855b95632a85757, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 977010948, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -521,11 +559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2616116408493692292, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2616116408493692292, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4541399186806666583, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: _backGroundTrack
@@ -665,15 +703,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6636871140750309055, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6636871140750309055, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6636871140750309055, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7429563315688173652, guid: f29f41191a8fe034e855b95632a85757, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -694,6 +732,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b743370ac3e4ec2a1668f5455a8ef8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &570018147688528835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 977010949, guid: f29f41191a8fe034e855b95632a85757, type: 3}
+  m_PrefabInstance: {fileID: 570018146786491078}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &570018148032112973 stripped
