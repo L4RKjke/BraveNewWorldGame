@@ -5,7 +5,7 @@ public class LevelListener : MonoBehaviour
 {
     [SerializeField] private FinalPanels _finalPanel;
 
-    private int _advertismentDelay = 5;
+    private int _advertismentDelay = 3;
 
     private void OnEnable()
     {

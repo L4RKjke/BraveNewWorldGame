@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
 
@@ -15,6 +16,8 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     private Health _health;
     private Fighter _currentTarget;
     private int _damage;
+
+    public UnityAction TargetUpdated;
 
     public FighterType Type { get; private set; }
 
@@ -69,6 +72,7 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     public void UpdateCurrentTarget()
     {
         _currentTarget = GetClosestTarget();
+        TargetUpdated.Invoke();
     }
 
     public float GetMeleeAtackDelay()
