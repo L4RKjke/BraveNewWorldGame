@@ -8,7 +8,7 @@ public abstract class AtackState : State
 
     private Coroutine _atackCourutine;
     private float _meleeDelay = 0.7f;
-    private float CurrentDelay;
+    protected float CurrentDelay;
 
     protected AnimationCotroller AnimationController => _animationController;
 
@@ -22,15 +22,6 @@ public abstract class AtackState : State
 
     private void OnEnable()
     {
-        ///временно
-        if (TryGetComponent(out MeleeState meleeState))
-            if (meleeState.enabled)
-                CurrentDelay = _meleeDelay + FirstDelaySpread;
-        else
-            {
-                CurrentDelay = CurrentFighter.AtackDelay + FirstDelaySpread;
-            }
-
         AnimationController.AtackCompleted += CompleteAtack;
         AnimationController.AtackAnimationCompleted += StartRoutine;
         _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));

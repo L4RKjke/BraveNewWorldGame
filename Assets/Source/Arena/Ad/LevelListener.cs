@@ -1,3 +1,4 @@
+using Agava.YandexGames;
 using UnityEngine;
 
 public class LevelListener : MonoBehaviour
@@ -22,8 +23,30 @@ public class LevelListener : MonoBehaviour
 
         if (_advertismentDelay == 0)
         {
-            //showAd
+            VideoAd.Show(null, null, () => AdShowed(), errorLog => OnError(errorLog));
+
+            if (PlayerPrefs.GetInt("Sound") == 0)
+            {
+                AudioListener.pause = true;
+            }
+
+            Time.timeScale = 0;
             _advertismentDelay = 5;
         }
+    }
+
+    private void AdShowed()
+    {
+        Time.timeScale = 1;
+
+        if (PlayerPrefs.GetInt("Sound") == 0)
+        {
+            AudioListener.pause = false;
+        }
+    }
+
+    private void OnError(string errorLog)
+    {
+        AdShowed();
     }
 }

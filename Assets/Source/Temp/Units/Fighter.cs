@@ -10,6 +10,8 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     [SerializeField] private float _atackDelay;
     [SerializeField] private float _speed;
 
+    private readonly float  _meleeAtackDelay = 0.7f;
+
     private Health _health;
     private Fighter _currentTarget;
     private int _damage;
@@ -67,8 +69,13 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
     public void UpdateCurrentTarget()
     {
         _currentTarget = GetClosestTarget();
-        /*_currentTarget = Units.GenerateClosestFighter(EnemyType, transform.position);*/
     }
+
+    public float GetMeleeAtackDelay()
+    {
+        return _meleeAtackDelay;
+    }
+
     private Fighter GetClosestTarget()
     {
         Fighter target = null;

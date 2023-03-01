@@ -18,4 +18,9 @@ public class RangeMoster : Fighter, IRangeAtacker
     {
         _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, damage);
     }
+
+    public float GetRangeAtackDelay()
+    {
+        return AtackDelay;
+    }
 }

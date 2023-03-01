@@ -24,6 +24,11 @@ public class Wizzard : Recruit, IRangeAtacker
         ChooseAtack(OnDefaultAtack, OnAdvancedAtack);
     }
 
+    public float GetRangeAtackDelay()
+    {
+        return AtackDelay;
+    }
+
     protected override void OnDefaultAtack()
     {
         _bulletInstantiator.Shoot(CurrentTarget, _fireball, _firePoint, EnemyType, Damage + MagicPower);
