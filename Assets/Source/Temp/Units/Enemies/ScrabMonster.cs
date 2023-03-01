@@ -9,4 +9,9 @@ public class ScrabMonster : Fighter, IRangeAtacker
     {
         _fire.StartFire(Unit.Damage, Unit.CurrentTarget, _shootPoint);
     }
+
+    public float GetRangeAtackDelay()
+    {
+        return AtackDelay;
+    }
 }

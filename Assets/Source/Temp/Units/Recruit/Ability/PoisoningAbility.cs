@@ -3,9 +3,11 @@ using UnityEngine;
 /// Отрявляет противника. Наносит урон равный <_poistonStrenght> каждые <_posionDelay> секунд.
 public class PoisoningAbility : DamageAbility
 {
-    private float _posionDelay = 5;
+    private float _posionDelay = 1;
     private float _poistonStrenght = 0.1f;
     private Coroutine _poisonRoutine;
+
+    private Fighter _poisonTarget;
 
     private void Start()
     {
@@ -27,10 +29,15 @@ public class PoisoningAbility : DamageAbility
 
     protected override void ActivateAbility()
     {
-        if (_poisonRoutine != null)
-            StopCoroutine(_poisonRoutine);
+        if (_poisonTarget == null)
+        {
+            _poisonTarget = Fighter.CurrentTarget;
 
-        _poisonRoutine = StartCoroutine(Poison());
+            if (_poisonRoutine != null)
+                StopCoroutine(_poisonRoutine);
+
+            _poisonRoutine = StartCoroutine(Poison());
+        }
     }
 
     private IEnumerator Poison()

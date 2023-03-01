@@ -10,6 +10,7 @@ public class RangeAtackState : AtackState
     private void Start()
     {
         _rangeAtacker = GetComponent<IRangeAtacker>();
+        CurrentDelay = _rangeAtacker.GetRangeAtackDelay();
     }
 
     protected override void StartAtack()

@@ -7,8 +7,8 @@ public abstract class AtackState : State
     [SerializeField] private AnimationCotroller _animationController;
 
     private Coroutine _atackCourutine;
-    private float _meleeDelay = 1.1f;
-    private float CurrentDelay;
+    private float _meleeDelay = 0.7f;
+    protected float CurrentDelay;
 
     protected AnimationCotroller AnimationController => _animationController;
 
@@ -22,15 +22,6 @@ public abstract class AtackState : State
 
     private void OnEnable()
     {
-        ///временно
-        if (TryGetComponent(out MeleeState meleeState))
-            if (meleeState.enabled)
-                CurrentDelay = _meleeDelay;
-        else
-            {
-                CurrentDelay = CurrentFighter.AtackDelay + FirstDelaySpread;
-            }
-
         AnimationController.AtackCompleted += CompleteAtack;
         AnimationController.AtackAnimationCompleted += StartRoutine;
         _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));

@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.Events;
 
 public class Arena:  MonoBehaviour
@@ -14,7 +13,9 @@ public class Arena:  MonoBehaviour
     [SerializeField] private SquadHealthbar _PlayerHealthbar;
     [SerializeField] private SquadHealthbar _EnemyHealthbar;
 
-    public UnityAction<FighterType> SquadEmpty;
+    public UnityAction PlayerWin;
+    public UnityAction PlayerLose;
+    public UnityAction BattleStarted;
 
     private void OnEnable()
     {
@@ -45,21 +46,21 @@ public class Arena:  MonoBehaviour
         _arenaCells.PlayStartBattle();
         _startButton.SetActive(false);
         _timer.StartTimer();
+        BattleStarted?.Invoke();
     }
 
     private void OnPlayerWin()
     {
-        Debug.Log(" онец");
+        PlayerWin?.Invoke();
         _finalPanels.End(true);
         _timer.StopTimer();
     }
 
     private void OnEnemyWin()
     {
+        PlayerLose?.Invoke();
         _finalPanels.End(false);
         _timer.StopTimer();
-
-        //мб временно, есть баг с тем, что могут умереть одновременно и враг и игрок
     }
 
     private void PickTheWinner(FighterType type)
