@@ -28,6 +28,11 @@ public class StartButton : MonoBehaviour
         StartCoroutine(StartScene());
     }
 
+    public void DeleteSaves()
+    {
+        PlayerAccount.SetPlayerData("");
+    }
+
     public void ButtonOff()
     {
         _teleport.SetActive(true);
