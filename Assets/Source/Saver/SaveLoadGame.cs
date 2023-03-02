@@ -79,11 +79,11 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         _equippedItemsSaveLoad.Load(equippedItemsData);
         _shopSaveLoad.Load(shopData);
         _tavernSaveLoad.Load(tavernData);
+        Debug.Log("Загрузил");
     }
 
     public void Save()
     {
-        SaveBinnary();
         Saved?.Invoke();
         Debug.Log("Типо сохранил.");
     }
@@ -141,6 +141,8 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         {
             tavernData.Add(jsonDataSaves.TavernData[i]);
         }
+
+        Debug.Log(jsonDataSaves.CharactersData.Length + "Колво персов");
 
         Load(jsonDataSaves.WalletData, charactersData, jsonDataSaves.ItemData, jsonDataSaves.ItemInventoryData,
             jsonDataSaves.EquippedItems, jsonDataSaves.ShopData, tavernData);
