@@ -8,6 +8,7 @@ using UnityEngine;
 public class SaveLoadYandex : MonoBehaviour
 {
     private SaveLoadGame _game;
+    private bool _loaded = false;
 
     private void Awake()
     {
@@ -44,7 +45,7 @@ public class SaveLoadYandex : MonoBehaviour
         List<CharacterData> charactersData = BinarySavingSystem.LoadCharacter();
         ItemData items = BinarySavingSystem.LoadItems();
         ItemInventoryData itemInventoryData = BinarySavingSystem.LoadItemInventory();
-        EquippedItemsData equippedItemsData = BinarySavingSystem.LoadEquippedItems();
+        List<EquipItemData> equippedItemsData = BinarySavingSystem.LoadEquippedItems();
         ShopData shopData = BinarySavingSystem.LoadShop();
         List<CharacterData> tavernData = BinarySavingSystem.LoadTavern();
         _game.Load(walletData, charactersData, items, itemInventoryData, equippedItemsData, shopData, tavernData);
@@ -53,6 +54,7 @@ public class SaveLoadYandex : MonoBehaviour
     private void LoadData(string data)
     {
         Debug.Log("Загружаю Джсон");
+        _loaded = true;
         _game.JsonLoad(data);
     }
 }

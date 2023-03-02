@@ -5,21 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class EquippedItemsData
 {
-    public int[] ItemsCount;
-    public int[,] ItemsID;
-    public bool[,] InHand;
+    private List<EquipItemData> _items = new List<EquipItemData>();
 
     public EquippedItemsData(CharactersStorage charactersStorage)
     {
         int itemsCount = 5;
-        ItemsCount = new int[charactersStorage.AllCharacters];
-        ItemsID = new int[charactersStorage.AllCharacters, itemsCount];
-        InHand = new bool[charactersStorage.AllCharacters, itemsCount];
-
         int count = 0;
 
         for (int i = 0; i < charactersStorage.AllCharacters; i++)
         {
+            _items.Add(new EquipItemData());
+            _items[i].Init(itemsCount);
             GameObject character = charactersStorage.GetCharacter(i);
             CharacterItems characterItems = character.GetComponent<CharacterItems>();
             Item item = characterItems.GetItem(ItemType.Weapon);
@@ -28,15 +24,15 @@ public class EquippedItemsData
 
             if (item != null)
             {
-                ItemsID[i, count] = item.Id;
+                _items[i].SetId(count, item.Id);
 
                 if(item.GetComponent<WeaponItem>() == true)
                 {
-                    InHand[i, count] = true;
+                    _items[i].SetInHand(count, true);
                 }
                 else
                 {
-                    InHand[i, count] = false;
+                    _items[i].SetInHand(count, false);
                 }
 
                 count++;
@@ -49,17 +45,22 @@ public class EquippedItemsData
             item = characterItems.GetItem(ItemType.Leg);
             count = AddItem(item, i, count);
 
-            ItemsCount[i] = count;
+            _items[i].SetCount(count);
             count = 0;
         }
+    }
+
+    public List<EquipItemData> GetItems()
+    {
+        return _items;
     }
 
     private int AddItem(Item item, int firstID, int SecondID)
     {
         if (item != null)
         {
-            ItemsID[firstID, SecondID] = item.Id;
-            InHand[firstID, SecondID] = false;
+            _items[firstID].SetId(SecondID, item.Id);
+            _items[firstID].SetInHand(SecondID, false);
             SecondID++;
         }
 

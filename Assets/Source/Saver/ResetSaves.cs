@@ -9,7 +9,11 @@ public class ResetSaves : MonoBehaviour
     public void DeleteSaves()
     {
         PlayerAccount.SetPlayerData("");
-        File.Delete(Application.persistentDataPath + "/save/save.b");
+
+        string path = Application.persistentDataPath + "/save";
+
+        if (Directory.Exists(path))
+            Directory.Delete(path);
     }
 
 

@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
+[RequireComponent(typeof(RouletteReward))]
 public class Roulete : MonoBehaviour
 {
     [SerializeField] private GameObject _wheel;
-    [SerializeField] private PlayerWallet _wallet;
+    [SerializeField] private List<RoulettePrize> _prizes;
+    [SerializeField] private GameObject _container;
 
-    private readonly List<int> _prizes = new List<int> { 250, 50, 5000, 300, 100, 2000, 500, 1000 };
+    private RouletteReward _rouletteReward;
     private readonly int _maxAngel = 360;
     private readonly float _updateDelay = 0.01f;
     private readonly float _spinSpeed = 7;
@@ -18,10 +22,24 @@ public class Roulete : MonoBehaviour
     public UnityAction Spined;
     public UnityAction SpinStarted;
 
+    private void Awake()
+    {
+        _rouletteReward = GetComponent<RouletteReward>();
+    }
+
     private void OnDisable()
     {
         if(_spinRoutine != null)
         StopCoroutine(_spinRoutine);
+    }
+
+    private void Start()
+    {
+        for (int i = 0; i < _container.transform.childCount; i++)
+        {
+            _container.transform.GetChild(i).GetComponent<Image>().sprite = _prizes[i].Sprite;
+            _container.transform.GetChild(i).transform.GetChild(0).GetComponent<TMP_Text>().text = _prizes[i].PrizeCount.ToString();
+        }
     }
 
     public void StartSpin(int multi)
@@ -76,31 +94,43 @@ public class Roulete : MonoBehaviour
         switch (sectionId)
         {
             case 0:
-                _wallet.ChangeCrystals(_prizes[0] * multi);
+                _rouletteReward.SetReward(_prizes[0].PrizeCount * multi, _prizes[0].Sprite, _prizes[0].IsGold);
                 break;
             case 1:
-                _wallet.ChangeGold(_prizes[1] * multi);
+                _rouletteReward.SetReward(_prizes[1].PrizeCount * multi, _prizes[1].Sprite, _prizes[1].IsGold);
                 break;
             case 2:
-                _wallet.ChangeGold(_prizes[2] * multi);
+                _rouletteReward.SetReward(_prizes[2].PrizeCount * multi, _prizes[2].Sprite, _prizes[2].IsGold);
                 break;
             case 3:
-                _wallet.ChangeGold(_prizes[3] * multi);
+                _rouletteReward.SetReward(_prizes[3].PrizeCount * multi, _prizes[3].Sprite, _prizes[3].IsGold);
                 break;
             case 4:
-                _wallet.ChangeCrystals(_prizes[4] * multi);
+                _rouletteReward.SetReward(_prizes[4].PrizeCount * multi, _prizes[4].Sprite, _prizes[4].IsGold);
                 break;
             case 5:
-                _wallet.ChangeGold(_prizes[5] * multi);
+                _rouletteReward.SetReward(_prizes[5].PrizeCount * multi, _prizes[5].Sprite, _prizes[5].IsGold);
                 break;
             case 6:
-                _wallet.ChangeGold(_prizes[6] * multi);
+                _rouletteReward.SetReward(_prizes[6].PrizeCount * multi, _prizes[6].Sprite, _prizes[6].IsGold);
                 break;
             case 7:
-                _wallet.ChangeGold(_prizes[7] * multi);
+                _rouletteReward.SetReward(_prizes[7].PrizeCount * multi, _prizes[7].Sprite, _prizes[7].IsGold);
                 break;
         }
 
         Spined?.Invoke();
     }
+}
+
+[System.Serializable]
+public class RoulettePrize
+{
+    [SerializeField] private int _prizeCount;
+    [SerializeField] private Sprite _image;
+    [SerializeField] private bool _isGold;
+
+    public int PrizeCount => _prizeCount;
+    public Sprite Sprite => _image;
+    public bool IsGold => _isGold;
 }

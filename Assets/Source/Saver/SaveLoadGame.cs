@@ -15,7 +15,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     [SerializeField] private FinalPanels _finalPanels;
     [SerializeField] private DoublePanel _panel;
     [SerializeField] private List<ButtonUpdate> _updates;
-    [SerializeField] private Roulete _roulete;
+    [SerializeField] private RouletteReward _roulete;
 
     private WalletSaveLoad _wallet;
     private CharactersSaveLoad _charactersSaveLoad;
@@ -45,7 +45,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
             Debug.Log("Подписались все");
             _finalPanels.BattleEnd += Save;
             _panel.PanelClosed += Save;
-            _roulete.Spined += Save;
+            _roulete.RewardAdded += Save;
 
             for (int i = 0; i < _updates.Count; i++)
             {
@@ -60,7 +60,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         {
             _finalPanels.BattleEnd -= Save;
             _panel.PanelClosed -= Save;
-            _roulete.Spined -= Save;
+            _roulete.RewardAdded -= Save;
 
             for (int i = 0; i < _updates.Count; i++)
             {
@@ -70,13 +70,13 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     }
 
     public void Load(WalletData walletData, List<CharacterData> charactersData, ItemData itemData, ItemInventoryData itemInventoryData,
-        EquippedItemsData equippedItemsData, ShopData shopData, List<CharacterData> tavernData)
+        List<EquipItemData> equippedItemData, ShopData shopData, List<CharacterData> tavernData)
     {
         _wallet.Load(walletData);
         _charactersSaveLoad.Load(charactersData);
         _itemsSaveLoad.Load(itemData);
         _itemInventorySaveLoad.Load(itemInventoryData);
-        _equippedItemsSaveLoad.Load(equippedItemsData);
+        _equippedItemsSaveLoad.Load(equippedItemData);
         _shopSaveLoad.Load(shopData);
         _tavernSaveLoad.Load(tavernData);
         Debug.Log("Загрузил");
@@ -84,6 +84,7 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
 
     public void Save()
     {
+        SaveBinnary();
         Saved?.Invoke();
         Debug.Log("Типо сохранил.");
     }
@@ -97,6 +98,8 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
+/*        string json = GetJson();
+        BinarySavingSystem.SaveJSON(json);*/
     }
 
     public void SaveDelay()
@@ -108,13 +111,14 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     {
         WalletData walletData = _wallet.GetData();
         EquippedItemsData equippedItemsData = _equippedItemsSaveLoad.GetData();
+        List<EquipItemData> equipItemData = equippedItemsData.GetItems();
         List<CharacterData> charactersData = _charactersSaveLoad.GetData();
         List<CharacterData> tavernData = _tavernSaveLoad.GetData();
         ShopData shopData = _shopSaveLoad.GetData();
         ItemInventoryData itemInventory = _itemInventorySaveLoad.GetData();
         ItemData itemData = _itemsSaveLoad.GetData();
 
-        JsonDataSaves jsonDataSaves = new JsonDataSaves(walletData, equippedItemsData, charactersData, tavernData, shopData, itemInventory, itemData);
+        JsonDataSaves jsonDataSaves = new JsonDataSaves(walletData, equipItemData, charactersData, tavernData, shopData, itemInventory, itemData);
         string saves = JsonUtility.ToJson(jsonDataSaves);
 
         return saves;
@@ -131,6 +135,12 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
 
         List<CharacterData> charactersData = new List<CharacterData>();
         List<CharacterData> tavernData = new List<CharacterData>();
+        List<EquipItemData> equipItems = new List<EquipItemData>();
+
+        for (int i = 0; i < jsonDataSaves.EquippedItems.Length; i++)
+        {
+            equipItems.Add(jsonDataSaves.EquippedItems[i]);
+        }
 
         for (int i = 0; i < jsonDataSaves.CharactersData.Length; i++)
         {
@@ -145,12 +155,12 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         Debug.Log(jsonDataSaves.CharactersData.Length + "Колво персов");
 
         Load(jsonDataSaves.WalletData, charactersData, jsonDataSaves.ItemData, jsonDataSaves.ItemInventoryData,
-            jsonDataSaves.EquippedItems, jsonDataSaves.ShopData, tavernData);
+            equipItems, jsonDataSaves.ShopData, tavernData);
     }
 
     private IEnumerator CoroutineSaveDelay()
     {
-        float delay = 1;
+        float delay = 0.5f;
         yield return new WaitForSeconds(delay);
         Save();
     }

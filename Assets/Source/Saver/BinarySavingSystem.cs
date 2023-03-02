@@ -14,6 +14,8 @@ public static class BinarySavingSystem
         {
             string path = Application.persistentDataPath + "/save/characters";
             CreateDirectory(path);
+            path = Application.persistentDataPath + "/save/itemsEquip";
+            CreateDirectory(path);
 
             FileStream fileStream = new FileStream(pathSave, FileMode.Create);
             fileStream.Close();
@@ -183,32 +185,57 @@ public static class BinarySavingSystem
 
     public static void SaveEquippedItems(CharactersStorage characterStorage)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/save/equippedItems.b";
-        FileStream fileStream = new FileStream(path, FileMode.Create);
+        EquippedItemsData itemsData = new EquippedItemsData(characterStorage);
+        List<EquipItemData> _items = itemsData.GetItems();
+        int itemNumber = -1;
 
-        EquippedItemsData data = new EquippedItemsData(characterStorage);
+        for (int i = 0; i < _items.Count; i++)
+        {
 
-        formatter.Serialize(fileStream, data);
-        fileStream.Close();
+            BinaryFormatter formatter = new BinaryFormatter();
+            string path = Application.persistentDataPath + "/save/itemsEquip/item" + i + ".b";
+            FileStream fileStream = new FileStream(path, FileMode.Create);
+
+            formatter.Serialize(fileStream, _items[i]);
+            fileStream.Close();
+            itemNumber = i;
+        }
+        itemNumber++;
+
+        while (File.Exists(Application.persistentDataPath + "/save/itemsEquip/item" + itemNumber + ".b"))
+        {
+            File.Delete(Application.persistentDataPath + "/save/itemsEquip/item" + itemNumber + ".b");
+            itemNumber++;
+        }
     }
 
-    public static EquippedItemsData LoadEquippedItems()
+    public static List<EquipItemData> LoadEquippedItems()
     {
-        string path = Application.persistentDataPath + "/save/equippedItems.b";
+        List<EquipItemData> items = new List<EquipItemData>();
+        bool isItemExist = true;
+        int itemNumber = 0;
+        string path;
 
-        if (File.Exists(path))
+        while (isItemExist)
         {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream fileStream = new FileStream(path, FileMode.Open);
+            path = Application.persistentDataPath + "/save/itemsEquip/item" + itemNumber + ".b";
 
-            EquippedItemsData data = formatter.Deserialize(fileStream) as EquippedItemsData;
-            fileStream.Close();
+            if (File.Exists(path))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream fileStream = new FileStream(path, FileMode.Open);
 
-            return data;
+                items.Add(formatter.Deserialize(fileStream) as EquipItemData);
+                fileStream.Close();
+                itemNumber++;
+            }
+            else
+            {
+                isItemExist = false;
+            }
         }
 
-        return null;
+        return items;
     }
 
     public static void SaveShop(ItemShopUI itemShop)
@@ -282,5 +309,33 @@ public static class BinarySavingSystem
         }
 
         return characters;
+    }
+
+    public static void SaveJSON(string data)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/save/json.b";
+        FileStream fileStream = new FileStream(path, FileMode.Create);
+
+        formatter.Serialize(fileStream, data);
+        fileStream.Close();
+    }
+
+    public static string LoadJSON()
+    {
+        string path = Application.persistentDataPath + "/save/json.b";
+
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream fileStream = new FileStream(path, FileMode.Open);
+
+            string data = formatter.Deserialize(fileStream) as string;
+            fileStream.Close();
+
+            return data;
+        }
+
+        return null;
     }
 }
