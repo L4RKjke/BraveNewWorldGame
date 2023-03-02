@@ -28,8 +28,13 @@ public class Analytics : MonoBehaviour
         GameAnalytics.NewResourceEvent(GAResourceFlowType.Source, resourceType, amount, loot, chest);
     }
 
-    public void OnDesignEvent()
+    public void OnAdClickedEvent()
     {
         GameAnalytics.NewDesignEvent("rewardtype-ad-click");
+    }
+
+    public void OnAdOfferEvent()
+    {
+        GameAnalytics.NewDesignEvent("rewardtype-ad-offer");
     }
 }

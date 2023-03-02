@@ -16,6 +16,7 @@ public class RouletePanel : MonoBehaviour
     [SerializeField] private Button _closeButton;
     [SerializeField] private TextMeshProUGUI _menuText;
     [SerializeField] private TextMeshProUGUI _RouletPanelTXT;
+    [SerializeField] private Analytics _analytics;
     [SerializeField] private int _spinDelay;
 
     private readonly string _sound = "Sound";
@@ -26,14 +27,14 @@ public class RouletePanel : MonoBehaviour
 
         _roulete.Spined += OnSpined;
         _spinTimer.TimeUpdated += UpdateTime;
-        _spinTimer.TimeOver += ActivateSpinButton;
+        _spinTimer.TimeOver += OnTimeExpired;
     }
 
     private void OnDisable()
     {
         _roulete.Spined -= OnSpined;
         _spinTimer.TimeUpdated -= UpdateTime;
-        _spinTimer.TimeOver -= ActivateSpinButton;
+        _spinTimer.TimeOver -= OnTimeExpired;
     }
 
     public void OnSpinButtonClick(int multi = 1)
@@ -58,6 +59,7 @@ public class RouletePanel : MonoBehaviour
 
     public void OnSpinX2ButtonClick()
     {
+        _analytics.OnAdClickedEvent();
         Action videoShowed = new Action(AdShowed);
         VideoAd.Show(null, null, videoShowed, errorLog => OnAdError(errorLog));
 
@@ -80,8 +82,9 @@ public class RouletePanel : MonoBehaviour
         _closeButton.interactable = true;
     }
 
-    private void ActivateSpinButton()
+    private void OnTimeExpired()
     {
+        _analytics.OnAdOfferEvent();
         _spinButton.interactable = true;
         _spinX2Button.interactable = true;
     }
