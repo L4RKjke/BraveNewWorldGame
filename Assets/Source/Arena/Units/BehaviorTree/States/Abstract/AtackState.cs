@@ -7,12 +7,12 @@ public abstract class AtackState : State
     [SerializeField] private AnimationCotroller _animationController;
 
     private Coroutine _atackCourutine;
-    private float _meleeDelay = 0.7f;
-    protected float CurrentDelay;
 
     protected AnimationCotroller AnimationController => _animationController;
 
     protected int Damage => CurrentFighter.Damage;
+
+    protected abstract float CurrentDelay { get; }
 
     public float FirstDelaySpread => Random.Range(0.01f, 0.11f);
 

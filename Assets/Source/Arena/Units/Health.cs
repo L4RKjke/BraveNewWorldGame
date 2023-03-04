@@ -51,9 +51,7 @@ public class Health : MonoBehaviour
     }
 
     public void TakeDamage(int damage, DamageType type)
-    {
-        ///вынести события в конец, заменить проверки на масклемп. Простестить.
-        
+    {        
         if (type == DamageType.Physical)
             damage -= _armor;
 

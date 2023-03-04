@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 [RequireComponent(typeof(IRangeAtacker))]
 
@@ -7,10 +6,11 @@ public class RangeAtackState : AtackState
 {
     private IRangeAtacker _rangeAtacker;
 
+    protected override float CurrentDelay => _rangeAtacker.GetRangeAtackDelay();
+
     private void Start()
     {
         _rangeAtacker = GetComponent<IRangeAtacker>();
-        CurrentDelay = _rangeAtacker.GetRangeAtackDelay();
     }
 
     protected override void StartAtack()

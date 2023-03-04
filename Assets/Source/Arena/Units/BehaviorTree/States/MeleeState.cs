@@ -6,10 +6,11 @@ public class MeleeState : AtackState
 {
     private IMeleeAtacker _meleeAtacker;
 
+    protected override float CurrentDelay => _meleeAtacker.GetMeleeAtackDelay();
+
     private void Start()
     {
         _meleeAtacker = GetComponent<IMeleeAtacker>();
-        CurrentDelay = _meleeAtacker.GetMeleeAtackDelay();
     }   
 
     protected override void StartAtack()
