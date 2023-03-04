@@ -12,9 +12,7 @@ public abstract class AtackState : State
 
     protected int Damage => CurrentFighter.Damage;
 
-    protected abstract float CurrentDelay { get; }
-
-    public float FirstDelaySpread => Random.Range(0.01f, 0.11f);
+    public float FirstDelaySpread => Random.Range(0.05f, 0.11f);
 
     public UnityAction AtackStarted;
     public UnityAction AtackCompleted;
@@ -24,7 +22,7 @@ public abstract class AtackState : State
     {
         AnimationController.AtackCompleted += CompleteAtack;
         AnimationController.AtackAnimationCompleted += StartRoutine;
-        _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));
+        _atackCourutine = StartCoroutine(LaunchAtack(FirstDelaySpread));
         StateActivated?.Invoke();
     }
 
@@ -35,11 +33,14 @@ public abstract class AtackState : State
         StopCoroutine(_atackCourutine);
     }
 
+    protected abstract float CurrentDelay();
+
     protected abstract void StartAtack();
 
     protected abstract void CompleteAtack();
+    
 
-    protected IEnumerator LaunchAtack(float atackDelay)
+    private IEnumerator LaunchAtack(float atackDelay)
     {
             yield return new WaitForSeconds(atackDelay);
 
@@ -51,6 +52,6 @@ public abstract class AtackState : State
         if (_atackCourutine != null)
             StopCoroutine(_atackCourutine);
 
-        _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay));
+        _atackCourutine = StartCoroutine(LaunchAtack(CurrentDelay()));
     }
 }
