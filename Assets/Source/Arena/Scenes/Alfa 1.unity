@@ -5116,6 +5116,75 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
   m_PrefabInstance: {fileID: 5660040630691309210}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1768725662
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1338393786349076298, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: _arena
+      value: 
+      objectReference: {fileID: 1930506359}
+    - target: {fileID: 1338393786349076298, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: _finalPanels
+      value: 
+      objectReference: {fileID: 1631451256}
+    - target: {fileID: 1338393786349076298, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: _arenaChecker
+      value: 
+      objectReference: {fileID: 1930506360}
+    - target: {fileID: 1338393786349076302, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 27.134922
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.4185243
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.767201
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1338393786349076303, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4e36b97068028f24ebe209d2d7a0c8f1, type: 3}
 --- !u!1 &1779722321
 GameObject:
   m_ObjectHideFlags: 0
@@ -6134,6 +6203,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1930506359 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8931852452118961873, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
+  m_PrefabInstance: {fileID: 1930506355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743667805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99a80ad1c3cc3374da27e87ad419aa6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1930506360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 743667805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 171752db05fdc204bad14784ba69d6cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1939714719
