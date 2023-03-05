@@ -25,6 +25,7 @@ public class BloodlustAbility : DamageAbility
     {
         var healValue = Mathf.FloorToInt(_damageTaken * _damageFactor); 
 
+        if (Fighter.Health.Value > 0)
         Fighter.Health.Heal(healValue);       
     }
 
