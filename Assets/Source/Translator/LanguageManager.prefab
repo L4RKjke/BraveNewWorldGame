@@ -52,6 +52,9 @@ MonoBehaviour:
   - Language: English
     Text: "\rCharacter skills."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Karakter becerileri.
+    Object: {fileID: 0}
 --- !u!1 &77676919
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +107,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0422\u044F\u0436\u0435\u043B\u0430\u044F \u0440\u0443\u043A\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "A\u011F\u0131r bir el"
+    Object: {fileID: 0}
 --- !u!1 &139375600
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +140,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 158
+  m_RootOrder: 182
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &139375602
 MonoBehaviour:
@@ -155,6 +161,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0420\u0435\u0433\u0435\u043D\u0435\u0440\u0430\u0446\u0438\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rejenerasyon
     Object: {fileID: 0}
 --- !u!1 &202642531
 GameObject:
@@ -186,7 +195,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 162
+  m_RootOrder: 186
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &202642533
 MonoBehaviour:
@@ -207,6 +216,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0420\u0435\u0441\u0442\u0430\u0440\u0442"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Yeniden Ba\u015Flat"
     Object: {fileID: 0}
 --- !u!1 &307517904
 GameObject:
@@ -259,6 +271,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041E\u0442\u0440\u044F\u0434 \u0438\u0433\u0440\u043E\u043A\u0430 "
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: 'Bir oyuncunun kadrosu '
     Object: {fileID: 0}
 --- !u!1 &352740239
 GameObject:
@@ -314,6 +329,64 @@ MonoBehaviour:
       \u0443\u0440\u043E\u043D \u043F\u0440\u0438 \u0430\u0442\u0430\u043A\u0430\u0445:
       33%"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ekstra sald\u0131r\u0131 hasar\u0131: %33"
+    Object: {fileID: 0}
+--- !u!1 &455898242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 455898243}
+  - component: {fileID: 455898244}
+  m_Layer: 0
+  m_Name: Refusal/Inventory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &455898243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455898242}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 195
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455898244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455898242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Inventory FULL
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C \u043F\u0435\u0440\u0435\u043F\u043E\u043B\u043D\u0435\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Envanter dolu
+    Object: {fileID: 0}
 --- !u!1 &836270876
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +417,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 168
+  m_RootOrder: 192
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &836270878
 MonoBehaviour:
@@ -365,6 +438,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0420\u0443\u043B\u0435\u0442\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rulet
     Object: {fileID: 0}
 --- !u!1 &971241517
 GameObject:
@@ -396,7 +472,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 166
+  m_RootOrder: 190
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &971241519
 MonoBehaviour:
@@ -417,6 +493,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "X2 \u041D\u0430\u0433\u0440\u0430\u0434\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "X2 \xD6d\xFCl"
     Object: {fileID: 0}
 --- !u!1 &1002409173
 GameObject:
@@ -470,6 +549,70 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041E\u0442\u0440\u044F\u0434 \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430 "
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFC\u015Fman tak\u0131m\u0131 "
+    Object: {fileID: 0}
+--- !u!1 &1004818863
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1004818864}
+  - component: {fileID: 1004818865}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task22
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1004818864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004818863}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 178
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1004818865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004818863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Everything you get will stay with you! We also gave you another 1000 crystals
+      and 5000 gold.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u0441\u0435 \u0447\u0442\u043E \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B,
+      \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u043F\u0440\u0438 \u0442\u0435\u0431\u0435!
+      \u0422\u0430\u043A \u0436\u0435 \u043C\u044B \u043F\u043E\u0434\u0430\u0440\u0438\u043B\u0438
+      \u0442\u0435\u0431\u0435 \u0435\u0449\u0435 1000 \u043A\u0440\u0438\u0441\u0442\u0430\u043B\u043E\u0432
+      \u0438 5000 \u0437\u043E\u043B\u043E\u0442\u0430. "
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sahip oldu\u011Fun her \u015Fey seninle kalacak! Ayr\u0131ca sana 1000
+      kristal ve 5000 alt\u0131n daha verdik. "
+    Object: {fileID: 0}
 --- !u!1 &1104358270
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +664,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041E\u043F\u044B\u0442"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Deneyim
     Object: {fileID: 0}
 --- !u!1 &1122066212
 GameObject:
@@ -574,6 +720,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0417\u0430\u0431\u0440\u0430\u0442\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "G\xF6t\xFCr\xFCn"
+    Object: {fileID: 0}
 --- !u!1 &1228106404
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +753,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 164
+  m_RootOrder: 188
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1228106406
 MonoBehaviour:
@@ -625,6 +774,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u0432\u044F\u0442\u0430\u044F \u0431\u0440\u043E\u043D\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kutsal z\u0131rh"
     Object: {fileID: 0}
 --- !u!1 &1247962970
 GameObject:
@@ -678,6 +830,65 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0421\u0442\u0430\u0440\u0442"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ba\u015Flang\u0131\xE7"
+    Object: {fileID: 0}
+--- !u!1 &1261954598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1261954599}
+  - component: {fileID: 1261954600}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task20
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1261954599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261954598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 176
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1261954600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261954598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041D\u0435\u043F\u043B\u043E\u0445\u043E \u0434\u043B\u044F \u043F\u0435\u0440\u0432\u043E\u0433\u043E
+      \u0440\u0430\u0437\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: "\rNot bad for a first time."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lk sefer i\xE7in fena de\u011Fil."
+    Object: {fileID: 0}
 --- !u!1 &1275606755
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,6 +941,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u042D\u043B\u044C\u0444\u0438\u0439\u0441\u043A\u0430\u044F \u043A\u0440\u043E\u0432\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Elf kan\u0131"
+    Object: {fileID: 0}
 --- !u!1 &1341878116
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +974,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 165
+  m_RootOrder: 189
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1341878118
 MonoBehaviour:
@@ -785,6 +999,71 @@ MonoBehaviour:
       \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u043D\u043E\u0433\u043E \u0443\u0440\u043E\u043D\u0430,
       \u0440\u0430\u0432\u043D\u043E\u0435 \u043F\u043E\u043B\u043E\u0432\u0438\u043D\u0435
       \u0431\u0440\u043E\u043D\u0438."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Z\u0131rh\u0131n\u0131z\u0131n yar\u0131s\u0131na e\u015Fit hasar ald\u0131ktan
+      sonra can\u0131n\u0131z\u0131 yeniler."
+    Object: {fileID: 0}
+--- !u!1 &1527322876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1527322877}
+  - component: {fileID: 1527322878}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task23
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1527322877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527322876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 179
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527322878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527322876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: "\rIf you have any questions, point to the questions, they will help. Good
+      luck in the game!\r\n"
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0415\u0441\u043B\u0438 \u0443 \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442
+      \u043A\u0430\u043A\u0438\u0435-\u0442\u043E \u0432\u043E\u043F\u0440\u043E\u0441\u044B,
+      \u043D\u0430\u0432\u043E\u0434\u0438 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u0438\u043A\u0438,
+      \u043E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442. \u0423\u0434\u0430\u0447\u0438
+      \u0432 \u0438\u0433\u0440\u0435!"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Herhangi bir sorunuz varsa, sorular\u0131 i\u015Faret edin, yard\u0131mc\u0131
+      olacaklard\u0131r. Oyunda iyi \u015Fanslar!"
     Object: {fileID: 0}
 --- !u!1 &1546342966
 GameObject:
@@ -838,6 +1117,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Seviye
+    Object: {fileID: 0}
 --- !u!1 &1574919484
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +1150,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 159
+  m_RootOrder: 183
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1574919486
 MonoBehaviour:
@@ -889,6 +1171,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u0443\u043B\u044C\u0442\u0443\u0440\u0430 \u0432\u043E\u0440\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "H\u0131rs\u0131z k\xFClt\xFCr\xFC"
     Object: {fileID: 0}
 --- !u!1 &1575692968
 GameObject:
@@ -920,7 +1205,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 160
+  m_RootOrder: 184
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1575692970
 MonoBehaviour:
@@ -943,6 +1228,10 @@ MonoBehaviour:
     Text: "\u0414\u043E\u0432\u0430\u0431\u043B\u044F\u0435\u0442 20% \u0443\u0440\u043E\u043D\u0430
       \u0442\u0435\u043A\u0443\u0449\u0435\u0433\u043E \u0432\u0440\u0430\u0433\u0430
       \u043A \u0441\u0432\u043E\u0435\u043C\u0443."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Mevcut d\xFC\u015Fman\u0131n hasar\u0131n\u0131n %20'sini kendi hasar\u0131na
+      ekler."
     Object: {fileID: 0}
 --- !u!1 &1620779426
 GameObject:
@@ -974,7 +1263,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 167
+  m_RootOrder: 191
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1620779428
 MonoBehaviour:
@@ -995,6 +1284,120 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u0440\u0443\u0442\u0438\u0442\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xF6nd\xFCr"
+    Object: {fileID: 0}
+--- !u!1 &1685989562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1685989563}
+  - component: {fileID: 1685989564}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task21
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1685989563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685989562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 177
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685989564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685989562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: 'Congratulations on passing our training! '
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E \u0441 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435\u043C
+      \u043D\u0430\u0448\u0435\u0439 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438! "
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "E\u011Fitimimizi ge\xE7ti\u011Finiz i\xE7in tebrikler! "
+    Object: {fileID: 0}
+--- !u!1 &1774368112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774368113}
+  - component: {fileID: 1774368114}
+  m_Layer: 0
+  m_Name: Refusal/FULL
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774368113
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774368112}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 194
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774368114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774368112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: FULL
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0410\u041F\u041E\u041B\u041D\u0415\u041D\u041E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: TAMAMEN
     Object: {fileID: 0}
 --- !u!1 &1796841473
 GameObject:
@@ -1026,7 +1429,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 156
+  m_RootOrder: 180
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1796841475
 MonoBehaviour:
@@ -1049,6 +1452,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: English
     Text: "\rHas a 2% chance to fully restore health."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Tam sa\u011Fl\u0131k iyile\u015Fmesi i\xE7in %2 \u015Fans vard\u0131r."
     Object: {fileID: 0}
 --- !u!1 &1872980279
 GameObject:
@@ -1080,7 +1486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 157
+  m_RootOrder: 181
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1872980281
 MonoBehaviour:
@@ -1103,6 +1509,9 @@ MonoBehaviour:
     Text: "\u0412\u043E\u0441\u0441\u0442\u0430\u043D\u0430\u0432\u043B\u0438\u0432\u0430\u0435\u0442
       2.5% \u043E\u0447\u043A\u043E\u0432 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F
       \u043A\u0430\u0436\u0434\u0443\u044E \u0441\u0435\u043A\u0443\u043D\u0434\u0443."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Her saniye %2,5 sa\u011Fl\u0131k puan\u0131 yeniler."
     Object: {fileID: 0}
 --- !u!1 &1925907569
 GameObject:
@@ -1156,6 +1565,9 @@ MonoBehaviour:
   - Language: Russian
     Text: " \u043F\u0440\u043E\u0439\u0434\u0435\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: " ge\xE7ti"
+    Object: {fileID: 0}
 --- !u!1 &1945398460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,7 +1598,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 163
+  m_RootOrder: 187
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1945398462
 MonoBehaviour:
@@ -1207,6 +1619,64 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Sonraki
+    Object: {fileID: 0}
+--- !u!1 &2105091516
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2105091517}
+  - component: {fileID: 2105091518}
+  m_Layer: 0
+  m_Name: Image/Sold
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2105091517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105091516}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 196
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2105091518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105091516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 2
+  entries:
+  - Language: English
+    Text: 
+    Object: {fileID: 21300000, guid: b44adbcbdedf0314cbcf42217229ea62, type: 3}
+  - Language: Russian
+    Text: 
+    Object: {fileID: 21300000, guid: 3749e7e6d8d43f748839c1c3e5f406a1, type: 3}
+  - Language: Turkish
+    Text: 
     Object: {fileID: 0}
 --- !u!1 &326778243862778553
 GameObject:
@@ -1238,7 +1708,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5097432100110689816}
-  m_RootOrder: 161
+  m_RootOrder: 185
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3065440921419017268
 MonoBehaviour:
@@ -1259,6 +1729,522 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: English
     Text: Level failed!
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Seviye ba\u015Far\u0131s\u0131z oluyor!"
+    Object: {fileID: 0}
+--- !u!1 &763156821702952509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 514701271488984229}
+  - component: {fileID: 2174045550106717478}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task19
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &514701271488984229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763156821702952509}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 174
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2174045550106717478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763156821702952509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043A\u043D\u043E\u043F\u043A\u0443
+      \"\u0421\u0442\u0430\u0440\u0442\", \u0447\u0442\u043E\u0431\u044B \u043D\u0430\u0447\u0430\u0442\u044C
+      \u0441\u0440\u0430\u0436\u0435\u043D\u0438\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Press the start button to start the battle.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sava\u015F\u0131 ba\u015Flatmak i\xE7in ba\u015Flat d\xFC\u011Fmesine
+      bas\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &999706178149951792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9070184449900928850}
+  - component: {fileID: 961312429501982500}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9070184449900928850
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999706178149951792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 167
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &961312429501982500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999706178149951792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041F\u043E\u043F\u0440\u043E\u0431\u0443\u0439\u0442\u0435 \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B:
+      \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435 2 \u043E\u0434\u0438\u043D\u0430\u043A\u043E\u0432\u044B\u0445
+      \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430 \u0432 \u043B\u0435\u0432\u043E\u0435
+      \u043E\u043A\u043D\u043E."
+    Object: {fileID: 0}
+  - Language: English
+    Text: 'Try to improve your items: drag two identical items to the left window.'
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6\u011Felerinizi geli\u015Ftirmeye \xE7al\u0131\u015F\u0131n: 2 ayn\u0131
+      \xF6\u011Feyi sol taraftaki pencereye s\xFCr\xFCkleyin."
+    Object: {fileID: 0}
+--- !u!1 &1554003190570084383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 391204952399611241}
+  - component: {fileID: 3960408509370942151}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &391204952399611241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554003190570084383}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 164
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3960408509370942151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554003190570084383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0435\u0449\u0435 \u0440\u0430\u0437."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Buy all the items again.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "T\xFCm \xFCr\xFCnleri tekrar sat\u0131n al\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &1921052757130868217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6184342087950142277}
+  - component: {fileID: 5662673545270802200}
+  m_Layer: 0
+  m_Name: Assistant/TapToContinue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6184342087950142277
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921052757130868217}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 175
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5662673545270802200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921052757130868217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435, \u0447\u0442\u043E\u0431\u044B
+      \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C..."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Tap to continue...
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Devam etmek i\xE7in t\u0131klay\u0131n..."
+    Object: {fileID: 0}
+--- !u!1 &1957130734401642862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3249264468979971197}
+  - component: {fileID: 2169697027200950999}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task18
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3249264468979971197
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957130734401642862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 173
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2169697027200950999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1957130734401642862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041F\u0435\u0440\u0435\u0434 \u0431\u043E\u0435\u043C \u043C\u043E\u0436\u043D\u043E
+      \u043C\u0435\u043D\u044F\u0442\u044C \u0441\u043E\u0441\u0442\u0430\u0432 \u0432\u0430\u0448\u0435\u0433\u043E
+      \u043E\u0442\u0440\u044F\u0434\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: You can change the composition of your squad before battle.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sava\u015Ftan \xF6nce tak\u0131m\u0131n\u0131z\u0131n kompozisyonunu de\u011Fi\u015Ftirebilirsiniz."
+    Object: {fileID: 0}
+--- !u!1 &3270293722743745607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2230686578943916541}
+  - component: {fileID: 3682358035335552823}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2230686578943916541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270293722743745607}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 158
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3682358035335552823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3270293722743745607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Buy a warrior
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u043E\u0438\u043D\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bir sava\u015F\xE7\u0131 al."
+    Object: {fileID: 0}
+--- !u!1 &3355030253235501757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3302371342809247051}
+  - component: {fileID: 8883037209256101784}
+  m_Layer: 0
+  m_Name: Assistant/Task/Hello
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3302371342809247051
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355030253235501757}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 156
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8883037209256101784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3355030253235501757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Hello, I am your personal assistant. Follow my advice to complete the tutorial.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0440\u0438\u0432\u0435\u0442, \u044F \u0432\u0430\u0448 \u043B\u0438\u0447\u043D\u044B\u0439
+      \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A. \u0421\u043B\u0435\u0434\u0443\u0439\u0442\u0435
+      \u043C\u043E\u0438\u043C \u0441\u043E\u0432\u0435\u0442\u0430\u043C, \u0447\u0442\u043E\u0431\u044B
+      \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Merhaba, ben sizin ki\u015Fisel asistan\u0131n\u0131z\u0131m. E\u011Fitiminizi
+      tamamlamak i\xE7in tavsiyelerime uyun."
+    Object: {fileID: 0}
+--- !u!1 &4221405161388618460
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8207931912621070614}
+  - component: {fileID: 2551322111997033098}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8207931912621070614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221405161388618460}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 162
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2551322111997033098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4221405161388618460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041A\u0443\u043F\u0438\u0442\u0435 \u0432\u0441\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Buy all the items in the store.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFCkkandaki t\xFCm e\u015Fyalar\u0131 sat\u0131n al\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &4964222911378385031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2971616343724723069}
+  - component: {fileID: 2160380023256340447}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2971616343724723069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964222911378385031}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 159
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2160380023256340447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4964222911378385031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Upgrade the fighters in the store.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u0431\u043E\u0439\u0446\u043E\u0432
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFCkkandaki sava\u015F\xE7\u0131lar\u0131 y\xFCkseltin."
     Object: {fileID: 0}
 --- !u!1 &5097432098624416815
 GameObject:
@@ -1311,6 +2297,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0425\u0430\u043C\u043E\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Jam\xF3n"
     Object: {fileID: 0}
 --- !u!1 &5097432098656663416
 GameObject:
@@ -1365,6 +2354,9 @@ MonoBehaviour:
     Text: "\u041B\u0435\u0447\u0438\u0442 \u043D\u0430 25% \u043E\u0442 \u043D\u0430\u043D\u0435\u0441\u0435\u043D\u043D\u043E\u0433\u043E
       \u0443\u0440\u043E\u043D\u0430."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Verilen hasar\u0131n %25'ini iyile\u015Ftirir."
+    Object: {fileID: 0}
 --- !u!1 &5097432098698075107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +2408,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0422\u0443\u0440\u043D\u0438\u0440\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Turnuva
     Object: {fileID: 0}
 --- !u!1 &5097432098706308483
 GameObject:
@@ -1469,6 +2464,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0422\u0438\u0448\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Tisha
+    Object: {fileID: 0}
 --- !u!1 &5097432098710669040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1520,6 +2518,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0411\u0430\u043C\u0431\u0443\u043A"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Bambu
     Object: {fileID: 0}
 --- !u!1 &5097432098719118193
 GameObject:
@@ -1573,6 +2574,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0440\u043E\u043D\u044F \u0431\u0430\u043D\u0434\u0438\u0442\u043E\u0432"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Haydut z\u0131rh\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432098722958681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1624,6 +2628,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0412\u043E\u043B\u0448\u0435\u0431\u043D\u0430\u044F \u043E\u0431\u0443\u0432\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sihirli ayakkab\u0131lar"
     Object: {fileID: 0}
 --- !u!1 &5097432098736170275
 GameObject:
@@ -1677,6 +2684,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Cilt
+    Object: {fileID: 0}
 --- !u!1 &5097432098762333278
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +2739,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0430\u0448\u0435\u043D\u043D\u044B\u0439 \u0449\u0438\u0442"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kule Kalkan\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432098793660115
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +2793,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u042F\u0440\u043E\u0441\u0442\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6fke"
     Object: {fileID: 0}
 --- !u!1 &5097432098839882755
 GameObject:
@@ -1835,9 +2851,14 @@ MonoBehaviour:
     Text: "\u0422\u0432\u043E\u0439 \u0442\u0435\u043A\u0443\u0449\u0438\u0439 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436
       \u0438 \u0441\u043F\u0438\u0441\u043E\u043A \u0432\u0441\u0435\u0445 \u0442\u0432\u043E\u0438\u0445
       \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0435\u0439. \u0426\u0432\u0435\u0442
-      \u043B\u0435\u043D\u0442\u044B \u043F\u0435\u0441\u043E\u043D\u0430\u0436\u0430
+      \u043B\u0435\u043D\u0442\u044B \u043F\u0435\u0441\u0440\u043E\u043D\u0430\u0436\u0430
       \u043E\u043F\u0440\u0435\u0434\u0435\u043B\u044F\u0435\u0442 \u043F\u0440\u0438\u043D\u0430\u0434\u043B\u0435\u0436\u043D\u043E\u0441\u0442\u044C
       \u043A \u043A\u043B\u0430\u0441\u0441\u0443."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Mevcut karakteriniz ve t\xFCm karakterlerinizin bir listesi. Karakter
+      \u015Feridinin rengi bir s\u0131n\u0131fa ait olup olmad\u0131\u011F\u0131n\u0131z\u0131
+      belirler."
     Object: {fileID: 0}
 --- !u!1 &5097432098853189585
 GameObject:
@@ -1891,6 +2912,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410\u0434\u0430\u0440\u0438\u0443\u0441"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Adarius
+    Object: {fileID: 0}
 --- !u!1 &5097432098858168934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +2966,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0410\u043A\u0438\u0440\u0430\u043A\u0441"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Akirax
     Object: {fileID: 0}
 --- !u!1 &5097432098881060999
 GameObject:
@@ -1995,6 +3022,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041E\u0433\u043D\u0435\u043D\u043D\u044B\u0439 \u0449\u0438\u0442"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Yang\u0131n kalkan\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432098886303404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,6 +3077,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0430\u043F\u044E\u0448\u043E\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ba\u015Fl\u0131k"
+    Object: {fileID: 0}
 --- !u!1 &5097432098913360595
 GameObject:
   m_ObjectHideFlags: 0
@@ -2098,6 +3131,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0427\u0435\u0440\u043D\u0430\u044F \u043F\u0430\u043B\u043E\u0447\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Siyah \xE7ubuk"
     Object: {fileID: 0}
 --- !u!1 &5097432098935187437
 GameObject:
@@ -2152,6 +3188,9 @@ MonoBehaviour:
     Text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u043C\u0430\u043A\u0441\u0438\u043C\u0430\u043B\u044C\u043D\u043E\u0435
       \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u043D\u0430 40%."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Maksimum sa\u011Fl\u0131\u011F\u0131 %40 art\u0131r\u0131r."
+    Object: {fileID: 0}
 --- !u!1 &5097432098935866526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2204,6 +3243,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0418\u0444\u0440\u043E\u043D\u0435\u043B"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ifronel
+    Object: {fileID: 0}
 --- !u!1 &5097432098937784793
 GameObject:
   m_ObjectHideFlags: 0
@@ -2255,6 +3297,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0422\u044F\u0436\u0435\u043B\u044B\u0439 \u0448\u043B\u0435\u043C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "A\u011F\u0131r kask"
     Object: {fileID: 0}
 --- !u!1 &5097432098945868853
 GameObject:
@@ -2317,6 +3362,12 @@ MonoBehaviour:
       \u043E \u0433\u0444\u0445\u0430\u0440 \u0437\u0432\u0430\u0445 \u0437\u0432\u0430\u0445\",
       \u0447\u0442\u043E \u0431\u044B \u044D\u0442\u043E \u043D\u0435 \u0437\u043D\u0430\u0447\u0438\u043B\u043E."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Orklar en g\xFC\xE7l\xFC sava\u015F\xE7\u0131lard\u0131r.\r\nOrklar\u0131n
+      kritik vuru\u015F yapma \u015Fans\u0131 %30'dur = sald\u0131r\u0131 + b\xFCy\xFC
+      * 3.\r\nOrklar\u0131n dedi\u011Fi gibi \"Brghtar o gfhar zwah zwah\", bu ne
+      anlama geliyorsa."
+    Object: {fileID: 0}
 --- !u!1 &5097432098953339761
 GameObject:
   m_ObjectHideFlags: 0
@@ -2369,6 +3420,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041D\u0438\u0444\u0440\u043E\u044D\u043B\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Nifroel
+    Object: {fileID: 0}
 --- !u!1 &5097432098956471741
 GameObject:
   m_ObjectHideFlags: 0
@@ -2420,6 +3474,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041C\u0430\u0440\u0433\u0438\u043D\u0441\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Martlar
     Object: {fileID: 0}
 --- !u!1 &5097432098962694734
 GameObject:
@@ -2475,6 +3532,9 @@ MonoBehaviour:
   - Language: English
     Text: Takes 10% more damage. "And then they shot me in the knee."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "%10 daha fazla hasar al\u0131r. \"Ve sonra dizimden vuruldum.\""
+    Object: {fileID: 0}
 --- !u!1 &5097432098989599065
 GameObject:
   m_ObjectHideFlags: 0
@@ -2526,6 +3586,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0422\u0435\u043B\u043E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "V\xFCcut"
     Object: {fileID: 0}
 --- !u!1 &5097432099002698141
 GameObject:
@@ -2579,6 +3642,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u0434\u0435\u043B\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Udel
+    Object: {fileID: 0}
 --- !u!1 &5097432099013640173
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,6 +3696,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u043A\u043E\u0432\u043E\u0440\u043E\u0434\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\u0131zartma tavas\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099023526660
 GameObject:
@@ -2685,6 +3754,9 @@ MonoBehaviour:
       \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F \u043F\u0440\u0438 \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u0438
       \u0443\u0440\u043E\u043D\u0430."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Hasar ald\u0131\u011F\u0131nda maksimum can\u0131n %3'\xFC kadar iyile\u015Ftirir."
+    Object: {fileID: 0}
 --- !u!1 &5097432099033227666
 GameObject:
   m_ObjectHideFlags: 0
@@ -2736,6 +3808,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0417\u0430\u0433\u0445\u0438\u0433"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zaghig
     Object: {fileID: 0}
 --- !u!1 &5097432099036190451
 GameObject:
@@ -2789,6 +3864,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0420\u0443\u043A\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: El
+    Object: {fileID: 0}
 --- !u!1 &5097432099039662036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2840,6 +3918,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0418\u0433\u0443\u043A\u0441\u043E\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Igucson
     Object: {fileID: 0}
 --- !u!1 &5097432099055608246
 GameObject:
@@ -2893,6 +3974,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u043B\u0430\u043C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ulam
+    Object: {fileID: 0}
 --- !u!1 &5097432099062636627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2944,6 +4028,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0428\u043B\u044F\u043F\u0430 \u0441 \u0447\u0435\u0440\u0435\u043F\u043E\u043C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kafatasl\u0131 \u015Fapka"
     Object: {fileID: 0}
 --- !u!1 &5097432099069810256
 GameObject:
@@ -2997,6 +4084,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0425\u0430\u0440-\u043A\u0438"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130s-kler"
+    Object: {fileID: 0}
 --- !u!1 &5097432099104390738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3048,6 +4138,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u042D\u043B\u0435\u043D\u0430\u0440\u0438\u043B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Elenaryl
     Object: {fileID: 0}
 --- !u!1 &5097432099112817464
 GameObject:
@@ -3101,6 +4194,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u043B\u0435\u0440\u043C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Clersk
+    Object: {fileID: 0}
 --- !u!1 &5097432099115817114
 GameObject:
   m_ObjectHideFlags: 0
@@ -3153,6 +4249,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0430\u0440\u0430\u0431\u0430\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Davul
+    Object: {fileID: 0}
 --- !u!1 &5097432099125091594
 GameObject:
   m_ObjectHideFlags: 0
@@ -3204,6 +4303,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0414\u0445\u0438\u0442\u0438\u043E\u0440"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Dhitior
     Object: {fileID: 0}
 --- !u!1 &5097432099158592099
 GameObject:
@@ -3259,6 +4361,9 @@ MonoBehaviour:
       \u041D\u0430\u0437\u0432\u0430\u043D\u0438\u0435, \u0441\u043B\u043E\u0442,
       \u0443\u0440\u043E\u0432\u0435\u043D\u044C \u0438 \u0445\u0430\u0440\u0430\u043A\u0442\u0435\u0440\u0438\u0441\u0442\u0438\u043A\u0438."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xDCr\xFCn a\xE7\u0131klamas\u0131: \u0130sim, yuva, seviye ve \xF6zellikler."
+    Object: {fileID: 0}
 --- !u!1 &5097432099160907144
 GameObject:
   m_ObjectHideFlags: 0
@@ -3311,6 +4416,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0435\u043D\u0435\u0444"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kenef
+    Object: {fileID: 0}
 --- !u!1 &5097432099192517482
 GameObject:
   m_ObjectHideFlags: 0
@@ -3362,6 +4470,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u042E\u0440\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Yura
     Object: {fileID: 0}
 --- !u!1 &5097432099222825616
 GameObject:
@@ -3418,12 +4529,18 @@ MonoBehaviour:
     Text: "\u042D\u043B\u044C\u0444\u0438\u0439\u043A\u0438 \u043E\u0431\u044B\u0447\u043D\u043E
       \u043E\u0431\u0438\u0442\u0430\u044E\u0449 \u0432 \u043A\u0430\u0431\u0430\u043A\u0430\u0445
       \u0438 \u0432 \u043B\u044E\u0431\u043E\u0439 \u0443\u0432\u0430\u0436\u0430\u044E\u0449\u0435\u0439
-      \u0441\u0435\u0431\u044F \u0438\u0433\u0440\u0435 \u0441 \u044D\u043B\u043B\u0435\u043C\u0435\u043D\u0442\u0430\u043C\u0438
+      \u0441\u0435\u0431\u044F \u0438\u0433\u0440\u0435 \u0441 \u044D\u043B\u0435\u043C\u0435\u043D\u0442\u0430\u043C\u0438
       \u0420\u041F\u0413.\r\n\u0421 30 \u0448\u0430\u043D\u0441\u043E\u043C \u043C\u043E\u0433\u0443\u0442
       \u0432\u044B\u043B\u0435\u0447\u0438\u0442\u044C \u0441\u043E\u044E\u0437\u043D\u0438\u043A\u0430
       \u043D\u0430 \u043C\u0430\u0433\u0438\u044F * 10 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F.\n\u041D\u0435\u0442,
       \u0438 \u043D\u0435 \u0441\u043C\u043E\u0442\u0440\u044F \u043D\u0430 \u0442\u043E
       \u0447\u0442\u043E \u044F \u044D\u043B\u044C\u0444\u0438\u0439\u043A\u0430!"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Elfler genellikle tavernalarda ve RPG \xF6\u011Feleri i\xE7eren kendine
+      sayg\u0131l\u0131 herhangi bir oyunda ya\u015Farlar.\r\n30 \u015Fansla bir
+      m\xFCttefiki b\xFCy\xFC * 10 can kar\u015F\u0131l\u0131\u011F\u0131nda iyile\u015Ftirebilirler.\r\nHay\u0131r,
+      ve ben bir elf olmama ra\u011Fmen!"
     Object: {fileID: 0}
 --- !u!1 &5097432099236332955
 GameObject:
@@ -3477,6 +4594,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0420\u043E\u0431\u0430 \u043C\u043E\u043D\u0430\u0445\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rob Monk
+    Object: {fileID: 0}
 --- !u!1 &5097432099242176646
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +4648,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u0435\u0440\u0434\u0446\u0435 \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ejderhan\u0131n Kalbi"
     Object: {fileID: 0}
 --- !u!1 &5097432099270223395
 GameObject:
@@ -3581,6 +4704,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u0438\u043D\u043E\u0440\u0438\u043C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Shinorim
+    Object: {fileID: 0}
 --- !u!1 &5097432099284980608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3632,6 +4758,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0426\u0438\u0440\u0430\u0434\u0438\u043B\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ciradil
     Object: {fileID: 0}
 --- !u!1 &5097432099286801223
 GameObject:
@@ -3688,6 +4817,10 @@ MonoBehaviour:
       \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0435\u0442 \u0435\u0433\u043E
       \u0430\u0442\u0430\u043A\u0443 \u043D\u0430 0.25%."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bir karakter hasar ald\u0131\u011F\u0131nda, sald\u0131r\u0131s\u0131n\u0131
+      %0,25 art\u0131r\u0131r."
+    Object: {fileID: 0}
 --- !u!1 &5097432099288906233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3739,6 +4872,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041C\u0430\u0433\u0430\u0437\u0438\u043D \u044D\u043A\u0438\u043F\u0438\u0440\u043E\u0432\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ekipman d\xFCkkan\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099314661837
 GameObject:
@@ -3792,6 +4928,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u043B\u0435\u043C \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ejderha kask\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432099350106915
 GameObject:
   m_ObjectHideFlags: 0
@@ -3843,6 +4982,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041D\u043E\u043C\u0433\u0443\u043B\u0433"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Nomgulg
     Object: {fileID: 0}
 --- !u!1 &5097432099352069203
 GameObject:
@@ -3896,6 +5038,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u043B\u0435\u0440\u0433\u0438\u043D\u0441\u044B"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Clerluklar
+    Object: {fileID: 0}
 --- !u!1 &5097432099364409273
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,6 +5092,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0414\u0430\u0440\u0441\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Darcy
     Object: {fileID: 0}
 --- !u!1 &5097432099372937375
 GameObject:
@@ -4000,6 +5148,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u0442\u0430\u043D\u044B \u044F\u0440\u043E\u0441\u0442\u0438"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6fke pantolonu"
+    Object: {fileID: 0}
 --- !u!1 &5097432099378120685
 GameObject:
   m_ObjectHideFlags: 0
@@ -4051,6 +5202,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0422\u044F\u0436\u0435\u043B\u044B\u0435 \u0448\u0442\u0430\u043D\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "A\u011F\u0131r pantolonlar"
     Object: {fileID: 0}
 --- !u!1 &5097432099387219868
 GameObject:
@@ -4104,6 +5258,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u0440\u0438\u0434\u0430\u0440\u0438\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Uridarin
+    Object: {fileID: 0}
 --- !u!1 &5097432099410327847
 GameObject:
   m_ObjectHideFlags: 0
@@ -4155,6 +5312,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u0443\u0437\u043D\u0438\u0446\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xF6vme"
     Object: {fileID: 0}
 --- !u!1 &5097432099442177980
 GameObject:
@@ -4208,6 +5368,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u042F\u043C\u0430\u0440\u0437"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Yamarz
+    Object: {fileID: 0}
 --- !u!1 &5097432099449035174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4259,6 +5422,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0414\u0440\u0430\u043A\u043E\u043D\u044C\u044F \u043A\u0440\u043E\u0432\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ejderha Kan\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099460188977
 GameObject:
@@ -4323,6 +5489,12 @@ MonoBehaviour:
       chance to fire a lightning bolt that deals damage = magic * 10.\r\nWell, the
       game is not a game without people. But they play mafia well."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130nsanlar genellikle sihirbazd\u0131r. \r\nNe t\xFCr b\xFCy\xFCleri
+      var?\r\n30 \u015Fansla hasar veren \u015Fim\u015Fe\u011Fi serbest b\u0131rakabilirler
+      = b\xFCy\xFC * 10.\r\n\u0130nsanlar\u0131n olmad\u0131\u011F\u0131 bir oyun
+      de\u011Fil bu. Ama mafya oyununda iyiler."
+    Object: {fileID: 0}
 --- !u!1 &5097432099465880131
 GameObject:
   m_ObjectHideFlags: 0
@@ -4374,6 +5546,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0417\u0430\u0449\u0438\u0442\u043D\u0438\u043A"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Savunmac\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099474274385
 GameObject:
@@ -4427,6 +5602,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0430\u043F\u044E\u0448\u043E\u043D \u044F\u0440\u043E\u0441\u0442\u0438"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6fke Ba\u015Fl\u0131\u011F\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432099491602148
 GameObject:
   m_ObjectHideFlags: 0
@@ -4478,6 +5656,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u043B\u0435\u0440\u043E\u0431\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Cleroba
     Object: {fileID: 0}
 --- !u!1 &5097432099497789814
 GameObject:
@@ -4533,6 +5714,9 @@ MonoBehaviour:
       \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044F. (\u041E\u0434\u0435\u0442\u044B\u0435
       \u0432\u0435\u0449\u0438 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u044B)."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Envanterinizin boyutu. (Giyinik e\u015Fyalar dahildir)."
+    Object: {fileID: 0}
 --- !u!1 &5097432099498533439
 GameObject:
   m_ObjectHideFlags: 0
@@ -4584,6 +5768,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0417\u0430\u0439\u043B\u0435\u0440\u0438\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zaileria
     Object: {fileID: 0}
 --- !u!1 &5097432099504651861
 GameObject:
@@ -4637,6 +5824,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0414\u0435\u0440\u0435\u0432\u044F\u043D\u043D\u0430\u044F \u043F\u0430\u043B\u043E\u0447\u043A\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Tahta \xE7ubuk"
+    Object: {fileID: 0}
 --- !u!1 &5097432099525873664
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,6 +5879,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0412\u043E\u0440\u043E\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kuzgun
+    Object: {fileID: 0}
 --- !u!1 &5097432099528963979
 GameObject:
   m_ObjectHideFlags: 0
@@ -4739,6 +5932,9 @@ MonoBehaviour:
     Text: 
     Object: {fileID: 0}
   - Language: Russian
+    Text: 
+    Object: {fileID: 0}
+  - Language: Turkish
     Text: 
     Object: {fileID: 0}
 --- !u!1 &5097432099543654018
@@ -4793,6 +5989,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041C\u0430\u0440\u043E\u0434\u0451\u0440"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xC7apulcu"
+    Object: {fileID: 0}
 --- !u!1 &5097432099546646213
 GameObject:
   m_ObjectHideFlags: 0
@@ -4845,6 +6044,9 @@ MonoBehaviour:
   - Language: Russian
     Text: 
     Object: {fileID: 11400000, guid: 9604b85e53550384d98f186851280ccd, type: 2}
+  - Language: Turkish
+    Text: 
+    Object: {fileID: 11400000, guid: 6a6225901f975d349936ce26662eb54d, type: 2}
 --- !u!1 &5097432099552907226
 GameObject:
   m_ObjectHideFlags: 0
@@ -4899,6 +6101,9 @@ MonoBehaviour:
       \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044F \u0438 \u0443\u0434\u0430\u043B\u0435\u043D\u0438\u0435
       \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u043E\u0432."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Envanterinizin boyutunu iyile\u015Ftirmek ve \xF6\u011Feleri kald\u0131rmak."
+    Object: {fileID: 0}
 --- !u!1 &5097432099561594475
 GameObject:
   m_ObjectHideFlags: 0
@@ -4950,6 +6155,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0417\u0430\u0431\u0433\u0445\u0430\u0442"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Zabghat
     Object: {fileID: 0}
 --- !u!1 &5097432099571880370
 GameObject:
@@ -5003,6 +6211,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041E\u0431\u044B\u0447\u043D\u0430\u044F \u0440\u043E\u0431\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Normal bir bornoz
+    Object: {fileID: 0}
 --- !u!1 &5097432099576386806
 GameObject:
   m_ObjectHideFlags: 0
@@ -5054,6 +6265,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041F\u0440\u043E\u0434\u0430\u043D\u043E"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sat\u0131ld\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099595120758
 GameObject:
@@ -5107,6 +6321,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041E\u0433\u0440\u0443\u043C\u0431\u0443"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ogrumbu
+    Object: {fileID: 0}
 --- !u!1 &5097432099614014206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5158,6 +6375,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0410\u0439\u043B\u044C\u0441\u0435\u0432\u0435\u043B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ailsewell
     Object: {fileID: 0}
 --- !u!1 &5097432099622493572
 GameObject:
@@ -5211,6 +6431,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u0442\u0430\u043D\u044B \u043C\u043E\u043D\u0430\u0445\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ke\u015Fi\u015F pantolonu"
+    Object: {fileID: 0}
 --- !u!1 &5097432099636730890
 GameObject:
   m_ObjectHideFlags: 0
@@ -5263,6 +6486,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u0430\u0442"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Shat
+    Object: {fileID: 0}
 --- !u!1 &5097432099661586931
 GameObject:
   m_ObjectHideFlags: 0
@@ -5314,6 +6540,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041F\u0430\u0440\u0433\u0443"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Pargu
     Object: {fileID: 0}
 --- !u!1 &5097432099671325970
 GameObject:
@@ -5373,6 +6602,10 @@ MonoBehaviour:
       \u043D\u043E \u0431\u0435\u0437 \u0443\u0447\u0435\u0442\u0430 \u043F\u0430\u0441\u0441\u0438\u0432\u043D\u044B\u0445
       \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439)."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Karakterinizin \xF6zellikleri. (Giyilen e\u015Fyalar ve seviye dahil,
+      ancak pasif yetenekler dahil de\u011Fil)."
+    Object: {fileID: 0}
 --- !u!1 &5097432099691179839
 GameObject:
   m_ObjectHideFlags: 0
@@ -5424,6 +6657,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0410\u043B\u0438\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Alina
     Object: {fileID: 0}
 --- !u!1 &5097432099706087663
 GameObject:
@@ -5477,6 +6713,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0440\u043E\u0432\u043E\u0436\u0430\u0434\u043D\u043E\u0441\u0442\u044C"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kan Tutkusu
+    Object: {fileID: 0}
 --- !u!1 &5097432099751833566
 GameObject:
   m_ObjectHideFlags: 0
@@ -5529,6 +6768,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0412\u0443\u043C\u043A\u0431\u0430\u043D\u043E\u043A"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Woomkbanok
+    Object: {fileID: 0}
 --- !u!1 &5097432099757074729
 GameObject:
   m_ObjectHideFlags: 0
@@ -5580,6 +6822,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041C\u0430\u0440\u043E\u0448\u043B\u0435\u043C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Marocasc
     Object: {fileID: 0}
 --- !u!1 &5097432099769188627
 GameObject:
@@ -5679,6 +6924,9 @@ MonoBehaviour:
   - Language: Russian
     Text: 
     Object: {fileID: 11400000, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
+  - Language: Turkish
+    Text: 
+    Object: {fileID: 11400000, guid: a267e6fb1e4f39042bbd9d0b6be7181d, type: 2}
 --- !u!1 &5097432099813348926
 GameObject:
   m_ObjectHideFlags: 0
@@ -5730,6 +6978,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041F\u0438\u0440\u0430\u0442\u0441\u043A\u0438\u0435 \u0448\u0442\u0430\u043D\u044B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Korsan pantolonu
     Object: {fileID: 0}
 --- !u!1 &5097432099817813144
 GameObject:
@@ -5783,6 +7034,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0424\u0435\u043B\u043E\u0440\u043D\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Phelorna
+    Object: {fileID: 0}
 --- !u!1 &5097432099823722118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5835,6 +7089,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0428\u0430\u043A\u0445\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Shakha
+    Object: {fileID: 0}
 --- !u!1 &5097432099823994288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5886,6 +7143,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u0440\u043E\u0432\u044C \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ejderha Kan\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432099831465188
 GameObject:
@@ -5941,6 +7201,10 @@ MonoBehaviour:
       \u0435\u0441\u043B\u0438 \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u0435 \u043E\u043F\u0443\u0441\u0442\u0438\u043B\u043E\u0441\u044C
       \u043D\u0438\u0436\u0435 20%."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sa\u011Fl\u0131\u011F\u0131 %20'nin alt\u0131na d\xFC\u015Fm\xFC\u015Fse
+      karakteri iyile\u015Ftirir."
+    Object: {fileID: 0}
 --- !u!1 &5097432099837783488
 GameObject:
   m_ObjectHideFlags: 0
@@ -5992,6 +7256,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0412\u043E\u043B\u044B\u043D\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Gayda
     Object: {fileID: 0}
 --- !u!1 &5097432099852737981
 GameObject:
@@ -6045,6 +7312,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0440\u043E\u043D\u044F \u043F\u0438\u0440\u0430\u0442\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Korsan z\u0131rh\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432099868774802
 GameObject:
   m_ObjectHideFlags: 0
@@ -6096,6 +7366,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0425\u0440\u0430\u043D\u0438\u043B\u0438\u0449\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ambar
     Object: {fileID: 0}
 --- !u!1 &5097432099877617661
 GameObject:
@@ -6150,6 +7423,9 @@ MonoBehaviour:
     Text: "\u041C\u0435\u0441\u0442\u043E \u0434\u043B\u044F \u043D\u043E\u0432\u043E\u0433\u043E
       \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0430."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Yeni bir konu i\xE7in yer."
+    Object: {fileID: 0}
 --- !u!1 &5097432099882382841
 GameObject:
   m_ObjectHideFlags: 0
@@ -6201,6 +7477,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0424\u0430\u0439\u0440\u0438\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Fyrin
     Object: {fileID: 0}
 --- !u!1 &5097432099883589065
 GameObject:
@@ -6254,6 +7533,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0422\u0430\u0432\u0435\u0440\u043D\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Taverna
+    Object: {fileID: 0}
 --- !u!1 &5097432099888746977
 GameObject:
   m_ObjectHideFlags: 0
@@ -6305,6 +7587,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u043B\u043E\u043C\u0430\u043D\u043D\u044B\u0439 \u043C\u0435\u0447"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\u0131r\u0131k bir k\u0131l\u0131\xE7"
     Object: {fileID: 0}
 --- !u!1 &5097432099910395867
 GameObject:
@@ -6358,6 +7643,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410\u0434\u043E\u0441\u0438\u043E\u0440"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Adosior
+    Object: {fileID: 0}
 --- !u!1 &5097432099930091958
 GameObject:
   m_ObjectHideFlags: 0
@@ -6409,6 +7697,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u0438\u043B\u0435\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Silena
     Object: {fileID: 0}
 --- !u!1 &5097432099947929497
 GameObject:
@@ -6462,6 +7753,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0425\u0440\u043E\u043B\u043A\u0443\u0433"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Hrolkug
+    Object: {fileID: 0}
 --- !u!1 &5097432099959101676
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,6 +7808,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0420\u043E\u0431\u0430 \u044F\u0440\u043E\u0441\u0442\u0438"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rob Rage
+    Object: {fileID: 0}
 --- !u!1 &5097432100037493304
 GameObject:
   m_ObjectHideFlags: 0
@@ -6565,7 +7862,10 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "+10% \u043A \u0443\u0440\u043E\u043D\u0443 \u0437\u0430 \u043A\u0430\u0436\u0434\u043E\u0433\u043E
-      \u0443\u043C\u0435\u0440\u0448\u043E\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430."
+      \u0443\u043C\u0435\u0440\u0448\u0435\u0433\u043E \u043F\u0440\u043E\u0442\u0438\u0432\u043D\u0438\u043A\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xD6len her d\xFC\u015Fman i\xE7in +%10 hasar."
     Object: {fileID: 0}
 --- !u!1 &5097432100078684058
 GameObject:
@@ -6618,6 +7918,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u0440\u043E\u0432\u0430\u0432\u0430\u044F \u043B\u0443\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Kanl\u0131 Ay"
     Object: {fileID: 0}
 --- !u!1 &5097432100110689817
 GameObject:
@@ -6804,6 +8107,30 @@ Transform:
   - {fileID: 77676920}
   - {fileID: 352740240}
   - {fileID: 1275606756}
+  - {fileID: 3302371342809247051}
+  - {fileID: 8190684859330454025}
+  - {fileID: 2230686578943916541}
+  - {fileID: 2971616343724723069}
+  - {fileID: 253013727201332796}
+  - {fileID: 5208171425272440336}
+  - {fileID: 8207931912621070614}
+  - {fileID: 1645566906780737088}
+  - {fileID: 391204952399611241}
+  - {fileID: 2474571612806812330}
+  - {fileID: 1322165559832929335}
+  - {fileID: 9070184449900928850}
+  - {fileID: 2090820085612379345}
+  - {fileID: 4890146209660057542}
+  - {fileID: 6568460227496319114}
+  - {fileID: 2104923915720194561}
+  - {fileID: 3119569516857644279}
+  - {fileID: 3249264468979971197}
+  - {fileID: 514701271488984229}
+  - {fileID: 6184342087950142277}
+  - {fileID: 1261954599}
+  - {fileID: 1685989563}
+  - {fileID: 1004818864}
+  - {fileID: 1527322877}
   - {fileID: 1796841474}
   - {fileID: 1872980280}
   - {fileID: 139375601}
@@ -6817,6 +8144,10 @@ Transform:
   - {fileID: 971241518}
   - {fileID: 1620779427}
   - {fileID: 836270877}
+  - {fileID: 5685692772880587663}
+  - {fileID: 1774368113}
+  - {fileID: 455898243}
+  - {fileID: 2105091517}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6889,6 +8220,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0443\u0440\u0430\u0436"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Cesaret
+    Object: {fileID: 0}
 --- !u!1 &5097432100137588023
 GameObject:
   m_ObjectHideFlags: 0
@@ -6940,6 +8274,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u0430\u043F\u043E\u0433\u0438 \u0434\u0440\u0430\u043A\u043E\u043D\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ejderha \xE7izmeleri"
     Object: {fileID: 0}
 --- !u!1 &5097432100196950226
 GameObject:
@@ -6993,6 +8330,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0430\u0447\u0435\u0441\u0442\u0432\u043E"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kalite
+    Object: {fileID: 0}
 --- !u!1 &5097432100221611460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7044,6 +8384,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0428\u043B\u0435\u043C \u0441\u0442\u0440\u0430\u0436\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Koruyucu kask
     Object: {fileID: 0}
 --- !u!1 &5097432100246227439
 GameObject:
@@ -7143,6 +8486,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410\u043D\u0438\u0432\u0438\u0430\u0440"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Aniviar
+    Object: {fileID: 0}
 --- !u!1 &5097432100275816330
 GameObject:
   m_ObjectHideFlags: 0
@@ -7194,6 +8540,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0423\u0434\u0440\u0443\u0431\u0430\u0440\u0438\u043D"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Udrubarin
     Object: {fileID: 0}
 --- !u!1 &5097432100306121544
 GameObject:
@@ -7247,6 +8596,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0440\u0435\u0441\u0442\u043E\u043D\u043E\u0441\u0435\u0446"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ha\xE7l\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432100347447024
 GameObject:
   m_ObjectHideFlags: 0
@@ -7298,6 +8650,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u043B\u0430\u0434\u043E\u0441\u0442\u044C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Tatl\u0131l\u0131k"
     Object: {fileID: 0}
 --- !u!1 &5097432100350486124
 GameObject:
@@ -7351,6 +8706,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0418\u043D\u0430\u043A\u0441"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Inaxx
+    Object: {fileID: 0}
 --- !u!1 &5097432100368741020
 GameObject:
   m_ObjectHideFlags: 0
@@ -7403,6 +8761,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041D\u0430\u0440\u0433\u0443\u043B\u0433"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Nargulg
+    Object: {fileID: 0}
 --- !u!1 &5097432100396547435
 GameObject:
   m_ObjectHideFlags: 0
@@ -7454,6 +8815,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u043E\u0441\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "T\u0131rpan"
     Object: {fileID: 0}
 --- !u!1 &5097432100396904718
 GameObject:
@@ -7508,6 +8872,9 @@ MonoBehaviour:
     Text: "\u0411\u043E\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435
       \u043B\u0435\u0447\u0435\u043D\u0438\u0435"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lahi \u015Fifa"
+    Object: {fileID: 0}
 --- !u!1 &5097432100412073929
 GameObject:
   m_ObjectHideFlags: 0
@@ -7559,6 +8926,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u042D\u0433\u043E\u0440\u0438\u043C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Egorim
     Object: {fileID: 0}
 --- !u!1 &5097432100425336426
 GameObject:
@@ -7612,6 +8982,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041C\u0438\u043B\u0430\u0435\u043B\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Milaela
+    Object: {fileID: 0}
 --- !u!1 &5097432100427664440
 GameObject:
   m_ObjectHideFlags: 0
@@ -7663,6 +9036,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0414\u043E\u0443\u043B\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Doley
     Object: {fileID: 0}
 --- !u!1 &5097432100449544339
 GameObject:
@@ -7716,6 +9092,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410\u0440\u0442\u0438\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Artin
+    Object: {fileID: 0}
 --- !u!1 &5097432100457788037
 GameObject:
   m_ObjectHideFlags: 0
@@ -7767,6 +9146,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ayarlar
     Object: {fileID: 0}
 --- !u!1 &5097432100463851139
 GameObject:
@@ -7820,6 +9202,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0410\u043A\u0438\u0445\u0440"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Akhir
+    Object: {fileID: 0}
 --- !u!1 &5097432100475493313
 GameObject:
   m_ObjectHideFlags: 0
@@ -7871,6 +9256,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041A\u043B\u0438\u043D\u043E\u043A \u0417\u0430\u0440\u0434\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Zarda'n\u0131n K\u0131l\u0131c\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432100500498413
 GameObject:
@@ -7924,6 +9312,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041A\u0430\u0440\u0442\u0445\u0443\u0440\u0433"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Karthurg
+    Object: {fileID: 0}
 --- !u!1 &5097432100509138522
 GameObject:
   m_ObjectHideFlags: 0
@@ -7975,6 +9366,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0428\u0442\u0430\u043D\u044B \u0441\u0442\u0440\u0430\u0436\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Guardian'\u0131n pantolonu"
     Object: {fileID: 0}
 --- !u!1 &5097432100514969179
 GameObject:
@@ -8028,6 +9422,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0421\u0430\u0433\u0445\u0438\u0433"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Saghig
+    Object: {fileID: 0}
 --- !u!1 &5097432100515824379
 GameObject:
   m_ObjectHideFlags: 0
@@ -8079,6 +9476,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0413\u043E\u043B\u043E\u0432\u0430 \u0431\u044B\u043A\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bo\u011Fa kafas\u0131"
     Object: {fileID: 0}
 --- !u!1 &5097432100519924533
 GameObject:
@@ -8132,6 +9532,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0430\u043D\u0434\u0430\u043D\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Bandanna
+    Object: {fileID: 0}
 --- !u!1 &5097432100524814690
 GameObject:
   m_ObjectHideFlags: 0
@@ -8183,6 +9586,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041C\u0430\u0448"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Mash
     Object: {fileID: 0}
 --- !u!1 &5097432100527259082
 GameObject:
@@ -8236,6 +9642,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0417\u0432\u0443\u043A \u0432\u043A\u043B/\u0432\u044B\u043A\u043B"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ses a\xE7\u0131k/kapal\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432100542340681
 GameObject:
   m_ObjectHideFlags: 0
@@ -8287,6 +9696,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0421\u0442\u0430\u043B\u044C\u043D\u043E\u0439 \u043A\u0438\u043D\u0436\u0430\u043B"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\xC7elik han\xE7er"
     Object: {fileID: 0}
 --- !u!1 &5097432100546496391
 GameObject:
@@ -8341,6 +9753,9 @@ MonoBehaviour:
     Text: "\u041F\u0440\u043E\u0441\u0442\u0440\u0435\u043B\u0435\u043D\u043D\u043E\u0435
       \u043A\u043E\u043B\u0435\u043D\u043E"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Vurulmu\u015F diz"
+    Object: {fileID: 0}
 --- !u!1 &5097432100569264915
 GameObject:
   m_ObjectHideFlags: 0
@@ -8392,6 +9807,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041E\u0445\u043E\u0442\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Avc\u0131l\u0131k"
     Object: {fileID: 0}
 --- !u!1 &5097432100571190092
 GameObject:
@@ -8445,6 +9863,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u041D\u0438\u043A\u0438\u0442\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Nikita
+    Object: {fileID: 0}
 --- !u!1 &5097432100594239110
 GameObject:
   m_ObjectHideFlags: 0
@@ -8496,6 +9917,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041C\u043E\u0439\u0440\u0438\u0433\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Moiriga
     Object: {fileID: 0}
 --- !u!1 &5097432100603189691
 GameObject:
@@ -8549,6 +9973,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0411\u0430\u043D\u0434\u0438\u0442\u0441\u043A\u0438\u0435 \u043B\u0435\u0433\u0433\u0438\u043D\u0441\u044B"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Bandit tayt
+    Object: {fileID: 0}
 --- !u!1 &5097432100605520326
 GameObject:
   m_ObjectHideFlags: 0
@@ -8600,6 +10027,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0420\u0438\u043B\u0430\u0439\u0430"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Rilaia
     Object: {fileID: 0}
 --- !u!1 &5097432100615178441
 GameObject:
@@ -8653,6 +10083,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0416\u0435\u0437\u043B \u0441\u0432\u044F\u0449\u0435\u043D\u043D\u0438\u043A\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Rahibin asas\u0131"
+    Object: {fileID: 0}
 --- !u!1 &5097432100647943159
 GameObject:
   m_ObjectHideFlags: 0
@@ -8705,6 +10138,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0413\u043E\u043B\u043E\u0432\u0430"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Kafa
+    Object: {fileID: 0}
 --- !u!1 &5097432100673371556
 GameObject:
   m_ObjectHideFlags: 0
@@ -8756,6 +10192,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041E\u0440\u0443\u0436\u0438\u0435"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Silahlar
     Object: {fileID: 0}
 --- !u!1 &5097432100689701487
 GameObject:
@@ -8815,6 +10254,10 @@ MonoBehaviour:
       1 \u0431\u043E\u043B\u0435\u0435 \u0432\u044B\u0441\u043E\u043A\u043E\u0433\u043E
       \u043A\u0430\u0447\u0435\u0441\u0442\u0432\u0430."
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Buras\u0131 demirhane. Burada 2 ayn\u0131 e\u015Fyadan 1 daha y\xFCksek
+      kaliteli e\u015Fya elde edebilirsiniz (\u0130sim/t\xFCr/kaliteye g\xF6re)."
+    Object: {fileID: 0}
 --- !u!1 &5097432100700563133
 GameObject:
   m_ObjectHideFlags: 0
@@ -8867,6 +10310,9 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0414\u0430\u0444\u043E\u0440\u043D"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: Daforn
+    Object: {fileID: 0}
 --- !u!1 &5097432100721915089
 GameObject:
   m_ObjectHideFlags: 0
@@ -8918,6 +10364,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u041D\u043E\u0433\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Ayaklar
     Object: {fileID: 0}
 --- !u!1 &5097432100725618962
 GameObject:
@@ -8976,6 +10425,10 @@ MonoBehaviour:
       - 3\\\u0441\u0438\u043D\u0438\u0439 - 4\\\u0444\u0438\u043E\u043B\u0435\u0442\u043E\u0432\u044B\u0439
       - 5 \u0438 \u0442.\u0434.)"
     Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Nesnenin \xFCzerindeki y\u0131ld\u0131z onun seviyesini g\xF6sterir. (Gri
+      1/beyaz 2/ye\u015Fil 3/mavi 4/mor 5 vb.)"
+    Object: {fileID: 0}
 --- !u!1 &5097432100744811509
 GameObject:
   m_ObjectHideFlags: 0
@@ -9027,6 +10480,9 @@ MonoBehaviour:
     Object: {fileID: 0}
   - Language: Russian
     Text: "\u0416\u0435\u0437\u043B \u0437\u043C\u0435\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Y\u0131lan\u0131n \xC7ubu\u011Fu"
     Object: {fileID: 0}
 --- !u!1 &5097432100746518078
 GameObject:
@@ -9080,4 +10536,678 @@ MonoBehaviour:
   - Language: Russian
     Text: "\u0423\u0440\u043E\u0432\u0435\u043D\u044C \u0438 \u043E\u043F\u044B\u0442
       \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Karakterin seviyesi ve deneyimi.
+    Object: {fileID: 0}
+--- !u!1 &5102236739321665580
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4890146209660057542}
+  - component: {fileID: 4938425595840479159}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4890146209660057542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102236739321665580}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 169
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4938425595840479159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5102236739321665580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Go to your inventory.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0435\u0440\u0435\u0439\u0434\u0438\u0442\u0435 \u0432 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u044C."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: Envantere git.
+    Object: {fileID: 0}
+--- !u!1 &5277810681508023770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1645566906780737088}
+  - component: {fileID: 5987179884937261023}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1645566906780737088
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277810681508023770}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 163
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5987179884937261023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277810681508023770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u0435 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B
+      \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D\u0435."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Update the items in the store.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFCkkandaki e\u015Fyalar\u0131 g\xFCncelleyin."
+    Object: {fileID: 0}
+--- !u!1 &5523739320647977940
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5685692772880587663}
+  - component: {fileID: 7148999246862034281}
+  m_Layer: 0
+  m_Name: Turkish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5685692772880587663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523739320647977940}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 193
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7148999246862034281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5523739320647977940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: 
+  cultures: []
+--- !u!1 &5647117975995339763
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6568460227496319114}
+  - component: {fileID: 6149120414014887141}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6568460227496319114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647117975995339763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 170
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6149120414014887141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5647117975995339763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412 \u0438\u043D\u0432\u0435\u043D\u0442\u0430\u0440\u0435 \u0432\u044B
+      \u043C\u043E\u0436\u0435\u0442\u0435 \u0441\u043D\u0430\u0440\u044F\u0436\u0430\u0442\u044C
+      \u0432\u0430\u0448\u0438\u0445 \u0440\u0435\u043A\u0440\u0443\u0442\u043E\u0432.
+      \u0414\u043B\u044F \u044D\u0442\u043E\u0433\u043E \u043F\u0435\u0440\u0435\u0442\u0430\u0449\u0438\u0442\u0435
+      \u044D\u043B\u0435\u043C\u0435\u043D\u0442 \u0441\u043D\u0430\u0440\u044F\u0436\u0435\u043D\u0438\u044F
+      \u043D\u0430 \u0431\u043E\u0439\u0446\u0430."
+    Object: {fileID: 0}
+  - Language: English
+    Text: In the inventory you can equip your recruits. To do this, drag an item
+      of equipment onto the fighter.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Acemilerinizi envanterinizden donatabilirsiniz. Bunu yapmak i\xE7in, te\xE7hizat
+      \xF6\u011Fesini sava\u015F\xE7\u0131n\u0131n \xFCzerine s\xFCr\xFCkleyin."
+    Object: {fileID: 0}
+--- !u!1 &5721246230348969035
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2090820085612379345}
+  - component: {fileID: 6201191328800789206}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2090820085612379345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721246230348969035}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 168
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6201191328800789206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5721246230348969035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Now you can improve your other items.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0422\u0435\u043F\u0435\u0440\u044C \u043C\u043E\u0436\u0435\u0442\u0435
+      \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C \u0434\u0440\u0443\u0433\u0438\u0435
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Art\u0131k di\u011Fer \xF6\u011Felerinizi geli\u015Ftirebilirsiniz."
+    Object: {fileID: 0}
+--- !u!1 &5761089735960051413
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2474571612806812330}
+  - component: {fileID: 5298261945447003840}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2474571612806812330
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761089735960051413}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 165
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5298261945447003840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5761089735960051413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u043C\u0430\u0433\u0430\u0437\u0438\u043D."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Close up store.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFCkkan\u0131 kapat."
+    Object: {fileID: 0}
+--- !u!1 &5790423814529148550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5208171425272440336}
+  - component: {fileID: 4855494972452883031}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5208171425272440336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790423814529148550}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 161
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4855494972452883031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5790423814529148550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u0432 \u043C\u0430\u0433\u0430\u0437\u0438\u043D."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Go to the store.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Bir d\xFCkkana gir."
+    Object: {fileID: 0}
+--- !u!1 &7072993699423679230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1322165559832929335}
+  - component: {fileID: 737528520688038379}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1322165559832929335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072993699423679230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 166
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &737528520688038379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7072993699423679230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u0433\u043B\u044F\u043D\u0438\u0442\u0435 \u0432 \u043C\u0430\u0441\u0442\u0435\u0440\u0441\u043A\u0443\u044E,
+      \u0447\u0442\u043E\u0431\u044B \u0443\u043B\u0443\u0447\u0448\u0438\u0442\u044C
+      \u0432\u0430\u0448\u0438 \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Stop by the workshop to improve your items.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "E\u015Fyalar\u0131n\u0131z\u0131 geli\u015Ftirmek i\xE7in at\xF6lyeye
+      u\u011Fray\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &7143186387069732174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 253013727201332796}
+  - component: {fileID: 7044217350461493568}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &253013727201332796
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143186387069732174}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 160
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7044217350461493568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7143186387069732174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0417\u0430\u043A\u0440\u043E\u0439\u0442\u0435 \u0442\u0430\u0432\u0435\u0440\u043D\u0443."
+    Object: {fileID: 0}
+  - Language: English
+    Text: Close the tavern.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Meyhaneyi kapat\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &8710729732807907581
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3119569516857644279}
+  - component: {fileID: 2236738323796073747}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task17
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3119569516857644279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710729732807907581}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 172
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2236738323796073747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8710729732807907581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u0435\u0440\u0435\u0442\u0430\u0441\u043A\u0438\u0432\u0430\u0442\u044C
+      \u0441\u0432\u043E\u0438\u0445 \u0431\u043E\u0439\u0446\u043E\u0432 \u043D\u0430
+      \u0434\u0440\u0443\u0433\u0438\u0435 \u043A\u043B\u0435\u0442\u043A\u0438."
+    Object: {fileID: 0}
+  - Language: English
+    Text: You can drag your fighters to other squares.
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Sava\u015F\xE7\u0131lar\u0131n\u0131z\u0131 di\u011Fer karelere s\xFCr\xFCkleyebilirsiniz."
+    Object: {fileID: 0}
+--- !u!1 &8779695159231703131
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104923915720194561}
+  - component: {fileID: 2154367785567741273}
+  m_Layer: 0
+  m_Name: Assistant/Task/Task16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104923915720194561
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779695159231703131}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 171
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2154367785567741273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8779695159231703131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Enter the arena for your first fight.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u043D\u0430 \u0430\u0440\u0435\u043D\u0443,
+      \u0447\u0442\u043E\u0431\u044B \u043F\u0440\u043E\u0432\u0435\u0441\u0442\u0438
+      \u0441\u0432\u043E\u0439 \u043F\u0435\u0440\u0432\u044B\u0439 \u0431\u043E\u0439."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lk d\xF6v\xFC\u015F\xFCn\xFCz i\xE7in arenaya ad\u0131m at\u0131n."
+    Object: {fileID: 0}
+--- !u!1 &8945474977399165754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8190684859330454025}
+  - component: {fileID: 6988597248038541717}
+  m_Layer: 0
+  m_Name: Assistant/Task/GoTavern
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8190684859330454025
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945474977399165754}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100110689816}
+  m_RootOrder: 157
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6988597248038541717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945474977399165754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Go to the tavern to buy your first fighter.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0430\u0439\u0434\u0438\u0442\u0435 \u0432 \u0442\u0430\u0432\u0435\u0440\u043D\u0443,
+      \u0447\u0442\u043E\u0431\u044B \u043A\u0443\u043F\u0438\u0442\u044C \u0432\u0430\u0448\u0435\u0433\u043E
+      \u043F\u0435\u0440\u0432\u043E\u0433\u043E \u0431\u043E\u0439\u0446\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lk sava\u015F\xE7\u0131n\u0131 sat\u0131n almak i\xE7in tavernaya
+      git."
     Object: {fileID: 0}

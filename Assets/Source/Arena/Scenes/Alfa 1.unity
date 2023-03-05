@@ -3517,63 +3517,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945054718}
   m_CullTransparentMesh: 1
---- !u!1 &1004818863
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1004818864}
-  - component: {fileID: 1004818865}
-  m_Layer: 0
-  m_Name: Assistant/Task/Task22
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1004818864
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004818863}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 178
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1004818865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1004818863}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: Everything you get will stay with you! We also gave you another 1000 crystals
-      and 5000 gold.
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0412\u0441\u0435 \u0447\u0442\u043E \u0442\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u043B,
-      \u043E\u0441\u0442\u0430\u043D\u0435\u0442\u0441\u044F \u043F\u0440\u0438 \u0442\u0435\u0431\u0435!
-      \u0422\u0430\u043A \u0436\u0435 \u043C\u044B \u043F\u043E\u0434\u0430\u0440\u0438\u043B\u0438
-      \u0442\u0435\u0431\u0435 \u0435\u0449\u0435 1000 \u043A\u0440\u0438\u0441\u0441\u0442\u0430\u043B\u043E\u0432
-      \u0438 5000 \u0437\u043E\u043B\u043E\u0442\u0430. "
-    Object: {fileID: 0}
 --- !u!1001 &1013703236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4378,59 +4321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93919cf165d169d428262036210b1184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1261954598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1261954599}
-  - component: {fileID: 1261954600}
-  m_Layer: 0
-  m_Name: Assistant/Task/Task20
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1261954599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261954598}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 176
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1261954600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261954598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: Russian
-    Text: "\u041D\u0435\u043F\u043B\u043E\u0445\u043E \u0434\u043B\u044F \u043F\u0435\u0440\u0432\u043E\u0433\u043E
-      \u0440\u0430\u0437\u0430."
-    Object: {fileID: 0}
-  - Language: English
-    Text: "\rNot bad for a first time."
-    Object: {fileID: 0}
 --- !u!1 &1336388482
 GameObject:
   m_ObjectHideFlags: 0
@@ -4763,63 +4653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1527322876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1527322877}
-  - component: {fileID: 1527322878}
-  m_Layer: 0
-  m_Name: Assistant/Task/Task23
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1527322877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527322876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 179
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1527322878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1527322876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: "\rIf you have any questions, point to the questions, they will help. Good
-      luck in the game!\r\n"
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u0415\u0441\u043B\u0438 \u0443 \u0442\u0435\u0431\u044F \u0431\u0443\u0434\u0443\u0442
-      \u043A\u0430\u043A\u0438\u0435-\u0442\u043E \u0432\u043E\u043F\u0440\u043E\u0441\u044B,
-      \u043D\u0430\u0432\u043E\u0434\u0438 \u043D\u0430 \u0432\u043E\u043F\u0440\u043E\u0441\u0438\u043A\u0438,
-      \u043E\u043D\u0438 \u043F\u043E\u043C\u043E\u0433\u0443\u0442. \u0423\u0434\u0430\u0447\u0438
-      \u0432 \u0438\u0433\u0440\u0435!"
-    Object: {fileID: 0}
 --- !u!1 &1560890830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8216304480146865944, guid: 487f4afa2ec1e7240822e2f9a5c7555d, type: 3}
@@ -5278,59 +5111,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1685989562
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1685989563}
-  - component: {fileID: 1685989564}
-  m_Layer: 0
-  m_Name: Assistant/Task/Task21
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1685989563
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685989562}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 71563043774845645}
-  m_RootOrder: 177
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1685989564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1685989562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  data: 0
-  entries:
-  - Language: English
-    Text: 'Congratulations on passing our training! '
-    Object: {fileID: 0}
-  - Language: Russian
-    Text: "\u041F\u043E\u0437\u0434\u0440\u0430\u0432\u043B\u044F\u044E \u0441 \u043F\u0440\u043E\u0445\u043E\u0436\u0434\u0435\u043D\u0438\u0435\u043C
-      \u043D\u0430\u0448\u0435\u0439 \u0442\u0440\u0435\u043D\u0438\u0440\u043E\u0432\u043A\u0438! "
-    Object: {fileID: 0}
 --- !u!224 &1712917671 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
@@ -6356,10 +6136,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1939714719
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100110689817, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: m_Name
+      value: LanguageManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
 --- !u!114 &1939714720 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5063041353280521800, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-  m_PrefabInstance: {fileID: 71563043774845644}
+  m_CorrespondingSourceObject: {fileID: 5097432100110689819, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+  m_PrefabInstance: {fileID: 1939714719}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -7149,75 +6986,6 @@ Transform:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5990692959375630659, guid: 4b4c8d6a7682b2b43933c8266b989d9a, type: 3}
   m_PrefabInstance: {fileID: 4379543229168403170}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &71563043774845644
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5063041353280521802, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_Name
-      value: LanguageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8915118946281542996, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-      propertyPath: entries.Array.data[1].Text
-      value: "\u041F\u0440\u0438\u0432\u0435\u0442, \u044F \u0432\u0430\u0448 \u043B\u0438\u0447\u043D\u044B\u0439
-        \u043F\u043E\u043C\u043E\u0449\u043D\u0438\u043A. \u0421\u043B\u0435\u0434\u0443\u0439\u0442\u0435
-        \u043C\u043E\u0438\u043C \u0441\u043E\u0432\u0435\u0442\u0430\u043C, \u0447\u0442\u043E\u0431\u044B
-        \u0437\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435."
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
---- !u!4 &71563043774845645 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5063041353280521803, guid: e6d42f315cd704d41985ee5d9fa240e3, type: 3}
-  m_PrefabInstance: {fileID: 71563043774845644}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &623747103921423603
 GameObject:

@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 5135182448553836044}
   - component: {fileID: 5135182448553836046}
   - component: {fileID: 5135182448553836047}
+  - component: {fileID: 864959261553684930}
+  - component: {fileID: 886576356258552662}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -259,3 +261,31 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &864959261553684930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135182448553836045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d52b33a5902e643bced0385fa6840b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: FontMini
+  FallbackFont: {fileID: 0}
+--- !u!114 &886576356258552662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5135182448553836045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Refusal/Inventory
+  FallbackText: 
