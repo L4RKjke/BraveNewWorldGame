@@ -1677,7 +1677,7 @@ MonoBehaviour:
     Object: {fileID: 21300000, guid: 3749e7e6d8d43f748839c1c3e5f406a1, type: 3}
   - Language: Turkish
     Text: 
-    Object: {fileID: 0}
+    Object: {fileID: 21300000, guid: 6545707f291dd594c9dd0ee6506e518d, type: 3}
 --- !u!1 &326778243862778553
 GameObject:
   m_ObjectHideFlags: 0
@@ -6769,7 +6769,7 @@ MonoBehaviour:
     Text: "\u0412\u0443\u043C\u043A\u0431\u0430\u043D\u043E\u043A"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: Woomkbanok
+    Text: Womkbanok
     Object: {fileID: 0}
 --- !u!1 &5097432099757074729
 GameObject:
@@ -8163,7 +8163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: English
   detectLanguage: 1
   defaultLanguage: English
   saveLoad: 1

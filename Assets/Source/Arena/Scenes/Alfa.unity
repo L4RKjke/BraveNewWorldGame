@@ -4688,15 +4688,15 @@ PrefabInstance:
       objectReference: {fileID: 870859678}
     - target: {fileID: 570018146959275610, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 125.00001
       objectReference: {fileID: 0}
     - target: {fileID: 570018148079786496, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.99994
+      value: -99.99992
       objectReference: {fileID: 0}
     - target: {fileID: 570018148369446213, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.963806
+      value: -99.96379
       objectReference: {fileID: 0}
     - target: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_Pivot.x
@@ -6283,10 +6283,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2105091518, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
-      propertyPath: entries.Array.data[2].Object
-      value: 
-      objectReference: {fileID: 21300000, guid: 6545707f291dd594c9dd0ee6506e518d, type: 3}
     - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -6334,10 +6330,6 @@ PrefabInstance:
     - target: {fileID: 5097432100110689817, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
       propertyPath: m_Name
       value: LanguageManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 5097432100110689819, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
-      propertyPath: currentLanguage
-      value: Turkish
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
