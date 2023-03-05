@@ -22,8 +22,10 @@ public class CheckLanguage : MonoBehaviour
 
             if (language == "ru")
                 _localization.SetCurrentLanguage("Russian");
-            else
+            else if (language == "en")
                 _localization.SetCurrentLanguage("English");
+            else
+                _localization.SetCurrentLanguage("Turkish");
         }
     }
 
