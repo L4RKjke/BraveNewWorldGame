@@ -10,7 +10,7 @@ public class SettingsUI : MonoBehaviour
 {
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _sliderSound;
-    [SerializeField] private AudioSource _backGroundTrack;
+/*    [SerializeField] private AudioSource _backGroundTrack;*/
     [SerializeField] private TMP_Dropdown _dropdownQuality;
     [SerializeField] private GameObject _blackScreen;
     [SerializeField] private Toggle _toggle;
@@ -60,11 +60,11 @@ public class SettingsUI : MonoBehaviour
             PlayerPrefs.SetInt(_sound, 0);
     }
 
-    public void EndSounds(AudioSource track)
+/*    public void EndSounds(AudioSource track)
     {
         track.Play();
         StartCoroutine(SoundOff(_backGroundTrack));
-    }
+    }*/
 
     public void ReloadSceneLanguage()
     {
