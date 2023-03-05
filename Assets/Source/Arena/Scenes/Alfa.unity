@@ -1827,6 +1827,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1573724458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573724459}
+  - component: {fileID: 1573724460}
+  m_Layer: 0
+  m_Name: Turkish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573724459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573724458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5097432100385924486}
+  m_RootOrder: 169
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1573724460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573724458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: 
+  cultures: []
 --- !u!1 &1590470308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,30 +3669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1167673327}
     m_Modifications:
-    - target: {fileID: 792360070, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 792360070, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 792360070, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1592526972, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_fontColor32.rgba
-      value: 3422355200
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136738282, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406754814976503797, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: _prizes.Array.data[5]._prizeCount
-      value: 2000
-      objectReference: {fileID: 0}
     - target: {fileID: 8406754814976503800, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -3739,10 +3761,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2083745857}
-    - target: {fileID: 8406754815862595321, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8757062857791214975, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
       propertyPath: _wallet
       value: 
@@ -4459,6 +4477,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5097432099790512476, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: entries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432099790512476, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: entries.Array.data[2].Language
+      value: Turkish
+      objectReference: {fileID: 0}
     - target: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -4507,8 +4533,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: LanguageManager
       objectReference: {fileID: 0}
+    - target: {fileID: 5097432100457788039, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: entries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5097432100457788039, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+      propertyPath: entries.Array.data[2].Language
+      value: Turkish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+--- !u!4 &5097432100385924486 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5097432100110689816, guid: 28ef60325996cd74394fee4d2b90d32e, type: 3}
+  m_PrefabInstance: {fileID: 5097432100385924485}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5214289765852750554 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7984180003046972827, guid: 58741937fb994a44899cdcf78dc050cb, type: 3}
@@ -4734,15 +4773,15 @@ PrefabInstance:
       objectReference: {fileID: 870859678}
     - target: {fileID: 570018146959275610, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 125
+      value: 125.00001
       objectReference: {fileID: 0}
     - target: {fileID: 570018148079786496, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.99994
+      value: -99.99992
       objectReference: {fileID: 0}
     - target: {fileID: 570018148369446213, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -99.963806
+      value: -99.96379
       objectReference: {fileID: 0}
     - target: {fileID: 1791882951311244119, guid: c2b59a912e784134c93d5e8806b65bfa, type: 3}
       propertyPath: m_Pivot.x

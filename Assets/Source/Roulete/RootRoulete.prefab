@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.61255956, g: 1, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294770432
+    rgba: 3422355200
   m_fontColor: {r: 0, g: 1, b: 0.9896784, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -3233,7 +3233,7 @@ MonoBehaviour:
   - _prizeCount: 100
     _image: {fileID: 21300000, guid: e5335723eedbb44a7b5c78bfca1bcd97, type: 3}
     _isGold: 0
-  - _prizeCount: 200
+  - _prizeCount: 2000
     _image: {fileID: 21300000, guid: f7cf8892159a74359adba9457e80c385, type: 3}
     _isGold: 1
   - _prizeCount: 500
@@ -3264,6 +3264,7 @@ MonoBehaviour:
   _closeButton: {fileID: 2542775933382284177}
   _menuText: {fileID: 8406754815163044096}
   _RouletPanelTXT: {fileID: 8406754815865431806}
+  _analytics: {fileID: 0}
   _spinDelay: 1
 --- !u!114 &8757062857791214975
 MonoBehaviour:
