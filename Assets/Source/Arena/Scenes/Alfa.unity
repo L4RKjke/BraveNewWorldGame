@@ -3492,6 +3492,17 @@ PrefabInstance:
       objectReference: {fileID: 1214999692406625360}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d176d58d8c987243b7d9115ab8ad11f, type: 3}
+--- !u!114 &787071055802712750 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 787071057024822485, guid: 7d176d58d8c987243b7d9115ab8ad11f, type: 3}
+  m_PrefabInstance: {fileID: 787071055802712749}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba8a45f5e364ec4890c4d453434ff15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214999692406625358 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5144499084065928276, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
@@ -3646,6 +3657,14 @@ PrefabInstance:
     - target: {fileID: 8406754814976503797, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
       propertyPath: _prizes.Array.data[5]._prizeCount
       value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406754814976503798, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
+      propertyPath: _analytics
+      value: 
+      objectReference: {fileID: 787071055802712750}
+    - target: {fileID: 8406754814976503798, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
+      propertyPath: _spinDelay
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8406754814976503800, guid: dfa4dbe705bfd3042be0f875a402771c, type: 3}
       propertyPath: m_Pivot.x
