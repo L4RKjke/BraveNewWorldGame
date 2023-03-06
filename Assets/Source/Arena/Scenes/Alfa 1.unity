@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _wallet: {fileID: 1610164230}
-  _progress: {fileID: 7377907708109593188}
+  _progress: {fileID: 7377907708109593187}
 --- !u!4 &684735714
 Transform:
   m_ObjectHideFlags: 0
@@ -4838,7 +4838,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3571142298952652715, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
   m_PrefabInstance: {fileID: 7377907708109593186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7377907708109593187}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e59b79557b3c524999abd2f535600ac, type: 3}
@@ -4849,7 +4849,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1610164231, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
   m_PrefabInstance: {fileID: 7377907708109593186}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7377907708109593187}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b50d7e323d74d8a43997421fc8b8cf02, type: 3}
@@ -6057,7 +6057,7 @@ PrefabInstance:
     - target: {fileID: 8931852451016877789, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
       propertyPath: _progress
       value: 
-      objectReference: {fileID: 7377907708109593188}
+      objectReference: {fileID: 7377907708109593187}
     - target: {fileID: 8931852451016877789, guid: 3f4c943e7efeaec4dbc09b3b954e7abf, type: 3}
       propertyPath: _panelHunt
       value: 
@@ -7994,7 +7994,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -14.398071
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4473920940261284756, guid: 7a118ba589ba4924e808bdd7a9adca89, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7a118ba589ba4924e808bdd7a9adca89, type: 3}
 --- !u!224 &4868049027497290209 stripped
 RectTransform:
@@ -8283,7 +8284,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2721181517574188174, guid: 58741937fb994a44899cdcf78dc050cb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 58741937fb994a44899cdcf78dc050cb, type: 3}
 --- !u!222 &5632602901600204708
 CanvasRenderer:
@@ -8665,35 +8667,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 7377907708109593189, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
+      propertyPath: _progress
+      value: 
+      objectReference: {fileID: 7377907708109593187}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
---- !u!1 &7377907708109593187 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7377907706516222566, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
+--- !u!114 &7377907708109593187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7377907708109593188, guid: 5261a1c07c0679a4b86d603503fdf3c9, type: 3}
   m_PrefabInstance: {fileID: 7377907708109593186}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7377907708109593188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7377907708109593187}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0867027ed8556ce4d8a4b3b351dbf492, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7377907708109593189
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7377907708109593187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bf83b99499648342b4ff46fc5896c68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7491177575302826680
@@ -8985,7 +8973,7 @@ PrefabInstance:
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _progress
       value: 
-      objectReference: {fileID: 7377907708109593188}
+      objectReference: {fileID: 7377907708109593187}
     - target: {fileID: 6320913545987367233, guid: 85a8da326321c8a4ea5186c3be4dd32a, type: 3}
       propertyPath: _levels.Array.size
       value: 1

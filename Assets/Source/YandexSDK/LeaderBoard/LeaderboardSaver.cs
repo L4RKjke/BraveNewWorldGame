@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class LeaderboardSaver : MonoBehaviour
 {
-    private PlayerProgress _progress;
+    [SerializeField] private PlayerProgress _progress;
 
     private const string _leaderboardName = "BestOfTheBest";
+
     private IEnumerator Start()
     {
 #if !UNITY_WEBGL || UNITY_EDITOR
@@ -24,7 +25,12 @@ public class LeaderboardSaver : MonoBehaviour
         Leaderboard.GetPlayerEntry(_leaderboardName, (result) =>
         {
             if (result == null || result.score < _progress.OpenedLevel)
+            {
+                Debug.Log("Записываю");
                 Leaderboard.SetScore(_leaderboardName, _progress.OpenedLevel);
+            }
+
+            Debug.Log("Открыт " + _progress.OpenedLevel);
         });
     }
 }

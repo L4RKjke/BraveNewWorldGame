@@ -128,7 +128,7 @@ public class TavernUI : RenderUI
             }
             else
             {
-                string notMoney = "Not enough money";
+                string notMoney = Lean.Localization.LeanLocalization.GetTranslationText("Refusal/NotMoney");
 
                 DisclaimerOn(button, notMoney);
             }

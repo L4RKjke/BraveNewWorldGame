@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 5135182448553836046}
   - component: {fileID: 5135182448553836047}
   - component: {fileID: 864959261553684930}
-  - component: {fileID: 886576356258552662}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -161,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.06, y: -0.4}
-  m_SizeDelta: {x: 81.97, y: 83.85}
+  m_AnchoredPosition: {x: 0.9184, y: -0.4}
+  m_SizeDelta: {x: 70.6273, y: 83.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5135182448553836046
 CanvasRenderer:
@@ -192,10 +191,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Inventory FULL
+  m_text: "\u041D\u0435\u0442 \u0434\u0435\u043D\u0435\u0433"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
-  m_sharedMaterial: {fileID: -4171563015097924827, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 9604b85e53550384d98f186851280ccd, type: 2}
+  m_sharedMaterial: {fileID: -5710767109015712502, guid: 9604b85e53550384d98f186851280ccd, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.45
+  m_fontSize: 24.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -274,18 +273,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: FontMini
-  FallbackFont: {fileID: 0}
---- !u!114 &886576356258552662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5135182448553836045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  translationName: Refusal/Inventory
-  FallbackText: 
+  FallbackFont: {fileID: 11400000, guid: 23616b1d3aa4e449dae482e465a926a6, type: 2}

@@ -68,6 +68,8 @@ public class SaveComparison : MonoBehaviour
     private void UnSuccesGetData(string data)
     {
         Debug.Log("Неудача инвок");
+
+        if (_unSucces != null)
         _unSucces.Invoke();
     }
 

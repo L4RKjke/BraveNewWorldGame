@@ -24,6 +24,7 @@ public class Loader : MonoBehaviour
         yield break;
 #endif
 
+        BinarySavingSystem.CreateDirectoryInfo();
         _yandex.GetData();
         yield break;
     }

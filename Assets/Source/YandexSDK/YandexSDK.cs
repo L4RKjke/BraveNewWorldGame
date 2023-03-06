@@ -35,6 +35,7 @@ public class YandexSDK : MonoBehaviour
 
     public void AuthorizePlayer()
     {
+        Debug.Log("ѕытаюсь авторизоватьс€");
         Action<JsonDataSaves> isSucces = new Action<JsonDataSaves>(SuccesSaves);
         _comparison.TryGetData(isSucces);
         Action autorized = new Action(OffButton);
@@ -48,6 +49,7 @@ public class YandexSDK : MonoBehaviour
 
     private void OffButton()
     {
+        Debug.Log("успех");
         OpenLeaderBoard();
         _comparison.Compare();
     }

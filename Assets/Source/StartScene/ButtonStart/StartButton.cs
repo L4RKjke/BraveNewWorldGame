@@ -60,16 +60,7 @@ public class StartButton : MonoBehaviour
 
     private void UnSuccesSaves()
     {
-        bool isCreated = BinarySavingSystem.CheckSaves();
-
-        if (isCreated == true)
-        {
-            _startScene = StartCoroutine(StartScene(1));
-        }
-        else
-        {
-            _startScene = StartCoroutine(StartScene(2));
-        }
+        _startScene = StartCoroutine(StartScene(2));
     }
 
     private IEnumerator StartScene(int scene)

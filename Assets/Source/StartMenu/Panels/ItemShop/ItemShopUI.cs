@@ -104,14 +104,14 @@ public class ItemShopUI : RenderUI
             }
             else
             {
-                string full = "Inventory FULL";
+                string full = Lean.Localization.LeanLocalization.GetTranslationText("Refusal/Inventory");
 
                 DisclaimerOn(button, full);
             }
         }
         else
         {
-            string notMoney = "Not enough money";
+            string notMoney = Lean.Localization.LeanLocalization.GetTranslationText("Refusal/NotMoney");
 
             DisclaimerOn(button, notMoney);
         }
