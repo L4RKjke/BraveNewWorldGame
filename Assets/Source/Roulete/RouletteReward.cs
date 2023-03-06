@@ -16,23 +16,23 @@ public class RouletteReward : MonoBehaviour
 
     public UnityAction RewardAdded;
 
-    public void SetReward(int count, Sprite image, bool isGold)
+    public void SetReward(int count, Sprite image, ValueType type)
     {
         _image.sprite = image;
         _text.text = count.ToString();
 
-        if (isGold)
+        if (type == ValueType.Gold)
             _text.color = _rewardColor[0];
         else
             _text.color = _rewardColor[1];
 
-        _button.onClick.AddListener(delegate { AddReward(count, isGold); });
+        _button.onClick.AddListener(delegate { AddReward(count, type); });
         _reward.SetActive(true);
     }
 
-    private void AddReward(int count, bool isGold)
+    private void AddReward(int count, ValueType type)
     {
-        if(isGold)
+        if(type == ValueType.Gold)
         {
             _wallet.ChangeGold(count);
         }

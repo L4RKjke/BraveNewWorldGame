@@ -41,7 +41,6 @@ public class UnitPool : MonoBehaviour
         fighter.Health.Died -= OnUnitDied;
     }
 
-    /// Проверить метод ремул ласт и отписку от
     public void AddNewFighter(Fighter fighter)
     {
         _fighters.Add(fighter);
@@ -62,28 +61,6 @@ public class UnitPool : MonoBehaviour
         else 
             return null;
     }
-
-/*    public Fighter GenerateClosestFighter(FighterType fighterType, Vector2 position) 
-    {
-        Fighter target = null;
-        float minDistance = Mathf.Infinity;
-
-        foreach (var fighter in _fighters)
-        {
-            if (fighter.Type == fighterType)
-            {
-                float distance = Vector2.Distance(fighter.transform.position, position);
-
-                if (distance < minDistance)
-                {
-                    target = fighter;
-                    minDistance = distance;
-                }
-            }
-        }
-
-        return target;
-    }*/
 
     public void CleanPool()
     {

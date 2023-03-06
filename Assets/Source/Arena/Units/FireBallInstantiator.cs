@@ -10,10 +10,14 @@ public class FireBallInstantiator : MonoBehaviour
 
         if (currentTarget != null)
         {
+            var targetAngel = GetAngle(currentTarget, firePoint);
+
             if (currentTarget.transform.parent.position.x - firePoint.position.x < 0)
-                InstantiateBullet(GetAngle(currentTarget, firePoint) + 180, fireball, firePoint, damage);
-            else
-                InstantiateBullet(GetAngle(currentTarget, firePoint), fireball, firePoint, damage);
+            {
+                targetAngel = GetAngle(currentTarget, firePoint) + 180;
+            }
+
+            InstantiateBullet(targetAngel, fireball, firePoint, damage);
         }
     }
 

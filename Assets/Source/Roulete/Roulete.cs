@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(RouletteReward))]
+
 public class Roulete : MonoBehaviour
 {
     [SerializeField] private GameObject _wheel;
@@ -91,33 +92,7 @@ public class Roulete : MonoBehaviour
         float correctionAngel = _maxAngel / _prizeSections / 2;
         int sectionId = Mathf.FloorToInt((angel % _maxAngel + correctionAngel) / (_maxAngel / _prizeSections));
 
-        switch (sectionId)
-        {
-            case 0:
-                _rouletteReward.SetReward(_prizes[0].PrizeCount * multi, _prizes[0].Sprite, _prizes[0].IsGold);
-                break;
-            case 1:
-                _rouletteReward.SetReward(_prizes[1].PrizeCount * multi, _prizes[1].Sprite, _prizes[1].IsGold);
-                break;
-            case 2:
-                _rouletteReward.SetReward(_prizes[2].PrizeCount * multi, _prizes[2].Sprite, _prizes[2].IsGold);
-                break;
-            case 3:
-                _rouletteReward.SetReward(_prizes[3].PrizeCount * multi, _prizes[3].Sprite, _prizes[3].IsGold);
-                break;
-            case 4:
-                _rouletteReward.SetReward(_prizes[4].PrizeCount * multi, _prizes[4].Sprite, _prizes[4].IsGold);
-                break;
-            case 5:
-                _rouletteReward.SetReward(_prizes[5].PrizeCount * multi, _prizes[5].Sprite, _prizes[5].IsGold);
-                break;
-            case 6:
-                _rouletteReward.SetReward(_prizes[6].PrizeCount * multi, _prizes[6].Sprite, _prizes[6].IsGold);
-                break;
-            case 7:
-                _rouletteReward.SetReward(_prizes[7].PrizeCount * multi, _prizes[7].Sprite, _prizes[7].IsGold);
-                break;
-        }
+        _rouletteReward.SetReward(_prizes[sectionId].PrizeCount * multi, _prizes[sectionId].Sprite, _prizes[sectionId].Type);
 
         Spined?.Invoke();
     }
@@ -128,9 +103,17 @@ public class RoulettePrize
 {
     [SerializeField] private int _prizeCount;
     [SerializeField] private Sprite _image;
-    [SerializeField] private bool _isGold;
+    [SerializeField] private ValueType _type;
 
     public int PrizeCount => _prizeCount;
+
     public Sprite Sprite => _image;
-    public bool IsGold => _isGold;
+
+    public ValueType Type => _type;
+}
+
+public enum ValueType
+{
+    Gold,
+    Crystal
 }
