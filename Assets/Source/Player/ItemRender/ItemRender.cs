@@ -1,22 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Appearance))]
 public abstract class ItemRender : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _armor; //
-    [SerializeField] private SpriteRenderer _helmet; //
-    [SerializeField] private SpriteRenderer _armRightArmor; //
-    [SerializeField] private SpriteRenderer _armLeftArmor; //
-    [SerializeField] private SpriteRenderer _legRightArmor; //
-    [SerializeField] private SpriteRenderer _legLeftArmor; //
+    [SerializeField] private SpriteRenderer _armor; 
+    [SerializeField] private SpriteRenderer _helmet; 
+    [SerializeField] private SpriteRenderer _armRightArmor; 
+    [SerializeField] private SpriteRenderer _armLeftArmor; 
+    [SerializeField] private SpriteRenderer _legRightArmor; 
+    [SerializeField] private SpriteRenderer _legLeftArmor; 
     [SerializeField] private GameObject _headAnchor;
 
-    [SerializeField] protected SpriteRenderer PrimaryWeapon; //
-    [SerializeField] protected SpriteRenderer SecondaryWeapon; //
-    [SerializeField] protected SpriteRenderer Shield; //
-    [SerializeField] protected SpriteRenderer Sleeve; //
+    [SerializeField] protected SpriteRenderer PrimaryWeapon; 
+    [SerializeField] protected SpriteRenderer SecondaryWeapon; 
+    [SerializeField] protected SpriteRenderer Shield; 
+    [SerializeField] protected SpriteRenderer Sleeve;
     [SerializeField] protected SpriteRenderer BackQuiver;
 
     public GameObject Head => _headAnchor;
