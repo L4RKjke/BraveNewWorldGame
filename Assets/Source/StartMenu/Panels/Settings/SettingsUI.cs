@@ -77,7 +77,7 @@ public class SettingsUI : MonoBehaviour
             PlayerPrefsDataBase.SetVolume(startVolume);
         }
 
-        _sliderSound.value = PlayerPrefsDataBase.GetSound();
+        _sliderSound.value = PlayerPrefsDataBase.GetVolume();
         _audioMixer.SetFloat(_volume, Mathf.Log10(0.0001f) * _valueDecrease);
         SoundFading(_start);
         SetQuality(PlayerPrefsDataBase.GetQuality());
