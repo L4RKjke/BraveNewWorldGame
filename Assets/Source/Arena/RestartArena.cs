@@ -10,9 +10,11 @@ public class RestartArena : MonoBehaviour
     [SerializeField] private SquadHealthbar _playerHealth;
     [SerializeField] private SquadHealthbar _enemyHealth;
     [SerializeField] private GameObject _buttons;
+    [SerializeField] private BulletCleaner _cleaner;
 
     public void OnRestart()
     {
+        _cleaner.gameObject.SetActive(true);
         _buttons.SetActive(true);
         _playerHealth.UpdateHealthbar();
         _enemyHealth.UpdateHealthbar();
