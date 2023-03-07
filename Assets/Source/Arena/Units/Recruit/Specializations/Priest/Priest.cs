@@ -8,7 +8,7 @@ public class Priest : Recruit, IRangeAtacker
     [SerializeField] private Fireball _fireball;
     [SerializeField] private Transform _firePoint;
 
-    private int _healIncrease = 10;
+    private int _healIncrease = 5;
     private FireBallInstantiator _bulletInstantiator;
     private Fighter _mate;
 
