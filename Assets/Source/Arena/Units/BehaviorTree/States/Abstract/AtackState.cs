@@ -30,6 +30,10 @@ public abstract class AtackState : State
     {
         AnimationController.AtackCompleted -= CompleteAtack;
         AnimationController.AtackAnimationCompleted -= StartRoutine;
+
+        if (_atackCourutine != null)
+            StopCoroutine(_atackCourutine);
+
         StopCoroutine(_atackCourutine);
     }
 

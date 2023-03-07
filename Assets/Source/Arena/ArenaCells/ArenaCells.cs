@@ -110,21 +110,7 @@ public class ArenaCells : MonoBehaviour
     {
         for (int i = 0; i < _playerCharacters.Count; i++)
         {
-            Cell cell = _objectsSaver.GetCell(0, i);
-            GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
-            GameObject playerCharacter = Instantiate(_playerCharacters[i], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
-            playerCharacter.transform.SetParent(dragAndDrop.transform);
-            dragAndDrop.transform.SetParent(_objectsSaver.ParentFolderCharacters);
-            cell.ChangeFull();
-            cell.ChangeStayCharacter();
-            dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
-            playerCharacter.GetComponent<CharacterInit>().enabled = true;
-            playerCharacter.transform.localScale = Vector3.one;
-            playerCharacter.SetActive(true);
-            CharacterStats stats = _playerCharacters[i].GetComponent<CharacterStats>();
-            var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
-            newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
-            _fighters.AddNewFighter(newUnit);
+            InitCharacter(i);
         }
     }
 
@@ -229,17 +215,41 @@ public class ArenaCells : MonoBehaviour
                 canStay = _objectsSaver.CheckCellsAround(cell.Row, cell.Column);
             }
 
-            GameObject enemy = Instantiate(_enemies[i], cell.transform.position, Quaternion.identity);
-            enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
-
-            var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
-            MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
-            newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
-            _finalPanels.AddRewards(monsterInfo.Gold, monsterInfo.Exp);
-            _fighters.AddNewFighter(newEnemy);
-
-            cell.ChangeFull();
-            cell.ChangeStayCharacter();
+            InitEnemy(i, cell, level);
         }
+    }
+
+    private void InitCharacter(int id)
+    {
+        Cell cell = _objectsSaver.GetCell(0, id);
+        GameObject dragAndDrop = Instantiate(_dragAndDrop, cell.transform.position, Quaternion.identity);
+        GameObject playerCharacter = Instantiate(_playerCharacters[id], new Vector3(cell.transform.position.x, cell.transform.position.y), Quaternion.identity);
+        playerCharacter.transform.SetParent(dragAndDrop.transform);
+        dragAndDrop.transform.SetParent(_objectsSaver.ParentFolderCharacters);
+        cell.ChangeFull();
+        cell.ChangeStayCharacter();
+        dragAndDrop.GetComponent<DragAndDrop>().InstantiateCell(cell);
+        playerCharacter.GetComponent<CharacterInit>().enabled = true;
+        playerCharacter.transform.localScale = Vector3.one;
+        playerCharacter.SetActive(true);
+        CharacterStats stats = _playerCharacters[id].GetComponent<CharacterStats>();
+        var newUnit = playerCharacter.transform.GetChild(1).GetComponent<Recruit>();
+        newUnit.Init(FighterType.Recruit, FighterType.Enemy, _fighters, stats.Attack, stats.Health, stats.Magic, stats.Defense);
+        _fighters.AddNewFighter(newUnit);
+    }
+
+    private void InitEnemy(int id, Cell cell, int level)
+    {
+        GameObject enemy = Instantiate(_enemies[id], cell.transform.position, Quaternion.identity);
+        enemy.transform.SetParent(_objectsSaver.ParentFolderEnemy);
+
+        var newEnemy = enemy.transform.GetChild(1).GetComponent<Fighter>();
+        MonsterInfo monsterInfo = enemy.GetComponent<MonsterInfo>();
+        newEnemy.Init(FighterType.Enemy, FighterType.Recruit, _fighters, monsterInfo.GetBaseStat(monsterInfo.Attack, level), monsterInfo.GetBaseStat(monsterInfo.Health, level));
+        _finalPanels.AddRewards(monsterInfo.Gold, monsterInfo.Exp);
+        _fighters.AddNewFighter(newEnemy);
+
+        cell.ChangeFull();
+        cell.ChangeStayCharacter();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(ParticleSystem))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-///Нужно тестить изменения в RorateFire(), если норм, добавить в буллетИнстаншиатор
+
 public class Fire : MonoBehaviour
 {
     private Coroutine _fireRoutine;
