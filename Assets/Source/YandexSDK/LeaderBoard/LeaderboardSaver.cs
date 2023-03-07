@@ -25,11 +25,8 @@ public class LeaderboardSaver : MonoBehaviour
         {
             if (result == null || result.score < _progress.OpenedLevel)
             {
-                Debug.Log("Записываю");
                 Leaderboard.SetScore(_leaderboardName, _progress.OpenedLevel);
             }
-
-            Debug.Log("Открыт " + _progress.OpenedLevel);
         });
     }
 }

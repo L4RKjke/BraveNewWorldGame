@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterStats : Stats
@@ -59,14 +57,16 @@ public class CharacterStats : Stats
     {
         float levelDifference = levelMonsters - Level;
         float percentLevelDifference = 0;
+        int expIncrease = 9;
+        int expDecrease = 30;
 
         if (levelDifference > 0)
         {
-            percentLevelDifference = levelDifference / (9 + Level);
+            percentLevelDifference = levelDifference / (expIncrease + Level);
         }
         else if (levelDifference < 0)
         {
-            percentLevelDifference = levelDifference / 30;
+            percentLevelDifference = levelDifference / expDecrease;
             percentLevelDifference = Mathf.Clamp(percentLevelDifference, -1,0);
         }
 

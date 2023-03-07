@@ -1,8 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CharacterPlayerUI : MonoBehaviour
 {
@@ -20,11 +17,6 @@ public class CharacterPlayerUI : MonoBehaviour
 
     public int CurrentId => _currentId;
 
-    public void GetLevelTEST()
-    {
-        _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().GetExpirience(1000, _characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Level);
-    }
-
     private void Awake()
     {
         int maxAbilitiesCount = 3;
@@ -35,12 +27,6 @@ public class CharacterPlayerUI : MonoBehaviour
         SetAbilitiesDescription(_currentCharacter);
         _descriptionCharacterUI.SetDescriptionClass(_currentCharacter);
         _statsUI.Init();
-    }
-
-    private void Start()
-    {
-        _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
-        _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
     }
 
     private void OnEnable()
@@ -64,6 +50,12 @@ public class CharacterPlayerUI : MonoBehaviour
     private void OnDisable()
     {
         _currentCharacter.SetActive(false);
+    }
+
+    private void Start()
+    {
+        _charactersItemUI.UpdateAllButtons(_characterStorage.GetCharacter(_currentId));
+        _statsUI.UpdateName(_characterStorage.GetCharacter(_currentId).GetComponent<CharacterStats>().Name);
     }
 
     public void SetCurrentCharacter(int newID)

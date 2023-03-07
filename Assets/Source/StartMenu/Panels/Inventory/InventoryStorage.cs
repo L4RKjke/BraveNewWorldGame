@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -13,7 +12,7 @@ public class InventoryStorage : MonoBehaviour
 
     private InventoryUI _inventoryUI;
     private TMP_Text _price;
-    private int _bagSize = 21;
+    private int _bagSize = 28;
     private int _priceBagUp = 200;
     private readonly int _bagUpCount = 7;
     private readonly int _priceIncrease = 200;

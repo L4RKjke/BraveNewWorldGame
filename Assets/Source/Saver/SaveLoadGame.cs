@@ -42,7 +42,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
     {
         if (_finalPanels != null)
         {
-            Debug.Log("Подписались все");
             _finalPanels.BattleEnd += Save;
             _panel.PanelClosed += Save;
             _roulete.RewardAdded += Save;
@@ -79,14 +78,12 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         _equippedItemsSaveLoad.Load(equippedItemData);
         _shopSaveLoad.Load(shopData);
         _tavernSaveLoad.Load(tavernData);
-        Debug.Log("Загрузил");
     }
 
     public void Save()
     {
         SaveBinnary();
         Saved?.Invoke();
-        Debug.Log("Типо сохранил.");
     }
 
     public void SaveBinnary()
@@ -98,8 +95,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         _equippedItemsSaveLoad.Save();
         _shopSaveLoad.Save();
         _tavernSaveLoad.Save();
-/*        string json = GetJson();
-        BinarySavingSystem.SaveJSON(json);*/
     }
 
     public void SaveDelay()
@@ -151,8 +146,6 @@ public class SaveLoadGame : MonoBehaviour , BinarrySaves
         {
             tavernData.Add(jsonDataSaves.TavernData[i]);
         }
-
-        Debug.Log(jsonDataSaves.CharactersData.Length + "Колво персов");
 
         Load(jsonDataSaves.WalletData, charactersData, jsonDataSaves.ItemData, jsonDataSaves.ItemInventoryData,
             equipItems, jsonDataSaves.ShopData, tavernData);

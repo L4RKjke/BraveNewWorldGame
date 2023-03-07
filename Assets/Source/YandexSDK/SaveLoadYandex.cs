@@ -21,7 +21,6 @@ public class SaveLoadYandex : MonoBehaviour
         yield break;
 #endif
         _game.Saved += SetData;
-        Debug.Log("Подписался");
         yield break;
     }
 
@@ -40,7 +39,6 @@ public class SaveLoadYandex : MonoBehaviour
 
     private void LoadDataFail(string data)
     {
-        Debug.Log("Ошибка загрузки, беру бинар");
         WalletData walletData = BinarySavingSystem.LoadWallet();
         List<CharacterData> charactersData = BinarySavingSystem.LoadCharacter();
         ItemData items = BinarySavingSystem.LoadItems();
@@ -53,7 +51,6 @@ public class SaveLoadYandex : MonoBehaviour
 
     private void LoadData(string data)
     {
-        Debug.Log("Загружаю Джсон");
         _loaded = true;
         _game.JsonLoad(data);
     }

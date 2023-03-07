@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 [System.Serializable]
 public class JsonDataSaves
@@ -40,6 +38,4 @@ public class JsonDataSaves
         ItemInventoryData = itemInventoryData;
         ItemData = itemData;
     }
-
-
 }

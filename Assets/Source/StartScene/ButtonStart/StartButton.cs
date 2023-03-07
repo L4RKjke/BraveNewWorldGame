@@ -1,7 +1,5 @@
-using Agava.YandexGames;
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,7 +40,6 @@ public class StartButton : MonoBehaviour
 
         if (_startScene == null)
         {
-            Debug.Log("Start");
             Action<JsonDataSaves> isSucces = new Action<JsonDataSaves>(SuccesSaves);
             Action unSucces = new Action(UnSuccesSaves);
             _compare.TryGetData(isSucces, unSucces);

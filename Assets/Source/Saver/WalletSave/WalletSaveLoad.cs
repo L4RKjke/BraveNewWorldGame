@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WalletSaveLoad : MonoBehaviour , BinarrySaves
@@ -20,13 +18,6 @@ public class WalletSaveLoad : MonoBehaviour , BinarrySaves
     public void Save()
     {
         BinarySavingSystem.SaveWallet(_wallet, _progress);
-        Temp();
-    }
-
-    public void Temp()
-    {
-        WalletData walletData = BinarySavingSystem.LoadWallet();
-        Debug.Log(walletData.Gold);
     }
 
     public WalletData GetData()

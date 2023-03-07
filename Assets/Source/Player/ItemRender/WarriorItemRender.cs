@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class WarriorItemRender : ItemRender
 {
     protected override void ChangeHand(bool isWear, Item item)

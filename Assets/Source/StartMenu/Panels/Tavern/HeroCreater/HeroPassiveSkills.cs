@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +25,11 @@ public abstract class HeroPassiveSkills : ScriptableObject
         }
     }
 
+    public Ability GetSkill(int id)
+    {
+        return _abilities[id];
+    }
+
     private bool HaveSameAbility(List<int> added, int newAbility)
     {
         for (int i = 0; i < added.Count; i++)
@@ -35,10 +39,5 @@ public abstract class HeroPassiveSkills : ScriptableObject
         }
 
         return false;
-    }
-
-    public Ability GetSkill(int id)
-    {
-        return _abilities[id];
     }
 }

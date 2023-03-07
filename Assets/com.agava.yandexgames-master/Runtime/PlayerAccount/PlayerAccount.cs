@@ -203,7 +203,6 @@ namespace Agava.YandexGames
         /// </param>
         public static void GetPlayerData(Action<string> onSuccessCallback = null, Action<string> onErrorCallback = null)
         {
-            Debug.Log("Беру сохранения с облака");
             s_onGetPlayerDataSuccessCallback = onSuccessCallback;
             s_onGetPlayerDataErrorCallback = onErrorCallback;
 

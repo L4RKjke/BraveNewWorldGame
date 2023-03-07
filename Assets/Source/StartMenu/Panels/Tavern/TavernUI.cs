@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -36,14 +35,6 @@ public class TavernUI : RenderUI
         _disclaimer.SetActive(false);
     }
 
-    protected override void AddGraphics()
-    {
-        for (int i = 0; i < _characters.Count; i++)
-        {
-            AddButton(i);
-        }
-    }
-
     public GameObject AddButton(int id, bool isLoad = false)
     {
         GameObject newButton = Instantiate(Content, Container.transform) as GameObject;
@@ -63,6 +54,14 @@ public class TavernUI : RenderUI
         Button temp = button.GetComponentInChildren<Button>();
         temp.onClick.AddListener(delegate { TrySellCharacter(button, characterData); });
         temp.transform.GetChild(temp.transform.childCount - 1).gameObject.SetActive(true);
+    }
+
+    protected override void AddGraphics()
+    {
+        for (int i = 0; i < _characters.Count; i++)
+        {
+            AddButton(i);
+        }
     }
 
     private void CharacterCreate(GameObject character, GameObject button, int id)

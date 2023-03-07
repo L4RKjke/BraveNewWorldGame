@@ -1,10 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterAbilities : MonoBehaviour
 {
-    private List<Ability> _abilities;
+    private List<Ability> _abilities = new List<Ability>();
 
     public int AbilitiesCount => _abilities.Count;
 

@@ -1,30 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CharactersStorage : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _temp; //test
     [SerializeField] private Transform _parentCharactersUI;
     [SerializeField] private CharactersSaveLoad _charactersSaveLoad;
 
     private List<GameObject> _characters = new List<GameObject>();
 
-    private int _maxSizeCharacters = 8;
+    private int _maxSizeCharacters = 10;
 
     public CharactersSaveLoad CharactersSaveLoad => _charactersSaveLoad;
     public bool IsFree => _maxSizeCharacters > _characters.Count;
     public int AllCharacters => _characters.Count;
-
-    private void Awake()
-    {
-        for (int i = 0; i < _temp.Count; i++) //test
-        {
-            GameObject character = Instantiate(_temp[i]);
-            _characters.Add(character);
-            ReturnCharacter(_characters.Count - 1);
-        }
-    }
 
     public int GetLenght()
     {
