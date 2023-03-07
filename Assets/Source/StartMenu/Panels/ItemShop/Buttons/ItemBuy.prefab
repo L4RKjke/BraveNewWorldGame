@@ -129,7 +129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b44adbcbdedf0314cbcf42217229ea62, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6f769606f3b5554491435e3965a4a36, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   translationName: Image/Sold
-  FallbackSprite: {fileID: 0}
+  FallbackSprite: {fileID: 21300000, guid: b44adbcbdedf0314cbcf42217229ea62, type: 3}
 --- !u!1 &1483370706798769891
 GameObject:
   m_ObjectHideFlags: 0

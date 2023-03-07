@@ -1,23 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Appearance : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _earRight; //
-    [SerializeField] private SpriteRenderer _hair; //
-    [SerializeField] private SpriteRenderer _body; //
-    [SerializeField] private SpriteRenderer _head; //
-    [SerializeField] private SpriteRenderer _eyes; //
-    [SerializeField] private SpriteRenderer _eyesbrows; //
-    [SerializeField] private SpriteRenderer _mouth; //
-    [SerializeField] private SpriteRenderer _armL; //
-    [SerializeField] private SpriteRenderer _handL; //
-    [SerializeField] private SpriteRenderer _fingersL; //
-    [SerializeField] private SpriteRenderer _armR; // 
-    [SerializeField] private SpriteRenderer _handR; //
-    [SerializeField] private SpriteRenderer _legL; //
-    [SerializeField] private SpriteRenderer _legR; //
+    [SerializeField] private SpriteRenderer _earRight; 
+    [SerializeField] private SpriteRenderer _hair; 
+    [SerializeField] private SpriteRenderer _body; 
+    [SerializeField] private SpriteRenderer _head; 
+    [SerializeField] private SpriteRenderer _eyes; 
+    [SerializeField] private SpriteRenderer _eyesbrows; 
+    [SerializeField] private SpriteRenderer _mouth; 
+    [SerializeField] private SpriteRenderer _armL; 
+    [SerializeField] private SpriteRenderer _handL; 
+    [SerializeField] private SpriteRenderer _fingersL; 
+    [SerializeField] private SpriteRenderer _armR;  
+    [SerializeField] private SpriteRenderer _handR; 
+    [SerializeField] private SpriteRenderer _legL; 
+    [SerializeField] private SpriteRenderer _legR; 
 
     [SerializeField] private Sprite _standartArmor;
     [SerializeField] private Sprite _standartWeapon;

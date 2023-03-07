@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -10,13 +9,10 @@ public class SettingsUI : MonoBehaviour
 {
     [SerializeField] private AudioMixer _audioMixer;
     [SerializeField] private Slider _sliderSound;
-/*    [SerializeField] private AudioSource _backGroundTrack;*/
     [SerializeField] private TMP_Dropdown _dropdownQuality;
     [SerializeField] private GameObject _blackScreen;
     [SerializeField] private Toggle _toggle;
 
-    private string _quality = "Quality";
-    private string _sound = "Sound";
     private string _volume = "Volume";
     private int _valueDecrease = 20;
     private string _start = "Start";
@@ -26,28 +22,36 @@ public class SettingsUI : MonoBehaviour
         SetPlayerPrefSettings();
     }
 
+    private void Start()
+    {
+        _dropdownQuality.options[0].text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Quality/Low");
+        _dropdownQuality.options[1].text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Quality/Medium");
+        _dropdownQuality.options[2].text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Quality/High");
+        _dropdownQuality.options[3].text = Lean.Localization.LeanLocalization.GetTranslationText("Common/Quality/Ultra");
+    }
+
     public void SoundFading(string choice = "End")
     {
         if (choice == _start)
         {
-            StartCoroutine(CoroutineSoundIncrease(PlayerPrefs.GetFloat(_volume)));
+            StartCoroutine(CoroutineSoundIncrease(PlayerPrefsDataBase.GetVolume()));
         }
         else
         {
-            StartCoroutine(CoroutineSoundDecrease(PlayerPrefs.GetFloat(_volume)));
+            StartCoroutine(CoroutineSoundDecrease(PlayerPrefsDataBase.GetVolume()));
         }
     }
 
     public void SetVolume(float value)
     {
         _audioMixer.SetFloat(_volume, Mathf.Log10(value) * _valueDecrease);
-        PlayerPrefs.SetFloat(_volume, value);
+        PlayerPrefsDataBase.SetVolume(value);
     }
 
     public void SetQuality(int qualitiIndex)
     {
         QualitySettings.SetQualityLevel(qualitiIndex);
-        PlayerPrefs.SetInt(_quality, qualitiIndex);
+        PlayerPrefsDataBase.SetQuality(qualitiIndex);
     }
 
     public void Sound()
@@ -55,16 +59,10 @@ public class SettingsUI : MonoBehaviour
         AudioListener.pause = !AudioListener.pause;
 
         if (AudioListener.pause == true)
-            PlayerPrefs.SetInt(_sound, 1);
+            PlayerPrefsDataBase.SetSound(1);
         else
-            PlayerPrefs.SetInt(_sound, 0);
+            PlayerPrefsDataBase.SetSound(0);
     }
-
-/*    public void EndSounds(AudioSource track)
-    {
-        track.Play();
-        StartCoroutine(SoundOff(_backGroundTrack));
-    }*/
 
     public void ReloadSceneLanguage()
     {
@@ -73,19 +71,19 @@ public class SettingsUI : MonoBehaviour
 
     private void SetPlayerPrefSettings()
     {
-        if (PlayerPrefs.GetFloat(_volume) == 0)
+        if (PlayerPrefsDataBase.GetVolume() == 0)
         {
             float startVolume = 0.5f;
-            PlayerPrefs.SetFloat(_volume, startVolume);
+            PlayerPrefsDataBase.SetVolume(startVolume);
         }
 
-        _sliderSound.value = PlayerPrefs.GetFloat(_volume);
+        _sliderSound.value = PlayerPrefsDataBase.GetSound();
         _audioMixer.SetFloat(_volume, Mathf.Log10(0.0001f) * _valueDecrease);
         SoundFading(_start);
-        SetQuality(PlayerPrefs.GetInt(_quality));
-        _dropdownQuality.value = PlayerPrefs.GetInt(_quality);
+        SetQuality(PlayerPrefsDataBase.GetQuality());
+        _dropdownQuality.value = PlayerPrefsDataBase.GetQuality();
 
-        if (PlayerPrefs.GetInt(_sound) == 1)
+        if (PlayerPrefsDataBase.GetSound() == 1)
         {
             _toggle.isOn = false;
             AudioListener.pause = true;
@@ -110,7 +108,6 @@ public class SettingsUI : MonoBehaviour
 
         while (expiredTime > 0)
         {
-            Debug.Log(value);
             expiredTime -= Time.deltaTime;
             _audioMixer.SetFloat(_volume, Mathf.Log10(value * expiredTime) * _valueDecrease);
             yield return null;
