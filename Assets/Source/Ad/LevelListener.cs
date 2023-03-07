@@ -27,7 +27,7 @@ public class LevelListener : MonoBehaviour
 
             VideoAd.Show(null, null, () => AdShowed(), errorLog => OnError(errorLog));
 
-            if (PlayerPrefs.GetInt("Sound") == 0)
+            if (PlayerPrefsDataBase.GetSound() == 0)
             {
                 AudioListener.pause = true;
             }
@@ -40,7 +40,7 @@ public class LevelListener : MonoBehaviour
     {
         Time.timeScale = 1;
 
-        if (PlayerPrefs.GetInt("Sound") == 0)
+        if (PlayerPrefsDataBase.GetSound() == 0)
         {
             AudioListener.pause = false;
         }
