@@ -13,7 +13,7 @@ public class ResetSaves : MonoBehaviour
         if (File.Exists(path))
         {
             path = Application.persistentDataPath + "/save";
-            Directory.Delete(path);
+            Directory.Delete(path, true);
         }
     }
 }
