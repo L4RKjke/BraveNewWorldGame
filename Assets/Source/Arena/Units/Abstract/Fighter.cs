@@ -60,11 +60,6 @@ public abstract class Fighter : MonoBehaviour, IMeleeAtacker
         _health.Init(health);
     }
 
-    public void SetAtack()
-    {
-
-    }
-
     public virtual void Atack(int damage)
     {
         if (CurrentTarget != null)
